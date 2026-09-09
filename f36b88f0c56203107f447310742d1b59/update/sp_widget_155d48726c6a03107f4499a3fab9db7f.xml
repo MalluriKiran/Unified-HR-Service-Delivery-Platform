@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+    c.processing = false;
+
+    c.successMessage = "";
+    c.errorMessage = "";
+
+
+    // ----------------------------------
+    // INITIAL FORM VALUES
+    // ----------------------------------
+
+    c.form = {
+        status:
+            c.data.case.status_value || 'open',
+
+        resolution_notes: ""
+    };
+
+
+    // ----------------------------------
+    // SAVE CASE
+    // ----------------------------------
+
+    c.saveCase = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+        if (c.processing) {
+            return;
+        }
+
+        c.processing = true;
+
+
+        c.server.get({
+
+            action: 'save_case',
+
+            sys_id:
+                c.data.case.sys_id,
+
+            status:
+                c.form.status,
+
+            resolution_notes:
+                c.form.resolution_notes
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+
+            if (response.data.success) {
+
+                c.successMessage =
+                    response.data.message;
+
+                c.data.case =
+                    response.data.case;
+
+                c.form.status =
+                    response.data.case.status_value;
+
+                // Keep notes only when saving draft/update
+                c.form.resolution_notes =
+                    response.data.case.resolution_notes || "";
+
+            } else {
+
+                c.errorMessage =
+                    response.data.message ||
+                    "Unable to update HR Case.";
+            }
+
+        }, function() {
+
+            c.processing = false;
+
+            c.errorMessage =
+                "Unable to update HR Case.";
+
+        });
+
+    };
+
+
+    // ----------------------------------
+    // PROPOSE RESOLUTION
+    // ----------------------------------
+
+    c.proposeResolution = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+
+        if (
+            !c.form.resolution_notes ||
+            !c.form.resolution_notes.trim()
+        ) {
+
+            c.errorMessage =
+                "Please enter Resolution Notes before proposing the resolution.";
+
+            return;
+        }
+
+
+        if (c.processing) {
+            return;
+        }
+
+
+        c.processing = true;
+
+
+        c.server.get({
+
+            action: 'propose_resolution',
+
+            sys_id:
+                c.data.case.sys_id,
+
+            resolution_notes:
+                c.form.resolution_notes
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+
+            if (response.data.success) {
+
+                c.successMessage =
+                    response.data.message;
+
+                c.data.case =
+                    response.data.case;
+
+                c.form.status =
+                    response.data.case.status_value;
+
+
+                // IMPORTANT:
+                // Clear Agent Work Area textarea
+                c.form.resolution_notes = "";
+
+
+            } else {
+
+                c.errorMessage =
+                    response.data.message ||
+                    "Unable to propose the resolution.";
+            }
+
+        }, function() {
+
+            c.processing = false;
+
+            c.errorMessage =
+                "Unable to propose the resolution.";
+
+        });
+
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hrcd-page {&#13;
+  max-width: 1180px;&#13;
+  margin: 0 auto;&#13;
+  padding: 38px 25px 60px;&#13;
+  color: #102052;&#13;
+  font-family: inherit;&#13;
+}&#13;
+&#13;
+/* HEADER */&#13;
+&#13;
+.hrcd-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: flex-start;&#13;
+  margin-bottom: 28px;&#13;
+}&#13;
+&#13;
+.hrcd-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 30px;&#13;
+  font-weight: 700;&#13;
+  color: #102052;&#13;
+}&#13;
+&#13;
+.hrcd-header p {&#13;
+  margin: 0;&#13;
+  font-size: 14px;&#13;
+  color: #75809b;&#13;
+}&#13;
+&#13;
+.hrcd-back {&#13;
+  color: #1261e8;&#13;
+  font-size: 14px;&#13;
+  text-decoration: none;&#13;
+  margin-top: 10px;&#13;
+}&#13;
+&#13;
+.hrcd-back:hover {&#13;
+  text-decoration: underline;&#13;
+}&#13;
+&#13;
+&#13;
+/* SUMMARY CARDS */&#13;
+&#13;
+.hrcd-summary-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, 1fr);&#13;
+  gap: 18px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.hrcd-summary-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #dfe5ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 20px;&#13;
+  min-height: 100px;&#13;
+  box-shadow: 0 3px 10px rgba(15, 35, 75, 0.05);&#13;
+}&#13;
+&#13;
+.hrcd-summary-card span:first-child {&#13;
+  display: block;&#13;
+  color: #78849c;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.hrcd-summary-card strong {&#13;
+  display: block;&#13;
+  font-size: 18px;&#13;
+  color: #102052;&#13;
+}&#13;
+&#13;
+&#13;
+/* MAIN GRID */&#13;
+&#13;
+.hrcd-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 1fr;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+&#13;
+/* GENERAL CARD */&#13;
+&#13;
+.hrcd-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #dfe5ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 22px;&#13;
+  margin-bottom: 20px;&#13;
+  box-shadow: 0 3px 12px rgba(15, 35, 75, 0.05);&#13;
+}&#13;
+&#13;
+.hrcd-card-header {&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.hrcd-card-header h3 {&#13;
+  margin: 0 0 4px;&#13;
+  font-size: 18px;&#13;
+  font-weight: 700;&#13;
+  color: #102052;&#13;
+}&#13;
+&#13;
+.hrcd-card-header p {&#13;
+  margin: 0;&#13;
+  color: #7a8499;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+/* CASE INFORMATION */&#13;
+&#13;
+.hrcd-info-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 1fr;&#13;
+  gap: 20px;&#13;
+}&#13;
+&#13;
+.hrcd-field label {&#13;
+  display: block;&#13;
+  margin-bottom: 7px;&#13;
+  color: #7b8599;&#13;
+  font-size: 12px;&#13;
+  font-weight: 500;&#13;
+}&#13;
+&#13;
+.hrcd-field &gt; div {&#13;
+  color: #102052;&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.muted-text {&#13;
+  color: #9aa3b5 !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* EMPLOYEE REQUEST */&#13;
+&#13;
+.request-box {&#13;
+  min-height: 110px;&#13;
+  padding: 16px;&#13;
+  background: #f7f9fc;&#13;
+  border: 1px solid #e3e8f1;&#13;
+  border-radius: 10px;&#13;
+  color: #293653;&#13;
+  line-height: 1.6;&#13;
+  white-space: pre-wrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* AGENT WORK AREA */&#13;
+&#13;
+.work-card {&#13;
+  border-left: 4px solid #0b8793;&#13;
+}&#13;
+&#13;
+.work-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 280px 1fr;&#13;
+  gap: 24px;&#13;
+  align-items: start;&#13;
+}&#13;
+&#13;
+.hrcd-field select {&#13;
+  width: 100%;&#13;
+  height: 42px;&#13;
+  padding: 8px 12px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #d5ddea;&#13;
+  border-radius: 8px;&#13;
+  color: #17264e;&#13;
+  outline: none;&#13;
+}&#13;
+&#13;
+.hrcd-field select:focus {&#13;
+  border-color: #0b8793;&#13;
+  box-shadow: 0 0 0 2px rgba(11, 135, 147, 0.08);&#13;
+}&#13;
+&#13;
+.hrcd-field textarea {&#13;
+  width: 100%;&#13;
+  min-height: 120px;&#13;
+  resize: vertical;&#13;
+  padding: 12px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #d5ddea;&#13;
+  border-radius: 8px;&#13;
+  color: #17264e;&#13;
+  outline: none;&#13;
+}&#13;
+&#13;
+.hrcd-field textarea:focus {&#13;
+  border-color: #0b8793;&#13;
+  box-shadow: 0 0 0 2px rgba(11, 135, 147, 0.08);&#13;
+}&#13;
+&#13;
+.hrcd-field small {&#13;
+  display: block;&#13;
+  margin-top: 7px;&#13;
+  color: #8b94a7;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+/* BUTTONS */&#13;
+&#13;
+.action-row {&#13;
+  display: flex;&#13;
+  justify-content: flex-end;&#13;
+  gap: 12px;&#13;
+  margin-top: 22px;&#13;
+  padding-top: 18px;&#13;
+  border-top: 1px solid #edf0f5;&#13;
+}&#13;
+&#13;
+.btn-secondary,&#13;
+.btn-resolve {&#13;
+  border: 0;&#13;
+  border-radius: 8px;&#13;
+  padding: 10px 20px;&#13;
+  font-size: 13px;&#13;
+  font-weight: 600;&#13;
+  cursor: pointer;&#13;
+  transition: 0.2s;&#13;
+}&#13;
+&#13;
+.btn-secondary {&#13;
+  background: #edf2f7;&#13;
+  color: #17264e;&#13;
+}&#13;
+&#13;
+.btn-secondary:hover {&#13;
+  background: #e2e8f0;&#13;
+}&#13;
+&#13;
+.btn-resolve {&#13;
+  background: #0b8793;&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+.btn-resolve:hover {&#13;
+  background: #076d77;&#13;
+}&#13;
+&#13;
+&#13;
+/* STATUS BADGES */&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-block !important;&#13;
+  width: auto;&#13;
+  padding: 5px 11px;&#13;
+  border-radius: 20px;&#13;
+  font-size: 11px !important;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.status-open {&#13;
+  background: #fff1d8;&#13;
+  color: #c87800 !important;&#13;
+}&#13;
+&#13;
+.status-progress {&#13;
+  background: #e4efff;&#13;
+  color: #1261e8 !important;&#13;
+}&#13;
+&#13;
+.status-resolved {&#13;
+  background: #dcf5e7;&#13;
+  color: #138a50 !important;&#13;
+}&#13;
+&#13;
+.status-closed {&#13;
+  background: #edf0f4;&#13;
+  color: #626b7a !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* PRIORITY */&#13;
+&#13;
+.priority-pill {&#13;
+  display: inline-block !important;&#13;
+  width: auto;&#13;
+  padding: 5px 11px;&#13;
+  border-radius: 20px;&#13;
+  font-size: 11px !important;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.priority-high {&#13;
+  background: #ffe4e4;&#13;
+  color: #d93434 !important;&#13;
+}&#13;
+&#13;
+.priority-medium {&#13;
+  background: #fff1d7;&#13;
+  color: #d88400 !important;&#13;
+}&#13;
+&#13;
+.priority-low {&#13;
+  background: #ddf5e6;&#13;
+  color: #16834d !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* RESOLUTION */&#13;
+&#13;
+.resolution-box {&#13;
+  padding: 16px;&#13;
+  background: #f0faf5;&#13;
+  border: 1px solid #ccebdc;&#13;
+  border-radius: 10px;&#13;
+  color: #275c45;&#13;
+  line-height: 1.6;&#13;
+  white-space: pre-wrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* MESSAGES */&#13;
+&#13;
+.hrcd-message {&#13;
+  margin-top: 20px;&#13;
+  padding: 14px 16px;&#13;
+  border-radius: 9px;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.hrcd-message.success {&#13;
+  background: #e6f7ed;&#13;
+  border: 1px solid #bce8ce;&#13;
+  color: #167747;&#13;
+}&#13;
+&#13;
+.hrcd-message.error {&#13;
+  background: #fff0f0;&#13;
+  border: 1px solid #f2caca;&#13;
+  color: #c63737;&#13;
+}&#13;
+&#13;
+&#13;
+/* RESPONSIVE */&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+&#13;
+  .hrcd-summary-grid {&#13;
+    grid-template-columns: 1fr 1fr;&#13;
+  }&#13;
+&#13;
+  .hrcd-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .work-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (max-width: 600px) {&#13;
+&#13;
+  .hrcd-page {&#13;
+    padding: 25px 15px;&#13;
+  }&#13;
+&#13;
+  .hrcd-header {&#13;
+    flex-direction: column;&#13;
+    gap: 12px;&#13;
+  }&#13;
+&#13;
+  .hrcd-summary-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .hrcd-info-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .action-row {&#13;
+    flex-direction: column;&#13;
+  }&#13;
+&#13;
+  .btn-secondary,&#13;
+  .btn-resolve {&#13;
+    width: 100%;&#13;
+  }&#13;
+}&#13;
+&#13;
+.status-awaiting {&#13;
+    background: #fff7ed;&#13;
+    color: #c2410c;&#13;
+}&#13;
+&#13;
+.resolution-date {&#13;
+    margin-top: 12px;&#13;
+    color: #64748b;&#13;
+    font-size: 11px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hr_case_details_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HR Case Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // ----------------------------------
+    // CURRENT USER
+    // ----------------------------------
+
+    data.userId = gs.getUserID();
+    data.userName = gs.getUserDisplayName();
+
+    data.isHRManager = false;
+    data.hasAccess = false;
+    data.caseFound = false;
+
+    data.message = "";
+    data.success = false;
+    data.error = false;
+
+    data.case = {};
+
+
+    // ----------------------------------
+    // HR MANAGER CHECK
+    // ----------------------------------
+
+    var currentUser = gs.getUser();
+
+    if (currentUser.isMemberOf('HR Managers')) {
+        data.isHRManager = true;
+    }
+
+
+    // ----------------------------------
+    // GET CASE SYS_ID
+    // ----------------------------------
+
+    var caseSysId = "";
+
+    if (input && input.sys_id) {
+        caseSysId = input.sys_id;
+    } else {
+        caseSysId = $sp.getParameter('sys_id');
+    }
+
+
+    if (!caseSysId) {
+
+        data.message =
+            "No HR case was selected.";
+
+        data.error = true;
+
+        return;
+    }
+
+
+    // ----------------------------------
+    // LOAD CASE
+    // ----------------------------------
+
+    var caseGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_hr_case'
+        );
+
+
+    if (!caseGR.get(caseSysId)) {
+
+        data.message =
+            "HR Case not found.";
+
+        data.error = true;
+
+        return;
+    }
+
+
+    data.caseFound = true;
+
+
+    // ----------------------------------
+    // ACCESS CHECK
+    // ----------------------------------
+
+    if (data.isHRManager) {
+
+        data.hasAccess = true;
+
+    } else {
+
+        var assignmentGroupId =
+            caseGR.getValue(
+                'assignment_group'
+            );
+
+        var assignedToId =
+            caseGR.getValue(
+                'assigned_to'
+            );
+
+
+        // Directly assigned to logged-in user
+        if (assignedToId == data.userId) {
+
+            data.hasAccess = true;
+
+        } else if (assignmentGroupId) {
+
+            // Check whether logged-in HR user
+            // belongs to assignment group
+
+            var memberGR =
+                new GlideRecord(
+                    'sys_user_grmember'
+                );
+
+            memberGR.addQuery(
+                'user',
+                data.userId
+            );
+
+            memberGR.addQuery(
+                'group',
+                assignmentGroupId
+            );
+
+            memberGR.setLimit(1);
+            memberGR.query();
+
+
+            if (memberGR.next()) {
+
+                data.hasAccess = true;
+            }
+        }
+    }
+
+
+    if (!data.hasAccess) {
+
+        data.message =
+            "You are not authorized to access this HR case.";
+
+        data.error = true;
+
+        return;
+    }
+
+
+    // ==================================================
+    // SAVE UPDATE
+    // ==================================================
+
+    if (input &&
+        input.action == 'save_case') {
+
+        var requestedStatus =
+            (input.status || '')
+                .toString();
+
+        var resolutionNotes =
+            (input.resolution_notes || '')
+                .toString()
+                .trim();
+
+
+        var allowedStatuses = [
+            'open',
+            'in_progress'
+        ];
+
+
+        if (
+            allowedStatuses.indexOf(
+                requestedStatus
+            ) == -1
+        ) {
+
+            data.message =
+                "Invalid case status.";
+
+            data.error = true;
+
+        } else {
+
+            caseGR.setValue(
+                'status',
+                requestedStatus
+            );
+
+
+            if (resolutionNotes) {
+
+                caseGR.setValue(
+                    'resolution_notes',
+                    resolutionNotes
+                );
+            }
+
+
+            caseGR.update();
+
+            data.success = true;
+
+            data.message =
+                "HR Case " +
+                caseGR.getDisplayValue(
+                    'number'
+                ) +
+                " updated successfully.";
+        }
+    }
+
+
+    // ==================================================
+    // PROPOSE RESOLUTION
+    // ==================================================
+
+    if (input &&
+        input.action == 'propose_resolution') {
+
+        var proposedResolution =
+            (input.resolution_notes || '')
+                .toString()
+                .trim();
+
+
+        if (!proposedResolution) {
+
+            data.message =
+                "Please enter Resolution Notes before proposing the resolution.";
+
+            data.error = true;
+
+        } else {
+
+            // Save proposed HR solution
+            caseGR.setValue(
+                'resolution_notes',
+                proposedResolution
+            );
+
+
+            // Move case to employee confirmation
+            caseGR.setValue(
+                'status',
+                'awaiting_employee_confirmation'
+            );
+
+
+            // Record proposal time
+            if (
+                caseGR.isValidField(
+                    'resolution_proposed_on'
+                )
+            ) {
+
+                caseGR.setValue(
+                    'resolution_proposed_on',
+                    new GlideDateTime().getValue()
+                );
+            }
+
+
+            caseGR.update();
+
+
+            data.success = true;
+
+            data.message =
+                "Resolution proposed for HR Case " +
+                caseGR.getDisplayValue(
+                    'number'
+                ) +
+                ". Waiting for employee confirmation.";
+        }
+    }
+
+
+    // ----------------------------------
+    // RELOAD LATEST RECORD
+    // ----------------------------------
+
+    caseGR.get(caseSysId);
+
+
+    // ----------------------------------
+    // CREATED DATE
+    // ----------------------------------
+
+    var createdOn =
+        caseGR.getDisplayValue(
+            'created_on'
+        );
+
+
+    // Fallback for existing records
+    if (!createdOn) {
+
+        createdOn =
+            caseGR.getDisplayValue(
+                'sys_created_on'
+            );
+    }
+
+
+    // ----------------------------------
+    // STATUS LABEL
+    // ----------------------------------
+
+    var statusValue =
+        caseGR.getValue(
+            'status'
+        );
+
+    var statusLabel =
+        caseGR.getDisplayValue(
+            'status'
+        );
+
+
+    // Friendly fallback for custom choice
+    if (
+        statusValue ==
+        'awaiting_employee_confirmation'
+    ) {
+
+        statusLabel =
+            'Awaiting Employee Confirmation';
+    }
+
+
+    // ----------------------------------
+    // CASE DETAILS
+    // ----------------------------------
+
+    data.case = {
+
+        sys_id:
+            caseGR.getUniqueValue(),
+
+        number:
+            caseGR.getDisplayValue(
+                'number'
+            ),
+
+        requested_by:
+            caseGR.getDisplayValue(
+                'request_by'
+            ),
+
+        subject:
+            caseGR.getDisplayValue(
+                'subject'
+            ),
+
+        category:
+            caseGR.getDisplayValue(
+                'category'
+            ),
+
+        priority:
+            caseGR.getDisplayValue(
+                'priority'
+            ),
+
+        assignment_group:
+            caseGR.getDisplayValue(
+                'assignment_group'
+            ),
+
+        assigned_to:
+            caseGR.getDisplayValue(
+                'assigned_to'
+            ),
+
+        status:
+            statusLabel,
+
+        status_value:
+            statusValue,
+
+        description:
+            caseGR.getDisplayValue(
+                'description'
+            ),
+
+        resolution_notes:
+            caseGR.getDisplayValue(
+                'resolution_notes'
+            ),
+
+        resolution_proposed_on:
+            caseGR.getDisplayValue(
+                'resolution_proposed_on'
+            ),
+
+        rejection_feedback:
+            caseGR.getDisplayValue(
+                'rejection_feedback'
+            ),
+
+        resolved_on:
+            caseGR.getDisplayValue(
+                'resolved_on'
+            ),
+
+        closed_on:
+            caseGR.getDisplayValue(
+                'closed_on'
+            ),
+
+        created_on:
+            createdOn
+
+    };
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 09:53:32</sys_created_on>
+        <sys_id>155d48726c6a03107f4499a3fab9db7f</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>HR Case Details</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_155d48726c6a03107f4499a3fab9db7f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 08:48:00</sys_updated_on>
+        <template><![CDATA[<div class="hrcd-page">
+
+  <!-- ==================================================
+       HEADER
+       ================================================== -->
+
+  <div class="hrcd-header">
+
+    <div>
+
+      <h2>
+        HR Case Details
+      </h2>
+
+      <p ng-if="data.hasAccess">
+        Review and process {{data.case.number}}.
+      </p>
+
+    </div>
+
+
+    <a href="?id=my_group_cases"
+       class="hrcd-back">
+
+      ← Back to My Group Cases
+
+    </a>
+
+  </div>
+
+
+
+  <!-- ==================================================
+       ACCESS / ERROR MESSAGE
+       ================================================== -->
+
+  <div class="hrcd-message error"
+       ng-if="!data.hasAccess">
+
+    {{data.message}}
+
+  </div>
+
+
+
+  <!-- ==================================================
+       MAIN CASE CONTENT
+       ================================================== -->
+
+  <div ng-if="data.hasAccess">
+
+
+    <!-- ==================================================
+         SUCCESS / ERROR MESSAGE
+         ================================================== -->
+
+    <div class="hrcd-message success"
+         ng-if="c.successMessage">
+
+      {{c.successMessage}}
+
+    </div>
+
+
+    <div class="hrcd-message error"
+         ng-if="c.errorMessage">
+
+      {{c.errorMessage}}
+
+    </div>
+
+
+
+    <!-- ==================================================
+         TOP SUMMARY
+         ================================================== -->
+
+    <div class="hrcd-summary-grid">
+
+
+      <!-- CASE NUMBER -->
+
+      <div class="hrcd-summary-card">
+
+        <span>
+          Case Number
+        </span>
+
+        <strong>
+          {{data.case.number}}
+        </strong>
+
+      </div>
+
+
+
+      <!-- STATUS -->
+
+      <div class="hrcd-summary-card">
+
+        <span>
+          Status
+        </span>
+
+        <strong>
+
+          <span class="status-pill"
+
+                ng-class="{
+
+                  'status-open':
+                    data.case.status == 'Open',
+
+                  'status-progress':
+                    data.case.status == 'In Progress',
+
+                  'status-awaiting':
+                    data.case.status == 'Awaiting Employee Confirmation',
+
+                  'status-resolved':
+                    data.case.status == 'Resolved',
+
+                  'status-closed':
+                    data.case.status == 'Closed'
+
+                }">
+
+            {{data.case.status}}
+
+          </span>
+
+        </strong>
+
+      </div>
+
+
+
+      <!-- PRIORITY -->
+
+      <div class="hrcd-summary-card">
+
+        <span>
+          Priority
+        </span>
+
+        <strong>
+
+          <span class="priority-pill"
+
+                ng-class="{
+
+                  'priority-high':
+                    data.case.priority == 'High',
+
+                  'priority-medium':
+                    data.case.priority == 'Medium',
+
+                  'priority-low':
+                    data.case.priority == 'Low'
+
+                }">
+
+            {{data.case.priority}}
+
+          </span>
+
+        </strong>
+
+      </div>
+
+
+
+      <!-- CREATED ON -->
+
+      <div class="hrcd-summary-card">
+
+        <span>
+          Created On
+        </span>
+
+        <strong>
+          {{data.case.created_on}}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CASE DETAILS
+         ================================================== -->
+
+    <div class="hrcd-grid">
+
+
+      <!-- CASE INFORMATION -->
+
+      <section class="hrcd-card">
+
+        <div class="hrcd-card-header">
+
+          <h3>
+            Case Information
+          </h3>
+
+        </div>
+
+
+        <div class="hrcd-info-grid">
+
+
+          <!-- REQUESTED BY -->
+
+          <div class="hrcd-field">
+
+            <label>
+              Requested By
+            </label>
+
+            <div>
+              {{data.case.requested_by}}
+            </div>
+
+          </div>
+
+
+
+          <!-- CATEGORY -->
+
+          <div class="hrcd-field">
+
+            <label>
+              Category
+            </label>
+
+            <div>
+              {{data.case.category}}
+            </div>
+
+          </div>
+
+
+
+          <!-- ASSIGNMENT GROUP -->
+
+          <div class="hrcd-field">
+
+            <label>
+              Assignment Group
+            </label>
+
+            <div>
+              {{data.case.assignment_group}}
+            </div>
+
+          </div>
+
+
+
+          <!-- ASSIGNED TO -->
+
+          <div class="hrcd-field">
+
+            <label>
+              Assigned To
+            </label>
+
+
+            <div ng-if="data.case.assigned_to">
+
+              {{data.case.assigned_to}}
+
+            </div>
+
+
+            <div ng-if="!data.case.assigned_to"
+                 class="muted-text">
+
+              Unassigned
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           EMPLOYEE REQUEST
+           ================================================== -->
+
+      <section class="hrcd-card">
+
+        <div class="hrcd-card-header">
+
+          <h3>
+            Employee Request
+          </h3>
+
+        </div>
+
+
+        <div class="request-box">
+
+          {{data.case.description || 'No description provided.'}}
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         EMPLOYEE FEEDBACK
+         ================================================== -->
+
+    <section class="hrcd-card"
+             ng-if="data.case.rejection_feedback">
+
+      <div class="hrcd-card-header">
+
+        <div>
+
+          <h3>
+            Employee Feedback
+          </h3>
+
+          <p>
+            The employee provided this reason for requesting
+            additional HR support.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="request-box">
+
+        {{data.case.rejection_feedback}}
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         WAITING FOR EMPLOYEE MESSAGE
+         ================================================== -->
+
+    <section class="hrcd-card"
+             ng-if="data.case.status_value == 'awaiting_employee_confirmation'">
+
+      <div class="hrcd-card-header">
+
+        <div>
+
+          <h3>
+            Waiting for Employee Confirmation
+          </h3>
+
+          <p>
+            A proposed resolution has been sent to the employee.
+            The case will remain in this state until the employee
+            accepts the resolution or requests additional support.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         AGENT WORK AREA
+         ================================================== -->
+
+    <section class="hrcd-card work-card">
+
+      <div class="hrcd-card-header">
+
+        <div>
+
+          <h3>
+            Agent Work Area
+          </h3>
+
+          <p>
+            Update the case status and provide a resolution response.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="work-grid">
+
+
+        <!-- STATUS -->
+
+        <div class="hrcd-field">
+
+          <label>
+            Status
+          </label>
+
+
+          <select
+            ng-model="c.form.status"
+
+            ng-disabled="
+              data.case.status_value == 'awaiting_employee_confirmation' ||
+              data.case.status_value == 'resolved' ||
+              data.case.status_value == 'closed'
+            ">
+
+
+            <option value="open">
+
+              Open
+
+            </option>
+
+
+            <option value="in_progress">
+
+              In Progress
+
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- RESOLUTION NOTES -->
+
+        <div class="hrcd-field">
+
+          <label>
+            Resolution Notes
+          </label>
+
+
+          <textarea
+
+            ng-model="c.form.resolution_notes"
+
+            ng-disabled="
+              data.case.status_value == 'awaiting_employee_confirmation' ||
+              data.case.status_value == 'resolved' ||
+              data.case.status_value == 'closed'
+            "
+
+            placeholder="Enter response or resolution details...">
+
+          </textarea>
+
+
+          <small>
+
+            Resolution notes will be sent to the employee
+            for confirmation.
+
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           ACTION BUTTONS
+           ================================================== -->
+
+      <div class="action-row">
+
+
+        <!-- SAVE UPDATE -->
+
+        <button
+          type="button"
+
+          class="btn-secondary"
+
+          ng-click="c.saveCase()"
+
+          ng-disabled="
+            data.case.status_value == 'awaiting_employee_confirmation' ||
+            data.case.status_value == 'resolved' ||
+            data.case.status_value == 'closed'
+          ">
+
+          Save Update
+
+        </button>
+
+
+
+        <!-- PROPOSE RESOLUTION -->
+
+        <button
+          type="button"
+
+          class="btn-resolve"
+
+          ng-click="c.proposeResolution()"
+
+          ng-disabled="
+            data.case.status_value == 'awaiting_employee_confirmation' ||
+            data.case.status_value == 'resolved' ||
+            data.case.status_value == 'closed'
+          ">
+
+          Propose Resolution
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CURRENT / PROPOSED RESOLUTION
+         ================================================== -->
+
+    <section
+      class="hrcd-card"
+
+      ng-if="data.case.resolution_notes">
+
+
+      <div class="hrcd-card-header">
+
+
+        <!-- WAITING FOR EMPLOYEE -->
+
+        <h3
+          ng-if="
+            data.case.status_value ==
+            'awaiting_employee_confirmation'
+          ">
+
+          Proposed Resolution
+
+        </h3>
+
+
+
+        <!-- RESOLVED -->
+
+        <h3
+          ng-if="
+            data.case.status_value ==
+            'resolved'
+          ">
+
+          Accepted Resolution
+
+        </h3>
+
+
+
+        <!-- OTHER STATUS -->
+
+        <h3
+          ng-if="
+            data.case.status_value !=
+              'awaiting_employee_confirmation'
+            &&
+            data.case.status_value !=
+              'resolved'
+          ">
+
+          Current Resolution
+
+        </h3>
+
+      </div>
+
+
+      <div class="resolution-box">
+
+        {{data.case.resolution_notes}}
+
+      </div>
+
+
+
+      <!-- RESOLUTION PROPOSED DATE -->
+
+      <div
+        class="resolution-date"
+
+        ng-if="
+          data.case.resolution_proposed_on
+        ">
+
+        Proposed On:
+        {{data.case.resolution_proposed_on}}
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

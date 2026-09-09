@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.mgc-page {&#13;
+  max-width: 1400px;&#13;
+  margin: 0 auto;&#13;
+  padding: 30px;&#13;
+  background: #f7f9fc;&#13;
+  min-height: 100vh;&#13;
+  font-family: Arial, sans-serif;&#13;
+  color: #10204a;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   HEADER&#13;
+========================= */&#13;
+&#13;
+.mgc-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.mgc-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #10204a;&#13;
+}&#13;
+&#13;
+.mgc-header p {&#13;
+  margin: 0;&#13;
+  font-size: 13px;&#13;
+  color: #7b8498;&#13;
+}&#13;
+&#13;
+.mgc-back {&#13;
+  text-decoration: none !important;&#13;
+  color: #2563d9 !important;&#13;
+  font-size: 13px;&#13;
+  font-weight: 500;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   SUMMARY CARDS&#13;
+========================= */&#13;
+&#13;
+.mgc-summary {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(3, 1fr);&#13;
+  gap: 18px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.mgc-summary &gt; div {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e4e8ef;&#13;
+  border-radius: 12px;&#13;
+  padding: 18px 20px;&#13;
+  box-shadow: 0 3px 10px rgba(20, 40, 90, .04);&#13;
+}&#13;
+&#13;
+.mgc-summary span {&#13;
+  display: block;&#13;
+  font-size: 11px;&#13;
+  color: #7c859a;&#13;
+  margin-bottom: 7px;&#13;
+}&#13;
+&#13;
+.mgc-summary strong {&#13;
+  display: block;&#13;
+  font-size: 18px;&#13;
+  color: #12204b;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   MAIN CARD&#13;
+========================= */&#13;
+&#13;
+.mgc-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e3e7ee;&#13;
+  border-radius: 14px;&#13;
+  padding: 20px;&#13;
+  box-shadow: 0 3px 12px rgba(25, 40, 80, .05);&#13;
+}&#13;
+&#13;
+.mgc-card-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+  gap: 18px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.mgc-card-header h3 {&#13;
+  margin: 0 0 4px;&#13;
+  font-size: 18px;&#13;
+  font-weight: 700;&#13;
+  color: #10204a;&#13;
+}&#13;
+&#13;
+.mgc-card-header p {&#13;
+  margin: 0;&#13;
+  font-size: 11px;&#13;
+  color: #81899d;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   SEARCH&#13;
+========================= */&#13;
+&#13;
+.mgc-search {&#13;
+  width: 280px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 8px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #dfe4ec;&#13;
+  border-radius: 9px;&#13;
+  padding: 9px 11px;&#13;
+}&#13;
+&#13;
+.mgc-search input {&#13;
+  width: 100%;&#13;
+  border: 0;&#13;
+  outline: 0;&#13;
+  background: transparent;&#13;
+  font-size: 12px;&#13;
+  color: #26314c;&#13;
+}&#13;
+&#13;
+.mgc-search input::placeholder {&#13;
+  color: #9aa1b2;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   TABLE&#13;
+========================= */&#13;
+&#13;
+.mgc-table-wrap {&#13;
+  width: 100%;&#13;
+  overflow-x: auto;&#13;
+}&#13;
+&#13;
+.mgc-table {&#13;
+  width: 100%;&#13;
+  border-collapse: collapse;&#13;
+}&#13;
+&#13;
+.mgc-table th {&#13;
+  background: #f5f7fa;&#13;
+  color: #323c58;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+  text-align: left;&#13;
+  padding: 12px 10px;&#13;
+  border-bottom: 1px solid #e8ecf2;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.mgc-table td {&#13;
+  padding: 13px 10px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+  font-size: 12px;&#13;
+  color: #283451;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.mgc-table tbody tr:hover {&#13;
+  background: #fafbfe;&#13;
+}&#13;
+&#13;
+.mgc-table tr:last-child td {&#13;
+  border-bottom: none;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   CASE LINK&#13;
+========================= */&#13;
+&#13;
+.case-link {&#13;
+  color: #1769df !important;&#13;
+  text-decoration: none !important;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.case-link:hover {&#13;
+  text-decoration: underline !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   PRIORITY PILLS&#13;
+========================= */&#13;
+&#13;
+.priority-pill {&#13;
+  display: inline-block;&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 14px;&#13;
+  font-size: 10px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.priority-high {&#13;
+  background: #fde8e7;&#13;
+  color: #d94339;&#13;
+}&#13;
+&#13;
+.priority-medium {&#13;
+  background: #fff1d8;&#13;
+  color: #d17a00;&#13;
+}&#13;
+&#13;
+.priority-low {&#13;
+  background: #e5f6ec;&#13;
+  color: #16875a;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   STATUS PILLS&#13;
+========================= */&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-block;&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 14px;&#13;
+  font-size: 10px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.status-open {&#13;
+  background: #fff0dc;&#13;
+  color: #ca7400;&#13;
+}&#13;
+&#13;
+.status-progress {&#13;
+  background: #e6efff;&#13;
+  color: #2d70d7;&#13;
+}&#13;
+&#13;
+.status-resolved {&#13;
+  background: #e3f6ec;&#13;
+  color: #16875a;&#13;
+}&#13;
+&#13;
+.status-closed {&#13;
+  background: #edf0f4;&#13;
+  color: #60697c;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   OTHER TEXT&#13;
+========================= */&#13;
+&#13;
+.unassigned {&#13;
+  color: #9da4b5;&#13;
+  font-style: italic;&#13;
+}&#13;
+&#13;
+.empty-row {&#13;
+  text-align: center !important;&#13;
+  color: #929bad !important;&#13;
+  padding: 28px !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   UNAUTHORIZED&#13;
+========================= */&#13;
+&#13;
+.unauthorized-box {&#13;
+  margin-top: 20px;&#13;
+  padding: 16px 18px;&#13;
+  background: #fff3e5;&#13;
+  color: #a15c00;&#13;
+  border: 1px solid #f1d4ad;&#13;
+  border-radius: 10px;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+.status-awaiting {&#13;
+  background: #fff4d6;&#13;
+  color: #a35d00;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================&#13;
+   RESPONSIVE&#13;
+========================= */&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+&#13;
+  .mgc-page {&#13;
+    padding: 20px;&#13;
+  }&#13;
+&#13;
+  .mgc-summary {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .mgc-card-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .mgc-search {&#13;
+    width: 100%;&#13;
+    margin-top: 15px;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (max-width: 600px) {&#13;
+&#13;
+  .mgc-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .mgc-back {&#13;
+    display: inline-block;&#13;
+    margin-top: 14px;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>my_group_cases</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>My Group Cases</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // -------------------------------
+    // LOGGED-IN USER
+    // -------------------------------
+
+    data.userName = gs.getUserDisplayName();
+    data.userId = gs.getUserID();
+
+    data.initials = "";
+
+    var parts = data.userName.split(" ");
+
+    for (var i = 0; i < parts.length && i < 2; i++) {
+
+        if (parts[i]) {
+
+            data.initials +=
+                parts[i]
+                    .charAt(0)
+                    .toUpperCase();
+        }
+    }
+
+
+    // -------------------------------
+    // HR AGENT GROUPS
+    // -------------------------------
+
+    data.isHRAgent = false;
+
+    data.agentGroupNames = [];
+    data.agentGroupIds = [];
+
+
+    var allowedGroups = [
+
+        'HR Payroll',
+
+        'HR Benefits',
+
+        'HR Employee Relations',
+
+        'HR General',
+
+        'HR Leave Administration'
+
+    ];
+
+
+    var memberGR =
+        new GlideRecord(
+            'sys_user_grmember'
+        );
+
+
+    memberGR.addQuery(
+        'user',
+        data.userId
+    );
+
+
+    memberGR.addQuery(
+        'group.name',
+        'IN',
+        allowedGroups.join(',')
+    );
+
+
+    memberGR.query();
+
+
+    while (memberGR.next()) {
+
+        data.isHRAgent = true;
+
+
+        data.agentGroupNames.push(
+
+            memberGR.getDisplayValue(
+                'group'
+            )
+
+        );
+
+
+        data.agentGroupIds.push(
+
+            memberGR.getValue(
+                'group'
+            )
+
+        );
+    }
+
+
+    // -------------------------------
+    // ROLE LABEL
+    // -------------------------------
+
+    if (
+        data.agentGroupNames.length == 1
+    ) {
+
+        data.roleLabel =
+            data.agentGroupNames[0] +
+            " Agent";
+
+    }
+
+    else if (
+        data.agentGroupNames.length > 1
+    ) {
+
+        data.roleLabel =
+            "HR Agent";
+
+    }
+
+    else {
+
+        data.roleLabel =
+            "Unauthorized User";
+    }
+
+
+    // -------------------------------
+    // CASE ARRAY
+    // -------------------------------
+
+    data.cases = [];
+
+
+    // -------------------------------
+    // LOAD AGENT CASES
+    // -------------------------------
+
+    if (
+        data.isHRAgent &&
+        data.agentGroupIds.length > 0
+    ) {
+
+        var caseGR =
+            new GlideRecord(
+                'x_snc_unified_hr_0_hr_case'
+            );
+
+
+        var groupCondition =
+            caseGR.addQuery(
+                'assignment_group',
+                'IN',
+                data.agentGroupIds.join(',')
+            );
+
+
+        groupCondition.addOrCondition(
+            'assigned_to',
+            data.userId
+        );
+
+
+        caseGR.orderByDesc(
+            'sys_created_on'
+        );
+
+
+        caseGR.query();
+
+
+        while (caseGR.next()) {
+
+
+            // -------------------------------
+            // STATUS VALUE + FRIENDLY LABEL
+            // -------------------------------
+
+            var statusValue =
+                caseGR.getValue(
+                    'status'
+                );
+
+
+            var statusLabel =
+                caseGR.getDisplayValue(
+                    'status'
+                );
+
+
+            if (
+                statusValue ==
+                'awaiting_employee_confirmation'
+            ) {
+
+                statusLabel =
+                    'Awaiting Employee Confirmation';
+            }
+
+
+            // -------------------------------
+            // CREATED DATE
+            // -------------------------------
+
+            var createdOn =
+                caseGR.getDisplayValue(
+                    'created_on'
+                );
+
+
+            if (!createdOn) {
+
+                createdOn =
+                    caseGR.getDisplayValue(
+                        'sys_created_on'
+                    );
+            }
+
+
+            // -------------------------------
+            // PUSH CASE DATA
+            // -------------------------------
+
+            data.cases.push({
+
+                sys_id:
+                    caseGR.getUniqueValue(),
+
+
+                number:
+                    caseGR.getDisplayValue(
+                        'number'
+                    ),
+
+
+                requested_by:
+                    caseGR.getDisplayValue(
+                        'request_by'
+                    ),
+
+
+                category:
+                    caseGR.getDisplayValue(
+                        'category'
+                    ),
+
+
+                priority:
+                    caseGR.getDisplayValue(
+                        'priority'
+                    ),
+
+
+                assignment_group:
+                    caseGR.getDisplayValue(
+                        'assignment_group'
+                    ),
+
+
+                assigned_to:
+                    caseGR.getDisplayValue(
+                        'assigned_to'
+                    ),
+
+
+                status:
+                    statusLabel,
+
+
+                status_value:
+                    statusValue,
+
+
+                created_on:
+                    createdOn
+
+            });
+        }
+    }
+
+
+    // -------------------------------
+    // TOTAL CASE COUNT
+    // -------------------------------
+
+    data.totalCases =
+        data.cases.length;
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 09:31:58</sys_created_on>
+        <sys_id>cb58407a6c2a03107f4499a3fab9dbdd</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>My Group Cases</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_cb58407a6c2a03107f4499a3fab9dbdd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 09:20:31</sys_updated_on>
+        <template><![CDATA[<div class="mgc-page">
+
+  <div class="mgc-header">
+    <div>
+      <h2>My Group Cases</h2>
+      <p>
+        Cases assigned to
+        <strong>{{data.agentGroupNames.join(', ')}}</strong>.
+      </p>
+    </div>
+
+    <a href="?id=hr_dashboard" class="mgc-back">
+      ← Back to HR Dashboard
+    </a>
+  </div>
+
+
+  <div class="mgc-summary">
+
+    <div>
+      <span>Total Cases</span>
+      <strong>{{data.totalCases || 0}}</strong>
+    </div>
+
+    <div>
+      <span>Assignment Group</span>
+      <strong>
+        {{data.agentGroupNames.join(', ') || 'None'}}
+      </strong>
+    </div>
+
+    <div>
+      <span>Logged-in Role</span>
+      <strong>{{data.roleLabel}}</strong>
+    </div>
+
+  </div>
+
+
+  <div class="mgc-card">
+
+    <div class="mgc-card-header">
+
+      <div>
+        <h3>HR Cases</h3>
+        <p>
+          Open a case to review and resolve the employee request.
+        </p>
+      </div>
+
+      <div class="mgc-search">
+        ]]>🔍
+<![CDATA[        <input
+          type="text"
+          ng-model="searchText"
+          placeholder="Search cases..." />
+      </div>
+
+    </div>
+
+
+    <div class="mgc-table-wrap">
+
+      <table class="mgc-table">
+
+        <thead>
+          <tr>
+            <th>Case Number</th>
+            <th>Requested By</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Assignment Group</th>
+            <th>Assigned To</th>
+            <th>Created On</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+
+          <tr ng-repeat="item in data.cases | filter:searchText">
+
+            <td>
+              <a class="case-link"
+                 href="?id=hr_case_details&sys_id={{item.sys_id}}">
+                {{item.number}}
+              </a>
+            </td>
+
+            <td>{{item.requested_by}}</td>
+
+            <td>{{item.category}}</td>
+
+            <td>
+              <span class="priority-pill"
+                    ng-class="{
+                      'priority-high': item.priority == 'High',
+                      'priority-medium': item.priority == 'Medium',
+                      'priority-low': item.priority == 'Low'
+                    }">
+                {{item.priority}}
+              </span>
+            </td>
+
+            <td>{{item.assignment_group}}</td>
+
+            <td>
+              <span ng-if="item.assigned_to">
+                {{item.assigned_to}}
+              </span>
+
+              <span class="unassigned"
+                    ng-if="!item.assigned_to">
+                Unassigned
+              </span>
+            </td>
+
+            <td>{{item.created_on}}</td>
+
+            <td>
+              <span class="status-pill"
+                    ng-class="{
+                      'status-open': item.status == 'Open',
+                      'status-progress': item.status == 'In Progress',
+                      'status-resolved': item.status == 'Resolved',
+                      'status-closed': item.status == 'Closed'
+                    }">
+                {{item.status}}
+              </span>
+            </td>
+
+          </tr>
+
+
+          <tr ng-if="data.cases.length == 0">
+
+            <td colspan="8" class="empty-row">
+              No HR cases found for your assignment group.
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <div class="unauthorized-box"
+       ng-if="!data.isHRAgent">
+
+    You are not assigned to an HR Agent group.
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

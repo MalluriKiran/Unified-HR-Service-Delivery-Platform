@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_model">
+    <sys_nlu_model action="INSERT_OR_UPDATE">
+        <category>virtual_agent</category>
+        <confidence_threshold>0.7</confidence_threshold>
+        <description/>
+        <display_name>HR </display_name>
+        <ignore_punctuation>true</ignore_punctuation>
+        <language>en</language>
+        <last_translated_on/>
+        <model_domain/>
+        <name>ml_x_snc_x_snc_unified_hr_0_global_a446b58fb92e03107f4491d56cbf741b</name>
+        <oob>false</oob>
+        <primary_model/>
+        <state>Published</state>
+        <sys_class_name>sys_nlu_model</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 12:07:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a446b58fb92e03107f4491d56cbf741b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>HR </sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_model_a446b58fb92e03107f4491d56cbf741b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 12:07:46</sys_updated_on>
+        <threshold_type>automatic</threshold_type>
+        <vocabulary_needs_review>false</vocabulary_needs_review>
+    </sys_nlu_model>
+</record_update>

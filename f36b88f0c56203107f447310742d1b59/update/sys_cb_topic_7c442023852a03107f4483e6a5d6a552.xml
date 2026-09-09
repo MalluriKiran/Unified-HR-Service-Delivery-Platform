@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>Search the HR Knowledge Base using the employee's HR request details and provide relevant knowledge solutions before an HR case is created</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "150910da90554d5da8d069f52c89b9f4": {
+          "id": "150910da90554d5da8d069f52c89b9f4",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "b8b2c278bab6424fb95d945af576d4a7": {
+          "id": "b8b2c278bab6424fb95d945af576d4a7",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f7b8004687664c399cad9d1360c483ca": {
+          "id": "f7b8004687664c399cad9d1360c483ca",
+          "stepType": "SlotFillPrompt",
+          "name": "category",
+          "type": "string",
+          "withNluUserInput": false,
+          "skipIfFulfilled": true,
+          "variableId": "5c1a7c110ca443cbb5e8c19eeb580c54",
+          "values": {
+            "supportedControlNote": "",
+            "name": "",
+            "variableName": "",
+            "label": "Text 37",
+            "prompt": {
+              "mode": "simple",
+              "value": "Set by NLU"
+            },
+            "inputType": {
+              "format": "Text",
+              "script": ""
+            },
+            "detailDescription": "",
+            "skipIfFulfilled": false,
+            "node_id": "",
+            "variable_name": "",
+            "headerCardNote": "Add cards which may include images or YouTube videos.",
+            "hasCardHeader": false,
+            "cardMetadata": {
+              "mode": "card",
+              "metadataScript": "",
+              "cardTemplate": "",
+              "cardFields": {},
+              "cardDefinition": {}
+            },
+            "helpTextNote": "Add help text that will display from an icon next to the message.",
+            "helpText": false,
+            "helpTextMessage": {
+              "mode": "simple",
+              "value": ""
+            },
+            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
+            "secure": false,
+            "encryptionHashFunction": "SHA-256",
+            "encryptionSalt": {
+              "value": "MTc4NjU2Mjc5MjE4NiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+              "mode": "simple"
+            },
+            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
+            "defaultValue": {
+              "value": "",
+              "mode": "simple"
+            },
+            "acknowledgeMsg": {
+              "value": "",
+              "mode": "simple"
+            },
+            "confirmMessage": {
+              "value": "",
+              "mode": "simple"
+            },
+            "withNluUserInput": false,
+            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
+            "applicability": {
+              "mode": "script",
+              "value": "(function() { return false; })()"
+            },
+            "skippable": {
+              "value": "",
+              "mode": "query"
+            },
+            "skipReprompt": {
+              "value": "",
+              "mode": "query"
+            }
+          },
+          "hidden": true,
+          "detailDescription": ""
+        },
+        "a96d643699eb4080a585dd0175cb544c": {
+          "id": "a96d643699eb4080a585dd0175cb544c",
+          "stepType": "SlotFillPrompt",
+          "name": "subject",
+          "type": "string",
+          "withNluUserInput": false,
+          "skipIfFulfilled": true,
+          "variableId": "8760e0caecad412c804bf7609ead97f3",
+          "values": {
+            "supportedControlNote": "",
+            "name": "",
+            "variableName": "",
+            "label": "Text 14",
+            "prompt": {
+              "mode": "simple",
+              "value": "Set by NLU"
+            },
+            "inputType": {
+              "format": "Text",
+              "script": ""
+            },
+            "detailDescription": "",
+            "skipIfFulfilled": false,
+            "node_id": "",
+            "variable_name": "",
+            "headerCardNote": "Add cards which may include images or YouTube videos.",
+            "hasCardHeader": false,
+            "cardMetadata": {
+              "mode": "card",
+              "metadataScript": "",
+              "cardTemplate": "",
+              "cardFields": {},
+              "cardDefinition": {}
+            },
+            "helpTextNote": "Add help text that will display from an icon next to the message.",
+            "helpText": false,
+            "helpTextMessage": {
+              "mode": "simple",
+              "value": ""
+            },
+            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
+            "secure": false,
+            "encryptionHashFunction": "SHA-256",
+            "encryptionSalt": {
+              "value": "MTc4NjU2MjgwMTcwOCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+              "mode": "simple"
+            },
+            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
+            "defaultValue": {
+              "value": "",
+              "mode": "simple"
+            },
+            "acknowledgeMsg": {
+              "value": "",
+              "mode": "simple"
+            },
+            "confirmMessage": {
+              "value": "",
+              "mode": "simple"
+            },
+            "withNluUserInput": false,
+            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
+            "applicability": {
+              "mode": "script",
+              "value": "(function() { return false; })()"
+            },
+            "skippable": {
+              "value": "",
+              "mode": "query"
+            },
+            "skipReprompt": {
+              "value": "",
+              "mode": "query"
+            }
+          },
+          "hidden": true,
+          "detailDescription": ""
+        },
+        "aedf5aa1831f489b9999049f029d27c5": {
+          "id": "aedf5aa1831f489b9999049f029d27c5",
+          "stepType": "SlotFillPrompt",
+          "name": "description",
+          "type": "string",
+          "withNluUserInput": false,
+          "skipIfFulfilled": true,
+          "variableId": "4289535c9fcd425ba03bd426e7093a42",
+          "values": {
+            "supportedControlNote": "",
+            "name": "",
+            "variableName": "",
+            "label": "Text 91",
+            "prompt": {
+              "mode": "simple",
+              "value": "Set by NLU"
+            },
+            "inputType": {
+              "format": "Text",
+              "script": ""
+            },
+            "detailDescription": "",
+            "skipIfFulfilled": false,
+            "node_id": "",
+            "variable_name": "",
+            "headerCardNote": "Add cards which may include images or YouTube videos.",
+            "hasCardHeader": false,
+            "cardMetadata": {
+              "mode": "card",
+              "metadataScript": "",
+              "cardTemplate": "",
+              "cardFields": {},
+              "cardDefinition": {}
+            },
+            "helpTextNote": "Add help text that will display from an icon next to the message.",
+            "helpText": false,
+            "helpTextMessage": {
+              "mode": "simple",
+              "value": ""
+            },
+            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
+            "secure": false,
+            "encryptionHashFunction": "SHA-256",
+            "encryptionSalt": {
+              "value": "MTc4NjU2MjgwOTg4MSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+              "mode": "simple"
+            },
+            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
+            "defaultValue": {
+              "value": "",
+              "mode": "simple"
+            },
+            "acknowledgeMsg": {
+              "value": "",
+              "mode": "simple"
+            },
+            "confirmMessage": {
+              "value": "",
+              "mode": "simple"
+            },
+            "withNluUserInput": false,
+            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
+            "applicability": {
+              "mode": "script",
+              "value": "(function() { return false; })()"
+            },
+            "skippable": {
+              "value": "",
+              "mode": "query"
+            },
+            "skipReprompt": {
+              "value": "",
+              "mode": "query"
+            }
+          },
+          "hidden": true,
+          "detailDescription": ""
+        },
+        "0684f47304d34b2589cf41565357516c": {
+          "id": "0684f47304d34b2589cf41565357516c",
+          "stepType": "ReusableTopic",
+          "name": "HR Knowledge Search",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "useTemplateTopic": false,
+          "reusableTopicChoice": "Run AI Search",
+          "reusableTopicId": "d74748a253513010af71ddeeff7b128e",
+          "inputs": {
+            "search_term": {
+              "value": "(function execute() {\n\n    var subject = vaContext.hr_subject || '';\n    var description = vaContext.hr_description || '';\n\n    var searchText = (subject + ' ' + description).trim();\n\n    if (!searchText) {\n        searchText = vaVars.global_utterance || '';\n    }\n\n    return searchText;\n\n})()",
+              "mode": "script",
+              "type": "String"
+            },
+            "search_application_configuration": {
+              "value": "2963a5fa530020103296ddeeff7b129f",
+              "mode": "string",
+              "type": "Reference",
+              "table": "sys_search_context_config"
+            }
+          },
+          "outputs": [
+            {
+              "id": "b776b15216ef43e0a54bf1a836d75b75",
+              "value": "genius_results",
+              "mapping": "genius_results",
+              "preventDisable": true
+            },
+            {
+              "id": "8a68d598672546618a8808c3dd0d14a5",
+              "value": "search_results",
+              "mapping": "search_results",
+              "preventDisable": false
+            },
+            {
+              "id": "d643d66b8b5a4958a0480ec99e7f9e2a",
+              "value": "search_metadata",
+              "mapping": "search_metadata",
+              "preventDisable": false
+            },
+            {
+              "id": "1a6b88f8dec5407c936a08636a4ad29d",
+              "value": "errors",
+              "mapping": "errors",
+              "preventDisable": false
+            }
+          ],
+          "variableIds": [
+            "b776b15216ef43e0a54bf1a836d75b75",
+            "8a68d598672546618a8808c3dd0d14a5",
+            "d643d66b8b5a4958a0480ec99e7f9e2a",
+            "1a6b88f8dec5407c936a08636a4ad29d"
+          ],
+          "dynamicTopicBlockName": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputDynamicModal": {},
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "49607c60938d4e28ae47a43e9b9cefaf"
+        },
+        "493fbea924f54d0fbf17a848943661a7": {
+          "id": "493fbea924f54d0fbf17a848943661a7",
+          "stepType": "TextOutput",
+          "name": "Display HR Knowledge Results",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.genius_results}}",
+                        "displayValue": "Input Variables➛Genius_results"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "c354c0cd6f664e998c2e9c271cc1605d"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "c6a625bf4614415183adf88539658a9c",
+          "edgeType": "Edge",
+          "source": "a96d643699eb4080a585dd0175cb544c",
+          "target": "f7b8004687664c399cad9d1360c483ca",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "639a8782d16240679e2a0722c8539bf9",
+          "edgeType": "Edge",
+          "source": "150910da90554d5da8d069f52c89b9f4",
+          "target": "aedf5aa1831f489b9999049f029d27c5",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a126c4bd97264e069fff46efee87da9c",
+          "edgeType": "Edge",
+          "source": "aedf5aa1831f489b9999049f029d27c5",
+          "target": "a96d643699eb4080a585dd0175cb544c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "eb42f5bdbde049c2a351ec1edda53f26",
+          "edgeType": "Edge",
+          "source": "f7b8004687664c399cad9d1360c483ca",
+          "target": "0684f47304d34b2589cf41565357516c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2fcb78cad36e4d01902ab161f92e02cf",
+          "edgeType": "Edge",
+          "source": "0684f47304d34b2589cf41565357516c",
+          "target": "493fbea924f54d0fbf17a848943661a7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "39b85c318939496c9b61568635bbe1da",
+          "edgeType": "Edge",
+          "source": "493fbea924f54d0fbf17a848943661a7",
+          "target": "b8b2c278bab6424fb95d945af576d4a7",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "5c1a7c110ca443cbb5e8c19eeb580c54": {
+      "id": "5c1a7c110ca443cbb5e8c19eeb580c54",
+      "name": "category",
+      "label": "Category",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "f7b8004687664c399cad9d1360c483ca",
+      "isHidden": true
+    },
+    "8760e0caecad412c804bf7609ead97f3": {
+      "id": "8760e0caecad412c804bf7609ead97f3",
+      "name": "subject",
+      "label": "Subject",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "a96d643699eb4080a585dd0175cb544c",
+      "isHidden": true
+    },
+    "4289535c9fcd425ba03bd426e7093a42": {
+      "id": "4289535c9fcd425ba03bd426e7093a42",
+      "name": "description",
+      "label": "Description",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "aedf5aa1831f489b9999049f029d27c5",
+      "isHidden": true
+    },
+    "b776b15216ef43e0a54bf1a836d75b75": {
+      "id": "b776b15216ef43e0a54bf1a836d75b75",
+      "name": "genius_results",
+      "label": "Genius_results",
+      "defaultValue": "genius_results",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "0684f47304d34b2589cf41565357516c",
+      "isHidden": false
+    },
+    "8a68d598672546618a8808c3dd0d14a5": {
+      "id": "8a68d598672546618a8808c3dd0d14a5",
+      "name": "search_results",
+      "label": "Search_results",
+      "defaultValue": "search_results",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "0684f47304d34b2589cf41565357516c",
+      "isHidden": false
+    },
+    "d643d66b8b5a4958a0480ec99e7f9e2a": {
+      "id": "d643d66b8b5a4958a0480ec99e7f9e2a",
+      "name": "search_metadata",
+      "label": "Search_metadata",
+      "defaultValue": "search_metadata",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "0684f47304d34b2589cf41565357516c",
+      "isHidden": false
+    },
+    "1a6b88f8dec5407c936a08636a4ad29d": {
+      "id": "1a6b88f8dec5407c936a08636a4ad29d",
+      "name": "errors",
+      "label": "Errors",
+      "defaultValue": "errors",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "0684f47304d34b2589cf41565357516c",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases>hr_knowledge_assistant</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>hr_knowledge_assistant</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 19:26:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7c442023852a03107f4483e6a5d6a552</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>hr_knowledge_assistant</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_topic_7c442023852a03107f4483e6a5d6a552</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 21:05:21</sys_updated_on>
+        <title>HR Knowledge Assistant</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=7c442023852a03107f4483e6a5d6a552"/>
+</record_update>

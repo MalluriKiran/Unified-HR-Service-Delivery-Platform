@@ -1,0 +1,2250 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="HR Agent">2944c94fb9e603107f4491d56cbf74c8</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"9ea3fc0d136b463a9fa65352512850c3","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"9ea3fc0d136b463a9fa65352512850c3"}],"goals":[{"name":"primary","trigger_id":"9ea3fc0d136b463a9fa65352512850c3","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Heyyy {0}\", vaContext.getRequesterLang(), [vaInputs.user.first_name.getDisplayValue()])"},"id":"d6dd8b37e6d74141869eb6ebc03f1919","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"288e632e105844ecbec0d17b928ebf4d","name":"End","expert_mode":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"61f35f621b2847e1897d5a805e8a58a9","name":"HR Choice","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"ae53fddb16874053a59f44b3a24dde65","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"How can I help you today?\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Leave Request","expression":{"type":"Applicability","mode":"query","value":"hr_choice=leave_req"},"id":"3c393e6340cd4045af19698ac9146ec5","name":"Leave Request","expert_mode":false},{"type":"Branch","label":"Leave Policy","expression":{"type":"Applicability","mode":"query","value":"hr_choice=leave_policy"},"id":"7f462fbb0a984804a011d87e3b774a3e","name":"Leave Policy","expert_mode":false},{"type":"Branch","label":"HR Query","expression":{"type":"Applicability","mode":"query","value":"hr_choice=hr_query"},"id":"6da5e8520f394d4781036e65dc057f1f","name":"HR Query","expert_mode":false},{"type":"Branch","label":"Leave Balance","expression":{"type":"Applicability","mode":"query","value":"hr_choice=leave_balance"},"id":"cfdc43dc006d4723830134edf1fe1859","name":"Leave Balance","expert_mode":false}],"id":"93cc8a53eac043af89495ba59a744e2c","goal_id":"primary","expert_mode":false},{"type":"InputPrompt","variable_id":"e073bb4d15c5423784f673c353f803cd","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"What is the reason for your leave?\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"e633430057ae4022bd7870e357b45dff","name":"Leave reason","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"sick_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINShealth^ORvaInputs.leave_reasonCONTAINSsick^ORvaInputs.leave_reasonCONTAINSsickness^ORvaInputs.leave_reasonCONTAINSill^ORvaInputs.leave_reasonCONTAINSillness^ORvaInputs.leave_reasonCONTAINSsuffering^ORvaInputs.leave_reasonCONTAINSfever^ORvaInputs.leave_reasonCONTAINScold^ORvaInputs.leave_reasonCONTAINScough^ORvaInputs.leave_reasonCONTAINShospital^ORvaInputs.leave_reasonCONTAINSdoctor^ORvaInputs.leave_reasonCONTAINSdoctor's appointment"},"id":"f48996bd8bdd4f92be881219312eb1d5","name":"sick_leave","expert_mode":false},{"type":"Branch","label":"maternity_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINSmaternity leave^ORvaInputs.leave_reasonCONTAINSpregnancy leave^ORvaInputs.leave_reasonCONTAINSleave for pregnancy^ORvaInputs.leave_reasonCONTAINSleave for childbirth^ORvaInputs.leave_reasonCONTAINSexpecting a baby^ORvaInputs.leave_reasonCONTAINSbaby delivery^ORvaInputs.leave_reasonCONTAINSdelivery leave"},"id":"69b094ce8b67485f99d5613f46336c8a","name":"maternity_leave","expert_mode":false},{"type":"Branch","label":"casual_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINSpersonal leave^ORvaInputs.leave_reasonCONTAINScasual leave^ORvaInputs.leave_reasonCONTAINSpersonal work^ORvaInputs.leave_reasonCONTAINSfamily function^ORvaInputs.leave_reasonCONTAINSday off^ORvaInputs.leave_reasonCONTAINStake a day off^ORvaInputs.leave_reasonCONTAINSneed a day off^ORvaInputs.leave_reasonCONTAINSsome personal work"},"id":"3ca3c769712c4755b885ea152a3ced61","name":"casual_leave","expert_mode":false},{"type":"Branch","label":"paternity_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINSpaternity leave^ORvaInputs.leave_reasonCONTAINSpaternity^ORvaInputs.leave_reasonCONTAINSspouse gave birth^ORvaInputs.leave_reasonCONTAINSwife gave birth^ORvaInputs.leave_reasonCONTAINSnewborn daughter^ORvaInputs.leave_reasonCONTAINSnewborn son^ORvaInputs.leave_reasonCONTAINSnewborn child^ORvaInputs.leave_reasonCONTAINSbirth of child^ORvaInputs.leave_reasonCONTAINSnew father^ORvaInputs.leave_reasonCONTAINSbecoming a father^ORvaInputs.leave_reasonCONTAINSfatherhood^ORvaInputs.leave_reasonCONTAINSfather^ORvaInputs.leave_reasonCONTAINSpaternity leave"},"id":"d372deed519d481696ab42d1997608ff","name":"paternity_leave","expert_mode":false},{"type":"Branch","label":"emergency_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINSfamily emergency^ORvaInputs.leave_reasonCONTAINSemergency situation^ORvaInputs.leave_reasonCONTAINSleave for an emergency^ORvaInputs.leave_reasonCONTAINSfamily crisis^ORvaInputs.leave_reasonCONTAINSimmediate leave^ORvaInputs.leave_reasonCONTAINSurgent leave^ORvaInputs.leave_reasonCONTAINSunexpected situation^ORvaInputs.leave_reasonCONTAINSsudden emergency"},"id":"3690699f858342bf8f2907567a9ca1ef","name":"emergency_leave","expert_mode":false},{"type":"Branch","label":"earned_leave","expression":{"type":"Applicability","mode":"query","value":"leave_reasonCONTAINSannual vacation^ORvaInputs.leave_reasonCONTAINSearned leave^ORvaInputs.leave_reasonCONTAINSvacation leave^ORvaInputs.leave_reasonCONTAINSannual leave^ORvaInputs.leave_reasonCONTAINSPL^ORvaInputs.leave_reasonCONTAINSprivilege leave^ORvaInputs.leave_reasonCONTAINSaccrual leave^ORvaInputs.leave_reasonCONTAINSEL^ORvaInputs.leave_reasonCONTAINSaccrued leave^ORvaInputs.leave_reasonCONTAINSholiday^ORvaInputs.leave_reasonCONTAINStrip"},"id":"cf1f14cb4c7f44699c3950ad3b8108d3","name":"earned_leave","expert_mode":false}],"id":"29965777a1e34ebea945404ce8e8f56f","goal_id":"primary","expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Based on your query, this situation falls under the cases generally covered by **Sick Leave**. Sick Leave covers illness, fever, medical treatment, etc. Please review the policy and select the appropriate leave type.\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"54080c1e46ca421fbb2d621de5a335c9","name":"sick_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Based on your query, this situation falls under the cases generally covered by **Maternity Leave**. Maternity Leave covers pregnancy, childbirth, and the recovery period following childbirth. Please review the policy and select the appropriate leave type.\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"e6bc36fb46204af4bd6de420d84db14d","name":"maternity_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:c591c90bb9e603107f4491d56cbf7472:node:bc2081657d004b61b1820edf0a40cc69:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"bc2081657d004b61b1820edf0a40cc69","name":"casual_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:c591c90bb9e603107f4491d56cbf7472:node:bbb901a37a5d40adbd8210d9c0d046ae:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"bbb901a37a5d40adbd8210d9c0d046ae","name":"paternity_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:c591c90bb9e603107f4491d56cbf7472:node:d9bf97ec8d06404fae41680c42864614:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"d9bf97ec8d06404fae41680c42864614","name":"emergency_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:c591c90bb9e603107f4491d56cbf7472:node:3ca680afb6a947959710aa3487b0505a:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"3ca680afb6a947959710aa3487b0505a","name":"earned_leave","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"These are the leave policies\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010001"},"link_type":"single","multi_link_script":"","id":"f647c982288640d692381d44040fc8d3","name":"leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"please click on the below link to get to know about the hr policies?\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"hr policy guidnace\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010009"},"link_type":"single","multi_link_script":"","id":"5cdc0cbc6b1a4acd91ea894b91ba1f50","name":"hr policy knowledge guide","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"I can help you check your leave balance.\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"afc25a1d09b249ee9a0397b425b099bb","name":"response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"sick_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=sick_leave_balance"},"id":"c42d4c433f484bc2a33030f34db5e0bf","name":"sick_leave","expert_mode":false},{"type":"Branch","label":"maternity_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=maternity_leave_balance"},"id":"5f42ac743aab45168e86564e66717596","name":"maternity_leave","expert_mode":false},{"type":"Branch","label":"emergency_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=emergency_leave_balance"},"id":"9aa3d20e0bd84a9aa5a54ff56ba05f0b","name":"emergency_leave","expert_mode":false},{"type":"Branch","label":"paternity_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=paternity_leave_balance"},"id":"aa84fb99ff0a4a8d847a30f888817486","name":"paternity_leave","expert_mode":false},{"type":"Branch","label":"casual_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=casual_leave_balance"},"id":"87eea92dbeb747288d22f96d5da091b4","name":"casual_leave","expert_mode":false},{"type":"Branch","label":"earned_leave","expression":{"type":"Applicability","mode":"query","value":"leavetype=earned_leave_balance"},"id":"fa1d4e16f28f49a99e7354f53b92a8b7","name":"earned_leave","expert_mode":false},{"type":"Branch","label":"All","expression":{"type":"Applicability","mode":"query","value":"leavetype=All"},"id":"75b6e07cc0f74a74bf85831408e28a37","name":"All","expert_mode":false}],"id":"66ac34461c4b459db0c112540d44ba79","goal_id":"primary","expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"your current sick leave balance is:{0}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.sick_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"f3e8926afd5848d684949cc1280d44fd","name":"sick leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"your current maternity leave balance is:{0}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.maternity_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"6685b28bfe1349f7b42bb5ee660ebeae","name":"maternity leave balace","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"your current emergency leave balace is:{0}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.emergency_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"3cd415672b134ee48d7d16b35ce53d4e","name":"emergency leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"your current paternity leave balance is:{0}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.paternity_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"15198588e12441d0808c8d81f4014fc1","name":"paternity leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"your current casual leave balance is:{0}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.casual_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"877ffad43b7042dc987e4123f5c08889","name":"casual leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"{0}your current earned leave balace is:\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.earned_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"178f5f4f65754cecb779d3ba6e8b581c","name":"earned leave balace","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:c591c90bb9e603107f4491d56cbf7472:node:0cfa6477f9394974a8605fc9d1963e05:field:0 {0} {1} {2} {3} {4} {5}\", vaContext.getRequesterLang(), [vaInputs.check_leave_balance.sick_leave_balance.getDisplayValue(),vaInputs.check_leave_balance.casual_leave_balance.getDisplayValue(),vaInputs.check_leave_balance.earned_leave_balance.getDisplayValue(),vaInputs.check_leave_balance.emergency_leave_balance.getDisplayValue(),vaInputs.check_leave_balance.paternity_leave_balance.getDisplayValue(),vaInputs.check_leave_balance.maternity_leave_balance.getDisplayValue()])"}],"request_feedback":true,"isCollapsible":true,"id":"0cfa6477f9394974a8605fc9d1963e05","name":"All leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"InputPrompt","variable_id":"7838c1a8ed0e456582e77060d37b41fa","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Have you completed your query, or would you like to ask anything else?\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"431eb20437da41dfabee756142474222","name":"Final decison","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"true","expression":{"type":"Applicability","mode":"query","value":"final_decison=true"},"id":"6c000edd64ee46f3b539146f9b9f32a2","name":"true","expert_mode":false},{"type":"Branch","label":"false","expression":{"type":"Applicability","mode":"query","value":"final_decison=false"},"id":"7c71e7e52a0b48caa6f784799d063af0","name":"false","expert_mode":false}],"id":"9e546e88fa654b1eb9542ae359c495c9","goal_id":"primary","expert_mode":false},{"type":"InputPrompt","variable_id":"cdcd3eee9e134f6493627f2b5951009f","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Do you want to check your balance again\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"77e5ca06735e440bbf101f829ccc8b5f","name":"Balance check decision","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"true","expression":{"type":"Applicability","mode":"query","value":"balance_check_decision=true"},"id":"aaac489b9cc24ec69b1f6fdbd174983e","name":"true","expert_mode":false},{"type":"Branch","label":"false","expression":{"type":"Applicability","mode":"query","value":"balance_check_decision=false"},"id":"e34b28fd5d094f88868be455a1dec0f1","name":"false","expert_mode":false}],"id":"5859c6e537d84041a373f855ad98bd9c","goal_id":"primary","expert_mode":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"271a2b1ad8d745a0b749ba65155c3d21","name":"leaveType","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"a3868470eaf241d8bb3e187e2ef90ee0","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"please select your leave type:\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"CRUDAction","mode":"read","read_mode":"variable","variable_id":"b955f7353e3e48049deafdbfe0faec69","script":"(function execute(table) {\n\n    var gr = new GlideRecordSecure(table);\n    gr.query();\n\n    if (gr.next()) {\n        return gr;\n    }\n\n    return null;\n\n})(table);","id":"a6b52e68cd3a4fe4a8e7dee2eae87ac1","name":"check leave balance","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_scripted_query","value":"(function execute(table) {\n\n    var gr = new GlideRecordSecure(table);\n    gr.query();\n\n    if (gr.next()) {\n        return gr;\n    }\n\n    return null;\n\n})(table);"}},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Earned leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Earned leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010015"},"link_type":"single","multi_link_script":"","id":"079c286ad9314dd0b1e6196aa61842d9","name":"earned leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Emergency leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Emergency leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010021"},"link_type":"single","multi_link_script":"","id":"2ebccae545e54e0dabff7d31e3a2762d","name":"emergency leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Paternity leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Paternity leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010016"},"link_type":"single","multi_link_script":"","id":"d9872320b7d94c77bfb52b3cdeb14f29","name":"paternity leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Casual leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Casual leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010013"},"link_type":"single","multi_link_script":"","id":"b20c9e0c0af64377ab108c9501540c1c","name":"casual leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Maternity leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Maternity leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010017"},"link_type":"single","multi_link_script":"","id":"e9417e0228b943e1936dd20a09c68b7c","name":"maternity leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"LinkOutputPrompt","header":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Check out the Sick leave policy\", vaContext.getRequesterLang())"},"label":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Sick leave policy\", vaContext.getRequesterLang())"},"url":{"type":"String","mode":"string","value":"https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010014"},"link_type":"single","multi_link_script":"","id":"83c424777a944185b3fc5d6593a24fb8","name":"sick leave policy","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"InputPrompt","variable_id":"b6510638468647a48166e6e01d6aec27","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Would you like to check your leave balance?\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"b84ad0ef244a4489b4276aba80ae829e","name":"Check Balance for leave type","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"false","expression":{"type":"Applicability","mode":"query","value":"check_balance_for_leave_type=false"},"id":"21b2c5f4871540eda1a726492fa69e05","name":"false","expert_mode":false},{"type":"Branch","label":"true","expression":{"type":"Applicability","mode":"query","value":"check_balance_for_leave_type=true"},"id":"dc41024f8cf34466b310d20dec3014cd","name":"true","expert_mode":false}],"id":"4b6be38f74a64cfca5fa71c12a002d8d","goal_id":"primary","expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"d9872320b7d94c77bfb52b3cdeb14f29","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"c18636d67b9f4589a4be4a9c3525f252"},{"type":"Edge","source_node_id":"4b6be38f74a64cfca5fa71c12a002d8d","target_node_id":"431eb20437da41dfabee756142474222","branch_id":"21b2c5f4871540eda1a726492fa69e05","id":"2eebdad7a9d946758c204e527f594428","name":"21b2c5f4871540eda1a726492fa69e05"},{"type":"Edge","source_node_id":"4b6be38f74a64cfca5fa71c12a002d8d","target_node_id":"afc25a1d09b249ee9a0397b425b099bb","branch_id":"dc41024f8cf34466b310d20dec3014cd","id":"23450b71620b4c9e97f4e5c7233afed3","name":"dc41024f8cf34466b310d20dec3014cd"},{"type":"Edge","source_node_id":"5859c6e537d84041a373f855ad98bd9c","target_node_id":"66ac34461c4b459db0c112540d44ba79","branch_id":"aaac489b9cc24ec69b1f6fdbd174983e","id":"bdd9e62a184b4392982a7244be0cc2a6","name":"aaac489b9cc24ec69b1f6fdbd174983e"},{"type":"Edge","source_node_id":"f647c982288640d692381d44040fc8d3","target_node_id":"431eb20437da41dfabee756142474222","id":"4ceb3d070cce4327b3b7223d6b0b866e"},{"type":"Edge","source_node_id":"5cdc0cbc6b1a4acd91ea894b91ba1f50","target_node_id":"431eb20437da41dfabee756142474222","id":"e93b644b4cda405082b5722afe1edb7d"},{"type":"Edge","source_node_id":"5859c6e537d84041a373f855ad98bd9c","target_node_id":"431eb20437da41dfabee756142474222","branch_id":"e34b28fd5d094f88868be455a1dec0f1","id":"322292804dcb4f9c8cc6280560c6cc5e","name":"e34b28fd5d094f88868be455a1dec0f1"},{"type":"Edge","source_node_id":"9e546e88fa654b1eb9542ae359c495c9","target_node_id":"61f35f621b2847e1897d5a805e8a58a9","branch_id":"6c000edd64ee46f3b539146f9b9f32a2","id":"d5bb22ac13f7452aa76445c795109192","name":"6c000edd64ee46f3b539146f9b9f32a2"},{"type":"Edge","source_node_id":"9e546e88fa654b1eb9542ae359c495c9","target_node_id":"288e632e105844ecbec0d17b928ebf4d","branch_id":"7c71e7e52a0b48caa6f784799d063af0","id":"d7662a776a8b4bd2a9d97cfc10f7f374","name":"7c71e7e52a0b48caa6f784799d063af0"},{"type":"Edge","source_node_id":"d6dd8b37e6d74141869eb6ebc03f1919","target_node_id":"61f35f621b2847e1897d5a805e8a58a9","id":"247a6d9dd3d24b22903a2f5cb780f87b"},{"type":"Edge","source_node_id":"61f35f621b2847e1897d5a805e8a58a9","target_node_id":"93cc8a53eac043af89495ba59a744e2c","id":"b2f24b82e883406b82801da5b92c72b7"},{"type":"Edge","source_node_id":"93cc8a53eac043af89495ba59a744e2c","target_node_id":"e633430057ae4022bd7870e357b45dff","branch_id":"3c393e6340cd4045af19698ac9146ec5","id":"145beca192ad49b09f6d5ea01d09050f","name":"3c393e6340cd4045af19698ac9146ec5"},{"type":"Edge","source_node_id":"e633430057ae4022bd7870e357b45dff","target_node_id":"29965777a1e34ebea945404ce8e8f56f","id":"445baf0b68ff4c3e95b4a96023b7b14c"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"54080c1e46ca421fbb2d621de5a335c9","branch_id":"f48996bd8bdd4f92be881219312eb1d5","id":"12c22ae61c3f446fbc08af86c873a105","name":"f48996bd8bdd4f92be881219312eb1d5"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"e6bc36fb46204af4bd6de420d84db14d","branch_id":"69b094ce8b67485f99d5613f46336c8a","id":"371fead0c2f84a40a3a79c003b8399e3","name":"69b094ce8b67485f99d5613f46336c8a"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"bc2081657d004b61b1820edf0a40cc69","branch_id":"3ca3c769712c4755b885ea152a3ced61","id":"f49157ec994c4012af3454f30556cbdc","name":"3ca3c769712c4755b885ea152a3ced61"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"bbb901a37a5d40adbd8210d9c0d046ae","branch_id":"d372deed519d481696ab42d1997608ff","id":"5b62a1e50a5845658b187b2c4d1fbbc1","name":"d372deed519d481696ab42d1997608ff"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"d9bf97ec8d06404fae41680c42864614","branch_id":"3690699f858342bf8f2907567a9ca1ef","id":"cdbd030d5d854aab9a64dfc24bd96414","name":"3690699f858342bf8f2907567a9ca1ef"},{"type":"Edge","source_node_id":"29965777a1e34ebea945404ce8e8f56f","target_node_id":"3ca680afb6a947959710aa3487b0505a","branch_id":"cf1f14cb4c7f44699c3950ad3b8108d3","id":"27dc99d0201f41cdaffb79c1a417e4cb","name":"cf1f14cb4c7f44699c3950ad3b8108d3"},{"type":"Edge","source_node_id":"93cc8a53eac043af89495ba59a744e2c","target_node_id":"f647c982288640d692381d44040fc8d3","branch_id":"7f462fbb0a984804a011d87e3b774a3e","id":"e74fd596d2f4437a881c1fc4d4f68bf6","name":"7f462fbb0a984804a011d87e3b774a3e"},{"type":"Edge","source_node_id":"93cc8a53eac043af89495ba59a744e2c","target_node_id":"5cdc0cbc6b1a4acd91ea894b91ba1f50","branch_id":"6da5e8520f394d4781036e65dc057f1f","id":"47fd027602084722bc762f1141930a9a","name":"6da5e8520f394d4781036e65dc057f1f"},{"type":"Edge","source_node_id":"93cc8a53eac043af89495ba59a744e2c","target_node_id":"afc25a1d09b249ee9a0397b425b099bb","branch_id":"cfdc43dc006d4723830134edf1fe1859","id":"7867ee9ca8f442559cc90966f3d31f47","name":"cfdc43dc006d4723830134edf1fe1859"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"f3e8926afd5848d684949cc1280d44fd","branch_id":"c42d4c433f484bc2a33030f34db5e0bf","id":"2ac217e23a804239a0485404e34e5be5","name":"c42d4c433f484bc2a33030f34db5e0bf"},{"type":"Edge","source_node_id":"f3e8926afd5848d684949cc1280d44fd","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"9f50e26113a74358a109da52afa2b7ed"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"6685b28bfe1349f7b42bb5ee660ebeae","branch_id":"5f42ac743aab45168e86564e66717596","id":"714f01fe9ca84fc8853c0e217ef12741","name":"5f42ac743aab45168e86564e66717596"},{"type":"Edge","source_node_id":"6685b28bfe1349f7b42bb5ee660ebeae","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"0497a059ca9f4261a9115afc398d8562"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"3cd415672b134ee48d7d16b35ce53d4e","branch_id":"9aa3d20e0bd84a9aa5a54ff56ba05f0b","id":"f38dbde242af49d998aa8697ca1427e5","name":"9aa3d20e0bd84a9aa5a54ff56ba05f0b"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"15198588e12441d0808c8d81f4014fc1","branch_id":"aa84fb99ff0a4a8d847a30f888817486","id":"40339c7a4b274475b2d42c9ae7c8a2fb","name":"aa84fb99ff0a4a8d847a30f888817486"},{"type":"Edge","source_node_id":"15198588e12441d0808c8d81f4014fc1","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"3b54e12fc101478dbc1b6a16e6e9f1ca"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"877ffad43b7042dc987e4123f5c08889","branch_id":"87eea92dbeb747288d22f96d5da091b4","id":"07e96358fcbb49cba655d49edacb5b60","name":"87eea92dbeb747288d22f96d5da091b4"},{"type":"Edge","source_node_id":"877ffad43b7042dc987e4123f5c08889","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"6f4a93c1191c4a54b8d85fa0fdd46d73"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"178f5f4f65754cecb779d3ba6e8b581c","branch_id":"fa1d4e16f28f49a99e7354f53b92a8b7","id":"ff3cf04f6ee34c37a3ab4d0fda62aa4f","name":"fa1d4e16f28f49a99e7354f53b92a8b7"},{"type":"Edge","source_node_id":"178f5f4f65754cecb779d3ba6e8b581c","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"bf119c69cdc54acab636f1942f0c1d95"},{"type":"Edge","source_node_id":"66ac34461c4b459db0c112540d44ba79","target_node_id":"0cfa6477f9394974a8605fc9d1963e05","branch_id":"75b6e07cc0f74a74bf85831408e28a37","id":"3fa498c08f964de9b358e1c9537cf13e","name":"75b6e07cc0f74a74bf85831408e28a37"},{"type":"Edge","source_node_id":"0cfa6477f9394974a8605fc9d1963e05","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"731f0afcc1c243b89bd122ba734df2b7"},{"type":"Edge","source_node_id":"431eb20437da41dfabee756142474222","target_node_id":"9e546e88fa654b1eb9542ae359c495c9","id":"4c9036ea6c894cdba627c3b25b3f5d27"},{"type":"Edge","source_node_id":"3cd415672b134ee48d7d16b35ce53d4e","target_node_id":"77e5ca06735e440bbf101f829ccc8b5f","id":"b85d06d88228490f844fdf40b9035ca3"},{"type":"Edge","source_node_id":"77e5ca06735e440bbf101f829ccc8b5f","target_node_id":"5859c6e537d84041a373f855ad98bd9c","id":"db1cb54de3bd43169c07be7a030967a6"},{"type":"Edge","source_node_id":"afc25a1d09b249ee9a0397b425b099bb","target_node_id":"271a2b1ad8d745a0b749ba65155c3d21","id":"7fb86af93806440e872919213d98389d"},{"type":"Edge","source_node_id":"271a2b1ad8d745a0b749ba65155c3d21","target_node_id":"a6b52e68cd3a4fe4a8e7dee2eae87ac1","id":"a3be2ff73d444b719c323676cdc55968"},{"type":"Edge","source_node_id":"a6b52e68cd3a4fe4a8e7dee2eae87ac1","target_node_id":"66ac34461c4b459db0c112540d44ba79","id":"7ec2f6174c1a4c9db121f04f5e145592"},{"type":"Edge","source_node_id":"3ca680afb6a947959710aa3487b0505a","target_node_id":"079c286ad9314dd0b1e6196aa61842d9","id":"7a3a8a8c71ee4687ac997ee9364a7bce"},{"type":"Edge","source_node_id":"079c286ad9314dd0b1e6196aa61842d9","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"f0726a2cdef343dea84b72ffe48d3cdb"},{"type":"Edge","source_node_id":"d9bf97ec8d06404fae41680c42864614","target_node_id":"2ebccae545e54e0dabff7d31e3a2762d","id":"95d659194c1d4159a120889438feb886"},{"type":"Edge","source_node_id":"2ebccae545e54e0dabff7d31e3a2762d","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"627b1bb9280b4156a0fa2b26717ffced"},{"type":"Edge","source_node_id":"bbb901a37a5d40adbd8210d9c0d046ae","target_node_id":"d9872320b7d94c77bfb52b3cdeb14f29","id":"24bb7e53dd834ee597196768f9dd1dfd"},{"type":"Edge","source_node_id":"bc2081657d004b61b1820edf0a40cc69","target_node_id":"b20c9e0c0af64377ab108c9501540c1c","id":"0f30432d103944dabbc0b356ddf646a1"},{"type":"Edge","source_node_id":"b20c9e0c0af64377ab108c9501540c1c","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"dbd2a668c0174c87b4cf6717b8e2b4ac"},{"type":"Edge","source_node_id":"e6bc36fb46204af4bd6de420d84db14d","target_node_id":"e9417e0228b943e1936dd20a09c68b7c","id":"b6f3c326f6b94ee6ae87d79442efdaf1"},{"type":"Edge","source_node_id":"e9417e0228b943e1936dd20a09c68b7c","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"a976941a2abf41bb879f446fad7e3afd"},{"type":"Edge","source_node_id":"54080c1e46ca421fbb2d621de5a335c9","target_node_id":"83c424777a944185b3fc5d6593a24fb8","id":"a5ff34c988c947a1b4c7e81b1786a642"},{"type":"Edge","source_node_id":"83c424777a944185b3fc5d6593a24fb8","target_node_id":"b84ad0ef244a4489b4276aba80ae829e","id":"192e2035221541a0a7189a8a20c86425"},{"type":"Edge","source_node_id":"b84ad0ef244a4489b4276aba80ae829e","target_node_id":"4b6be38f74a64cfca5fa71c12a002d8d","id":"97875c65714049acb63b9485d814084b"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Choice","choices":[{"name":"Leave Suggestion","element":"leave_req"},{"name":"HR Query","element":"hr_query"},{"name":"Leave Policy","element":"leave_policy"},{"name":"Leave Balance","element":"leave_balance"}],"id":"ae53fddb16874053a59f44b3a24dde65","name":"hr_choice","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"HR Choice"},{"type":"String","name":"leave_reason","list":false,"id":"e073bb4d15c5423784f673c353f803cd","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Reference","table":"x_snc_unified_hr_0_leave_balance","auto_select":false,"id":"b955f7353e3e48049deafdbfe0faec69","name":"check_leave_balance","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Choice","choices":[{"name":"sick_leave","element":"sick_leave_balance"},{"name":"casual_leave","element":"casual_leave_balance"},{"name":"paternity_leave","element":"paternity_leave_balance"},{"name":"earned_leave","element":"earned_leave_balance"},{"name":"emergency_leave","element":"emergency_leave_balance"},{"name":"maternity_leave","element":"maternity_leave_balance"},{"name":"All","element":"All"}],"id":"a3868470eaf241d8bb3e187e2ef90ee0","name":"leavetype","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"LeaveType"},{"type":"True/False","id":"7838c1a8ed0e456582e77060d37b41fa","name":"final_decison","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"True/False","id":"cdcd3eee9e134f6493627f2b5951009f","name":"balance_check_decision","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"True/False","id":"b6510638468647a48166e6e01d6aec27","name":"check_balance_for_leave_type","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"f36b88f0c56203107f447310742d1b59","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"c591c90bb9e603107f4491d56cbf7472","name":"HR Agent","key_phrases":["HR Agent"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"HR Agent","library":false,"csTopicId":"2944c94fb9e603107f4491d56cbf74c8","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>c591c90bb9e603107f4491d56cbf7472</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "d6dd8b37e6d74141869eb6ebc03f1919": {
+          "id": "d6dd8b37e6d74141869eb6ebc03f1919",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Heyyy "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.user.first_name}}",
+                      "displayValue": "Input Variables➛User➛First name"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "288e632e105844ecbec0d17b928ebf4d": {
+          "id": "288e632e105844ecbec0d17b928ebf4d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "61f35f621b2847e1897d5a805e8a58a9": {
+          "name": "HR Choice",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "How can I help you today?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "ae53fddb16874053a59f44b3a24dde65",
+          "detailDescription": "",
+          "id": "61f35f621b2847e1897d5a805e8a58a9",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "93cc8a53eac043af89495ba59a744e2c": {
+          "id": "93cc8a53eac043af89495ba59a744e2c",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "e633430057ae4022bd7870e357b45dff": {
+          "id": "e633430057ae4022bd7870e357b45dff",
+          "stepType": "TextPrompt",
+          "name": "Leave reason",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "What is the reason for your leave?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "e073bb4d15c5423784f673c353f803cd",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "29965777a1e34ebea945404ce8e8f56f": {
+          "id": "29965777a1e34ebea945404ce8e8f56f",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "54080c1e46ca421fbb2d621de5a335c9": {
+          "id": "54080c1e46ca421fbb2d621de5a335c9",
+          "stepType": "TextOutput",
+          "name": "sick_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Sick Leave",
+                      "bold": true
+                    },
+                    {
+                      "text": ". Sick Leave covers illness, fever, medical treatment, etc. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "4b496d8f238b4c6bb0bb784de22286d3"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "e6bc36fb46204af4bd6de420d84db14d": {
+          "id": "e6bc36fb46204af4bd6de420d84db14d",
+          "stepType": "TextOutput",
+          "name": "maternity_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Maternity Leave",
+                      "bold": true
+                    },
+                    {
+                      "text": ". Maternity Leave covers pregnancy, childbirth, and the recovery period following childbirth. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "3613228b03c345dd99f7966b0e5cd240"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bc2081657d004b61b1820edf0a40cc69": {
+          "id": "bc2081657d004b61b1820edf0a40cc69",
+          "stepType": "TextOutput",
+          "name": "casual_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Casual Leave.",
+                      "bold": true
+                    },
+                    {
+                      "text": " Casual Leave covers short-term personal matters, unexpected personal needs, appointments, and other temporary requirements. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "869e69869dc04cf082777a37b5913cae"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bbb901a37a5d40adbd8210d9c0d046ae": {
+          "id": "bbb901a37a5d40adbd8210d9c0d046ae",
+          "stepType": "TextOutput",
+          "name": "paternity_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Paternity Leave",
+                      "bold": true
+                    },
+                    {
+                      "text": ". Paternity Leave covers leave taken by eligible employees following the birth or adoption of a child. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "ec6e7a966a15415b9c0bf5737b294f47"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "d9bf97ec8d06404fae41680c42864614": {
+          "id": "d9bf97ec8d06404fae41680c42864614",
+          "stepType": "TextOutput",
+          "name": "emergency_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Emergency Leave",
+                      "bold": true
+                    },
+                    {
+                      "text": ". Emergency Leave covers unexpected and urgent situations that require immediate time away from work. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "a14115f0fd5c49108313edea6d5cc0ee"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "3ca680afb6a947959710aa3487b0505a": {
+          "id": "3ca680afb6a947959710aa3487b0505a",
+          "stepType": "TextOutput",
+          "name": "earned_leave",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Based on your query, this situation falls under the cases generally covered by "
+                    },
+                    {
+                      "text": "Earned Leave",
+                      "bold": true
+                    },
+                    {
+                      "text": ". Earned Leave covers planned time off accumulated based on an employee’s service or work period, such as vacations or personal commitments. Please review the policy and select the appropriate leave type."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "3a3080caeb1f4eaea730daee948beb30"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "f647c982288640d692381d44040fc8d3": {
+          "id": "f647c982288640d692381d44040fc8d3",
+          "stepType": "LinkOutput",
+          "name": "leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010001"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "These are the leave policies"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "5cdc0cbc6b1a4acd91ea894b91ba1f50": {
+          "id": "5cdc0cbc6b1a4acd91ea894b91ba1f50",
+          "stepType": "LinkOutput",
+          "name": "hr policy knowledge guide",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010009"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "hr policy guidnace"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "please click on the below link to get to know about the hr policies?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "afc25a1d09b249ee9a0397b425b099bb": {
+          "id": "afc25a1d09b249ee9a0397b425b099bb",
+          "stepType": "TextOutput",
+          "name": "response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "I can help you check your leave balance."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "de208325144a4a86980c6d75aa9f28f1"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "66ac34461c4b459db0c112540d44ba79": {
+          "id": "66ac34461c4b459db0c112540d44ba79",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "f3e8926afd5848d684949cc1280d44fd": {
+          "id": "f3e8926afd5848d684949cc1280d44fd",
+          "stepType": "TextOutput",
+          "name": "sick leave balance",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "your current sick leave balance is:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.sick_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Sick Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "3eabfa84187b4cf28d51ef6ad8e6c178"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6685b28bfe1349f7b42bb5ee660ebeae": {
+          "id": "6685b28bfe1349f7b42bb5ee660ebeae",
+          "stepType": "TextOutput",
+          "name": "maternity leave balace",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "your current maternity leave balance is:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.maternity_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Maternity Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "10116958b62e467f891d9f62ecc5e20d"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "3cd415672b134ee48d7d16b35ce53d4e": {
+          "id": "3cd415672b134ee48d7d16b35ce53d4e",
+          "stepType": "TextOutput",
+          "name": "emergency leave balance",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "your current emergency leave balace is:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.emergency_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Emergency Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "513a580b21654ca89db1d93c47d6abd3"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "15198588e12441d0808c8d81f4014fc1": {
+          "id": "15198588e12441d0808c8d81f4014fc1",
+          "stepType": "TextOutput",
+          "name": "paternity leave balance",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "your current paternity leave balance is:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.paternity_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Paternity Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "8e6fe8c60f344b7baf9bb16dfdca3195"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "877ffad43b7042dc987e4123f5c08889": {
+          "id": "877ffad43b7042dc987e4123f5c08889",
+          "stepType": "TextOutput",
+          "name": "casual leave balance",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "your current casual leave balance is:"
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.casual_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Casual Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "554126778ac64ecc80a5050c8947900e"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "178f5f4f65754cecb779d3ba6e8b581c": {
+          "id": "178f5f4f65754cecb779d3ba6e8b581c",
+          "stepType": "TextOutput",
+          "name": "earned leave balace",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.earned_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Earned Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": "your current earned leave balace is:"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "4c62aa7b15c94c90ad473f9c5d2eb067"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "0cfa6477f9394974a8605fc9d1963e05": {
+          "id": "0cfa6477f9394974a8605fc9d1963e05",
+          "stepType": "TextOutput",
+          "name": "All leave balance",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Here is your current leave balance:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Sick Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.sick_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Sick Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Casual Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.casual_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Casual Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Earned Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.earned_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Earned Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Emergency Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.emergency_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Emergency Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Paternity Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.paternity_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Paternity Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Maternity Leave:  "
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.check_leave_balance.maternity_leave_balance}}",
+                        "displayValue": "Input Variables➛Check Leave Balance➛Maternity Leave Balance"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " days"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "13792613710a4f77a0b2f2ec713f67af"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "431eb20437da41dfabee756142474222": {
+          "id": "431eb20437da41dfabee756142474222",
+          "stepType": "BooleanPrompt",
+          "name": "Final decison",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Have you completed your query, or would you like to ask anything else?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "7838c1a8ed0e456582e77060d37b41fa",
+          "detailDescription": ""
+        },
+        "9e546e88fa654b1eb9542ae359c495c9": {
+          "id": "9e546e88fa654b1eb9542ae359c495c9",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "77e5ca06735e440bbf101f829ccc8b5f": {
+          "id": "77e5ca06735e440bbf101f829ccc8b5f",
+          "stepType": "BooleanPrompt",
+          "name": "Balance check decision",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do you want to check your balance again"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "cdcd3eee9e134f6493627f2b5951009f",
+          "detailDescription": ""
+        },
+        "5859c6e537d84041a373f855ad98bd9c": {
+          "id": "5859c6e537d84041a373f855ad98bd9c",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "271a2b1ad8d745a0b749ba65155c3d21": {
+          "name": "leaveType",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "please select your leave type:"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "a3868470eaf241d8bb3e187e2ef90ee0",
+          "detailDescription": "",
+          "id": "271a2b1ad8d745a0b749ba65155c3d21",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "a6b52e68cd3a4fe4a8e7dee2eae87ac1": {
+          "id": "a6b52e68cd3a4fe4a8e7dee2eae87ac1",
+          "stepType": "LookupRecord",
+          "name": "check leave balance",
+          "condition": {
+            "mode": "glide_scripted_query",
+            "value": "(function execute(table) {\n\n    var gr = new GlideRecordSecure(table);\n    gr.query();\n\n    if (gr.next()) {\n        return gr;\n    }\n\n    return null;\n\n})(table);"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "b955f7353e3e48049deafdbfe0faec69"
+        },
+        "079c286ad9314dd0b1e6196aa61842d9": {
+          "id": "079c286ad9314dd0b1e6196aa61842d9",
+          "stepType": "LinkOutput",
+          "name": "earned leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010015"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Earned leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Earned leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "2ebccae545e54e0dabff7d31e3a2762d": {
+          "id": "2ebccae545e54e0dabff7d31e3a2762d",
+          "stepType": "LinkOutput",
+          "name": "emergency leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010021"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Emergency leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Emergency leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "d9872320b7d94c77bfb52b3cdeb14f29": {
+          "id": "d9872320b7d94c77bfb52b3cdeb14f29",
+          "stepType": "LinkOutput",
+          "name": "paternity leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010016"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Paternity leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Paternity leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "b20c9e0c0af64377ab108c9501540c1c": {
+          "id": "b20c9e0c0af64377ab108c9501540c1c",
+          "stepType": "LinkOutput",
+          "name": "casual leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010013"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Casual leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Casual leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "e9417e0228b943e1936dd20a09c68b7c": {
+          "id": "e9417e0228b943e1936dd20a09c68b7c",
+          "stepType": "LinkOutput",
+          "name": "maternity leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010017"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Maternity leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Maternity leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "83c424777a944185b3fc5d6593a24fb8": {
+          "id": "83c424777a944185b3fc5d6593a24fb8",
+          "stepType": "LinkOutput",
+          "name": "sick leave policy",
+          "url": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "https://dlt-hck-8017-0024.lab.service-now.com/kb?id=kb_article_view&amp;sysparm_article=KB0010014"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "label": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Sick leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Check out the Sick leave policy"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "b84ad0ef244a4489b4276aba80ae829e": {
+          "id": "b84ad0ef244a4489b4276aba80ae829e",
+          "stepType": "BooleanPrompt",
+          "name": "Check Balance for leave type",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Would you like to check your leave balance?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "b6510638468647a48166e6e01d6aec27",
+          "detailDescription": ""
+        },
+        "4b6be38f74a64cfca5fa71c12a002d8d": {
+          "id": "4b6be38f74a64cfca5fa71c12a002d8d",
+          "stepType": "Decision",
+          "name": "Decision"
+        }
+      },
+      "edges": [
+        {
+          "id": "c18636d67b9f4589a4be4a9c3525f252",
+          "edgeType": "Edge",
+          "source": "d9872320b7d94c77bfb52b3cdeb14f29",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2eebdad7a9d946758c204e527f594428",
+          "edgeType": "Branch",
+          "source": "4b6be38f74a64cfca5fa71c12a002d8d",
+          "target": "431eb20437da41dfabee756142474222",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.check_balance_for_leave_type=false",
+            "mode": "query"
+          },
+          "label": "false"
+        },
+        {
+          "id": "23450b71620b4c9e97f4e5c7233afed3",
+          "edgeType": "Branch",
+          "source": "4b6be38f74a64cfca5fa71c12a002d8d",
+          "target": "afc25a1d09b249ee9a0397b425b099bb",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.check_balance_for_leave_type=true",
+            "mode": "query"
+          },
+          "label": "true"
+        },
+        {
+          "id": "bdd9e62a184b4392982a7244be0cc2a6",
+          "edgeType": "Branch",
+          "source": "5859c6e537d84041a373f855ad98bd9c",
+          "target": "66ac34461c4b459db0c112540d44ba79",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.balance_check_decision=true",
+            "mode": "query"
+          },
+          "label": "true"
+        },
+        {
+          "id": "4ceb3d070cce4327b3b7223d6b0b866e",
+          "edgeType": "Edge",
+          "source": "f647c982288640d692381d44040fc8d3",
+          "target": "431eb20437da41dfabee756142474222",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e93b644b4cda405082b5722afe1edb7d",
+          "edgeType": "Edge",
+          "source": "5cdc0cbc6b1a4acd91ea894b91ba1f50",
+          "target": "431eb20437da41dfabee756142474222",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "322292804dcb4f9c8cc6280560c6cc5e",
+          "edgeType": "Branch",
+          "source": "5859c6e537d84041a373f855ad98bd9c",
+          "target": "431eb20437da41dfabee756142474222",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.balance_check_decision=false",
+            "mode": "query"
+          },
+          "label": "false"
+        },
+        {
+          "id": "d5bb22ac13f7452aa76445c795109192",
+          "edgeType": "Branch",
+          "source": "9e546e88fa654b1eb9542ae359c495c9",
+          "target": "61f35f621b2847e1897d5a805e8a58a9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.final_decison=true",
+            "mode": "query"
+          },
+          "label": "true"
+        },
+        {
+          "id": "d7662a776a8b4bd2a9d97cfc10f7f374",
+          "edgeType": "Branch",
+          "source": "9e546e88fa654b1eb9542ae359c495c9",
+          "target": "288e632e105844ecbec0d17b928ebf4d",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.final_decison=false",
+            "mode": "query"
+          },
+          "label": "false"
+        },
+        {
+          "id": "247a6d9dd3d24b22903a2f5cb780f87b",
+          "edgeType": "Edge",
+          "source": "d6dd8b37e6d74141869eb6ebc03f1919",
+          "target": "61f35f621b2847e1897d5a805e8a58a9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b2f24b82e883406b82801da5b92c72b7",
+          "edgeType": "Edge",
+          "source": "61f35f621b2847e1897d5a805e8a58a9",
+          "target": "93cc8a53eac043af89495ba59a744e2c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "145beca192ad49b09f6d5ea01d09050f",
+          "edgeType": "Branch",
+          "source": "93cc8a53eac043af89495ba59a744e2c",
+          "target": "e633430057ae4022bd7870e357b45dff",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=leave_req",
+            "mode": "query"
+          },
+          "label": "Leave Request"
+        },
+        {
+          "id": "445baf0b68ff4c3e95b4a96023b7b14c",
+          "edgeType": "Edge",
+          "source": "e633430057ae4022bd7870e357b45dff",
+          "target": "29965777a1e34ebea945404ce8e8f56f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "12c22ae61c3f446fbc08af86c873a105",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "54080c1e46ca421fbb2d621de5a335c9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINShealth^ORvaInputs.leave_reasonCONTAINSsick^ORvaInputs.leave_reasonCONTAINSsickness^ORvaInputs.leave_reasonCONTAINSill^ORvaInputs.leave_reasonCONTAINSillness^ORvaInputs.leave_reasonCONTAINSsuffering^ORvaInputs.leave_reasonCONTAINSfever^ORvaInputs.leave_reasonCONTAINScold^ORvaInputs.leave_reasonCONTAINScough^ORvaInputs.leave_reasonCONTAINShospital^ORvaInputs.leave_reasonCONTAINSdoctor^ORvaInputs.leave_reasonCONTAINSdoctor's appointment",
+            "mode": "query"
+          },
+          "label": "sick_leave"
+        },
+        {
+          "id": "371fead0c2f84a40a3a79c003b8399e3",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "e6bc36fb46204af4bd6de420d84db14d",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINSmaternity leave^ORvaInputs.leave_reasonCONTAINSpregnancy leave^ORvaInputs.leave_reasonCONTAINSleave for pregnancy^ORvaInputs.leave_reasonCONTAINSleave for childbirth^ORvaInputs.leave_reasonCONTAINSexpecting a baby^ORvaInputs.leave_reasonCONTAINSbaby delivery^ORvaInputs.leave_reasonCONTAINSdelivery leave",
+            "mode": "query"
+          },
+          "label": "maternity_leave"
+        },
+        {
+          "id": "f49157ec994c4012af3454f30556cbdc",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "bc2081657d004b61b1820edf0a40cc69",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINSpersonal leave^ORvaInputs.leave_reasonCONTAINScasual leave^ORvaInputs.leave_reasonCONTAINSpersonal work^ORvaInputs.leave_reasonCONTAINSfamily function^ORvaInputs.leave_reasonCONTAINSday off^ORvaInputs.leave_reasonCONTAINStake a day off^ORvaInputs.leave_reasonCONTAINSneed a day off^ORvaInputs.leave_reasonCONTAINSsome personal work",
+            "mode": "query"
+          },
+          "label": "casual_leave"
+        },
+        {
+          "id": "5b62a1e50a5845658b187b2c4d1fbbc1",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "bbb901a37a5d40adbd8210d9c0d046ae",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINSpaternity leave^ORvaInputs.leave_reasonCONTAINSpaternity^ORvaInputs.leave_reasonCONTAINSspouse gave birth^ORvaInputs.leave_reasonCONTAINSwife gave birth^ORvaInputs.leave_reasonCONTAINSnewborn daughter^ORvaInputs.leave_reasonCONTAINSnewborn son^ORvaInputs.leave_reasonCONTAINSnewborn child^ORvaInputs.leave_reasonCONTAINSbirth of child^ORvaInputs.leave_reasonCONTAINSnew father^ORvaInputs.leave_reasonCONTAINSbecoming a father^ORvaInputs.leave_reasonCONTAINSfatherhood^ORvaInputs.leave_reasonCONTAINSfather^ORvaInputs.leave_reasonCONTAINSpaternity leave",
+            "mode": "query"
+          },
+          "label": "paternity_leave"
+        },
+        {
+          "id": "cdbd030d5d854aab9a64dfc24bd96414",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "d9bf97ec8d06404fae41680c42864614",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINSfamily emergency^ORvaInputs.leave_reasonCONTAINSemergency situation^ORvaInputs.leave_reasonCONTAINSleave for an emergency^ORvaInputs.leave_reasonCONTAINSfamily crisis^ORvaInputs.leave_reasonCONTAINSimmediate leave^ORvaInputs.leave_reasonCONTAINSurgent leave^ORvaInputs.leave_reasonCONTAINSunexpected situation^ORvaInputs.leave_reasonCONTAINSsudden emergency",
+            "mode": "query"
+          },
+          "label": "emergency_leave"
+        },
+        {
+          "id": "27dc99d0201f41cdaffb79c1a417e4cb",
+          "edgeType": "Branch",
+          "source": "29965777a1e34ebea945404ce8e8f56f",
+          "target": "3ca680afb6a947959710aa3487b0505a",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leave_reasonCONTAINSannual vacation^ORvaInputs.leave_reasonCONTAINSearned leave^ORvaInputs.leave_reasonCONTAINSvacation leave^ORvaInputs.leave_reasonCONTAINSannual leave^ORvaInputs.leave_reasonCONTAINSPL^ORvaInputs.leave_reasonCONTAINSprivilege leave^ORvaInputs.leave_reasonCONTAINSaccrual leave^ORvaInputs.leave_reasonCONTAINSEL^ORvaInputs.leave_reasonCONTAINSaccrued leave^ORvaInputs.leave_reasonCONTAINSholiday^ORvaInputs.leave_reasonCONTAINStrip",
+            "mode": "query"
+          },
+          "label": "earned_leave"
+        },
+        {
+          "id": "e74fd596d2f4437a881c1fc4d4f68bf6",
+          "edgeType": "Branch",
+          "source": "93cc8a53eac043af89495ba59a744e2c",
+          "target": "f647c982288640d692381d44040fc8d3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=leave_policy",
+            "mode": "query"
+          },
+          "label": "Leave Policy"
+        },
+        {
+          "id": "47fd027602084722bc762f1141930a9a",
+          "edgeType": "Branch",
+          "source": "93cc8a53eac043af89495ba59a744e2c",
+          "target": "5cdc0cbc6b1a4acd91ea894b91ba1f50",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=hr_query",
+            "mode": "query"
+          },
+          "label": "HR Query"
+        },
+        {
+          "id": "7867ee9ca8f442559cc90966f3d31f47",
+          "edgeType": "Branch",
+          "source": "93cc8a53eac043af89495ba59a744e2c",
+          "target": "afc25a1d09b249ee9a0397b425b099bb",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=leave_balance",
+            "mode": "query"
+          },
+          "label": "Leave Balance"
+        },
+        {
+          "id": "2ac217e23a804239a0485404e34e5be5",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "f3e8926afd5848d684949cc1280d44fd",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=sick_leave_balance",
+            "mode": "query"
+          },
+          "label": "sick_leave"
+        },
+        {
+          "id": "9f50e26113a74358a109da52afa2b7ed",
+          "edgeType": "Edge",
+          "source": "f3e8926afd5848d684949cc1280d44fd",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "714f01fe9ca84fc8853c0e217ef12741",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "6685b28bfe1349f7b42bb5ee660ebeae",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=maternity_leave_balance",
+            "mode": "query"
+          },
+          "label": "maternity_leave"
+        },
+        {
+          "id": "0497a059ca9f4261a9115afc398d8562",
+          "edgeType": "Edge",
+          "source": "6685b28bfe1349f7b42bb5ee660ebeae",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f38dbde242af49d998aa8697ca1427e5",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "3cd415672b134ee48d7d16b35ce53d4e",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=emergency_leave_balance",
+            "mode": "query"
+          },
+          "label": "emergency_leave"
+        },
+        {
+          "id": "40339c7a4b274475b2d42c9ae7c8a2fb",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "15198588e12441d0808c8d81f4014fc1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=paternity_leave_balance",
+            "mode": "query"
+          },
+          "label": "paternity_leave"
+        },
+        {
+          "id": "3b54e12fc101478dbc1b6a16e6e9f1ca",
+          "edgeType": "Edge",
+          "source": "15198588e12441d0808c8d81f4014fc1",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "07e96358fcbb49cba655d49edacb5b60",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "877ffad43b7042dc987e4123f5c08889",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=casual_leave_balance",
+            "mode": "query"
+          },
+          "label": "casual_leave"
+        },
+        {
+          "id": "6f4a93c1191c4a54b8d85fa0fdd46d73",
+          "edgeType": "Edge",
+          "source": "877ffad43b7042dc987e4123f5c08889",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ff3cf04f6ee34c37a3ab4d0fda62aa4f",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "178f5f4f65754cecb779d3ba6e8b581c",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=earned_leave_balance",
+            "mode": "query"
+          },
+          "label": "earned_leave"
+        },
+        {
+          "id": "bf119c69cdc54acab636f1942f0c1d95",
+          "edgeType": "Edge",
+          "source": "178f5f4f65754cecb779d3ba6e8b581c",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3fa498c08f964de9b358e1c9537cf13e",
+          "edgeType": "Branch",
+          "source": "66ac34461c4b459db0c112540d44ba79",
+          "target": "0cfa6477f9394974a8605fc9d1963e05",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.leavetype=All",
+            "mode": "query"
+          },
+          "label": "All"
+        },
+        {
+          "id": "731f0afcc1c243b89bd122ba734df2b7",
+          "edgeType": "Edge",
+          "source": "0cfa6477f9394974a8605fc9d1963e05",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4c9036ea6c894cdba627c3b25b3f5d27",
+          "edgeType": "Edge",
+          "source": "431eb20437da41dfabee756142474222",
+          "target": "9e546e88fa654b1eb9542ae359c495c9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b85d06d88228490f844fdf40b9035ca3",
+          "edgeType": "Edge",
+          "source": "3cd415672b134ee48d7d16b35ce53d4e",
+          "target": "77e5ca06735e440bbf101f829ccc8b5f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "db1cb54de3bd43169c07be7a030967a6",
+          "edgeType": "Edge",
+          "source": "77e5ca06735e440bbf101f829ccc8b5f",
+          "target": "5859c6e537d84041a373f855ad98bd9c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7fb86af93806440e872919213d98389d",
+          "edgeType": "Edge",
+          "source": "afc25a1d09b249ee9a0397b425b099bb",
+          "target": "271a2b1ad8d745a0b749ba65155c3d21",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a3be2ff73d444b719c323676cdc55968",
+          "edgeType": "Edge",
+          "source": "271a2b1ad8d745a0b749ba65155c3d21",
+          "target": "a6b52e68cd3a4fe4a8e7dee2eae87ac1",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7ec2f6174c1a4c9db121f04f5e145592",
+          "edgeType": "Edge",
+          "source": "a6b52e68cd3a4fe4a8e7dee2eae87ac1",
+          "target": "66ac34461c4b459db0c112540d44ba79",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7a3a8a8c71ee4687ac997ee9364a7bce",
+          "edgeType": "Edge",
+          "source": "3ca680afb6a947959710aa3487b0505a",
+          "target": "079c286ad9314dd0b1e6196aa61842d9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f0726a2cdef343dea84b72ffe48d3cdb",
+          "edgeType": "Edge",
+          "source": "079c286ad9314dd0b1e6196aa61842d9",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "95d659194c1d4159a120889438feb886",
+          "edgeType": "Edge",
+          "source": "d9bf97ec8d06404fae41680c42864614",
+          "target": "2ebccae545e54e0dabff7d31e3a2762d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "627b1bb9280b4156a0fa2b26717ffced",
+          "edgeType": "Edge",
+          "source": "2ebccae545e54e0dabff7d31e3a2762d",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "24bb7e53dd834ee597196768f9dd1dfd",
+          "edgeType": "Edge",
+          "source": "bbb901a37a5d40adbd8210d9c0d046ae",
+          "target": "d9872320b7d94c77bfb52b3cdeb14f29",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0f30432d103944dabbc0b356ddf646a1",
+          "edgeType": "Edge",
+          "source": "bc2081657d004b61b1820edf0a40cc69",
+          "target": "b20c9e0c0af64377ab108c9501540c1c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "dbd2a668c0174c87b4cf6717b8e2b4ac",
+          "edgeType": "Edge",
+          "source": "b20c9e0c0af64377ab108c9501540c1c",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b6f3c326f6b94ee6ae87d79442efdaf1",
+          "edgeType": "Edge",
+          "source": "e6bc36fb46204af4bd6de420d84db14d",
+          "target": "e9417e0228b943e1936dd20a09c68b7c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a976941a2abf41bb879f446fad7e3afd",
+          "edgeType": "Edge",
+          "source": "e9417e0228b943e1936dd20a09c68b7c",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a5ff34c988c947a1b4c7e81b1786a642",
+          "edgeType": "Edge",
+          "source": "54080c1e46ca421fbb2d621de5a335c9",
+          "target": "83c424777a944185b3fc5d6593a24fb8",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "192e2035221541a0a7189a8a20c86425",
+          "edgeType": "Edge",
+          "source": "83c424777a944185b3fc5d6593a24fb8",
+          "target": "b84ad0ef244a4489b4276aba80ae829e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "97875c65714049acb63b9485d814084b",
+          "edgeType": "Edge",
+          "source": "b84ad0ef244a4489b4276aba80ae829e",
+          "target": "4b6be38f74a64cfca5fa71c12a002d8d",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "ae53fddb16874053a59f44b3a24dde65": {
+      "id": "ae53fddb16874053a59f44b3a24dde65",
+      "name": "hr_choice",
+      "label": "HR Choice",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Leave Suggestion",
+          "value": "leave_req"
+        },
+        {
+          "label": "HR Query",
+          "value": "hr_query"
+        },
+        {
+          "label": "Leave Policy",
+          "value": "leave_policy",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "Leave Balance",
+          "value": "leave_balance",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "61f35f621b2847e1897d5a805e8a58a9",
+      "isHidden": false
+    },
+    "e073bb4d15c5423784f673c353f803cd": {
+      "id": "e073bb4d15c5423784f673c353f803cd",
+      "name": "leave_reason",
+      "label": "Leave Reason",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjQzNjc5ODMxOSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "e633430057ae4022bd7870e357b45dff",
+      "isHidden": false
+    },
+    "b955f7353e3e48049deafdbfe0faec69": {
+      "id": "b955f7353e3e48049deafdbfe0faec69",
+      "name": "check_leave_balance",
+      "label": "Check Leave Balance",
+      "varType": "reference",
+      "table": "x_snc_unified_hr_0_leave_balance",
+      "category": "vaInputs",
+      "nodeId": "a6b52e68cd3a4fe4a8e7dee2eae87ac1",
+      "isHidden": false
+    },
+    "a3868470eaf241d8bb3e187e2ef90ee0": {
+      "id": "a3868470eaf241d8bb3e187e2ef90ee0",
+      "name": "leavetype",
+      "label": "LeaveType",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "sick_leave",
+          "value": "sick_leave_balance"
+        },
+        {
+          "label": "casual_leave",
+          "value": "casual_leave_balance"
+        },
+        {
+          "label": "paternity_leave",
+          "value": "paternity_leave_balance",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "earned_leave",
+          "value": "earned_leave_balance",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "emergency_leave",
+          "value": "emergency_leave_balance",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "maternity_leave",
+          "value": "maternity_leave_balance",
+          "checked": true,
+          "meta": {}
+        },
+        {
+          "label": "All",
+          "value": "All",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "271a2b1ad8d745a0b749ba65155c3d21",
+      "isHidden": false
+    },
+    "7838c1a8ed0e456582e77060d37b41fa": {
+      "id": "7838c1a8ed0e456582e77060d37b41fa",
+      "name": "final_decison",
+      "label": "Final Decison",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "431eb20437da41dfabee756142474222",
+      "isHidden": false
+    },
+    "cdcd3eee9e134f6493627f2b5951009f": {
+      "id": "cdcd3eee9e134f6493627f2b5951009f",
+      "name": "balance_check_decision",
+      "label": "Balance Check Decision",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "77e5ca06735e440bbf101f829ccc8b5f",
+      "isHidden": false
+    },
+    "b6510638468647a48166e6e01d6aec27": {
+      "id": "b6510638468647a48166e6e01d6aec27",
+      "name": "check_balance_for_leave_type",
+      "label": "Check Balance For Leave Type",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "b84ad0ef244a4489b4276aba80ae829e",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>HR Agent</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 08:29:19</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>6544c94fb9e603107f4491d56cbf74cf</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_design_topic_6544c94fb9e603107f4491d56cbf74cf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 03:56:53</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

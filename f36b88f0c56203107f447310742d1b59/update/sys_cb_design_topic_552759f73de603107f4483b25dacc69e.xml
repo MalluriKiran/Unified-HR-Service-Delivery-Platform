@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="New HR Agent">492759f73de603107f4483b25dacc686</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"c0953895932048b1ad327283e6b0cd58","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"c0953895932048b1ad327283e6b0cd58"}],"goals":[{"name":"primary","trigger_id":"c0953895932048b1ad327283e6b0cd58","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"7f44b557cecd482896f2d363b2e571b1","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"d85b3399b52e4848bb2af05f668dd1c6","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"163c2162b3b2468c92c75b9a5a299fa0","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Enter the case no you want to summarize\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"4cf1258642004b20a7999fc268d63dc7","name":"case number","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"CRUDAction","mode":"read","read_mode":"variable","query":"number={{vaInputs.case_number}}","variable_id":"e57d03852543460db3d8d67d3b805106","id":"f5cec062bb6641938fee6630b212960f","name":"HR case lookup","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"condition":{"type":"Condition","mode":"glide_query","value":"number={{vaInputs.case_number}}"}},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"4e5455043170413d8a7edcd34ad7b437","name":"Generate HR Case Summary","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"(function execute() {\n\n    var caseId = vaInputs.hr_case_lookup;\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    if (gr.get(caseId)) {\n\n        var response = '';\n\n        response += 'Here is the summary of your HR case:\\n\\n';\n\n        response += 'Case Number: ' + gr.getDisplayValue('number') + '\\n';\n        response += 'Requested By: ' + gr.getDisplayValue('request_by') + '\\n';\n        response += 'Category: ' + gr.getDisplayValue('category') + '\\n';\n        response += 'Priority: ' + gr.getDisplayValue('priority') + '\\n';\n        response += 'Status: ' + gr.getDisplayValue('status') + '\\n';\n        response += 'Assignment Group: ' + gr.getDisplayValue('assignment_group') + '\\n';\n        response += 'Assigned To: ' + gr.getDisplayValue('assigned_to') + '\\n\\n';\n\n        response += 'Issue:\\n';\n        response += gr.getDisplayValue('description') + '\\n\\n';\n\n        if (gr.getValue('resolution_notes')) {\n            response += 'Resolution / Actions:\\n';\n            response += gr.getDisplayValue('resolution_notes') + '\\n\\n';\n        }\n\n        if (gr.getValue('rejection_feedback')) {\n            response += 'Rejection Feedback:\\n';\n            response += gr.getDisplayValue('rejection_feedback') + '\\n';\n        }\n\n        return response;\n\n    }\n\n    return 'I could not find the requested HR case.';\n\n})()"},"secure":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"6a58c118c64f4f50a37a4cad36694595","name":"HR Choice","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"15fc74d0197643e68794197ea45338d1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Select your service\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Always","expression":{"type":"Applicability","mode":"query","value":"hr_choice=Case summary"},"id":"597108a6703f4778821639a81a6463f2","name":"Always","expert_mode":false},{"type":"Branch","label":"Always","expression":{"type":"Applicability","mode":"query","value":"hr_choice=Assigned cases"},"id":"9bb591fc1bde426d8bf1b5765758cd24","name":"Always","expert_mode":false},{"type":"Branch","label":"Always","expression":{"type":"Applicability","mode":"query","value":"hr_choice=Case Attention Insights"},"id":"a8faddebeabd426ca4ad95a5d7b83a7e","name":"Always","expert_mode":false}],"id":"98cf433cdb7a47719bbb5aaeca3bb189","goal_id":"primary","expert_mode":false},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"013e952763c94f61a4c096f31ef50dc3","name":"hr cases retrieve ","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"(function execute() {\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    // Find cases assigned to the currently logged-in HR agent\n    gr.addQuery('assigned_to', gs.getUserID());\n    gr.orderByDesc('sys_created_on');\n    gr.query();\n\n    var response = '';\n    var count = 0;\n\n    while (gr.next()) {\n\n        count++;\n\n        response += count + '. ' +\n            gr.getDisplayValue('number') +\n            ' - ' +\n            gr.getDisplayValue('category') +\n            ' - ' +\n            gr.getDisplayValue('priority') +\n            ' - ' +\n            gr.getDisplayValue('status') +\n            '\\n';\n    }\n\n    if (count == 0) {\n        return 'You currently have no HR cases assigned to you.';\n    }\n\n    return 'You have ' + count + ' HR case(s) assigned to you.\\n\\n' +\n           response;\n\n})()"},"secure":false},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"5b5e01b63cb64c389f02f385707d63b2","name":"Case Attention Insights","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"(function execute() {\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    gr.addQuery('assigned_to', gs.getUserID());\n    gr.query();\n\n    var total = 0;\n    var highPriority = 0;\n    var openCases = 0;\n    var inProgressCases = 0;\n    var attentionCases = '';\n\n    while (gr.next()) {\n\n        total++;\n\n        var priority = gr.getDisplayValue('priority');\n        var status = gr.getDisplayValue('status');\n\n        if (priority == 'High'&amp;&amp;status!='Resolved') {\n            highPriority++;\n        }\n\n        if (status == 'Open') {\n            openCases++;\n        }\n\n        if (status == 'In Progress') {\n            inProgressCases++;\n        }\n\n        // Cases requiring attention\n        if ((priority == 'High' &amp;&amp; status != 'Resolved') || status == 'Open')  {\n\n            attentionCases +=\n                gr.getDisplayValue('number') +\n                ' - ' +\n                gr.getDisplayValue('priority') +\n                ' - ' +\n                gr.getDisplayValue('status') +\n                ' - ' +\n                gr.getDisplayValue('category') +\n                '\\n';\n        }\n    }\n\n    if (total == 0) {\n        return 'You currently have no cases assigned to you.';\n    }\n\n    var response = '';\n\n    response += 'YOUR CASE WORKLOAD\\n\\n';\n\n    response += 'Total Assigned: ' + total + '\\n';\n    response += 'High Priority: ' + highPriority + '\\n';\n    response += 'Open: ' + openCases + '\\n';\n    response += 'In Progress: ' + inProgressCases + '\\n';\n\n    if (attentionCases != '') {\n\n        response += '\\nCASES REQUIRING ATTENTION\\n\\n';\n        response += attentionCases;\n\n    } else {\n\n        response += '\\nNo cases currently require special attention.';\n    }\n\n    return response;\n\n})()"},"secure":false},{"type":"InputPrompt","variable_id":"257a9593ffb94fe3a1f1969725d5cca1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Has your query been resolved, or do you need any further assistance?\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"af8f978cff9a4c8485521e4b24d651dc","name":"Final confirm","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"true","expression":{"type":"Applicability","mode":"query","value":"final_confirm=true"},"id":"9218fd1c01e24f96942ec64ee993add0","name":"true","expert_mode":false},{"type":"Branch","label":"false","expression":{"type":"Applicability","mode":"query","value":"final_confirm=false"},"id":"a0c5e7e869fa40848339015a6e715473","name":"false","expert_mode":false}],"id":"830d38fda7fa49eba5851d7c52cd7f73","goal_id":"primary","expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"830d38fda7fa49eba5851d7c52cd7f73","target_node_id":"6a58c118c64f4f50a37a4cad36694595","branch_id":"9218fd1c01e24f96942ec64ee993add0","id":"8a63f7efc8484f08a6ef1c5102421cc5","name":"9218fd1c01e24f96942ec64ee993add0"},{"type":"Edge","source_node_id":"830d38fda7fa49eba5851d7c52cd7f73","target_node_id":"d85b3399b52e4848bb2af05f668dd1c6","branch_id":"a0c5e7e869fa40848339015a6e715473","id":"cfe7089a8f1d4ee78b5e6d8403daa275","name":"a0c5e7e869fa40848339015a6e715473"},{"type":"Edge","source_node_id":"f5cec062bb6641938fee6630b212960f","target_node_id":"4e5455043170413d8a7edcd34ad7b437","id":"af1ed5c90fe444f1b7399aa7d01b28f8"},{"type":"Edge","source_node_id":"4cf1258642004b20a7999fc268d63dc7","target_node_id":"f5cec062bb6641938fee6630b212960f","id":"1ac2181855094453b4e8b3a81492a44f"},{"type":"Edge","source_node_id":"7f44b557cecd482896f2d363b2e571b1","target_node_id":"6a58c118c64f4f50a37a4cad36694595","id":"2a278e69a22f4c35b654f7e094c4f5f4"},{"type":"Edge","source_node_id":"6a58c118c64f4f50a37a4cad36694595","target_node_id":"98cf433cdb7a47719bbb5aaeca3bb189","id":"e77ae652ed95469181aad36c64af1c5a"},{"type":"Edge","source_node_id":"98cf433cdb7a47719bbb5aaeca3bb189","target_node_id":"4cf1258642004b20a7999fc268d63dc7","branch_id":"597108a6703f4778821639a81a6463f2","id":"98042623d12b4d2f89c6176dd5f7b933","name":"597108a6703f4778821639a81a6463f2"},{"type":"Edge","source_node_id":"98cf433cdb7a47719bbb5aaeca3bb189","target_node_id":"013e952763c94f61a4c096f31ef50dc3","branch_id":"9bb591fc1bde426d8bf1b5765758cd24","id":"46757815169547d88b9a2344a462ae6f","name":"9bb591fc1bde426d8bf1b5765758cd24"},{"type":"Edge","source_node_id":"013e952763c94f61a4c096f31ef50dc3","target_node_id":"af8f978cff9a4c8485521e4b24d651dc","id":"e935b09d656f46668fce4629c3c74f6c"},{"type":"Edge","source_node_id":"98cf433cdb7a47719bbb5aaeca3bb189","target_node_id":"5b5e01b63cb64c389f02f385707d63b2","branch_id":"a8faddebeabd426ca4ad95a5d7b83a7e","id":"4263e3a7f531440d97cc84cee5346501","name":"a8faddebeabd426ca4ad95a5d7b83a7e"},{"type":"Edge","source_node_id":"5b5e01b63cb64c389f02f385707d63b2","target_node_id":"af8f978cff9a4c8485521e4b24d651dc","id":"f555a9bb8959431cad7a63b959816167"},{"type":"Edge","source_node_id":"4e5455043170413d8a7edcd34ad7b437","target_node_id":"af8f978cff9a4c8485521e4b24d651dc","id":"d0074b51485546be8c04c1a851238620"},{"type":"Edge","source_node_id":"af8f978cff9a4c8485521e4b24d651dc","target_node_id":"830d38fda7fa49eba5851d7c52cd7f73","id":"b50f43b02ef14e789586f79ef7cb6fc6"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"case_number","list":false,"id":"163c2162b3b2468c92c75b9a5a299fa0","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Reference","table":"x_snc_unified_hr_0_hr_case","auto_select":false,"id":"e57d03852543460db3d8d67d3b805106","name":"hr_case_lookup","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Choice","choices":[{"name":"Case summary","element":"Case summary"},{"name":"Assigned cases","element":"Assigned cases"},{"name":"Case Attention Insights","element":"Case Attention Insights"}],"id":"15fc74d0197643e68794197ea45338d1","name":"hr_choice","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"HR Choice"},{"type":"True/False","id":"257a9593ffb94fe3a1f1969725d5cca1","name":"final_confirm","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"f36b88f0c56203107f447310742d1b59","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"b9d6283f3da203107f4483b25dacc614","name":"New HR Agent","key_phrases":["New HR Agent"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"New HR Agent","library":false,"csTopicId":"492759f73de603107f4483b25dacc686","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>b9d6283f3da203107f4483b25dacc614</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "7f44b557cecd482896f2d363b2e571b1": {
+          "id": "7f44b557cecd482896f2d363b2e571b1",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "d85b3399b52e4848bb2af05f668dd1c6": {
+          "id": "d85b3399b52e4848bb2af05f668dd1c6",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "4cf1258642004b20a7999fc268d63dc7": {
+          "id": "4cf1258642004b20a7999fc268d63dc7",
+          "stepType": "TextPrompt",
+          "name": "case number",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter the case no you want to summarize"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "163c2162b3b2468c92c75b9a5a299fa0",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "f5cec062bb6641938fee6630b212960f": {
+          "id": "f5cec062bb6641938fee6630b212960f",
+          "stepType": "LookupRecord",
+          "name": "HR case lookup",
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.case_number}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "e57d03852543460db3d8d67d3b805106"
+        },
+        "4e5455043170413d8a7edcd34ad7b437": {
+          "id": "4e5455043170413d8a7edcd34ad7b437",
+          "stepType": "ScriptOutput",
+          "name": "Generate HR Case Summary",
+          "output_type": "single_part",
+          "script": "(function execute() {\n\n    var caseId = vaInputs.hr_case_lookup;\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    if (gr.get(caseId)) {\n\n        var response = '';\n\n        response += 'Here is the summary of your HR case:\\n\\n';\n\n        response += 'Case Number: ' + gr.getDisplayValue('number') + '\\n';\n        response += 'Requested By: ' + gr.getDisplayValue('request_by') + '\\n';\n        response += 'Category: ' + gr.getDisplayValue('category') + '\\n';\n        response += 'Priority: ' + gr.getDisplayValue('priority') + '\\n';\n        response += 'Status: ' + gr.getDisplayValue('status') + '\\n';\n        response += 'Assignment Group: ' + gr.getDisplayValue('assignment_group') + '\\n';\n        response += 'Assigned To: ' + gr.getDisplayValue('assigned_to') + '\\n\\n';\n\n        response += 'Issue:\\n';\n        response += gr.getDisplayValue('description') + '\\n\\n';\n\n        if (gr.getValue('resolution_notes')) {\n            response += 'Resolution / Actions:\\n';\n            response += gr.getDisplayValue('resolution_notes') + '\\n\\n';\n        }\n\n        if (gr.getValue('rejection_feedback')) {\n            response += 'Rejection Feedback:\\n';\n            response += gr.getDisplayValue('rejection_feedback') + '\\n';\n        }\n\n        return response;\n\n    }\n\n    return 'I could not find the requested HR case.';\n\n})()",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6a58c118c64f4f50a37a4cad36694595": {
+          "name": "HR Choice",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Select your service"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "15fc74d0197643e68794197ea45338d1",
+          "detailDescription": "",
+          "id": "6a58c118c64f4f50a37a4cad36694595",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "98cf433cdb7a47719bbb5aaeca3bb189": {
+          "id": "98cf433cdb7a47719bbb5aaeca3bb189",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "013e952763c94f61a4c096f31ef50dc3": {
+          "id": "013e952763c94f61a4c096f31ef50dc3",
+          "stepType": "ScriptOutput",
+          "name": "hr cases retrieve ",
+          "output_type": "single_part",
+          "script": "(function execute() {\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    // Find cases assigned to the currently logged-in HR agent\n    gr.addQuery('assigned_to', gs.getUserID());\n    gr.orderByDesc('sys_created_on');\n    gr.query();\n\n    var response = '';\n    var count = 0;\n\n    while (gr.next()) {\n\n        count++;\n\n        response += count + '. ' +\n            gr.getDisplayValue('number') +\n            ' - ' +\n            gr.getDisplayValue('category') +\n            ' - ' +\n            gr.getDisplayValue('priority') +\n            ' - ' +\n            gr.getDisplayValue('status') +\n            '\\n';\n    }\n\n    if (count == 0) {\n        return 'You currently have no HR cases assigned to you.';\n    }\n\n    return 'You have ' + count + ' HR case(s) assigned to you.\\n\\n' +\n           response;\n\n})()",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "5b5e01b63cb64c389f02f385707d63b2": {
+          "id": "5b5e01b63cb64c389f02f385707d63b2",
+          "stepType": "ScriptOutput",
+          "name": "Case Attention Insights",
+          "output_type": "single_part",
+          "script": "(function execute() {\n\n    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');\n\n    gr.addQuery('assigned_to', gs.getUserID());\n    gr.query();\n\n    var total = 0;\n    var highPriority = 0;\n    var openCases = 0;\n    var inProgressCases = 0;\n    var attentionCases = '';\n\n    while (gr.next()) {\n\n        total++;\n\n        var priority = gr.getDisplayValue('priority');\n        var status = gr.getDisplayValue('status');\n\n        if (priority == 'High'&amp;&amp;status!='Resolved') {\n            highPriority++;\n        }\n\n        if (status == 'Open') {\n            openCases++;\n        }\n\n        if (status == 'In Progress') {\n            inProgressCases++;\n        }\n\n        // Cases requiring attention\n        if ((priority == 'High' &amp;&amp; status != 'Resolved') || status == 'Open')  {\n\n            attentionCases +=\n                gr.getDisplayValue('number') +\n                ' - ' +\n                gr.getDisplayValue('priority') +\n                ' - ' +\n                gr.getDisplayValue('status') +\n                ' - ' +\n                gr.getDisplayValue('category') +\n                '\\n';\n        }\n    }\n\n    if (total == 0) {\n        return 'You currently have no cases assigned to you.';\n    }\n\n    var response = '';\n\n    response += 'YOUR CASE WORKLOAD\\n\\n';\n\n    response += 'Total Assigned: ' + total + '\\n';\n    response += 'High Priority: ' + highPriority + '\\n';\n    response += 'Open: ' + openCases + '\\n';\n    response += 'In Progress: ' + inProgressCases + '\\n';\n\n    if (attentionCases != '') {\n\n        response += '\\nCASES REQUIRING ATTENTION\\n\\n';\n        response += attentionCases;\n\n    } else {\n\n        response += '\\nNo cases currently require special attention.';\n    }\n\n    return response;\n\n})()",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "af8f978cff9a4c8485521e4b24d651dc": {
+          "id": "af8f978cff9a4c8485521e4b24d651dc",
+          "stepType": "BooleanPrompt",
+          "name": "Final confirm",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Has your query been resolved, or do you need any further assistance?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "257a9593ffb94fe3a1f1969725d5cca1",
+          "detailDescription": ""
+        },
+        "830d38fda7fa49eba5851d7c52cd7f73": {
+          "id": "830d38fda7fa49eba5851d7c52cd7f73",
+          "stepType": "Decision",
+          "name": "Decision"
+        }
+      },
+      "edges": [
+        {
+          "id": "8a63f7efc8484f08a6ef1c5102421cc5",
+          "edgeType": "Branch",
+          "source": "830d38fda7fa49eba5851d7c52cd7f73",
+          "target": "6a58c118c64f4f50a37a4cad36694595",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.final_confirm=true",
+            "mode": "query"
+          },
+          "label": "true"
+        },
+        {
+          "id": "cfe7089a8f1d4ee78b5e6d8403daa275",
+          "edgeType": "Branch",
+          "source": "830d38fda7fa49eba5851d7c52cd7f73",
+          "target": "d85b3399b52e4848bb2af05f668dd1c6",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.final_confirm=false",
+            "mode": "query"
+          },
+          "label": "false"
+        },
+        {
+          "id": "af1ed5c90fe444f1b7399aa7d01b28f8",
+          "edgeType": "Edge",
+          "source": "f5cec062bb6641938fee6630b212960f",
+          "target": "4e5455043170413d8a7edcd34ad7b437",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1ac2181855094453b4e8b3a81492a44f",
+          "edgeType": "Edge",
+          "source": "4cf1258642004b20a7999fc268d63dc7",
+          "target": "f5cec062bb6641938fee6630b212960f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2a278e69a22f4c35b654f7e094c4f5f4",
+          "edgeType": "Edge",
+          "source": "7f44b557cecd482896f2d363b2e571b1",
+          "target": "6a58c118c64f4f50a37a4cad36694595",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e77ae652ed95469181aad36c64af1c5a",
+          "edgeType": "Edge",
+          "source": "6a58c118c64f4f50a37a4cad36694595",
+          "target": "98cf433cdb7a47719bbb5aaeca3bb189",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "98042623d12b4d2f89c6176dd5f7b933",
+          "edgeType": "Branch",
+          "source": "98cf433cdb7a47719bbb5aaeca3bb189",
+          "target": "4cf1258642004b20a7999fc268d63dc7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=Case summary",
+            "mode": "query"
+          },
+          "label": "Always"
+        },
+        {
+          "id": "46757815169547d88b9a2344a462ae6f",
+          "edgeType": "Branch",
+          "source": "98cf433cdb7a47719bbb5aaeca3bb189",
+          "target": "013e952763c94f61a4c096f31ef50dc3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=Assigned cases",
+            "mode": "query"
+          },
+          "label": "Always"
+        },
+        {
+          "id": "e935b09d656f46668fce4629c3c74f6c",
+          "edgeType": "Edge",
+          "source": "013e952763c94f61a4c096f31ef50dc3",
+          "target": "af8f978cff9a4c8485521e4b24d651dc",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4263e3a7f531440d97cc84cee5346501",
+          "edgeType": "Branch",
+          "source": "98cf433cdb7a47719bbb5aaeca3bb189",
+          "target": "5b5e01b63cb64c389f02f385707d63b2",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.hr_choice=Case Attention Insights",
+            "mode": "query"
+          },
+          "label": "Always"
+        },
+        {
+          "id": "f555a9bb8959431cad7a63b959816167",
+          "edgeType": "Edge",
+          "source": "5b5e01b63cb64c389f02f385707d63b2",
+          "target": "af8f978cff9a4c8485521e4b24d651dc",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d0074b51485546be8c04c1a851238620",
+          "edgeType": "Edge",
+          "source": "4e5455043170413d8a7edcd34ad7b437",
+          "target": "af8f978cff9a4c8485521e4b24d651dc",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b50f43b02ef14e789586f79ef7cb6fc6",
+          "edgeType": "Edge",
+          "source": "af8f978cff9a4c8485521e4b24d651dc",
+          "target": "830d38fda7fa49eba5851d7c52cd7f73",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "163c2162b3b2468c92c75b9a5a299fa0": {
+      "id": "163c2162b3b2468c92c75b9a5a299fa0",
+      "name": "case_number",
+      "label": "Case Number",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjY0MjQ0MTAzNyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "4cf1258642004b20a7999fc268d63dc7",
+      "isHidden": false
+    },
+    "e57d03852543460db3d8d67d3b805106": {
+      "id": "e57d03852543460db3d8d67d3b805106",
+      "name": "hr_case_lookup",
+      "label": "HR Case Lookup",
+      "varType": "reference",
+      "table": "x_snc_unified_hr_0_hr_case",
+      "category": "vaInputs",
+      "nodeId": "f5cec062bb6641938fee6630b212960f",
+      "isHidden": false
+    },
+    "15fc74d0197643e68794197ea45338d1": {
+      "id": "15fc74d0197643e68794197ea45338d1",
+      "name": "hr_choice",
+      "label": "HR Choice",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Case summary",
+          "value": "Case summary"
+        },
+        {
+          "label": "Assigned cases",
+          "value": "Assigned cases"
+        },
+        {
+          "label": "Case Attention Insights",
+          "value": "Case Attention Insights",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "6a58c118c64f4f50a37a4cad36694595",
+      "isHidden": false
+    },
+    "257a9593ffb94fe3a1f1969725d5cca1": {
+      "id": "257a9593ffb94fe3a1f1969725d5cca1",
+      "name": "final_confirm",
+      "label": "Final Confirm",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "af8f978cff9a4c8485521e4b24d651dc",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>New HR Agent</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 17:47:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>552759f73de603107f4483b25dacc69e</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_design_topic_552759f73de603107f4483b25dacc69e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 04:46:30</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

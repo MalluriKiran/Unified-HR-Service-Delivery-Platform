@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Status Read Only for Employees</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+
+    if (g_user.hasRole('x_snc_unified_hr_0.leave_employee') &&
+        !g_user.hasRole('x_snc_unified_hr_0.leave_hod') &&
+        !g_user.hasRole('x_snc_unified_hr_0.leave_hr')) {
+
+        g_form.setReadOnly('status', true);
+
+    } else {
+
+        g_form.setReadOnly('status', false);
+
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 04:13:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>857ca48ad12203107f44b93f16d71382</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Status Read Only for Employees</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_script_client_857ca48ad12203107f44b93f16d71382</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 05:27:23</sys_updated_on>
+        <table>x_snc_unified_hr_0_leave_request</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

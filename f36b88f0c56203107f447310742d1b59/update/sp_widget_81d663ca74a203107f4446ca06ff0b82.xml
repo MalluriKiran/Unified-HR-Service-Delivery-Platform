@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+
+    // ==========================================
+    // DELETE ONE NOTIFICATION
+    // ==========================================
+
+    c.deleteNotification = function(sysId) {
+
+        if (!sysId) {
+            return;
+        }
+
+        c.server.get({
+
+            action: 'delete',
+            sys_id: sysId
+
+        }).then(function(response) {
+
+            if (
+                response.data &&
+                response.data.error
+            ) {
+                return;
+            }
+
+            c.data.notifications =
+                c.data.notifications.filter(
+                    function(notification) {
+
+                        return notification.sys_id !== sysId;
+
+                    }
+                );
+
+        });
+
+    };
+
+
+    // ==========================================
+    // CLEAR ALL NOTIFICATIONS
+    // ==========================================
+
+    c.clearAll = function() {
+
+        if (
+            !c.data.notifications ||
+            c.data.notifications.length === 0
+        ) {
+            return;
+        }
+
+        if (
+            !confirm(
+                'Are you sure you want to clear all notifications?'
+            )
+        ) {
+            return;
+        }
+
+        c.server.get({
+
+            action: 'clear_all'
+
+        }).then(function(response) {
+
+            if (
+                response.data &&
+                response.data.error
+            ) {
+                return;
+            }
+
+            c.data.notifications = [];
+
+        });
+
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.employee-notifications {&#13;
+    padding: 25px;&#13;
+    background: #f7f9fc;&#13;
+    min-height: 500px;&#13;
+    font-family: Arial, sans-serif;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   HEADER&#13;
+   ============================= */&#13;
+&#13;
+.notification-header {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: space-between;&#13;
+    gap: 20px;&#13;
+    margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.notification-header-left h2 {&#13;
+    margin: 0;&#13;
+    font-size: 24px;&#13;
+    font-weight: 600;&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+.notification-subtitle {&#13;
+    margin: 5px 0 0;&#13;
+    color: #6b7280;&#13;
+    font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   HEADER BUTTONS&#13;
+   ============================= */&#13;
+&#13;
+.notification-header-actions {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 10px;&#13;
+}&#13;
+&#13;
+.clear-all-btn {&#13;
+    border: none;&#13;
+    border-radius: 7px;&#13;
+    padding: 9px 14px;&#13;
+    font-size: 13px;&#13;
+    font-weight: 600;&#13;
+    cursor: pointer;&#13;
+    background: #fdecec;&#13;
+    color: #d92d20;&#13;
+}&#13;
+&#13;
+.clear-all-btn:hover {&#13;
+    background: #fbd5d5;&#13;
+}&#13;
+&#13;
+.back-dashboard-btn {&#13;
+    border-radius: 7px;&#13;
+    padding: 9px 14px;&#13;
+    font-size: 13px;&#13;
+    font-weight: 600;&#13;
+    cursor: pointer;&#13;
+    text-decoration: none !important;&#13;
+    display: inline-flex;&#13;
+    align-items: center;&#13;
+    gap: 6px;&#13;
+    background: #eef4ff;&#13;
+    color: #1769e0 !important;&#13;
+}&#13;
+&#13;
+.back-dashboard-btn:hover {&#13;
+    background: #dfeaff;&#13;
+    text-decoration: none !important;&#13;
+    color: #1769e0 !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   ROLE INFO&#13;
+   ============================= */&#13;
+&#13;
+.notification-role-info {&#13;
+    margin-bottom: 16px;&#13;
+}&#13;
+&#13;
+.notification-role-info span {&#13;
+    display: inline-block;&#13;
+    padding: 6px 11px;&#13;
+    border-radius: 20px;&#13;
+    background: #eef4ff;&#13;
+    color: #1769e0;&#13;
+    font-size: 11px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   NOTIFICATION CARD&#13;
+   ============================= */&#13;
+&#13;
+.notification-card {&#13;
+    background: #ffffff;&#13;
+    border-radius: 10px;&#13;
+    padding: 18px;&#13;
+    margin-bottom: 12px;&#13;
+    display: flex;&#13;
+    gap: 15px;&#13;
+    border: 1px solid #e5e7eb;&#13;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);&#13;
+}&#13;
+&#13;
+.notification-card:hover {&#13;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   NOTIFICATION ICON&#13;
+   ============================= */&#13;
+&#13;
+.notification-icon {&#13;
+    width: 42px;&#13;
+    height: 42px;&#13;
+    min-width: 42px;&#13;
+    border-radius: 50%;&#13;
+    background: #eef6ff;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    font-size: 20px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   CONTENT&#13;
+   ============================= */&#13;
+&#13;
+.notification-content {&#13;
+    flex: 1;&#13;
+    min-width: 0;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   TITLE + DELETE&#13;
+   ============================= */&#13;
+&#13;
+.notification-title-row {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: space-between;&#13;
+    gap: 15px;&#13;
+}&#13;
+&#13;
+.notification-title-row h3 {&#13;
+    margin: 0 0 8px;&#13;
+    font-size: 16px;&#13;
+    font-weight: 600;&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   DELETE BUTTON&#13;
+   ============================= */&#13;
+&#13;
+.delete-notification-btn {&#13;
+    border: none;&#13;
+    background: transparent;&#13;
+    color: #9ca3af;&#13;
+    font-size: 16px;&#13;
+    cursor: pointer;&#13;
+    padding: 5px 7px;&#13;
+    border-radius: 5px;&#13;
+}&#13;
+&#13;
+.delete-notification-btn:hover {&#13;
+    background: #fdecec;&#13;
+    color: #d92d20;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   MESSAGE&#13;
+   ============================= */&#13;
+&#13;
+.notification-message {&#13;
+    margin: 8px 0 12px;&#13;
+    color: #4b5563;&#13;
+    font-size: 14px;&#13;
+    line-height: 1.6;&#13;
+    white-space: pre-line;&#13;
+    word-break: break-word;&#13;
+    overflow-wrap: anywhere;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   DETAILS&#13;
+   ============================= */&#13;
+&#13;
+.notification-details {&#13;
+    display: flex;&#13;
+    gap: 20px;&#13;
+    color: #6b7280;&#13;
+    font-size: 12px;&#13;
+    flex-wrap: wrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   OPTIONAL VIEW LINK&#13;
+   ============================= */&#13;
+&#13;
+.notification-action {&#13;
+    margin-top: 12px;&#13;
+}&#13;
+&#13;
+.notification-action a {&#13;
+    color: #1769e0 !important;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 12px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+.notification-action a:hover {&#13;
+    text-decoration: underline !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   EMPTY STATE&#13;
+   ============================= */&#13;
+&#13;
+.no-notifications {&#13;
+    background: #ffffff;&#13;
+    border-radius: 10px;&#13;
+    padding: 60px 20px;&#13;
+    text-align: center;&#13;
+    border: 1px solid #e5e7eb;&#13;
+}&#13;
+&#13;
+.empty-icon {&#13;
+    font-size: 40px;&#13;
+    margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.no-notifications h3 {&#13;
+    margin: 5px 0;&#13;
+    font-size: 18px;&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+.no-notifications p {&#13;
+    color: #6b7280;&#13;
+    margin-bottom: 15px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   EMPTY PAGE DASHBOARD BUTTON&#13;
+   ============================= */&#13;
+&#13;
+.empty-dashboard-btn {&#13;
+    display: inline-flex;&#13;
+    align-items: center;&#13;
+    padding: 9px 14px;&#13;
+    border-radius: 7px;&#13;
+    background: #1769e0;&#13;
+    color: #ffffff !important;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 13px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+.empty-dashboard-btn:hover {&#13;
+    background: #0f5dcc;&#13;
+    color: #ffffff !important;&#13;
+    text-decoration: none !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =============================&#13;
+   RESPONSIVE&#13;
+   ============================= */&#13;
+&#13;
+@media (max-width: 768px) {&#13;
+&#13;
+    .employee-notifications {&#13;
+        padding: 15px;&#13;
+    }&#13;
+&#13;
+    .notification-header {&#13;
+        flex-direction: column;&#13;
+        align-items: flex-start;&#13;
+    }&#13;
+&#13;
+    .notification-header-actions {&#13;
+        width: 100%;&#13;
+        flex-wrap: wrap;&#13;
+    }&#13;
+&#13;
+    .notification-card {&#13;
+        padding: 14px;&#13;
+    }&#13;
+&#13;
+    .back-dashboard-btn,&#13;
+    .clear-all-btn {&#13;
+        width: auto;&#13;
+    }&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 520px) {&#13;
+&#13;
+    .notification-header-actions {&#13;
+        flex-direction: column;&#13;
+        align-items: stretch;&#13;
+    }&#13;
+&#13;
+    .back-dashboard-btn,&#13;
+    .clear-all-btn {&#13;
+        width: 100%;&#13;
+        justify-content: center;&#13;
+        text-align: center;&#13;
+    }&#13;
+&#13;
+    .notification-title-row {&#13;
+        align-items: flex-start;&#13;
+    }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>employee_notifications</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Employee Notifications</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // ==================================================
+    // INITIAL DATA
+    // ==================================================
+
+    data.notifications = [];
+
+    data.backDashboard = "employee_dashboard";
+    data.roleLabel = "Employee";
+
+    data.success = false;
+    data.error = false;
+    data.message = "";
+
+
+    // ==================================================
+    // ROLE BASED DASHBOARD
+    // ==================================================
+
+    var currentUser = gs.getUser();
+
+
+    // Admin
+    if (currentUser.hasRole('admin')) {
+
+        data.backDashboard =
+            "employee_dashboard";
+
+        data.roleLabel =
+            "Administrator";
+    }
+
+
+    // HR Agent / HR Manager dashboard
+    else if (
+        currentUser.hasRole(
+            'x_snc_unified_hr_0.hr_agent'
+        )
+    ) {
+
+        data.backDashboard =
+            "hr_dashboard";
+
+        data.roleLabel =
+            "HR";
+    }
+
+
+    // HOD
+    else if (
+        currentUser.hasRole(
+            'x_snc_unified_hr_0.hod'
+        )
+    ) {
+
+        data.backDashboard =
+            "hod_dashboard";
+
+        data.roleLabel =
+            "Head of Department";
+    }
+
+
+    // Employee
+    else if (
+        currentUser.hasRole(
+            'x_snc_unified_hr_0.employee'
+        )
+    ) {
+
+        data.backDashboard =
+            "employee_dashboard";
+
+        data.roleLabel =
+            "Employee";
+    }
+
+
+    // ==========================================
+	// DELETE ONE NOTIFICATION
+	// ==========================================
+
+	if (input && input.action == 'delete') {
+
+		if (input.sys_id) {
+
+			var deleteGR =
+				new GlideRecord('ui_notification_inbox');
+
+			if (deleteGR.get(input.sys_id)) {
+
+				// User can modify only
+				// their own notification
+				if (
+					deleteGR.getValue('recipient') ==
+					gs.getUserID()
+				) {
+
+					deleteGR.setValue(
+						'status',
+						'deleted'
+					);
+
+					deleteGR.update();
+				}
+			}
+		}
+
+		return;
+	}
+
+   // ==========================================
+	// CLEAR ALL NOTIFICATIONS
+	// ==========================================
+
+	if (input && input.action == 'clear_all') {
+
+		var clearGR =
+			new GlideRecord('ui_notification_inbox');
+
+		clearGR.addQuery(
+			'recipient',
+			gs.getUserID()
+		);
+
+		clearGR.addQuery(
+			'status',
+			'!=',
+			'deleted'
+		);
+
+		clearGR.query();
+
+		while (clearGR.next()) {
+
+			clearGR.setValue(
+				'status',
+				'deleted'
+			);
+
+			clearGR.update();
+		}
+
+		return;
+	}
+
+    // ==================================================
+    // LOAD NOTIFICATIONS
+    // ==================================================
+
+    var gr =
+        new GlideRecord(
+            'ui_notification_inbox'
+        );
+
+
+    gr.addQuery(
+        'recipient',
+        gs.getUserID()
+    );
+
+
+    gr.addQuery(
+        'status',
+        '!=',
+        'deleted'
+    );
+
+
+    gr.orderByDesc(
+        'created'
+    );
+
+
+    gr.query();
+
+
+    // ==================================================
+    // BUILD NOTIFICATION DATA
+    // ==================================================
+
+    while (gr.next()) {
+
+        var message = "";
+
+        var payload =
+            gr.getValue(
+                'payload'
+            );
+
+
+        if (payload) {
+
+            try {
+
+                var payloadObj =
+                    JSON.parse(
+                        payload
+                    );
+
+
+                if (payloadObj.message) {
+
+                    message =
+                        payloadObj.message;
+
+                }
+
+                else if (payloadObj.text) {
+
+                    message =
+                        payloadObj.text;
+
+                }
+
+                else {
+
+                    message =
+                        payload;
+                }
+
+            }
+
+            catch (e) {
+
+                message =
+                    payload;
+            }
+        }
+
+
+        data.notifications.push({
+
+            sys_id:
+                gr.getUniqueValue(),
+
+            title:
+                gr.getDisplayValue(
+                    'triggered_by'
+                ) || "Notification",
+
+            message:
+                message,
+
+            created:
+                gr.getDisplayValue(
+                    'created'
+                ),
+
+            target:
+                gr.getDisplayValue(
+                    'target'
+                ),
+
+            targetTable:
+                gr.getValue(
+                    'target_table'
+                ),
+
+            status:
+                gr.getValue(
+                    'status'
+                )
+
+        });
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 17:48:21</sys_created_on>
+        <sys_id>81d663ca74a203107f4446ca06ff0b82</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Employee Notifications</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_81d663ca74a203107f4446ca06ff0b82</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 16:43:56</sys_updated_on>
+        <template><![CDATA[<div class="employee-notifications">
+
+    <!-- ==================================================
+         HEADER
+         ================================================== -->
+
+    <div class="notification-header">
+
+        <div class="notification-header-left">
+
+            <h2>
+                ]]>🔔<![CDATA[ My Notifications
+            </h2>
+
+            <p class="notification-subtitle">
+                View your latest notifications and updates.
+            </p>
+
+        </div>
+
+
+        <div class="notification-header-actions">
+
+            <!-- CLEAR ALL -->
+
+            <button
+                type="button"
+                class="clear-all-btn"
+                ng-if="data.notifications.length > 0"
+                ng-click="c.clearAll()">
+
+                ]]>🗑<![CDATA[ Clear All
+
+            </button>
+
+
+            <!-- DYNAMIC BACK TO DASHBOARD -->
+
+            <a
+                href="?id={{data.backDashboard}}"
+                class="back-dashboard-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         ROLE INFORMATION
+         ================================================== -->
+
+    <div class="notification-role-info"
+         ng-if="data.roleLabel">
+
+        <span>
+            {{data.roleLabel}}
+        </span>
+
+    </div>
+
+
+    <!-- ==================================================
+         EMPTY STATE
+         ================================================== -->
+
+    <div
+        ng-if="data.notifications.length === 0"
+        class="no-notifications">
+
+        <div class="empty-icon">
+            ]]>🔔
+<![CDATA[        </div>
+
+        <h3>
+            No notifications
+        </h3>
+
+        <p>
+            You are all caught up!
+        </p>
+
+
+        <!-- DYNAMIC DASHBOARD LINK -->
+
+        <a
+            href="?id={{data.backDashboard}}"
+            class="empty-dashboard-btn">
+
+            ← Back to Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- ==================================================
+         NOTIFICATION LIST
+         ================================================== -->
+
+    <div
+        ng-repeat="
+            notification in data.notifications
+            track by notification.sys_id
+        "
+        class="notification-card">
+
+
+        <!-- ICON -->
+
+        <div class="notification-icon">
+
+            ]]>🔔
+
+<![CDATA[        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="notification-content">
+
+
+            <!-- TITLE + DELETE -->
+
+            <div class="notification-title-row">
+
+                <h3>
+                    {{notification.title}}
+                </h3>
+
+
+                <button
+                    type="button"
+                    class="delete-notification-btn"
+                    ng-click="
+                        c.deleteNotification(
+                            notification.sys_id
+                        )
+                    "
+                    title="Delete notification">
+
+                    ]]>🗑
+
+<![CDATA[                </button>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p class="notification-message">
+
+                {{notification.message}}
+
+            </p>
+
+
+            <!-- DETAILS -->
+
+            <div class="notification-details">
+
+                <span>
+
+                    ]]>🕒<![CDATA[ {{notification.created}}
+
+                </span>
+
+
+                <span ng-if="notification.target">
+
+                    ]]>📄<![CDATA[ {{notification.target}}
+
+                </span>
+
+            </div>
+
+
+            <!-- OPTIONAL VIEW LINK -->
+
+            <div class="notification-action"
+                 ng-if="notification.url">
+
+                <a ng-href="{{notification.url}}">
+
+                    View Details →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

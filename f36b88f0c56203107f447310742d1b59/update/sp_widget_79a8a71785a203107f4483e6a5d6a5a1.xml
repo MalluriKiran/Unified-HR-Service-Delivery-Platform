@@ -1,0 +1,2813 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+    c.reviewRequest =
+        function(request) {
+
+            if (
+                !request ||
+                !request.sys_id
+            ) {
+                return;
+            }
+
+            window.location.href =
+                "?id=hr_leave_request_review&sys_id=" +
+                request.sys_id;
+
+        };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* =========================================================&#13;
+   SHELL&#13;
+========================================================= */&#13;
+&#13;
+.hla-shell {&#13;
+  display: flex;&#13;
+  width: 100%;&#13;
+  min-height: calc(100vh - 60px);&#13;
+  background: #f4f7fb;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.hla-shell *,&#13;
+.hla-shell *::before,&#13;
+.hla-shell *::after {&#13;
+  box-sizing: border-box;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   SIDEBAR&#13;
+========================================================= */&#13;
+&#13;
+.hla-sidebar {&#13;
+  position: sticky;&#13;
+  top: 0;&#13;
+  width: 235px;&#13;
+  min-width: 235px;&#13;
+  height: calc(100vh - 60px);&#13;
+  padding: 22px 14px;&#13;
+  background: #063b4c;&#13;
+  color: #ffffff;&#13;
+  overflow-y: auto;&#13;
+  align-self: flex-start;&#13;
+}&#13;
+&#13;
+&#13;
+/* BRAND */&#13;
+&#13;
+.hla-brand {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 12px;&#13;
+  padding: 0 4px 18px;&#13;
+  border-bottom: 1px solid rgba(255,255,255,.12);&#13;
+}&#13;
+&#13;
+.hla-brand-icon {&#13;
+  width: 42px;&#13;
+  height: 42px;&#13;
+  min-width: 42px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  background: #ffffff;&#13;
+  color: #1452c8;&#13;
+  border-radius: 10px;&#13;
+  font-size: 18px;&#13;
+  font-weight: 800;&#13;
+}&#13;
+&#13;
+.hla-brand strong {&#13;
+  display: block;&#13;
+  color: #ffffff;&#13;
+  font-size: 16px;&#13;
+}&#13;
+&#13;
+.hla-brand span {&#13;
+  display: block;&#13;
+  margin-top: 2px;&#13;
+  color: #b6cbd3;&#13;
+  font-size: 10px;&#13;
+}&#13;
+&#13;
+&#13;
+/* USER */&#13;
+&#13;
+.hla-sidebar-user {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 11px;&#13;
+  padding: 18px 4px;&#13;
+}&#13;
+&#13;
+.hla-sidebar-avatar {&#13;
+  width: 40px;&#13;
+  height: 40px;&#13;
+  min-width: 40px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  border-radius: 50%;&#13;
+  background: #1a7184;&#13;
+  color: #ffffff;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-sidebar-user strong {&#13;
+  display: block;&#13;
+  color: #ffffff;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+.hla-sidebar-user span {&#13;
+  display: block;&#13;
+  margin-top: 3px;&#13;
+  color: #a7c0c8;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+&#13;
+/* NAVIGATION */&#13;
+&#13;
+.hla-nav-heading {&#13;
+  margin: 20px 8px 8px;&#13;
+  color: #85a5af;&#13;
+  font-size: 8px;&#13;
+  font-weight: 700;&#13;
+  letter-spacing: .8px;&#13;
+}&#13;
+&#13;
+.hla-nav-item {&#13;
+  position: relative;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  min-height: 42px;&#13;
+  gap: 10px;&#13;
+  margin-bottom: 4px;&#13;
+  padding: 9px 10px;&#13;
+  border-radius: 7px;&#13;
+  color: #e7f2f5;&#13;
+  text-decoration: none !important;&#13;
+  font-size: 10px;&#13;
+  font-weight: 600;&#13;
+  transition: all .2s ease;&#13;
+}&#13;
+&#13;
+.hla-nav-item:hover {&#13;
+  background: rgba(255,255,255,.08);&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+.hla-nav-item.active {&#13;
+  background: #145468;&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+.hla-nav-item.active::before {&#13;
+  content: "";&#13;
+  position: absolute;&#13;
+  left: 0;&#13;
+  top: 8px;&#13;
+  bottom: 8px;&#13;
+  width: 3px;&#13;
+  border-radius: 5px;&#13;
+  background: #7be34d;&#13;
+}&#13;
+&#13;
+.hla-nav-icon {&#13;
+  width: 17px;&#13;
+  min-width: 17px;&#13;
+  text-align: center;&#13;
+  color: #d9ebef;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.hla-nav-item.active .hla-nav-icon {&#13;
+  color: #86ef66;&#13;
+}&#13;
+&#13;
+.hla-nav-count {&#13;
+  margin-left: auto;&#13;
+  min-width: 20px;&#13;
+  height: 20px;&#13;
+  padding: 0 5px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  border-radius: 20px;&#13;
+  background: #59d66e;&#13;
+  color: #063b4c;&#13;
+  font-size: 8px;&#13;
+  font-weight: 800;&#13;
+}&#13;
+&#13;
+&#13;
+/* FOOTER */&#13;
+&#13;
+.hla-sidebar-footer {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 7px;&#13;
+  margin: 30px 7px 0;&#13;
+  padding-top: 14px;&#13;
+  border-top: 1px solid rgba(255,255,255,.1);&#13;
+  color: #9bb5bd;&#13;
+  font-size: 8px;&#13;
+}&#13;
+&#13;
+.hla-security-dot {&#13;
+  width: 7px;&#13;
+  height: 7px;&#13;
+  border-radius: 50%;&#13;
+  background: #5ee16f;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   MAIN&#13;
+========================================================= */&#13;
+&#13;
+.hla-main {&#13;
+  flex: 1;&#13;
+  min-width: 0;&#13;
+  background: #f4f7fb;&#13;
+}&#13;
+&#13;
+.hla-page {&#13;
+  max-width: 1500px;&#13;
+  margin: 0 auto;&#13;
+  padding: 28px 28px 45px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   HEADER&#13;
+========================================================= */&#13;
+&#13;
+.hla-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.hla-header h1 {&#13;
+  margin: 0 0 7px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #10245f;&#13;
+}&#13;
+&#13;
+.hla-header p {&#13;
+  margin: 0;&#13;
+  color: #738096;&#13;
+  font-size: 12px;&#13;
+  line-height: 1.6;&#13;
+}&#13;
+&#13;
+.hla-user-card {&#13;
+  min-width: 210px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 11px;&#13;
+  padding: 11px 14px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 12px;&#13;
+  box-shadow: 0 3px 12px rgba(15,23,42,.05);&#13;
+}&#13;
+&#13;
+.hla-avatar {&#13;
+  width: 43px;&#13;
+  height: 43px;&#13;
+  min-width: 43px;&#13;
+  border-radius: 50%;&#13;
+  background: #e8f0ff;&#13;
+  color: #2856c7;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 14px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-user-card strong {&#13;
+  display: block;&#13;
+  color: #172554;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+.hla-user-card span {&#13;
+  display: block;&#13;
+  margin-top: 3px;&#13;
+  color: #8490a5;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   KPI CARDS&#13;
+========================================================= */&#13;
+&#13;
+.hla-kpi-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, minmax(0,1fr));&#13;
+  gap: 16px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.hla-kpi-card {&#13;
+  min-height: 145px;&#13;
+  display: flex;&#13;
+  align-items: flex-start;&#13;
+  gap: 15px;&#13;
+  padding: 20px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 14px;&#13;
+  box-shadow: 0 4px 15px rgba(15,23,42,.05);&#13;
+  text-decoration: none !important;&#13;
+  transition: transform .2s ease,&#13;
+              box-shadow .2s ease;&#13;
+}&#13;
+&#13;
+.hla-kpi-card:hover {&#13;
+  transform: translateY(-2px);&#13;
+  box-shadow: 0 8px 22px rgba(15,23,42,.08);&#13;
+}&#13;
+&#13;
+.hla-kpi-icon {&#13;
+  width: 48px;&#13;
+  height: 48px;&#13;
+  min-width: 48px;&#13;
+  border-radius: 50%;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 21px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-kpi-card.pending .hla-kpi-icon {&#13;
+  background: #fff4d8;&#13;
+  color: #c97b00;&#13;
+}&#13;
+&#13;
+.hla-kpi-card.approved .hla-kpi-icon {&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+}&#13;
+&#13;
+.hla-kpi-card.rejected .hla-kpi-icon {&#13;
+  background: #fee2e2;&#13;
+  color: #b91c1c;&#13;
+}&#13;
+&#13;
+.hla-kpi-card.total .hla-kpi-icon {&#13;
+  background: #e8efff;&#13;
+  color: #315ecf;&#13;
+}&#13;
+&#13;
+.hla-kpi-content {&#13;
+  flex: 1;&#13;
+}&#13;
+&#13;
+.hla-kpi-label {&#13;
+  display: block;&#13;
+  margin-bottom: 7px;&#13;
+  color: #49566f;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-kpi-number {&#13;
+  display: block;&#13;
+  margin-bottom: 5px;&#13;
+  color: #10245f;&#13;
+  font-size: 29px;&#13;
+  line-height: 1;&#13;
+}&#13;
+&#13;
+.hla-kpi-content p {&#13;
+  margin: 0;&#13;
+  color: #8792a6;&#13;
+  font-size: 9px;&#13;
+  line-height: 1.5;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   CARD&#13;
+========================================================= */&#13;
+&#13;
+.hla-card {&#13;
+  scroll-margin-top: 20px;&#13;
+  margin-bottom: 22px;&#13;
+  padding: 21px;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 14px;&#13;
+  box-shadow: 0 4px 15px rgba(15,23,42,.045);&#13;
+}&#13;
+&#13;
+.hla-section-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: flex-start;&#13;
+  gap: 15px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.hla-section-header h2 {&#13;
+  margin: 0 0 5px;&#13;
+  color: #152354;&#13;
+  font-size: 17px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-section-header p {&#13;
+  margin: 0;&#13;
+  max-width: 720px;&#13;
+  color: #7b879c;&#13;
+  font-size: 10px;&#13;
+  line-height: 1.55;&#13;
+}&#13;
+&#13;
+.hla-count-badge {&#13;
+  padding: 7px 12px;&#13;
+  border-radius: 20px;&#13;
+  background: #fff4d8;&#13;
+  color: #b56600;&#13;
+  font-size: 9px;&#13;
+  font-weight: 700;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.analytics-badge {&#13;
+  padding: 7px 11px;&#13;
+  border-radius: 18px;&#13;
+  background: #e8efff;&#13;
+  color: #315ecf;&#13;
+  font-size: 8px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   TABLE&#13;
+========================================================= */&#13;
+&#13;
+.hla-table-wrapper {&#13;
+  width: 100%;&#13;
+  overflow-x: auto;&#13;
+}&#13;
+&#13;
+.hla-table {&#13;
+  width: 100%;&#13;
+  min-width: 1120px;&#13;
+  border-collapse: collapse;&#13;
+}&#13;
+&#13;
+.hla-table thead {&#13;
+  background: #f6f8fc;&#13;
+}&#13;
+&#13;
+.hla-table th {&#13;
+  padding: 11px 10px;&#13;
+  border-bottom: 1px solid #e5eaf1;&#13;
+  text-align: left;&#13;
+  color: #47536b;&#13;
+  font-size: 9px;&#13;
+  font-weight: 700;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.hla-table td {&#13;
+  padding: 12px 10px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+  vertical-align: middle;&#13;
+  color: #334155;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.hla-table tbody tr:hover {&#13;
+  background: #fafcff;&#13;
+}&#13;
+&#13;
+.hla-table tbody tr:last-child td {&#13;
+  border-bottom: none;&#13;
+}&#13;
+&#13;
+.request-number {&#13;
+  display: block;&#13;
+  margin-bottom: 4px;&#13;
+  color: #1769e0;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.hla-table td small {&#13;
+  color: #94a3b8;&#13;
+  font-size: 7px;&#13;
+}&#13;
+&#13;
+.department-pill {&#13;
+  display: inline-block;&#13;
+  padding: 5px 8px;&#13;
+  border-radius: 14px;&#13;
+  background: #eef2ff;&#13;
+  color: #4054b2;&#13;
+  font-size: 8px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.date-range {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 5px;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.date-arrow {&#13;
+  color: #94a3b8;&#13;
+}&#13;
+&#13;
+.muted {&#13;
+  color: #94a3b8;&#13;
+  font-style: italic;&#13;
+}&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-block;&#13;
+  padding: 5px 9px;&#13;
+  border-radius: 14px;&#13;
+  font-size: 8px;&#13;
+  font-weight: 700;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.pending-status {&#13;
+  background: #fff4d8;&#13;
+  color: #b56600;&#13;
+}&#13;
+&#13;
+.hla-review-btn {&#13;
+  min-width: 68px;&#13;
+  padding: 7px 11px;&#13;
+  border: 1px solid #2e9148;&#13;
+  border-radius: 7px;&#13;
+  background: #ffffff;&#13;
+  color: #23783a;&#13;
+  cursor: pointer;&#13;
+  font-size: 8px;&#13;
+  font-weight: 700;&#13;
+  transition: .2s;&#13;
+}&#13;
+&#13;
+.hla-review-btn:hover {&#13;
+  background: #ecfdf3;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   EMPTY&#13;
+========================================================= */&#13;
+&#13;
+.hla-empty {&#13;
+  padding: 42px 20px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.hla-empty.small {&#13;
+  padding: 24px 10px;&#13;
+  color: #94a3b8;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.hla-empty-icon {&#13;
+  width: 55px;&#13;
+  height: 55px;&#13;
+  margin: 0 auto 14px;&#13;
+  border-radius: 50%;&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 27px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.hla-empty h3 {&#13;
+  margin: 0 0 5px;&#13;
+  color: #172554;&#13;
+  font-size: 16px;&#13;
+}&#13;
+&#13;
+.hla-empty p {&#13;
+  margin: 0;&#13;
+  color: #94a3b8;&#13;
+  font-size: 10px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   ANALYTICS&#13;
+========================================================= */&#13;
+&#13;
+.hla-analytics-grid {&#13;
+  scroll-margin-top: 20px;&#13;
+  display: grid;&#13;
+  grid-template-columns: 1.35fr .85fr;&#13;
+  gap: 20px;&#13;
+}&#13;
+&#13;
+&#13;
+/* DEPARTMENT */&#13;
+&#13;
+.department-list {&#13;
+  max-height: 530px;&#13;
+  overflow-y: auto;&#13;
+  padding-right: 5px;&#13;
+}&#13;
+&#13;
+.department-row {&#13;
+  padding: 14px 0;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+}&#13;
+&#13;
+.department-row:last-child {&#13;
+  border-bottom: none;&#13;
+}&#13;
+&#13;
+.department-row-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.department-row-header strong {&#13;
+  color: #172554;&#13;
+  font-size: 10px;&#13;
+}&#13;
+&#13;
+.department-row-header span {&#13;
+  margin-left: 8px;&#13;
+  color: #94a3b8;&#13;
+  font-size: 8px;&#13;
+}&#13;
+&#13;
+.department-total {&#13;
+  min-width: 25px;&#13;
+  text-align: right;&#13;
+  color: #315ecf !important;&#13;
+  font-size: 11px !important;&#13;
+}&#13;
+&#13;
+.analytics-bar {&#13;
+  width: 100%;&#13;
+  height: 7px;&#13;
+  overflow: hidden;&#13;
+  margin-bottom: 9px;&#13;
+  border-radius: 10px;&#13;
+  background: #eef2f7;&#13;
+}&#13;
+&#13;
+.analytics-bar-fill {&#13;
+  height: 100%;&#13;
+  min-width: 4px;&#13;
+  border-radius: 10px;&#13;
+  background: linear-gradient(&#13;
+    90deg,&#13;
+    #4f6ee8,&#13;
+    #7387ec&#13;
+  );&#13;
+}&#13;
+&#13;
+.department-stats {&#13;
+  display: grid;&#13;
+  grid-template-columns:&#13;
+    repeat(4,minmax(0,1fr));&#13;
+  gap: 8px;&#13;
+}&#13;
+&#13;
+.department-stats span {&#13;
+  color: #8691a5;&#13;
+  font-size: 7px;&#13;
+}&#13;
+&#13;
+.department-stats strong {&#13;
+  margin-left: 3px;&#13;
+  color: #334155;&#13;
+  font-size: 8px;&#13;
+}&#13;
+&#13;
+&#13;
+/* LEAVE TYPE */&#13;
+&#13;
+.leave-type-row {&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.leave-type-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 7px;&#13;
+}&#13;
+&#13;
+.leave-type-header span {&#13;
+  color: #445066;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.leave-type-header strong {&#13;
+  color: #172554;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.leave-type-bar {&#13;
+  width: 100%;&#13;
+  height: 7px;&#13;
+  overflow: hidden;&#13;
+  border-radius: 10px;&#13;
+  background: #eef2f7;&#13;
+}&#13;
+&#13;
+.leave-type-fill {&#13;
+  height: 100%;&#13;
+  min-width: 4px;&#13;
+  border-radius: 10px;&#13;
+  background: linear-gradient(&#13;
+    90deg,&#13;
+    #20a77b,&#13;
+    #42c596&#13;
+  );&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   STATUS&#13;
+========================================================= */&#13;
+&#13;
+.status-overview {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 45px;&#13;
+  padding: 10px 5px 5px;&#13;
+}&#13;
+&#13;
+.status-donut {&#13;
+  position: relative;&#13;
+  width: 180px;&#13;
+  height: 180px;&#13;
+  min-width: 180px;&#13;
+  border-radius: 50%;&#13;
+}&#13;
+&#13;
+.status-donut::after {&#13;
+  content: "";&#13;
+  position: absolute;&#13;
+  inset: 38px;&#13;
+  border-radius: 50%;&#13;
+  background: #ffffff;&#13;
+}&#13;
+&#13;
+.status-donut-center {&#13;
+  position: absolute;&#13;
+  z-index: 2;&#13;
+  inset: 0;&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+}&#13;
+&#13;
+.status-donut-center strong {&#13;
+  color: #172554;&#13;
+  font-size: 25px;&#13;
+}&#13;
+&#13;
+.status-donut-center span {&#13;
+  margin-top: 2px;&#13;
+  color: #94a3b8;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.status-legend {&#13;
+  flex: 1;&#13;
+  max-width: 500px;&#13;
+}&#13;
+&#13;
+.legend-item {&#13;
+  display: grid;&#13;
+  grid-template-columns:&#13;
+    12px 1fr auto;&#13;
+  align-items: center;&#13;
+  gap: 9px;&#13;
+  padding: 10px 0;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+}&#13;
+&#13;
+.legend-item:last-child {&#13;
+  border-bottom: none;&#13;
+}&#13;
+&#13;
+.legend-item &gt; span:nth-child(2) {&#13;
+  color: #4a5568;&#13;
+  font-size: 9px;&#13;
+}&#13;
+&#13;
+.legend-item strong {&#13;
+  color: #172554;&#13;
+  font-size: 10px;&#13;
+}&#13;
+&#13;
+.legend-dot {&#13;
+  width: 9px;&#13;
+  height: 9px;&#13;
+  border-radius: 50%;&#13;
+}&#13;
+&#13;
+.pending-dot {&#13;
+  background: #f59e0b;&#13;
+}&#13;
+&#13;
+.approved-dot {&#13;
+  background: #22c55e;&#13;
+}&#13;
+&#13;
+.rejected-dot {&#13;
+  background: #ef4444;&#13;
+}&#13;
+&#13;
+.cancelled-dot {&#13;
+  background: #8b5cf6;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   ACCESS DENIED&#13;
+========================================================= */&#13;
+&#13;
+.hla-access-denied {&#13;
+  max-width: 600px;&#13;
+  margin: 80px auto;&#13;
+  padding: 35px;&#13;
+  text-align: center;&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 14px;&#13;
+  box-shadow: 0 6px 20px rgba(15,23,42,.07);&#13;
+}&#13;
+&#13;
+.access-icon {&#13;
+  margin-bottom: 12px;&#13;
+  font-size: 35px;&#13;
+}&#13;
+&#13;
+.hla-access-denied h2 {&#13;
+  margin: 0 0 8px;&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+.hla-access-denied p {&#13;
+  margin: 0 0 18px;&#13;
+  color: #738096;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+.hla-access-denied a {&#13;
+  color: #1769e0;&#13;
+  text-decoration: none;&#13;
+  font-size: 10px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   RESPONSIVE&#13;
+========================================================= */&#13;
+&#13;
+@media (max-width: 1100px) {&#13;
+&#13;
+  .hla-sidebar {&#13;
+    width: 210px;&#13;
+    min-width: 210px;&#13;
+  }&#13;
+&#13;
+  .hla-kpi-grid {&#13;
+    grid-template-columns:&#13;
+      repeat(2,minmax(0,1fr));&#13;
+  }&#13;
+&#13;
+  .hla-analytics-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 760px) {&#13;
+&#13;
+  .hla-shell {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .hla-sidebar {&#13;
+    position: relative;&#13;
+    width: 100%;&#13;
+    min-width: 100%;&#13;
+    height: auto;&#13;
+  }&#13;
+&#13;
+  .hla-page {&#13;
+    padding: 20px 14px 35px;&#13;
+  }&#13;
+&#13;
+  .hla-header {&#13;
+    flex-direction: column;&#13;
+    align-items: flex-start;&#13;
+  }&#13;
+&#13;
+  .hla-user-card {&#13;
+    width: 100%;&#13;
+  }&#13;
+&#13;
+  .hla-kpi-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .status-overview {&#13;
+    flex-direction: column;&#13;
+    align-items: flex-start;&#13;
+    gap: 24px;&#13;
+  }&#13;
+&#13;
+  .department-stats {&#13;
+    grid-template-columns:&#13;
+      repeat(2,minmax(0,1fr));&#13;
+  }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Dashboard for HR Team to review HOD-approved leave requests, process HR leave approvals, and view department-wise leave analytics.</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hr_leave_approval_dashboard</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HR Leave Approval Dashboard</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // =====================================================
+    // CONSTANTS
+    // =====================================================
+
+    var LEAVE_TABLE =
+        'x_snc_unified_hr_0_leave_request';
+
+    var HR_APPROVAL_GROUP =
+        'HR Team';
+
+
+    // =====================================================
+    // LOGGED-IN USER
+    // =====================================================
+
+    data.userId =
+        gs.getUserID();
+
+    data.userName =
+        gs.getUserDisplayName();
+
+    data.initials = "";
+
+    data.hasAccess = false;
+
+    data.error = false;
+
+    data.message = "";
+
+
+    var nameParts =
+        (data.userName || "").split(" ");
+
+    for (
+        var i = 0;
+        i < nameParts.length && i < 2;
+        i++
+    ) {
+
+        if (nameParts[i]) {
+
+            data.initials +=
+                nameParts[i]
+                    .charAt(0)
+                    .toUpperCase();
+        }
+    }
+
+
+    // =====================================================
+    // ACCESS CHECK
+    // =====================================================
+
+    var currentUser =
+        gs.getUser();
+
+
+    if (
+        !currentUser.isMemberOf(
+            HR_APPROVAL_GROUP
+        )
+    ) {
+
+        data.error = true;
+
+        data.message =
+            "You are not authorized to access the HR Leave Approval Dashboard.";
+
+        return;
+    }
+
+
+    data.hasAccess = true;
+
+
+
+    // =====================================================
+    // INITIALIZE DASHBOARD DATA
+    // =====================================================
+
+    data.pendingCount = 0;
+
+    data.approvedThisMonth = 0;
+
+    data.rejectedThisMonth = 0;
+
+    data.totalThisMonth = 0;
+
+
+    data.pendingRequests = [];
+
+    data.departmentAnalytics = [];
+
+    data.leaveTypeAnalytics = [];
+
+
+    data.statusAnalytics = {
+
+        pendingHR: 0,
+
+        approved: 0,
+
+        rejected: 0,
+
+        cancelled: 0,
+
+        total: 0
+
+    };
+
+
+    // =====================================================
+    // PENDING HR APPROVAL COUNT
+    // =====================================================
+
+    var pendingGA =
+        new GlideAggregate(
+            LEAVE_TABLE
+        );
+
+    pendingGA.addQuery(
+        'status',
+        'pending_hr'
+    );
+
+    pendingGA.addAggregate(
+        'COUNT'
+    );
+
+    pendingGA.query();
+
+
+    if (
+        pendingGA.next()
+    ) {
+
+        data.pendingCount =
+            parseInt(
+                pendingGA.getAggregate(
+                    'COUNT'
+                ),
+                10
+            ) || 0;
+    }
+
+
+
+    // =====================================================
+    // APPROVED THIS MONTH
+    // =====================================================
+
+    var approvedGA =
+        new GlideAggregate(
+            LEAVE_TABLE
+        );
+
+    approvedGA.addQuery(
+        'status',
+        'approved'
+    );
+
+    approvedGA.addQuery(
+        'sys_updated_on',
+        '>=',
+        gs.beginningOfThisMonth()
+    );
+
+    approvedGA.addQuery(
+        'sys_updated_on',
+        '<=',
+        gs.endOfThisMonth()
+    );
+
+    approvedGA.addAggregate(
+        'COUNT'
+    );
+
+    approvedGA.query();
+
+
+    if (
+        approvedGA.next()
+    ) {
+
+        data.approvedThisMonth =
+            parseInt(
+                approvedGA.getAggregate(
+                    'COUNT'
+                ),
+                10
+            ) || 0;
+    }
+
+
+
+    // =====================================================
+    // REJECTED THIS MONTH
+    // =====================================================
+
+    var rejectedGA =
+        new GlideAggregate(
+            LEAVE_TABLE
+        );
+
+    rejectedGA.addQuery(
+        'status',
+        'rejected'
+    );
+
+    rejectedGA.addQuery(
+        'sys_updated_on',
+        '>=',
+        gs.beginningOfThisMonth()
+    );
+
+    rejectedGA.addQuery(
+        'sys_updated_on',
+        '<=',
+        gs.endOfThisMonth()
+    );
+
+    rejectedGA.addAggregate(
+        'COUNT'
+    );
+
+    rejectedGA.query();
+
+
+    if (
+        rejectedGA.next()
+    ) {
+
+        data.rejectedThisMonth =
+            parseInt(
+                rejectedGA.getAggregate(
+                    'COUNT'
+                ),
+                10
+            ) || 0;
+    }
+
+
+
+    // =====================================================
+    // TOTAL REQUESTS THIS MONTH
+    // =====================================================
+
+    var monthGA =
+        new GlideAggregate(
+            LEAVE_TABLE
+        );
+
+    monthGA.addQuery(
+        'applied_on',
+        '>=',
+        gs.beginningOfThisMonth()
+    );
+
+    monthGA.addQuery(
+        'applied_on',
+        '<=',
+        gs.endOfThisMonth()
+    );
+
+    monthGA.addAggregate(
+        'COUNT'
+    );
+
+    monthGA.query();
+
+
+    if (
+        monthGA.next()
+    ) {
+
+        data.totalThisMonth =
+            parseInt(
+                monthGA.getAggregate(
+                    'COUNT'
+                ),
+                10
+            ) || 0;
+    }
+
+
+
+    // =====================================================
+    // PENDING HR LEAVE REQUESTS
+    // =====================================================
+
+    var leaveGR =
+        new GlideRecord(
+            LEAVE_TABLE
+        );
+
+    leaveGR.addQuery(
+        'status',
+        'pending_hr'
+    );
+
+    leaveGR.orderByDesc(
+        'applied_on'
+    );
+
+    leaveGR.setLimit(20);
+
+    leaveGR.query();
+
+
+    while (
+        leaveGR.next()
+    ) {
+
+        data.pendingRequests.push({
+
+            sys_id:
+                leaveGR.getUniqueValue(),
+
+            number:
+                leaveGR.getDisplayValue(
+                    'number'
+                ),
+
+            employee:
+                leaveGR.getDisplayValue(
+                    'requested_by'
+                ),
+
+            department:
+                leaveGR.getDisplayValue(
+                    'department'
+                ),
+
+            leave_type:
+                leaveGR.getDisplayValue(
+                    'leave_type'
+                ),
+
+            start_date:
+                leaveGR.getDisplayValue(
+                    'start_date'
+                ),
+
+            end_date:
+                leaveGR.getDisplayValue(
+                    'end_date'
+                ),
+
+            number_of_days:
+                leaveGR.getDisplayValue(
+                    'number_of_leave_days'
+                ),
+
+            reason:
+                leaveGR.getDisplayValue(
+                    'reason'
+                ),
+
+            hod_remarks:
+                leaveGR.getDisplayValue(
+                    'hod_remarks'
+                ),
+
+            hr_remarks:
+                leaveGR.getDisplayValue(
+                    'hr_remarks'
+                ),
+
+            approval_group:
+                leaveGR.getDisplayValue(
+                    'approval_group'
+                ),
+
+            current_approver:
+                leaveGR.getDisplayValue(
+                    'current_approver'
+                ),
+
+            applied_on:
+                leaveGR.getDisplayValue(
+                    'applied_on'
+                ),
+
+            status:
+                leaveGR.getDisplayValue(
+                    'status'
+                ),
+
+            status_value:
+                leaveGR.getValue(
+                    'status'
+                )
+
+        });
+    }
+
+
+
+    // =====================================================
+    // DEPARTMENT-WISE LEAVE ANALYTICS
+    // =====================================================
+
+    var departmentMap = {};
+
+    var departmentGR =
+        new GlideRecord(
+            LEAVE_TABLE
+        );
+
+    departmentGR.query();
+
+
+    while (
+        departmentGR.next()
+    ) {
+
+        var departmentName =
+            departmentGR.getDisplayValue(
+                'department'
+            );
+
+
+        if (!departmentName) {
+
+            departmentName =
+                'Not Specified';
+        }
+
+
+        if (
+            !departmentMap[
+                departmentName
+            ]
+        ) {
+
+            departmentMap[
+                departmentName
+            ] = {
+
+                name:
+                    departmentName,
+
+                total:
+                    0,
+
+                pending:
+                    0,
+
+                approved:
+                    0,
+
+                rejected:
+                    0,
+
+                leave_days:
+                    0
+
+            };
+        }
+
+
+        departmentMap[
+            departmentName
+        ].total++;
+
+
+        var status =
+            departmentGR.getValue(
+                'status'
+            );
+
+
+        if (
+            status ==
+            'pending_hr'
+        ) {
+
+            departmentMap[
+                departmentName
+            ].pending++;
+        }
+
+
+        if (
+            status ==
+            'approved'
+        ) {
+
+            departmentMap[
+                departmentName
+            ].approved++;
+        }
+
+
+        if (
+            status ==
+            'rejected'
+        ) {
+
+            departmentMap[
+                departmentName
+            ].rejected++;
+        }
+
+
+        var leaveDays =
+            parseInt(
+                departmentGR.getValue(
+                    'number_of_leave_days'
+                ),
+                10
+            ) || 0;
+
+
+        departmentMap[
+            departmentName
+        ].leave_days +=
+            leaveDays;
+    }
+
+
+    var maxDepartmentCount = 0;
+
+
+    for (
+        var deptName
+        in departmentMap
+    ) {
+
+        if (
+            departmentMap[
+                deptName
+            ].total >
+            maxDepartmentCount
+        ) {
+
+            maxDepartmentCount =
+                departmentMap[
+                    deptName
+                ].total;
+        }
+    }
+
+
+    for (
+        var departmentName
+        in departmentMap
+    ) {
+
+        var departmentItem =
+            departmentMap[
+                departmentName
+            ];
+
+
+        departmentItem.percentage =
+            maxDepartmentCount > 0
+            ?
+            Math.round(
+                (
+                    departmentItem.total /
+                    maxDepartmentCount
+                ) * 100
+            )
+            :
+            0;
+
+
+        data.departmentAnalytics.push(
+            departmentItem
+        );
+    }
+
+
+    data.departmentAnalytics.sort(
+        function(a, b) {
+
+            return (
+                b.total -
+                a.total
+            );
+        }
+    );
+
+
+
+    // =====================================================
+    // LEAVE TYPE ANALYTICS
+    // =====================================================
+
+    var leaveTypeMap = {};
+
+    var typeGR =
+        new GlideRecord(
+            LEAVE_TABLE
+        );
+
+    typeGR.query();
+
+
+    while (
+        typeGR.next()
+    ) {
+
+        var leaveType =
+            typeGR.getDisplayValue(
+                'leave_type'
+            );
+
+
+        if (!leaveType) {
+
+            leaveType =
+                'Not Specified';
+        }
+
+
+        if (
+            !leaveTypeMap[
+                leaveType
+            ]
+        ) {
+
+            leaveTypeMap[
+                leaveType
+            ] = 0;
+        }
+
+
+        leaveTypeMap[
+            leaveType
+        ]++;
+    }
+
+
+    var maxTypeCount = 0;
+
+
+    for (
+        var typeName
+        in leaveTypeMap
+    ) {
+
+        if (
+            leaveTypeMap[
+                typeName
+            ] >
+            maxTypeCount
+        ) {
+
+            maxTypeCount =
+                leaveTypeMap[
+                    typeName
+                ];
+        }
+    }
+
+
+    for (
+        var leaveTypeName
+        in leaveTypeMap
+    ) {
+
+        var leaveTypeCount =
+            leaveTypeMap[
+                leaveTypeName
+            ];
+
+
+        data.leaveTypeAnalytics.push({
+
+            name:
+                leaveTypeName,
+
+            count:
+                leaveTypeCount,
+
+            percentage:
+                maxTypeCount > 0
+                ?
+                Math.round(
+                    (
+                        leaveTypeCount /
+                        maxTypeCount
+                    ) * 100
+                )
+                :
+                0
+
+        });
+    }
+
+
+    data.leaveTypeAnalytics.sort(
+        function(a, b) {
+
+            return (
+                b.count -
+                a.count
+            );
+        }
+    );
+
+
+
+    // =====================================================
+    // STATUS ANALYTICS
+    // =====================================================
+
+    var statusGR =
+        new GlideRecord(
+            LEAVE_TABLE
+        );
+
+    statusGR.query();
+
+
+    while (
+        statusGR.next()
+    ) {
+
+        var statusValue =
+            statusGR.getValue(
+                'status'
+            );
+
+
+        data.statusAnalytics.total++;
+
+
+        if (
+            statusValue ==
+            'pending_hr'
+        ) {
+
+            data.statusAnalytics
+                .pendingHR++;
+        }
+
+
+        if (
+            statusValue ==
+            'approved'
+        ) {
+
+            data.statusAnalytics
+                .approved++;
+        }
+
+
+        if (
+            statusValue ==
+            'rejected'
+        ) {
+
+            data.statusAnalytics
+                .rejected++;
+        }
+
+
+        if (
+            statusValue ==
+            'cancelled'
+        ) {
+
+            data.statusAnalytics
+                .cancelled++;
+        }
+    }
+
+
+
+    // =====================================================
+    // STATUS DONUT GRADIENT
+    // =====================================================
+
+    function buildGradient(
+        values,
+        colors
+    ) {
+
+        var total = 0;
+
+        var j;
+
+
+        for (
+            j = 0;
+            j < values.length;
+            j++
+        ) {
+
+            total +=
+                values[j];
+        }
+
+
+        if (
+            total == 0
+        ) {
+
+            return '#e5e7eb';
+        }
+
+
+        var current = 0;
+
+        var pieces = [];
+
+
+        for (
+            j = 0;
+            j < values.length;
+            j++
+        ) {
+
+            if (
+                values[j] == 0
+            ) {
+
+                continue;
+            }
+
+
+            var start =
+                (
+                    current /
+                    total
+                ) * 100;
+
+
+            current +=
+                values[j];
+
+
+            var end =
+                (
+                    current /
+                    total
+                ) * 100;
+
+
+            pieces.push(
+                colors[j] +
+                ' ' +
+                start +
+                '% ' +
+                end +
+                '%'
+            );
+        }
+
+
+        return (
+            'conic-gradient(' +
+            pieces.join(',') +
+            ')'
+        );
+    }
+
+
+    data.statusDonutGradient =
+        buildGradient(
+            [
+                data.statusAnalytics.pendingHR,
+                data.statusAnalytics.approved,
+                data.statusAnalytics.rejected,
+                data.statusAnalytics.cancelled
+            ],
+            [
+                '#f59e0b',
+                '#22c55e',
+                '#ef4444',
+                '#8b5cf6'
+            ]
+        );
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 15:07:32</sys_created_on>
+        <sys_id>79a8a71785a203107f4483e6a5d6a5a1</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>HR Leave Approval Dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_79a8a71785a203107f4483e6a5d6a5a1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 15:54:38</sys_updated_on>
+        <template><![CDATA[<div class="hla-shell" ng-if="data.hasAccess">
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <aside class="hla-sidebar">
+
+    <!-- BRAND -->
+
+    <div class="hla-brand">
+
+      <div class="hla-brand-icon">
+        U
+      </div>
+
+      <div>
+        <strong>Unified HR</strong>
+        <span>Leave Administration</span>
+      </div>
+
+    </div>
+
+
+    <!-- USER -->
+
+    <div class="hla-sidebar-user">
+
+      <div class="hla-sidebar-avatar">
+        {{data.initials}}
+      </div>
+
+      <div>
+
+        <strong>
+          {{data.userName}}
+        </strong>
+
+        <span>
+          HR Leave Approver
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <a href="#hla-dashboard"
+       class="hla-nav-item active">
+
+      <span class="hla-nav-icon">
+        ⌂
+      </span>
+
+      <span>
+        Dashboard
+      </span>
+
+    </a>
+
+
+    <!-- LEAVE MANAGEMENT -->
+
+    <div class="hla-nav-heading">
+      LEAVE MANAGEMENT
+    </div>
+
+
+    <a href="#pending-approvals"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ✓
+      </span>
+
+      <span>
+        Pending HR Approvals
+      </span>
+
+      <span class="hla-nav-count">
+        {{data.pendingCount}}
+      </span>
+
+    </a>
+
+
+    <a href="?id=leave_calendar"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ▦
+      </span>
+
+      <span>
+        Leave Calendar
+      </span>
+
+    </a>
+
+
+    <a href="#department-analytics"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ▥
+      </span>
+
+      <span>
+        Department Analytics
+      </span>
+
+    </a>
+
+
+    <a href="#leave-reports"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ▤
+      </span>
+
+      <span>
+        Leave Reports
+      </span>
+
+    </a>
+
+
+    <!-- RESOURCES -->
+
+    <div class="hla-nav-heading">
+      RESOURCES
+    </div>
+
+
+    <a href="?id=knowledge"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ▣
+      </span>
+
+      <span>
+        HR Policies
+      </span>
+
+    </a>
+
+
+    <a href="javascript:void(0)"
+       class="hla-nav-item">
+
+      <span class="hla-nav-icon">
+        ♫
+      </span>
+
+      <span>
+        Notifications
+      </span>
+
+    </a>
+
+
+    <!-- SIDEBAR FOOTER -->
+
+    <div class="hla-sidebar-footer">
+
+      <div class="hla-security-dot">
+      </div>
+
+      <span>
+        HR Team Secure Access
+      </span>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main class="hla-main">
+
+    <div class="hla-page"
+         id="hla-dashboard">
+
+
+      <!-- =================================================
+           HEADER
+      ================================================== -->
+
+      <div class="hla-header">
+
+        <div>
+
+          <h1>
+            HR Leave Approval Dashboard
+          </h1>
+
+          <p>
+            Review HOD-approved leave requests and monitor
+            leave activity across university departments.
+          </p>
+
+        </div>
+
+
+        <div class="hla-user-card">
+
+          <div class="hla-avatar">
+            {{data.initials}}
+          </div>
+
+          <div>
+
+            <strong>
+              {{data.userName}}
+            </strong>
+
+            <span>
+              HR Leave Approver
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           KPI CARDS
+      ================================================== -->
+
+      <div class="hla-kpi-grid">
+
+        <!-- PENDING -->
+
+        <a href="#pending-approvals"
+           class="hla-kpi-card pending">
+
+          <div class="hla-kpi-icon">
+            ⏳
+          </div>
+
+          <div class="hla-kpi-content">
+
+            <span class="hla-kpi-label">
+              Pending HR Approval
+            </span>
+
+            <strong class="hla-kpi-number">
+              {{data.pendingCount}}
+            </strong>
+
+            <p>
+              Waiting for HR decision
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <!-- APPROVED -->
+
+        <div class="hla-kpi-card approved">
+
+          <div class="hla-kpi-icon">
+            ✓
+          </div>
+
+          <div class="hla-kpi-content">
+
+            <span class="hla-kpi-label">
+              Approved This Month
+            </span>
+
+            <strong class="hla-kpi-number">
+              {{data.approvedThisMonth}}
+            </strong>
+
+            <p>
+              Leave requests approved
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- REJECTED -->
+
+        <div class="hla-kpi-card rejected">
+
+          <div class="hla-kpi-icon">
+            ✕
+          </div>
+
+          <div class="hla-kpi-content">
+
+            <span class="hla-kpi-label">
+              Rejected This Month
+            </span>
+
+            <strong class="hla-kpi-number">
+              {{data.rejectedThisMonth}}
+            </strong>
+
+            <p>
+              Leave requests rejected
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="hla-kpi-card total">
+
+          <div class="hla-kpi-icon">
+            ]]>📅
+<![CDATA[          </div>
+
+          <div class="hla-kpi-content">
+
+            <span class="hla-kpi-label">
+              Requests This Month
+            </span>
+
+            <strong class="hla-kpi-number">
+              {{data.totalThisMonth}}
+            </strong>
+
+            <p>
+              Total leave requests received
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PENDING APPROVALS
+      ================================================== -->
+
+      <section class="hla-card"
+               id="pending-approvals">
+
+        <div class="hla-section-header">
+
+          <div>
+
+            <h2>
+              Pending HR Approvals
+            </h2>
+
+            <p>
+              Leave requests already approved by the Department
+              HOD and waiting for final HR review.
+            </p>
+
+          </div>
+
+
+          <div class="hla-count-badge">
+            {{data.pendingCount}} Pending
+          </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="hla-table-wrapper"
+             ng-if="data.pendingRequests.length > 0">
+
+          <table class="hla-table">
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Request
+                </th>
+
+                <th>
+                  Employee
+                </th>
+
+                <th>
+                  Department
+                </th>
+
+                <th>
+                  Leave Type
+                </th>
+
+                <th>
+                  Duration
+                </th>
+
+                <th>
+                  Days
+                </th>
+
+                <th>
+                  HOD Remarks
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Action
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              <tr ng-repeat="request in data.pendingRequests">
+
+                <td>
+
+                  <strong class="request-number">
+                    {{request.number}}
+                  </strong>
+
+                  <small>
+                    {{request.applied_on}}
+                  </small>
+
+                </td>
+
+
+                <td>
+                  {{request.employee}}
+                </td>
+
+
+                <td>
+
+                  <span class="department-pill">
+
+                    {{request.department ||
+                      'Not Specified'}}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+                  {{request.leave_type}}
+                </td>
+
+
+                <td>
+
+                  <div class="date-range">
+
+                    <span>
+                      {{request.start_date}}
+                    </span>
+
+                    <span class="date-arrow">
+                      →
+                    </span>
+
+                    <span>
+                      {{request.end_date}}
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    {{request.number_of_days}}
+                  </strong>
+
+                </td>
+
+
+                <td>
+
+                  <span ng-if="request.hod_remarks">
+
+                    {{request.hod_remarks}}
+
+                  </span>
+
+
+                  <span class="muted"
+                        ng-if="!request.hod_remarks">
+
+                    No remarks
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <span class="status-pill pending-status">
+                    Pending HR
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <button type="button"
+                          class="hla-review-btn"
+                          ng-click="c.reviewRequest(request)">
+
+                    Review
+
+                  </button>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- EMPTY -->
+
+        <div class="hla-empty"
+             ng-if="data.pendingRequests.length == 0">
+
+          <div class="hla-empty-icon">
+            ✓
+          </div>
+
+          <h3>
+            No Pending HR Approvals
+          </h3>
+
+          <p>
+            All HOD-approved leave requests have been processed.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           ANALYTICS
+      ================================================== -->
+
+      <div class="hla-analytics-grid"
+           id="department-analytics">
+
+
+        <!-- DEPARTMENT -->
+
+        <section class="hla-card">
+
+          <div class="hla-section-header">
+
+            <div>
+
+              <h2>
+                Department-wise Leave Requests
+              </h2>
+
+              <p>
+                Leave demand across university departments.
+              </p>
+
+            </div>
+
+
+            <span class="analytics-badge">
+              Department Analytics
+            </span>
+
+          </div>
+
+
+          <div class="department-list"
+               ng-if="data.departmentAnalytics.length > 0">
+
+
+            <div class="department-row"
+                 ng-repeat="dept in data.departmentAnalytics">
+
+              <div class="department-row-header">
+
+                <div>
+
+                  <strong>
+                    {{dept.name}}
+                  </strong>
+
+                  <span>
+                    {{dept.total}} requests
+                  </span>
+
+                </div>
+
+
+                <strong class="department-total">
+                  {{dept.total}}
+                </strong>
+
+              </div>
+
+
+              <div class="analytics-bar">
+
+                <div class="analytics-bar-fill"
+                     ng-style="{
+                       'width':
+                         dept.percentage + '%'
+                     }">
+                </div>
+
+              </div>
+
+
+              <div class="department-stats">
+
+                <span>
+
+                  Pending
+
+                  <strong>
+                    {{dept.pending}}
+                  </strong>
+
+                </span>
+
+
+                <span>
+
+                  Approved
+
+                  <strong>
+                    {{dept.approved}}
+                  </strong>
+
+                </span>
+
+
+                <span>
+
+                  Rejected
+
+                  <strong>
+                    {{dept.rejected}}
+                  </strong>
+
+                </span>
+
+
+                <span>
+
+                  Leave Days
+
+                  <strong>
+                    {{dept.leave_days}}
+                  </strong>
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hla-empty small"
+               ng-if="data.departmentAnalytics.length == 0">
+
+            No department leave data available.
+
+          </div>
+
+        </section>
+
+
+
+        <!-- LEAVE TYPE -->
+
+        <section class="hla-card">
+
+          <div class="hla-section-header">
+
+            <div>
+
+              <h2>
+                Leave Requests by Type
+              </h2>
+
+              <p>
+                Distribution of requested leave categories.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="leave-type-list"
+               ng-if="data.leaveTypeAnalytics.length > 0">
+
+
+            <div class="leave-type-row"
+                 ng-repeat="type in data.leaveTypeAnalytics">
+
+              <div class="leave-type-header">
+
+                <span>
+                  {{type.name}}
+                </span>
+
+                <strong>
+                  {{type.count}}
+                </strong>
+
+              </div>
+
+
+              <div class="leave-type-bar">
+
+                <div class="leave-type-fill"
+                     ng-style="{
+                       'width':
+                         type.percentage + '%'
+                     }">
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hla-empty small"
+               ng-if="data.leaveTypeAnalytics.length == 0">
+
+            No leave type data available.
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+
+      <!-- =================================================
+           OVERALL LEAVE STATUS
+      ================================================== -->
+
+      <section class="hla-card"
+               id="leave-reports">
+
+        <div class="hla-section-header">
+
+          <div>
+
+            <h2>
+              Overall Leave Status
+            </h2>
+
+            <p>
+              Current distribution of leave request outcomes.
+            </p>
+
+          </div>
+
+
+          <span class="analytics-badge">
+            Leave Report
+          </span>
+
+        </div>
+
+
+        <div class="status-overview">
+
+
+          <div class="status-donut"
+               ng-style="{
+                 'background':
+                   data.statusDonutGradient
+               }">
+
+            <div class="status-donut-center">
+
+              <strong>
+                {{data.statusAnalytics.total}}
+              </strong>
+
+              <span>
+                Total
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="status-legend">
+
+
+            <div class="legend-item">
+
+              <span class="legend-dot pending-dot">
+              </span>
+
+              <span>
+                Pending HR
+              </span>
+
+              <strong>
+                {{data.statusAnalytics.pendingHR}}
+              </strong>
+
+            </div>
+
+
+            <div class="legend-item">
+
+              <span class="legend-dot approved-dot">
+              </span>
+
+              <span>
+                Approved
+              </span>
+
+              <strong>
+                {{data.statusAnalytics.approved}}
+              </strong>
+
+            </div>
+
+
+            <div class="legend-item">
+
+              <span class="legend-dot rejected-dot">
+              </span>
+
+              <span>
+                Rejected
+              </span>
+
+              <strong>
+                {{data.statusAnalytics.rejected}}
+              </strong>
+
+            </div>
+
+
+            <div class="legend-item">
+
+              <span class="legend-dot cancelled-dot">
+              </span>
+
+              <span>
+                Cancelled
+              </span>
+
+              <strong>
+                {{data.statusAnalytics.cancelled}}
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     ACCESS DENIED
+====================================================== -->
+
+<div class="hla-access-denied"
+     ng-if="!data.hasAccess">
+
+  <div class="access-icon">
+    ]]>🔒
+<![CDATA[  </div>
+
+  <h2>
+    Access Restricted
+  </h2>
+
+  <p>
+    {{data.message}}
+  </p>
+
+  <a href="?id=hr_dashboard">
+    ← Back to HR Dashboard
+  </a>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="head_of_the_department" label="Head of the Department" language="en" table="x_snc_unified_hr_0_department">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>head_of_the_department</element>
+            <help/>
+            <hint/>
+            <label>Head of the Department</label>
+            <language>en</language>
+            <name>x_snc_unified_hr_0_department</name>
+            <plural>Head of the Departments</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-04 06:11:29</sys_created_on>
+            <sys_id>ca91a0b4c5e203107f447310742d1b50</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Head of the Department</sys_name>
+            <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_unified_hr_0_department_head_of_the_department_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-04 06:11:29</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="ml_capability_definition_base">
+    <ml_capability_definition_base action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <capability display_value="Fuzzy Matcher">d5b8f34153321010db96ddeeff7b12bb</capability>
+        <current_solution_version>2</current_solution_version>
+        <dataset_language>en</dataset_language>
+        <fields/>
+        <filter/>
+        <pretrained>false</pretrained>
+        <request_source>api</request_source>
+        <solution_label>ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1</solution_label>
+        <solution_name>ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1</solution_name>
+        <solution_parameters/>
+        <solution_properties>{"label":"ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1","lookupSourceConfig":{"schemaVersion":"LS-1","sources":[{"name":"leave_reason","type":"json-table","relatedTerms":["leave reason"],"matcherTemplate":"DEFAULT_VA","tableName":"leave_reason","matcherTarget":{"composition":{"fieldNames":["item_name","keywords"],"strategy":"APPEND_AS_LIST","case-insensitive":true}},"fieldNames":[{"name":"item_name","values":["sick","casual","earned","maternity ","paternity","emergency"]},{"name":"keywords","values":["high temperature,fever,cold,cough,medical problem, health issue,medical issue,sick, sickness, ill, unwell,doctor\u0027s appointment, medical appointment,doctor appointment","personal matter, personal matters,personal work,family event,family function","holiday, trip, travel,vacation","pregnant, expecting a baby,pregnancy,giving birth, delivery,having a child,child birth","wife having a baby, wife giving birth, becoming a father","urgent situation, family emergency, personal emergency"],"attributes":{"multi-value":true}}]}],"name":"leave_reason","language":"en","relatedTerms":["leave reason"],"version":"australia.0"},"name":"ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1","trainingMode":"sync"}</solution_properties>
+        <stopwords>a6282a25533333008c5bddeeff7b12c3</stopwords>
+        <sys_class_name>ml_capability_definition_base</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:50:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3d8fbfe66ce603107f4499a3fab9dbc0</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>ml_capability_definition_base_3d8fbfe66ce603107f4499a3fab9dbc0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 09:03:45</sys_updated_on>
+        <table/>
+        <training_frequency>run_once</training_frequency>
+        <triggered_source>API</triggered_source>
+        <word_vector_corpus/>
+    </ml_capability_definition_base>
+</record_update>

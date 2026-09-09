@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>It helps employees and hrs to automate their works</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "fd4e7f78cdec438885aec07d5fbd39ae": {
+          "id": "fd4e7f78cdec438885aec07d5fbd39ae",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hey "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.user.first_name}}",
+                      "displayValue": "Input Variables➛User➛First name"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": "!!"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Welcome to Unified hrsd support!"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "196ba5f3dd0444c6be2753274ac375fc": {
+          "id": "196ba5f3dd0444c6be2753274ac375fc",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Thank you for choosing Unified hrsd support help!"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "aada1d406b80404b89b705680b166935": {
+          "id": "aada1d406b80404b89b705680b166935",
+          "stepType": "TextPrompt",
+          "name": "hrquery",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "How can I help you today??"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "b92fed32529d469c9ad59f37345df96f",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "0cd400c9eace4caeb0e718ffc1b4a6f9": {
+          "id": "0cd400c9eace4caeb0e718ffc1b4a6f9",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "5dcb79d3c9ef4d208686aadde66a0026": {
+          "id": "5dcb79d3c9ef4d208686aadde66a0026",
+          "stepType": "TextOutput",
+          "name": "test",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "done"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "d736639c7b78454e8f2981aa1da28e8c"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "0861c45f35e6425faf165b87327ffd72",
+          "edgeType": "Edge",
+          "source": "fd4e7f78cdec438885aec07d5fbd39ae",
+          "target": "aada1d406b80404b89b705680b166935",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d11e8eccf63c4beda23ffe1e47f3d71f",
+          "edgeType": "Edge",
+          "source": "aada1d406b80404b89b705680b166935",
+          "target": "0cd400c9eace4caeb0e718ffc1b4a6f9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d81e517f6d234272b4076c783860e600",
+          "edgeType": "Branch",
+          "source": "0cd400c9eace4caeb0e718ffc1b4a6f9",
+          "target": "5dcb79d3c9ef4d208686aadde66a0026",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.hrquery == \"request_leave\";\n})()"
+          },
+          "label": "apply_leave"
+        },
+        {
+          "id": "fce08970cb0b4ea0a00be5f92626b537",
+          "edgeType": "Edge",
+          "source": "5dcb79d3c9ef4d208686aadde66a0026",
+          "target": "196ba5f3dd0444c6be2753274ac375fc",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "b92fed32529d469c9ad59f37345df96f": {
+      "id": "b92fed32529d469c9ad59f37345df96f",
+      "name": "hrquery",
+      "label": "Hrquery",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjQyNjE0NzEwMyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "aada1d406b80404b89b705680b166935",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases>Unified HRSD,hr,leave</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Unified HRSD</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:25:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>eb4a1443b9e203107f4491d56cbf74f1</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Unified HRSD</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_topic_eb4a1443b9e203107f4491d56cbf74f1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 13:51:20</sys_updated_on>
+        <title>Unified HRSD</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=eb4a1443b9e203107f4491d56cbf74f1"/>
+</record_update>

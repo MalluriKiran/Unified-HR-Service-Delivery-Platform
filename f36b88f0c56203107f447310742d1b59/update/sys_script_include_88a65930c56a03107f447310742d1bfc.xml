@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_unified_hr_0.Admin</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>Admin</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var Admin = Class.create();
+Admin.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    type: 'Admin'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 10:03:55</sys_created_on>
+        <sys_id>88a65930c56a03107f447310742d1bfc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Admin</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_script_include_88a65930c56a03107f447310742d1bfc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 10:03:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

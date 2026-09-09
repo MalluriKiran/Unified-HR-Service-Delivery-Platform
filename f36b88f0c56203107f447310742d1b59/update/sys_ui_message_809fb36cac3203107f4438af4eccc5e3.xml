@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:c591c90bb9e603107f4491d56cbf7472:node:bbb901a37a5d40adbd8210d9c0d046ae:field:0</key>
+        <language>en</language>
+        <message>Based on your query, this situation falls under the cases generally covered by **Paternity Leave**. Paternity Leave covers leave taken by eligible employees following the birth or adoption of a child. Please review the policy and select the appropriate leave type.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 13:58:29</sys_created_on>
+        <sys_id>809fb36cac3203107f4438af4eccc5e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:c591c90bb9e603107f4491d56cbf7472:node:bbb901a37a5d40adbd8210d9c0d046ae:field:0</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_ui_message_809fb36cac3203107f4438af4eccc5e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 13:58:29</sys_updated_on>
+    </sys_ui_message>
+</record_update>

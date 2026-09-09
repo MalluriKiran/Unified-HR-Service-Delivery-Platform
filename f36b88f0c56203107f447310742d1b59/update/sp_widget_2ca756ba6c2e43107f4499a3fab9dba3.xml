@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($sce,spContextManager) {
+
+    var c = this;
+
+	spContextManager.addContext('agent-chat', {
+		hr_category: "",
+		hr_subject: "",
+		hr_description: ""
+	});
+
+    c.showCaseCreation = false;
+    c.caseCreated = false;
+
+    c.rejectionReason = "";
+    c.createdCaseNumber = "";
+
+    c.processing = false;
+    c.searching = false;
+
+    c.message = "";
+    c.messageType = "";
+
+    c.showSolution = false;
+    c.solutionFound = false;
+    c.solution = {};
+
+    c.form = {
+        category: "",
+        subject: "",
+        description: ""
+    };
+
+
+    // -----------------------------------
+    // FIND KNOWLEDGE SOLUTION
+    // -----------------------------------
+
+    c.findSolution = function() {
+
+        c.message = "";
+        c.messageType = "";
+
+        if (!c.form.category) {
+
+            c.message =
+                "Please select an HR case category.";
+
+            c.messageType = "error";
+            return;
+        }
+
+        if (!c.form.subject ||
+            c.form.subject.trim() == "") {
+
+            c.message =
+                "Please enter a subject.";
+
+            c.messageType = "error";
+            return;
+        }
+
+        if (!c.form.description ||
+            c.form.description.trim() == "") {
+
+            c.message =
+                "Please describe your HR issue.";
+
+            c.messageType = "error";
+            return;
+        }
+
+        c.showSolution = true;
+        c.searching = true;
+
+
+		spContextManager.updateContextForKey('agent-chat', {
+			hr_category: c.form.category,
+			hr_subject: c.form.subject,
+			hr_description: c.form.description
+		});
+
+
+        c.server.get({
+
+            action: 'find_solution',
+
+            category:
+                c.form.category,
+
+            subject:
+                c.form.subject,
+
+            description:
+                c.form.description
+
+        }).then(function(response) {
+
+            c.searching = false;
+
+            c.solutionFound =
+                response.data.solutionFound;
+
+            c.solution =
+                response.data.solution || {};
+
+            if (c.solution.text) {
+
+                c.solution.text =
+                    $sce.trustAsHtml(
+                        c.solution.text
+                    );
+            }
+
+        });
+    };
+
+
+    // -----------------------------------
+    // BACK TO EDIT REQUEST
+    // -----------------------------------
+
+    c.backToForm = function() {
+
+        c.showSolution = false;
+        c.showCaseCreation = false;
+
+        c.message = "";
+        c.messageType = "";
+    };
+
+
+    // -----------------------------------
+    // SOLUTION ACCEPTED
+    // -----------------------------------
+
+    c.solutionAccepted = function() {
+
+        c.message =
+            "Great! Your issue was resolved using the HR Knowledge Base. No HR case was created.";
+
+        c.messageType = "success";
+
+        c.showSolution = false;
+        c.showCaseCreation = false;
+
+        c.form = {
+            category: "",
+            subject: "",
+            description: ""
+        };
+
+        c.rejectionReason = "";
+    };
+
+
+    // -----------------------------------
+    // SOLUTION REJECTED
+    // -----------------------------------
+
+    c.solutionRejected = function() {
+
+        c.message = "";
+        c.messageType = "";
+
+        c.showSolution = false;
+        c.showCaseCreation = true;
+    };
+
+
+    // -----------------------------------
+    // BACK TO SOLUTION
+    // -----------------------------------
+
+    c.backToSolution = function() {
+
+        c.showCaseCreation = false;
+        c.showSolution = true;
+
+        c.message = "";
+        c.messageType = "";
+    };
+
+
+    // -----------------------------------
+    // CREATE HR CASE
+    // -----------------------------------
+
+    c.createCase = function() {
+
+        c.message = "";
+        c.messageType = "";
+
+        if (!c.rejectionReason ||
+            c.rejectionReason.trim() == "") {
+
+            c.message =
+                "Please explain why the suggested solution did not help.";
+
+            c.messageType = "error";
+            return;
+        }
+
+        if (c.processing)
+            return;
+
+        c.processing = true;
+
+        c.server.get({
+
+            action: 'create_case',
+
+            category:
+                c.form.category,
+
+            subject:
+                c.form.subject,
+
+            description:
+                c.form.description,
+
+            rejectionReason:
+                c.rejectionReason
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+            if (response.data.caseCreated) {
+
+                c.showCaseCreation = false;
+                c.showSolution = false;
+                c.caseCreated = true;
+
+                c.createdCaseNumber =
+                    response.data.caseNumber;
+
+            } else {
+
+                c.message =
+                    response.data.error ||
+                    "Unable to create the HR case.";
+
+                c.messageType = "error";
+            }
+
+        });
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.raise-case-page {&#13;
+  max-width: 1000px;&#13;
+  margin: 0 auto;&#13;
+  padding: 36px 30px 60px;&#13;
+  min-height: 100vh;&#13;
+  background: #f7f9fc;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.case-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: flex-start;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.case-header h2 {&#13;
+  margin: 0 0 7px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.case-header p {&#13;
+  margin: 0;&#13;
+  color: #7d879c;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.back-link {&#13;
+  color: #1769e0;&#13;
+  text-decoration: none;&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.case-form-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e1e6ee;&#13;
+  border-radius: 15px;&#13;
+  padding: 28px;&#13;
+  box-shadow: 0 5px 18px rgba(15,27,69,.05);&#13;
+}&#13;
+&#13;
+.form-group {&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.form-group label {&#13;
+  display: block;&#13;
+  margin-bottom: 8px;&#13;
+  color: #1d2947;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.form-group label span {&#13;
+  color: #dc2626;&#13;
+}&#13;
+&#13;
+.form-control {&#13;
+  width: 100%;&#13;
+  border: 1px solid #d9e0e9;&#13;
+  border-radius: 9px;&#13;
+  padding: 11px 13px;&#13;
+  font-size: 13px;&#13;
+  box-shadow: none;&#13;
+}&#13;
+&#13;
+.form-control:focus {&#13;
+  border-color: #0b8793;&#13;
+  box-shadow: 0 0 0 2px rgba(11,135,147,.08);&#13;
+}&#13;
+&#13;
+.description-box {&#13;
+  min-height: 130px;&#13;
+  resize: vertical;&#13;
+}&#13;
+&#13;
+.form-actions {&#13;
+  display: flex;&#13;
+  justify-content: flex-end;&#13;
+  padding-top: 8px;&#13;
+}&#13;
+&#13;
+.solution-btn {&#13;
+  border: none;&#13;
+  border-radius: 9px;&#13;
+  padding: 11px 20px;&#13;
+  background: #0b8793;&#13;
+  color: #ffffff;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+  cursor: pointer;&#13;
+}&#13;
+&#13;
+.solution-btn:hover {&#13;
+  background: #08727b;&#13;
+}&#13;
+&#13;
+.solution-btn:disabled {&#13;
+  opacity: .6;&#13;
+  cursor: not-allowed;&#13;
+}&#13;
+&#13;
+.case-message {&#13;
+  padding: 13px 16px;&#13;
+  margin-bottom: 18px;&#13;
+  border-radius: 9px;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.case-message.success {&#13;
+  background: #ecfdf3;&#13;
+  border: 1px solid #a7f3d0;&#13;
+  color: #166534;&#13;
+}&#13;
+&#13;
+.case-message.error {&#13;
+  background: #fef2f2;&#13;
+  border: 1px solid #fecaca;&#13;
+  color: #991b1b;&#13;
+}&#13;
+&#13;
+.solution-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e1e7ef;&#13;
+  border-radius: 15px;&#13;
+  padding: 28px;&#13;
+  box-shadow: 0 5px 18px rgba(15,27,69,.05);&#13;
+}&#13;
+&#13;
+.solution-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: flex-start;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.solution-header h3 {&#13;
+  margin: 10px 0 5px;&#13;
+  color: #0f1b45;&#13;
+  font-size: 21px;&#13;
+}&#13;
+&#13;
+.solution-header p {&#13;
+  margin: 0;&#13;
+  color: #758198;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.solution-badge {&#13;
+  display: inline-block;&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+  padding: 6px 10px;&#13;
+  border-radius: 20px;&#13;
+  font-size: 10px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.edit-request-btn {&#13;
+  border: 1px solid #dce3ec;&#13;
+  background: #ffffff;&#13;
+  color: #1769e0;&#13;
+  border-radius: 8px;&#13;
+  padding: 8px 12px;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+.knowledge-result {&#13;
+  background: linear-gradient(135deg, #effcf5, #eef9ff);&#13;
+  border: 1px solid #b8ead1;&#13;
+  border-radius: 12px;&#13;
+  padding: 22px;&#13;
+}&#13;
+&#13;
+.knowledge-source {&#13;
+  color: #15803d;&#13;
+  font-size: 10px;&#13;
+  font-weight: 700;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.knowledge-result h4 {&#13;
+  margin: 0 0 14px;&#13;
+  color: #172554;&#13;
+  font-size: 17px;&#13;
+}&#13;
+&#13;
+.knowledge-content {&#13;
+  color: #40506a;&#13;
+  font-size: 12px;&#13;
+  line-height: 1.7;&#13;
+}&#13;
+&#13;
+.knowledge-number {&#13;
+  margin-top: 16px;&#13;
+  padding-top: 12px;&#13;
+  border-top: 1px solid rgba(22,101,52,.12);&#13;
+  color: #64748b;&#13;
+  font-size: 10px;&#13;
+}&#13;
+&#13;
+.solution-question {&#13;
+  margin-top: 20px;&#13;
+  padding-top: 20px;&#13;
+  border-top: 1px solid #edf1f5;&#13;
+}&#13;
+&#13;
+.solution-question h4 {&#13;
+  margin: 0 0 5px;&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+.solution-question p {&#13;
+  color: #758198;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+.solution-actions {&#13;
+  display: flex;&#13;
+  gap: 12px;&#13;
+  margin-top: 16px;&#13;
+}&#13;
+&#13;
+.resolved-btn,&#13;
+.continue-btn {&#13;
+  border-radius: 8px;&#13;
+  padding: 10px 16px;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.resolved-btn {&#13;
+  border: none;&#13;
+  background: #16a34a;&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+.continue-btn {&#13;
+  border: 1px solid #0b8793;&#13;
+  background: #ffffff;&#13;
+  color: #0b8793;&#13;
+}&#13;
+&#13;
+.no-solution {&#13;
+  text-align: center;&#13;
+  padding: 35px 20px;&#13;
+  background: #f8fafc;&#13;
+  border-radius: 12px;&#13;
+}&#13;
+&#13;
+.no-solution-icon {&#13;
+  font-size: 36px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.no-solution h4 {&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+.no-solution p {&#13;
+  color: #64748b;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.solution-loading {&#13;
+  padding: 35px;&#13;
+  text-align: center;&#13;
+  color: #64748b;&#13;
+}&#13;
+&#13;
+.case-help-text {&#13;
+  color: #64748b;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.case-summary {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 2fr;&#13;
+  gap: 14px;&#13;
+  margin: 18px 0;&#13;
+}&#13;
+&#13;
+.case-summary &gt; div {&#13;
+  background: #f8fafc;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  padding: 12px;&#13;
+  border-radius: 9px;&#13;
+}&#13;
+&#13;
+.case-summary span {&#13;
+  display: block;&#13;
+  font-size: 10px;&#13;
+  color: #64748b;&#13;
+  margin-bottom: 5px;&#13;
+}&#13;
+&#13;
+.case-summary strong {&#13;
+  color: #172554;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.case-created-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #dfe6ee;&#13;
+  border-radius: 15px;&#13;
+  padding: 45px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.created-icon {&#13;
+  width: 55px;&#13;
+  height: 55px;&#13;
+  margin: 0 auto 15px;&#13;
+  border-radius: 50%;&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 27px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.created-number {&#13;
+  display: inline-block;&#13;
+  margin: 16px 0 22px;&#13;
+  padding: 10px 18px;&#13;
+  border-radius: 20px;&#13;
+  background: #eef2ff;&#13;
+  color: #3730a3;&#13;
+  font-size: 16px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.created-actions {&#13;
+  display: flex;&#13;
+  justify-content: center;&#13;
+  gap: 12px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>employee_raise_hr_case</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Employee Raise HR Case</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.categories = [];
+
+
+    // -----------------------------------
+    // LOAD HR CASE CATEGORIES
+    // -----------------------------------
+
+    var choiceGR = new GlideRecord('sys_choice');
+
+    choiceGR.addQuery(
+        'name',
+        'x_snc_unified_hr_0_hr_case'
+    );
+
+    choiceGR.addQuery(
+        'element',
+        'category'
+    );
+
+    choiceGR.addQuery(
+        'inactive',
+        false
+    );
+
+    choiceGR.orderBy('sequence');
+    choiceGR.query();
+
+    while (choiceGR.next()) {
+
+        data.categories.push({
+
+            label:
+                choiceGR.getValue('label'),
+
+            value:
+                choiceGR.getValue('value')
+
+        });
+    }
+
+
+    // -----------------------------------
+    // SEARCH HR KNOWLEDGE
+    // -----------------------------------
+
+    if (input && input.action == 'find_solution') {
+
+        data.solutionFound = false;
+        data.solution = {};
+
+        var subject =
+            (input.subject || '').trim();
+
+        var description =
+            (input.description || '').trim();
+
+        var searchText =
+            subject + " " + description;
+
+        var words = searchText
+            .toLowerCase()
+            .replace(/[^a-z0-9 ]/g, ' ')
+            .split(/\s+/);
+
+        var stopWords = {
+            'the': true,
+            'is': true,
+            'a': true,
+            'an': true,
+            'and': true,
+            'or': true,
+            'to': true,
+            'of': true,
+            'for': true,
+            'in': true,
+            'on': true,
+            'my': true,
+            'i': true,
+            'me': true,
+            'with': true,
+            'what': true,
+            'how': true,
+            'can': true,
+            'do': true
+        };
+
+        var keywords = [];
+
+        for (var i = 0; i < words.length; i++) {
+
+            var word = words[i];
+
+            if (
+                word.length >= 4 &&
+                !stopWords[word] &&
+                keywords.indexOf(word) == -1
+            ) {
+                keywords.push(word);
+            }
+        }
+
+
+        var kbGR =
+            new GlideRecord('kb_knowledge');
+
+        kbGR.addQuery(
+            'workflow_state',
+            'published'
+        );
+
+
+        if (keywords.length > 0) {
+
+            var queryString = '';
+
+            for (var j = 0; j < keywords.length; j++) {
+
+                if (queryString != '') {
+                    queryString += '^OR';
+                }
+
+                queryString +=
+                    'short_descriptionLIKE' +
+                    keywords[j];
+
+                queryString +=
+                    '^ORtextLIKE' +
+                    keywords[j];
+            }
+
+            kbGR.addEncodedQuery(queryString);
+
+        } else {
+
+            kbGR.addQuery(
+                'short_description',
+                'CONTAINS',
+                subject
+            );
+        }
+
+
+        kbGR.orderByDesc('sys_updated_on');
+        kbGR.setLimit(1);
+        kbGR.query();
+
+
+        if (kbGR.next()) {
+
+            data.solutionFound = true;
+
+            data.solution = {
+
+                sys_id:
+                    kbGR.getUniqueValue(),
+
+                number:
+                    kbGR.getDisplayValue('number'),
+
+                short_description:
+                    kbGR.getDisplayValue(
+                        'short_description'
+                    ),
+
+                text:
+                    kbGR.getValue('text')
+
+            };
+        }
+    }
+
+
+    // -----------------------------------
+    // CREATE HR CASE
+    // -----------------------------------
+
+    if (input && input.action == 'create_case') {
+
+        data.caseCreated = false;
+        data.caseNumber = "";
+        data.caseSysId = "";
+        data.error = "";
+
+
+        if (
+            !input.category ||
+            !input.subject ||
+            !input.description ||
+            !input.rejectionReason
+        ) {
+
+            data.error =
+                "Required case information is missing.";
+
+            return;
+        }
+
+
+        var caseGR =
+            new GlideRecord(
+                'x_snc_unified_hr_0_hr_case'
+            );
+
+        caseGR.initialize();
+
+
+        caseGR.setValue(
+            'request_by',
+            gs.getUserID()
+        );
+
+        caseGR.setValue(
+            'category',
+            input.category
+        );
+
+        caseGR.setValue(
+            'subject',
+            input.subject
+        );
+
+        caseGR.setValue(
+            'description',
+            input.description
+        );
+
+        caseGR.setValue(
+            'rejection_feedback',
+            input.rejectionReason
+        );
+
+        caseGR.setValue(
+            'status',
+            'open'
+        );
+
+
+        var newSysId =
+            caseGR.insert();
+
+
+        if (newSysId) {
+
+            data.caseCreated = true;
+            data.caseSysId = newSysId;
+
+            if (caseGR.get(newSysId)) {
+
+                data.caseNumber =
+                    caseGR.getDisplayValue(
+                        'number'
+                    );
+            }
+
+        } else {
+
+            data.error =
+                "Unable to create the HR case.";
+        }
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 19:57:05</sys_created_on>
+        <sys_id>2ca756ba6c2e43107f4499a3fab9dba3</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Employee Raise HR Case</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_2ca756ba6c2e43107f4499a3fab9dba3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 20:51:59</sys_updated_on>
+        <template><![CDATA[<div class="raise-case-page">
+
+  <div class="case-header">
+
+    <div>
+      <h2>]]>📂<![CDATA[ Create an HR Case</h2>
+
+      <p>
+        Describe your HR issue. We will first check whether
+        an existing HR solution can help you.
+      </p>
+    </div>
+
+    <a href="?id=employee_dashboard"
+       class="back-link">
+      ← Back to Dashboard
+    </a>
+
+  </div>
+
+
+  <!-- SUCCESS MESSAGE -->
+
+  <div class="case-message success"
+       ng-if="c.message && c.messageType == 'success'">
+
+    ✓ {{c.message}}
+
+  </div>
+
+
+  <!-- ERROR MESSAGE -->
+
+  <div class="case-message error"
+       ng-if="c.message && c.messageType == 'error'">
+
+    ! {{c.message}}
+
+  </div>
+
+
+  <!-- HR CASE FORM -->
+
+  <div class="case-form-card"
+       ng-if="!c.showSolution">
+
+    <div class="form-group">
+
+      <label>
+        Category <span>*</span>
+      </label>
+
+      <select class="form-control"
+              ng-model="c.form.category">
+
+        <option value="">
+          Select Category
+        </option>
+
+        <option ng-repeat="category in data.categories"
+                value="{{category.value}}">
+          {{category.label}}
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Subject <span>*</span>
+      </label>
+
+      <input type="text"
+             class="form-control"
+             ng-model="c.form.subject"
+             maxlength="200"
+             placeholder="Briefly describe your HR issue">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Description <span>*</span>
+      </label>
+
+      <textarea class="form-control description-box"
+                ng-model="c.form.description"
+                placeholder="Provide additional details about your HR issue...">
+      </textarea>
+
+    </div>
+
+
+    <div class="form-actions">
+
+      <button type="button"
+              class="solution-btn"
+              ng-click="c.findSolution()"
+              ng-disabled="c.processing">
+
+        ]]>🔍<![CDATA[ Find Suggested Solution
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- SUGGESTED SOLUTION -->
+  <div class="solution-card"
+       ng-if="c.showSolution">
+    
+    <div class="solution-header">
+      
+      <div>
+        <span class="solution-badge">
+          ✨ Suggested HR Solution
+        </span>
+        
+        <h3>
+          We found information that may help
+        </h3>
+        
+        <p>
+          Review the suggested HR knowledge before creating a case.
+        </p>
+      </div>
+      
+      <button type="button"
+              class="edit-request-btn"
+              ng-click="c.backToForm()">
+        ← Edit Request
+      </button>
+    
+    </div>
+    
+    <!-- LOADING -->
+    <div class="solution-loading"
+         ng-if="c.searching">
+      
+      Searching HR Knowledge Base...
+    
+    </div>
+    
+    <!-- ARTICLE FOUND -->
+    
+    <div ng-if="!c.searching && c.solutionFound">
+      
+      <div class="knowledge-result">
+        
+        <div class="knowledge-source">
+          ]]>📖<![CDATA[ HR Knowledge Base
+        </div>
+        
+        <h4>
+          {{c.solution.short_description}}
+        </h4>
+        
+        <div class="knowledge-content"
+             ng-bind-html="c.solution.text">
+        </div>
+        
+        <div class="knowledge-number"
+             ng-if="c.solution.number">
+          Source: {{c.solution.number}}
+        
+        </div>
+      
+      </div>
+      
+      <div class="solution-question">
+
+          <h4>Did this solve your issue?</h4>
+
+          <p>
+            If the information above resolves your question,
+            you don't need to create an HR case.
+          </p>
+
+
+          <div class="solution-actions">
+
+            <button type="button"
+                    class="resolved-btn"
+                    ng-click="c.solutionAccepted()">
+
+              ✓ Yes, this solved my issue
+
+            </button>
+
+
+            <button type="button"
+                    class="continue-btn"
+                    ng-click="c.solutionRejected()">
+
+              No, I still need HR support →
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- NO ARTICLE FOUND -->
+
+      <div class="no-solution"
+           ng-if="!c.searching && !c.solutionFound">
+
+        <div class="no-solution-icon">
+          ]]>🔎
+<![CDATA[        </div>
+
+        <h4>No matching HR solution was found</h4>
+
+        <p>
+          That's okay. You can continue and create an HR case
+          so the HR team can assist you.
+        </p>
+
+        <button type="button"
+                class="continue-btn"
+                ng-click="c.solutionRejected()">
+
+          Continue with Case Creation →
+
+        </button>
+
+      </div>
+  </div>
+  
+  <!-- REJECTION / CASE CREATION STEP -->
+
+<div class="case-form-card"
+     ng-if="c.showCaseCreation">
+
+  <h3>Continue with HR Case Creation</h3>
+
+  <p class="case-help-text">
+    Please tell us why the suggested solution did not resolve your issue.
+  </p>
+
+  <div class="form-group">
+
+    <label>
+      Why didn't this solution help? <span>*</span>
+    </label>
+
+    <textarea class="form-control description-box"
+              ng-model="c.rejectionReason"
+              placeholder="Explain what information or assistance you still need...">
+    </textarea>
+
+  </div>
+
+  <div class="case-summary">
+
+    <div>
+      <span>Category</span>
+      <strong>{{c.form.category}}</strong>
+    </div>
+
+    <div>
+      <span>Subject</span>
+      <strong>{{c.form.subject}}</strong>
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+
+    <button type="button"
+            class="edit-request-btn"
+            ng-click="c.backToSolution()">
+      ← Review Solution
+    </button>
+
+    <button type="button"
+            class="solution-btn"
+            ng-click="c.createCase()"
+            ng-disabled="c.processing">
+
+      Create HR Case →
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- CASE CREATED CONFIRMATION -->
+
+<div class="case-created-card"
+     ng-if="c.caseCreated">
+
+  <div class="created-icon">
+    ✓
+  </div>
+
+  <h3>HR Case Created Successfully</h3>
+
+  <p>
+    Your request has been submitted to the HR team.
+  </p>
+
+  <div class="created-number">
+    {{c.createdCaseNumber}}
+  </div>
+
+  <div class="created-actions">
+
+    <a href="?id=my_hr_requests"
+       class="solution-btn">
+      View My HR Requests
+    </a>
+
+    <a href="?id=employee_dashboard"
+       class="edit-request-btn">
+      Back to Dashboard
+    </a>
+
+  </div>
+
+</div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

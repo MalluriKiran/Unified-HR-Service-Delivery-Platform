@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+    // ----------------------------------
+    // INITIAL VALUES
+    // ----------------------------------
+
+    c.processing = false;
+
+    c.rejecting = false;
+
+    c.employeeFeedback = "";
+
+    c.successMessage = "";
+
+    c.errorMessage = "";
+
+
+    // ==================================
+    // ACCEPT HR RESOLUTION
+    // ==================================
+
+    c.acceptResolution = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+        if (c.processing) {
+            return;
+        }
+
+        c.processing = true;
+
+
+        c.server.get({
+
+            action: 'accept_resolution',
+
+            sys_id: c.data.case.sys_id
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+
+            if (response.data.error) {
+
+                c.errorMessage =
+                    response.data.message ||
+                    "Unable to confirm the resolution.";
+
+                return;
+            }
+
+
+            c.data.case =
+                response.data.case;
+
+
+            c.successMessage =
+                response.data.message ||
+                "Your HR case has been resolved.";
+
+        }, function() {
+
+            c.processing = false;
+
+            c.errorMessage =
+                "Unable to confirm the resolution. Please try again.";
+
+        });
+
+    };
+
+
+    // ==================================
+    // SHOW REJECTION FORM
+    // ==================================
+
+    c.showRejectForm = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+        c.rejecting = true;
+
+    };
+
+
+    // ==================================
+    // CANCEL REJECTION
+    // ==================================
+
+    c.cancelReject = function() {
+
+        c.rejecting = false;
+
+        c.employeeFeedback = "";
+
+        c.errorMessage = "";
+
+    };
+
+
+    // ==================================
+    // REJECT HR RESOLUTION
+    // ==================================
+
+    c.rejectResolution = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+
+        // Validate feedback
+
+        if (!c.employeeFeedback ||
+            !c.employeeFeedback.trim()) {
+
+            c.errorMessage =
+                "Please explain why you still need HR support.";
+
+            return;
+        }
+
+
+        if (c.processing) {
+            return;
+        }
+
+
+        c.processing = true;
+
+
+        c.server.get({
+
+            action: 'reject_resolution',
+
+            sys_id:
+                c.data.case.sys_id,
+
+            feedback:
+                c.employeeFeedback
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+
+            if (response.data.error) {
+
+                c.errorMessage =
+                    response.data.message ||
+                    "Unable to send your feedback.";
+
+                return;
+            }
+
+
+            c.data.case =
+                response.data.case;
+
+
+            c.successMessage =
+                response.data.message ||
+                "Your feedback has been sent to HR.";
+
+
+            // Hide feedback form
+
+            c.rejecting = false;
+
+            c.employeeFeedback = "";
+
+
+        }, function() {
+
+            c.processing = false;
+
+            c.errorMessage =
+                "Unable to send your feedback. Please try again.";
+
+        });
+
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.ehr-page {&#13;
+  max-width: 1100px;&#13;
+  margin: 30px auto;&#13;
+  padding: 0 20px 40px;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+/* HEADER */&#13;
+&#13;
+.ehr-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: flex-start;&#13;
+  margin-bottom: 25px;&#13;
+}&#13;
+&#13;
+.ehr-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 30px;&#13;
+  font-weight: 700;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.ehr-header p {&#13;
+  margin: 0;&#13;
+  color: #718096;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.ehr-back {&#13;
+  color: #0066cc;&#13;
+  text-decoration: none;&#13;
+  font-size: 14px;&#13;
+  margin-top: 8px;&#13;
+}&#13;
+&#13;
+.ehr-back:hover {&#13;
+  text-decoration: underline;&#13;
+}&#13;
+&#13;
+&#13;
+/* SUMMARY */&#13;
+&#13;
+.ehr-summary-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, 1fr);&#13;
+  gap: 16px;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.ehr-summary-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 12px;&#13;
+  padding: 20px;&#13;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);&#13;
+}&#13;
+&#13;
+.ehr-summary-card &gt; span {&#13;
+  display: block;&#13;
+  color: #718096;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.ehr-summary-card strong {&#13;
+  font-size: 15px;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+&#13;
+/* STATUS */&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-block;&#13;
+  padding: 6px 12px;&#13;
+  border-radius: 20px;&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.status-open {&#13;
+  background: #edf2f7;&#13;
+  color: #4a5568;&#13;
+}&#13;
+&#13;
+.status-progress {&#13;
+  background: #e8f1ff;&#13;
+  color: #1d5fbf;&#13;
+}&#13;
+&#13;
+.status-awaiting {&#13;
+  background: #fff4d6;&#13;
+  color: #a35d00;&#13;
+}&#13;
+&#13;
+.status-resolved,&#13;
+.status-closed {&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+}&#13;
+&#13;
+&#13;
+/* GENERAL CARD */&#13;
+&#13;
+.ehr-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 14px;&#13;
+  padding: 22px;&#13;
+  margin-bottom: 20px;&#13;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);&#13;
+}&#13;
+&#13;
+.ehr-card-header {&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.ehr-card-header h3 {&#13;
+  margin: 0 0 5px;&#13;
+  font-size: 18px;&#13;
+  font-weight: 700;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.ehr-card-header p {&#13;
+  margin: 0;&#13;
+  color: #718096;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+/* CASE INFORMATION */&#13;
+&#13;
+.ehr-info-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(2, 1fr);&#13;
+  gap: 22px;&#13;
+}&#13;
+&#13;
+.ehr-field label {&#13;
+  display: block;&#13;
+  color: #718096;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 6px;&#13;
+}&#13;
+&#13;
+.ehr-field div {&#13;
+  font-weight: 600;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.muted-text {&#13;
+  color: #94a3b8 !important;&#13;
+  font-weight: 400 !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* EMPLOYEE REQUEST */&#13;
+&#13;
+.ehr-request-box {&#13;
+  padding: 20px;&#13;
+  background: #f8fafc;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 10px;&#13;
+  line-height: 1.7;&#13;
+  color: #334155;&#13;
+}&#13;
+&#13;
+&#13;
+/* PROCESSING */&#13;
+&#13;
+.ehr-processing {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 18px;&#13;
+}&#13;
+&#13;
+.processing-icon {&#13;
+  width: 52px;&#13;
+  height: 52px;&#13;
+  min-width: 52px;&#13;
+  border-radius: 50%;&#13;
+  background: #e8f1ff;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 24px;&#13;
+}&#13;
+&#13;
+.ehr-processing h3 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 17px;&#13;
+}&#13;
+&#13;
+.ehr-processing p {&#13;
+  margin: 0;&#13;
+  color: #718096;&#13;
+}&#13;
+&#13;
+&#13;
+/* RESOLUTION CONFIRMATION */&#13;
+&#13;
+.confirmation-card {&#13;
+  border-left: 4px solid #0891b2;&#13;
+}&#13;
+&#13;
+.resolution-badge {&#13;
+  display: inline-block;&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+  border-radius: 20px;&#13;
+  padding: 5px 11px;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.proposed-resolution {&#13;
+  background: #ecfdf5;&#13;
+  border: 1px solid #bbf7d0;&#13;
+  border-radius: 10px;&#13;
+  padding: 20px;&#13;
+  margin: 18px 0;&#13;
+}&#13;
+&#13;
+.resolution-title {&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+  color: #15803d;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.resolution-text {&#13;
+  color: #334155;&#13;
+  line-height: 1.7;&#13;
+  white-space: pre-line;&#13;
+}&#13;
+&#13;
+&#13;
+/* CONFIRMATION */&#13;
+&#13;
+.confirmation-question {&#13;
+  padding-top: 18px;&#13;
+  border-top: 1px solid #e2e8f0;&#13;
+}&#13;
+&#13;
+.confirmation-question h3 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 18px;&#13;
+}&#13;
+&#13;
+.confirmation-question p {&#13;
+  color: #718096;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.confirmation-actions {&#13;
+  display: flex;&#13;
+  gap: 12px;&#13;
+  flex-wrap: wrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* BUTTONS */&#13;
+&#13;
+.btn-accept,&#13;
+.btn-reject,&#13;
+.btn-secondary,&#13;
+.btn-submit-feedback {&#13;
+  border-radius: 8px;&#13;
+  padding: 11px 18px;&#13;
+  font-size: 13px;&#13;
+  font-weight: 600;&#13;
+  cursor: pointer;&#13;
+  transition: 0.2s;&#13;
+}&#13;
+&#13;
+.btn-accept {&#13;
+  background: #16a34a;&#13;
+  border: 1px solid #16a34a;&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+.btn-accept:hover {&#13;
+  background: #15803d;&#13;
+}&#13;
+&#13;
+.btn-reject {&#13;
+  background: white;&#13;
+  border: 1px solid #0891b2;&#13;
+  color: #087f95;&#13;
+}&#13;
+&#13;
+.btn-reject:hover {&#13;
+  background: #ecfeff;&#13;
+}&#13;
+&#13;
+.btn-secondary {&#13;
+  background: #f1f5f9;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  color: #334155;&#13;
+}&#13;
+&#13;
+.btn-submit-feedback {&#13;
+  background: #0891b2;&#13;
+  border: 1px solid #0891b2;&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+.btn-submit-feedback:hover {&#13;
+  background: #0e7490;&#13;
+}&#13;
+&#13;
+button:disabled {&#13;
+  opacity: 0.55;&#13;
+  cursor: not-allowed;&#13;
+}&#13;
+&#13;
+&#13;
+/* REJECTION */&#13;
+&#13;
+.rejection-section {&#13;
+  margin-top: 22px;&#13;
+  padding: 20px;&#13;
+  background: #f8fafc;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 10px;&#13;
+}&#13;
+&#13;
+.rejection-section h4 {&#13;
+  margin: 0 0 6px;&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.rejection-section p {&#13;
+  color: #718096;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.rejection-section textarea {&#13;
+  width: 100%;&#13;
+  min-height: 110px;&#13;
+  padding: 12px;&#13;
+  margin-top: 10px;&#13;
+  border: 1px solid #cbd5e1;&#13;
+  border-radius: 8px;&#13;
+  resize: vertical;&#13;
+  outline: none;&#13;
+}&#13;
+&#13;
+.rejection-section textarea:focus {&#13;
+  border-color: #0891b2;&#13;
+}&#13;
+&#13;
+.rejection-actions {&#13;
+  display: flex;&#13;
+  justify-content: flex-end;&#13;
+  gap: 10px;&#13;
+  margin-top: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+/* RESOLVED */&#13;
+&#13;
+.resolved-card {&#13;
+  text-align: center;&#13;
+  padding: 30px;&#13;
+}&#13;
+&#13;
+.resolved-icon {&#13;
+  width: 58px;&#13;
+  height: 58px;&#13;
+  margin: 0 auto 15px;&#13;
+  border-radius: 50%;&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 30px;&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+.resolved-card h3 {&#13;
+  color: #14213d;&#13;
+}&#13;
+&#13;
+.resolved-card &gt; p {&#13;
+  color: #718096;&#13;
+}&#13;
+&#13;
+.final-resolution {&#13;
+  max-width: 750px;&#13;
+  margin: 20px auto 0;&#13;
+  text-align: left;&#13;
+  background: #ecfdf5;&#13;
+  border: 1px solid #bbf7d0;&#13;
+  border-radius: 10px;&#13;
+  padding: 18px;&#13;
+}&#13;
+&#13;
+.final-resolution p {&#13;
+  margin: 8px 0 0;&#13;
+  line-height: 1.7;&#13;
+}&#13;
+&#13;
+&#13;
+/* MESSAGES */&#13;
+&#13;
+.ehr-message {&#13;
+  border-radius: 8px;&#13;
+  padding: 13px 16px;&#13;
+  margin: 15px 0;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.ehr-message.success {&#13;
+  background: #dcfce7;&#13;
+  border: 1px solid #bbf7d0;&#13;
+  color: #166534;&#13;
+}&#13;
+&#13;
+.ehr-message.error {&#13;
+  background: #fee2e2;&#13;
+  border: 1px solid #fecaca;&#13;
+  color: #b91c1c;&#13;
+}&#13;
+&#13;
+&#13;
+/* RESPONSIVE */&#13;
+&#13;
+@media (max-width: 850px) {&#13;
+&#13;
+  .ehr-summary-grid {&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+  }&#13;
+&#13;
+  .ehr-info-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+@media (max-width: 550px) {&#13;
+&#13;
+  .ehr-page {&#13;
+    padding: 0 12px 30px;&#13;
+  }&#13;
+&#13;
+  .ehr-header {&#13;
+    flex-direction: column;&#13;
+    gap: 12px;&#13;
+  }&#13;
+&#13;
+  .ehr-summary-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .confirmation-actions,&#13;
+  .rejection-actions {&#13;
+    flex-direction: column;&#13;
+  }&#13;
+&#13;
+  .confirmation-actions button,&#13;
+  .rejection-actions button {&#13;
+    width: 100%;&#13;
+  }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>employee_hr_case_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Employee HR Case Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.caseFound = false;
+    data.hasAccess = false;
+    data.error = false;
+    data.message = "";
+    data.case = {};
+
+    var userId = gs.getUserID();
+
+
+    // ==========================================
+    // GET CASE SYS_ID
+    // ==========================================
+
+    var caseSysId = "";
+
+    if (input && input.sys_id) {
+        caseSysId = input.sys_id;
+    } else {
+        caseSysId = $sp.getParameter('sys_id');
+    }
+
+
+    if (!caseSysId) {
+        data.error = true;
+        data.message = "No HR case was selected.";
+        return;
+    }
+
+
+    // ==========================================
+    // LOAD HR CASE
+    // ==========================================
+
+    var caseGR = new GlideRecord(
+        'x_snc_unified_hr_0_hr_case'
+    );
+
+    if (!caseGR.get(caseSysId)) {
+
+        data.error = true;
+        data.message = "HR Case not found.";
+
+        return;
+    }
+
+
+    data.caseFound = true;
+
+
+    // ==========================================
+    // EMPLOYEE ACCESS CHECK
+    // Only requester can view this page
+    // ==========================================
+
+    var requestedBy =
+        caseGR.getValue('request_by');
+
+    if (requestedBy != userId) {
+
+        data.error = true;
+
+        data.message =
+            "You are not authorized to view this HR case.";
+
+        return;
+    }
+
+
+    data.hasAccess = true;
+
+
+    // ==========================================
+    // ACCEPT PROPOSED RESOLUTION
+    // ==========================================
+
+    if (input &&
+        input.action == 'accept_resolution') {
+
+        if (caseGR.getValue('status') !=
+            'awaiting_employee_confirmation') {
+
+            data.error = true;
+
+            data.message =
+                "This case is not waiting for employee confirmation.";
+
+        } else {
+
+            caseGR.setValue(
+                'status',
+                'resolved'
+            );
+
+            caseGR.update();
+
+            data.message =
+                "Thank you. HR Case " +
+                caseGR.getDisplayValue('number') +
+                " has been resolved.";
+
+        }
+    }
+
+
+    // ==========================================
+    // REJECT PROPOSED RESOLUTION
+    // ==========================================
+
+    if (input &&
+        input.action == 'reject_resolution') {
+
+        var feedback =
+            (input.feedback || '')
+                .toString()
+                .trim();
+
+
+        if (!feedback) {
+
+            data.error = true;
+
+            data.message =
+                "Please explain why you still need HR support.";
+
+        } else if (
+            caseGR.getValue('status') !=
+            'awaiting_employee_confirmation'
+        ) {
+
+            data.error = true;
+
+            data.message =
+                "This case is not waiting for employee confirmation.";
+
+        } else {
+
+            // Return case to HR
+            caseGR.setValue(
+                'status',
+                'in_progress'
+            );
+
+
+            /*
+             * Append employee feedback to
+             * resolution notes.
+             */
+
+            var oldNotes =
+                caseGR.getValue(
+                    'resolution_notes'
+                ) || "";
+
+
+            var updatedNotes =
+                oldNotes +
+                "\n\nEmployee Feedback:\n" +
+                feedback;
+
+
+            caseGR.setValue(
+                'resolution_notes',
+                updatedNotes
+            );
+
+
+            caseGR.update();
+
+
+            data.message =
+                "Your feedback has been sent to HR. " +
+                "The case is now back in progress.";
+
+        }
+
+    }
+
+
+    // ==========================================
+    // RELOAD LATEST RECORD
+    // ==========================================
+
+    caseGR.get(caseSysId);
+
+
+    // ==========================================
+    // CREATED DATE
+    // ==========================================
+
+    var createdOn =
+        caseGR.getDisplayValue('created_on');
+
+    if (!createdOn) {
+
+        createdOn =
+            caseGR.getDisplayValue(
+                'sys_created_on'
+            );
+
+    }
+
+
+    // ==========================================
+    // PREPARE CASE DATA
+    // ==========================================
+
+    data.case = {
+
+        sys_id:
+            caseGR.getUniqueValue(),
+
+        number:
+            caseGR.getDisplayValue(
+                'number'
+            ),
+
+        requested_by:
+            caseGR.getDisplayValue(
+                'request_by'
+            ),
+
+        category:
+            caseGR.getDisplayValue(
+                'category'
+            ),
+
+        assignment_group:
+            caseGR.getDisplayValue(
+                'assignment_group'
+            ),
+
+        assigned_to:
+            caseGR.getDisplayValue(
+                'assigned_to'
+            ),
+
+        status:
+            caseGR.getDisplayValue(
+                'status'
+            ),
+
+        status_value:
+            caseGR.getValue(
+                'status'
+            ),
+
+        description:
+            caseGR.getDisplayValue(
+                'description'
+            ),
+
+        resolution_notes:
+            caseGR.getDisplayValue(
+                'resolution_notes'
+            ),
+
+        created_on:
+            createdOn
+
+    };
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:19:24</sys_created_on>
+        <sys_id>f168144fb9a203107f4491d56cbf74d4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Employee HR Case Details</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_f168144fb9a203107f4491d56cbf74d4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:31:51</sys_updated_on>
+        <template><![CDATA[<div class="ehr-page">
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+  <div class="ehr-header">
+
+    <div>
+      <h2>My HR Case</h2>
+
+      <p ng-if="data.caseFound">
+        View the details and progress of {{data.case.number}}.
+      </p>
+    </div>
+
+    <a href="?id=my_hr_cases"
+       class="ehr-back">
+      ← Back to My HR Cases
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       ERROR
+       ========================= -->
+  <div class="ehr-message error"
+       ng-if="data.error">
+
+    {{data.message}}
+
+  </div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+  <div ng-if="data.caseFound && data.hasAccess">
+
+
+    <!-- SUMMARY CARDS -->
+
+    <div class="ehr-summary-grid">
+
+      <div class="ehr-summary-card">
+
+        <span>Case Number</span>
+
+        <strong>
+          {{data.case.number}}
+        </strong>
+
+      </div>
+
+
+      <div class="ehr-summary-card">
+
+        <span>Status</span>
+
+        <strong>
+
+          <span class="status-pill"
+                ng-class="{
+                  'status-open':
+                    data.case.status_value == 'open',
+
+                  'status-progress':
+                    data.case.status_value == 'in_progress',
+
+                  'status-awaiting':
+                    data.case.status_value == 'awaiting_employee_confirmation',
+
+                  'status-resolved':
+                    data.case.status_value == 'resolved',
+
+                  'status-closed':
+                    data.case.status_value == 'closed'
+                }">
+
+            {{data.case.status}}
+
+          </span>
+
+        </strong>
+
+      </div>
+
+
+      <div class="ehr-summary-card">
+
+        <span>Category</span>
+
+        <strong>
+          {{data.case.category}}
+        </strong>
+
+      </div>
+
+
+      <div class="ehr-summary-card">
+
+        <span>Created On</span>
+
+        <strong>
+          {{data.case.created_on}}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         REQUEST INFORMATION
+         ========================= -->
+
+    <section class="ehr-card">
+
+      <div class="ehr-card-header">
+
+        <h3>
+          Request Information
+        </h3>
+
+      </div>
+
+
+      <div class="ehr-info-grid">
+
+        <div class="ehr-field">
+
+          <label>Requested By</label>
+
+          <div>
+            {{data.case.requested_by}}
+          </div>
+
+        </div>
+
+
+        <div class="ehr-field">
+
+          <label>Category</label>
+
+          <div>
+            {{data.case.category}}
+          </div>
+
+        </div>
+
+
+        <div class="ehr-field">
+
+          <label>Assignment Group</label>
+
+          <div ng-if="data.case.assignment_group">
+            {{data.case.assignment_group}}
+          </div>
+
+          <div ng-if="!data.case.assignment_group"
+               class="muted-text">
+            Not assigned yet
+          </div>
+
+        </div>
+
+
+        <div class="ehr-field">
+
+          <label>Assigned To</label>
+
+          <div ng-if="data.case.assigned_to">
+            {{data.case.assigned_to}}
+          </div>
+
+          <div ng-if="!data.case.assigned_to"
+               class="muted-text">
+            Unassigned
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EMPLOYEE REQUEST
+         ========================= -->
+
+    <section class="ehr-card">
+
+      <div class="ehr-card-header">
+
+        <h3>
+          My Request
+        </h3>
+
+      </div>
+
+
+      <div class="ehr-request-box">
+
+        {{data.case.description ||
+          'No description provided.'}}
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NORMAL PROCESSING MESSAGE
+         ========================= -->
+
+    <section class="ehr-card ehr-processing"
+             ng-if="
+               data.case.status_value == 'open' ||
+               data.case.status_value == 'in_progress'
+             ">
+
+      <div class="processing-icon">
+        ⏳
+      </div>
+
+      <div>
+
+        <h3>
+          Your HR case is being processed
+        </h3>
+
+        <p>
+          The HR team is currently reviewing your request.
+          You will be able to review the proposed resolution
+          once the HR team responds.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EMPLOYEE CONFIRMATION
+         ========================= -->
+
+    <section class="ehr-card confirmation-card"
+             ng-if="
+               data.case.status_value ==
+               'awaiting_employee_confirmation'
+             ">
+
+      <div class="ehr-card-header">
+
+        <div>
+
+          <span class="resolution-badge">
+            ✓ HR Proposed Resolution
+          </span>
+
+          <h3>
+            HR has proposed a solution
+          </h3>
+
+          <p>
+            Review the response below and tell us whether
+            your issue has been resolved.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROPOSED RESOLUTION -->
+
+      <div class="proposed-resolution">
+
+        <div class="resolution-title">
+          HR Response
+        </div>
+
+        <div class="resolution-text">
+
+          {{data.case.resolution_notes}}
+
+        </div>
+
+      </div>
+
+
+      <!-- QUESTION -->
+
+      <div class="confirmation-question">
+
+        <h3>
+          Did this resolve your issue?
+        </h3>
+
+        <p>
+          If everything is resolved, confirm the resolution.
+          Otherwise, request additional HR support.
+        </p>
+
+
+        <div class="confirmation-actions">
+
+          <button type="button"
+                  class="btn-accept"
+                  ng-click="c.acceptResolution()"
+                  ng-disabled="c.processing">
+
+            ✓ Yes, My Issue is Resolved
+
+          </button>
+
+
+          <button type="button"
+                  class="btn-reject"
+                  ng-click="c.showRejectForm()"
+                  ng-disabled="c.processing">
+
+            No, I Still Need Help
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           REJECTION FORM
+           ========================= -->
+
+      <div class="rejection-section"
+           ng-if="c.rejecting">
+
+        <h4>
+          Tell HR what still needs attention
+        </h4>
+
+        <p>
+          Your feedback will return this case to the HR team
+          for further review.
+        </p>
+
+
+        <textarea
+          ng-model="c.employeeFeedback"
+          placeholder="Example: The allowance has still not been credited to my account. Please check again.">
+        </textarea>
+
+
+        <div class="rejection-actions">
+
+          <button type="button"
+                  class="btn-secondary"
+                  ng-click="c.cancelReject()">
+
+            Cancel
+
+          </button>
+
+
+          <button type="button"
+                  class="btn-submit-feedback"
+                  ng-click="c.rejectResolution()"
+                  ng-disabled="c.processing">
+
+            Submit & Request More Help
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESOLVED CASE
+         ========================= -->
+
+    <section class="ehr-card resolved-card"
+             ng-if="
+               data.case.status_value == 'resolved' ||
+               data.case.status_value == 'closed'
+             ">
+
+      <div class="resolved-icon">
+        ✓
+      </div>
+
+
+      <h3>
+        This HR case has been resolved
+      </h3>
+
+
+      <p>
+        The resolution for this request has been confirmed.
+      </p>
+
+
+      <div class="final-resolution"
+           ng-if="data.case.resolution_notes">
+
+        <strong>
+          Resolution
+        </strong>
+
+        <p>
+          {{data.case.resolution_notes}}
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SUCCESS MESSAGE
+         ========================= -->
+
+    <div class="ehr-message success"
+         ng-if="c.successMessage">
+
+      {{c.successMessage}}
+
+    </div>
+
+
+    <!-- =========================
+         CLIENT ERROR
+         ========================= -->
+
+    <div class="ehr-message error"
+         ng-if="c.errorMessage">
+
+      {{c.errorMessage}}
+
+    </div>
+
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

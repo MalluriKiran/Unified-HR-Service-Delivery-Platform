@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="created_on" label="Created On" language="en" table="x_snc_unified_hr_0_hr_case">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>created_on</element>
+            <help/>
+            <hint/>
+            <label>Created On</label>
+            <language>en</language>
+            <name>x_snc_unified_hr_0_hr_case</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-04 09:33:10</sys_created_on>
+            <sys_id>10cf4df0c52a03107f447310742d1bd9</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>Created On</sys_name>
+            <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_unified_hr_0_hr_case_created_on_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-04 09:33:10</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

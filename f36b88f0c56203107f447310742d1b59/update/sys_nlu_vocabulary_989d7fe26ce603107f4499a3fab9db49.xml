@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_vocabulary">
+    <sys_nlu_vocabulary action="INSERT_OR_UPDATE">
+        <field_name/>
+        <filter_condition/>
+        <model/>
+        <name>leave_reason</name>
+        <pattern/>
+        <primary_vocabulary/>
+        <related_terms>leave reason</related_terms>
+        <solution_name>ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49_1</solution_name>
+        <sys_class_name>sys_nlu_vocabulary</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:41:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>989d7fe26ce603107f4499a3fab9db49</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_name>leave_reason</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_vocabulary_989d7fe26ce603107f4499a3fab9db49</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 09:03:32</sys_updated_on>
+        <table/>
+        <type>static_lookup</type>
+        <vocabulary_json>{"options":{"enable_fuzzy_matching":true,"case_sensitive":false,"language":"en"},"values":[{"actual":"sick","synonyms":"high temperature,fever,cold,cough,medical problem, health issue,medical issue,sick, sickness, ill, unwell,doctor's appointment, medical appointment,doctor appointment"},{"actual":"casual","synonyms":"personal matter, personal matters,personal work,family event,family function"},{"actual":"earned","synonyms":"holiday, trip, travel,vacation"},{"actual":"maternity ","synonyms":"pregnant, expecting a baby,pregnancy,giving birth, delivery,having a child,child birth"},{"actual":"paternity","synonyms":"wife having a baby, wife giving birth, becoming a father"},{"actual":"emergency","synonyms":"urgent situation, family emergency, personal emergency"}]}</vocabulary_json>
+    </sys_nlu_vocabulary>
+</record_update>

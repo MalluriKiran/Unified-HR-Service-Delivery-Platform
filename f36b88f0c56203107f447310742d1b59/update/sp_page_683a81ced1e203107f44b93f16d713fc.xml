@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>&lt;style&gt;
+  .hod-service-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hod-service-link:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .hod-service-card {
+    padding: 24px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #dce6f2;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+    min-height: 150px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+  }
+
+  .hod-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #0b2a4a, #1a5276);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;
+  }
+
+  .hod-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 42, 74, 0.14);
+    border-color: #1d7ab3;
+  }
+
+  .hod-service-card:hover::before {
+    opacity: 0.03;
+  }
+
+  .hod-service-card .icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .hod-service-card:hover .icon {
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  .hod-service-card h3 {
+    margin: 0 0 8px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 20px;
+    color: #0b2a4a;
+    transition: color 0.3s ease;
+  }
+
+  .hod-service-card:hover h3 {
+    color: #1a5276;
+  }
+
+  .hod-service-card p {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    color: #5b7088;
+    transition: color 0.3s ease;
+  }
+
+  .hod-service-card:hover p {
+    color: #2c4a6a;
+  }</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>hod_dashboard</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 06:21:16</sys_created_on>
+        <sys_id>683a81ced1e203107f44b93f16d713fc</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>hod_dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_page_683a81ced1e203107f44b93f16d713fc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 09:20:30</sys_updated_on>
+        <title>HOD Dashboard</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=683a81ced1e203107f44b93f16d713fc"/>
+</record_update>

@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hod-cases-page {&#13;
+  max-width: 1180px;&#13;
+  margin: 30px auto;&#13;
+  padding: 0 20px 50px;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   PAGE HEADER&#13;
+   ================================================== */&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #7b8497;&#13;
+  font-size: 13px;&#13;
+  line-height: 1.5;&#13;
+}&#13;
+&#13;
+.back-link {&#13;
+  color: #1769e0 !important;&#13;
+  text-decoration: none !important;&#13;
+  font-size: 13px;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.back-link:hover {&#13;
+  text-decoration: underline !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   MESSAGE&#13;
+   ================================================== */&#13;
+&#13;
+.hod-message {&#13;
+  padding: 13px 15px;&#13;
+  border-radius: 9px;&#13;
+  margin-bottom: 18px;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.hod-message.error {&#13;
+  background: #fdeaea;&#13;
+  border: 1px solid #efc2c0;&#13;
+  color: #b42318;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   SUMMARY CARDS&#13;
+   ================================================== */&#13;
+&#13;
+.summary-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, 1fr);&#13;
+  gap: 14px;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.summary-card {&#13;
+  background: #fff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 12px;&#13;
+  padding: 18px;&#13;
+  box-shadow: 0 3px 10px rgba(20, 40, 80, .04);&#13;
+}&#13;
+&#13;
+.summary-card span {&#13;
+  display: block;&#13;
+  color: #7b8497;&#13;
+  font-size: 13px;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.summary-card strong {&#13;
+  font-size: 24px;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   CASES CARD&#13;
+   ================================================== */&#13;
+&#13;
+.cases-card {&#13;
+  background: #fff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 20px;&#13;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.table-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 16px;&#13;
+}&#13;
+&#13;
+.table-header h3 {&#13;
+  margin: 0 0 4px;&#13;
+  font-size: 20px;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.table-header span {&#13;
+  display: inline-block;&#13;
+  color: #8a93a5;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 3px;&#13;
+}&#13;
+&#13;
+.table-header p {&#13;
+  margin: 3px 0 0;&#13;
+  color: #8a93a5;&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   SEARCH&#13;
+   ================================================== */&#13;
+&#13;
+.search-wrapper {&#13;
+  width: 250px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 7px;&#13;
+  border: 1px solid #dce2eb;&#13;
+  border-radius: 8px;&#13;
+  padding: 0 11px;&#13;
+  background: #ffffff;&#13;
+}&#13;
+&#13;
+.search-icon {&#13;
+  font-size: 12px;&#13;
+  color: #8a93a5;&#13;
+}&#13;
+&#13;
+.search-box {&#13;
+  width: 100%;&#13;
+  border: none;&#13;
+  padding: 10px 0;&#13;
+  outline: none;&#13;
+  background: transparent;&#13;
+  font-size: 12px;&#13;
+  color: #263250;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   TABLE&#13;
+   ================================================== */&#13;
+&#13;
+.table-responsive {&#13;
+  overflow-x: auto;&#13;
+}&#13;
+&#13;
+table {&#13;
+  width: 100%;&#13;
+  border-collapse: collapse;&#13;
+}&#13;
+&#13;
+thead {&#13;
+  background: #f6f8fb;&#13;
+}&#13;
+&#13;
+th {&#13;
+  padding: 13px 10px;&#13;
+  text-align: left;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+  color: #35405b;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+td {&#13;
+  padding: 14px 10px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+  font-size: 13px;&#13;
+  color: #293551;&#13;
+  vertical-align: middle;&#13;
+}&#13;
+&#13;
+tbody tr:hover {&#13;
+  background: #fafbfe;&#13;
+}&#13;
+&#13;
+.case-number {&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   STATUS / PRIORITY BADGES&#13;
+   ================================================== */&#13;
+&#13;
+.status-badge,&#13;
+.priority-badge {&#13;
+  display: inline-block;&#13;
+  border-radius: 20px;&#13;
+  padding: 5px 10px;&#13;
+  font-size: 11px;&#13;
+  font-weight: 600;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* STATUS */&#13;
+&#13;
+.status-open {&#13;
+  background: #fff3d8;&#13;
+  color: #9a6500;&#13;
+}&#13;
+&#13;
+.status-in_progress {&#13;
+  background: #e5f0ff;&#13;
+  color: #1769aa;&#13;
+}&#13;
+&#13;
+.status-awaiting_employee_confirmation {&#13;
+  background: #fff4d6;&#13;
+  color: #a35d00;&#13;
+}&#13;
+&#13;
+.status-resolved {&#13;
+  background: #e4f7ee;&#13;
+  color: #15724f;&#13;
+}&#13;
+&#13;
+.status-closed {&#13;
+  background: #edf0f4;&#13;
+  color: #596273;&#13;
+}&#13;
+&#13;
+&#13;
+/* PRIORITY */&#13;
+&#13;
+.priority-high {&#13;
+  background: #ffe8e8;&#13;
+  color: #b42318;&#13;
+}&#13;
+&#13;
+.priority-medium {&#13;
+  background: #fff3d8;&#13;
+  color: #946200;&#13;
+}&#13;
+&#13;
+.priority-low {&#13;
+  background: #e5f0ff;&#13;
+  color: #1769aa;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   VIEW CASE BUTTON&#13;
+   ================================================== */&#13;
+&#13;
+.view-case-btn {&#13;
+  display: inline-block;&#13;
+  padding: 7px 14px;&#13;
+  border-radius: 7px;&#13;
+  background: #0b8793;&#13;
+  color: #ffffff !important;&#13;
+  text-decoration: none !important;&#13;
+  font-size: 11px;&#13;
+  font-weight: 600;&#13;
+  cursor: pointer;&#13;
+  transition: .2s;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.view-case-btn:hover {&#13;
+  background: #076f78;&#13;
+  color: #ffffff !important;&#13;
+  text-decoration: none !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   MUTED TEXT&#13;
+   ================================================== */&#13;
+&#13;
+.muted-text {&#13;
+  color: #929aac;&#13;
+  font-style: italic;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   EMPTY STATE&#13;
+   ================================================== */&#13;
+&#13;
+.empty-state {&#13;
+  text-align: center;&#13;
+  padding: 35px;&#13;
+  color: #8a93a5;&#13;
+}&#13;
+&#13;
+.empty-icon {&#13;
+  font-size: 40px;&#13;
+  margin-bottom: 10px;&#13;
+}&#13;
+&#13;
+.empty-state h3 {&#13;
+  margin: 0 0 6px;&#13;
+  color: #0f1b45;&#13;
+  font-size: 17px;&#13;
+}&#13;
+&#13;
+.empty-state p {&#13;
+  margin: 0;&#13;
+  font-size: 12px;&#13;
+  line-height: 1.6;&#13;
+}&#13;
+&#13;
+&#13;
+/* ==================================================&#13;
+   RESPONSIVE&#13;
+   ================================================== */&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+&#13;
+  .summary-grid {&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 800px) {&#13;
+&#13;
+  .page-header,&#13;
+  .table-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .back-link {&#13;
+    display: inline-block;&#13;
+    margin-top: 12px;&#13;
+  }&#13;
+&#13;
+  .search-wrapper {&#13;
+    width: 100%;&#13;
+    margin-top: 14px;&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 600px) {&#13;
+&#13;
+  .hod-cases-page {&#13;
+    margin-top: 20px;&#13;
+    padding: 0 14px 40px;&#13;
+  }&#13;
+&#13;
+  .summary-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .page-header h2 {&#13;
+    font-size: 24px;&#13;
+  }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hod_department_hr_cases</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HOD Department HR Cases</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // ----------------------------------
+    // INITIAL DATA
+    // ----------------------------------
+
+    data.departmentName = "";
+    data.departmentCode = "";
+
+    data.cases = [];
+
+    data.totalCount = 0;
+    data.openCount = 0;
+    data.inProgressCount = 0;
+    data.resolvedCount = 0;
+
+    data.error = false;
+    data.message = "";
+
+    var departmentId = "";
+
+
+    // ----------------------------------
+    // 1. GET LOGGED-IN HOD DEPARTMENT
+    // ----------------------------------
+
+    var userGR =
+        new GlideRecord('sys_user');
+
+    if (userGR.get(gs.getUserID())) {
+
+        departmentId =
+            userGR.getValue(
+                'department'
+            ) || "";
+
+        data.departmentName =
+            userGR.getDisplayValue(
+                'department'
+            ) || "";
+    }
+
+
+    if (!departmentId) {
+
+        data.error = true;
+
+        data.message =
+            "No department is associated with the logged-in HOD.";
+
+        return;
+    }
+
+
+    // ----------------------------------
+    // 2. GET DEPARTMENT CODE
+    // ----------------------------------
+
+    var deptGR =
+        new GlideRecord(
+            'cmn_department'
+        );
+
+    if (deptGR.get(departmentId)) {
+
+        data.departmentCode =
+            deptGR.getValue('id') || "";
+    }
+
+
+    // ----------------------------------
+    // 3. GET HR CASES FROM SAME DEPARTMENT
+    //
+    // HR Case
+    //   -> Request By
+    //   -> User
+    //   -> Department
+    // ----------------------------------
+
+    var caseGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_hr_case'
+        );
+
+
+    caseGR.addQuery(
+        'request_by.department',
+        departmentId
+    );
+
+
+	caseGR.addQuery(
+		'request_by',
+		'!=',
+		gs.getUserID()
+	);
+
+
+    caseGR.orderByDesc(
+        'sys_created_on'
+    );
+
+
+    caseGR.query();
+
+
+    while (caseGR.next()) {
+
+
+        // ----------------------------------
+        // STATUS
+        // ----------------------------------
+
+        var statusValue =
+            caseGR.getValue(
+                'status'
+            ) || "";
+
+
+        var statusLabel =
+            caseGR.getDisplayValue(
+                'status'
+            ) || "";
+
+
+        // Friendly label for custom status
+        if (
+            statusValue ==
+            'awaiting_employee_confirmation'
+        ) {
+
+            statusLabel =
+                'Awaiting Employee Confirmation';
+        }
+
+
+        // ----------------------------------
+        // PRIORITY
+        // ----------------------------------
+
+        var priorityValue =
+            caseGR.getValue(
+                'priority'
+            ) || "";
+
+
+        // ----------------------------------
+        // COUNTERS
+        // ----------------------------------
+
+        data.totalCount++;
+
+
+        if (statusValue == 'open') {
+
+            data.openCount++;
+
+        }
+
+        else if (
+            statusValue == 'in_progress'
+        ) {
+
+            data.inProgressCount++;
+
+        }
+
+        else if (
+            statusValue == 'resolved'
+        ) {
+
+            data.resolvedCount++;
+        }
+
+
+        // ----------------------------------
+        // CREATED DATE
+        // ----------------------------------
+
+        var createdOn =
+            caseGR.getDisplayValue(
+                'created_on'
+            );
+
+
+        if (!createdOn) {
+
+            createdOn =
+                caseGR.getDisplayValue(
+                    'sys_created_on'
+                );
+        }
+
+
+        // ----------------------------------
+        // PUSH CASE DATA
+        // ----------------------------------
+
+        data.cases.push({
+
+            // Required for View button
+            sys_id:
+                caseGR.getUniqueValue(),
+
+            number:
+                caseGR.getDisplayValue(
+                    'number'
+                ),
+
+            requestedBy:
+                caseGR.getDisplayValue(
+                    'request_by'
+                ),
+
+            category:
+                caseGR.getDisplayValue(
+                    'category'
+                ),
+
+            priority:
+                caseGR.getDisplayValue(
+                    'priority'
+                ),
+
+            priorityValue:
+                priorityValue,
+
+            assignmentGroup:
+                caseGR.getDisplayValue(
+                    'assignment_group'
+                ) || "",
+
+            assignedTo:
+                caseGR.getDisplayValue(
+                    'assigned_to'
+                ) || "",
+
+            status:
+                statusLabel,
+
+            statusValue:
+                statusValue,
+
+            createdOn:
+                createdOn
+
+        });
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 15:34:52</sys_created_on>
+        <sys_id>830150eec5e203107f44d2fa2d3a5607</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>HOD Department HR Cases</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_830150eec5e203107f44d2fa2d3a5607</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 14:36:15</sys_updated_on>
+        <template><![CDATA[<div class="hod-cases-page">
+
+  <!-- ==================================================
+       PAGE HEADER
+       ================================================== -->
+
+  <div class="page-header">
+
+    <div>
+
+      <h2>
+        Department HR Cases
+      </h2>
+
+      <p>
+        View HR cases raised by employees from
+        {{data.departmentName}}.
+      </p>
+
+    </div>
+
+
+    <a href="?id=hod_dashboard"
+       class="back-link">
+
+      ← Back to Dashboard
+
+    </a>
+
+  </div>
+
+
+  <!-- ==================================================
+       ACCESS / ERROR MESSAGE
+       ================================================== -->
+
+  <div class="hod-message error"
+       ng-if="data.error">
+
+    {{data.message}}
+
+  </div>
+
+
+  <!-- ==================================================
+       MAIN CONTENT
+       ================================================== -->
+
+  <div ng-if="!data.error">
+
+
+    <!-- ==================================================
+         SUMMARY CARDS
+         ================================================== -->
+
+    <div class="summary-grid">
+
+
+      <!-- TOTAL CASES -->
+
+      <div class="summary-card">
+
+        <span>
+          Total Cases
+        </span>
+
+        <strong>
+          {{data.totalCount}}
+        </strong>
+
+      </div>
+
+
+      <!-- OPEN -->
+
+      <div class="summary-card">
+
+        <span>
+          Open
+        </span>
+
+        <strong>
+          {{data.openCount}}
+        </strong>
+
+      </div>
+
+
+      <!-- IN PROGRESS -->
+
+      <div class="summary-card">
+
+        <span>
+          In Progress
+        </span>
+
+        <strong>
+          {{data.inProgressCount}}
+        </strong>
+
+      </div>
+
+
+      <!-- RESOLVED -->
+
+      <div class="summary-card">
+
+        <span>
+          Resolved
+        </span>
+
+        <strong>
+          {{data.resolvedCount}}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         CASE TABLE CARD
+         ================================================== -->
+
+    <div class="cases-card">
+
+
+      <!-- TABLE HEADER -->
+
+      <div class="table-header">
+
+        <div>
+
+          <h3>
+            {{data.departmentName}}
+          </h3>
+
+          <span ng-if="data.departmentCode">
+            {{data.departmentCode}}
+          </span>
+
+          <p>
+            HR cases raised by employees in your department.
+          </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-wrapper">
+
+          <span class="search-icon">
+            ]]>🔍
+<![CDATA[          </span>
+
+          <input type="text"
+                 class="search-box"
+                 placeholder="Search cases..."
+                 ng-model="searchText">
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================================================
+           EMPTY STATE
+           ================================================== -->
+
+      <div class="empty-state"
+           ng-if="data.cases.length == 0">
+
+        <div class="empty-icon">
+          ]]>📭
+<![CDATA[        </div>
+
+        <h3>
+          No HR Cases Found
+        </h3>
+
+        <p>
+          There are currently no HR cases raised by employees
+          from your department.
+        </p>
+
+      </div>
+
+
+      <!-- ==================================================
+           CASE TABLE
+           ================================================== -->
+
+      <div class="table-responsive"
+           ng-if="data.cases.length > 0">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Case Number
+              </th>
+
+              <th>
+                Requested By
+              </th>
+
+              <th>
+                Category
+              </th>
+
+              <th>
+                Priority
+              </th>
+
+              <th>
+                Assignment Group
+              </th>
+
+              <th>
+                Assigned To
+              </th>
+
+              <th>
+                Status
+              </th>
+
+              <th>
+                Action
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+
+            <!-- ==================================================
+                 CASE ROW
+                 ================================================== -->
+
+            <tr ng-repeat="item in data.cases | filter:searchText">
+
+
+              <!-- CASE NUMBER -->
+
+              <td>
+
+                <strong class="case-number">
+
+                  {{item.number}}
+
+                </strong>
+
+              </td>
+
+
+              <!-- REQUESTED BY -->
+
+              <td>
+
+                {{item.requestedBy}}
+
+              </td>
+
+
+              <!-- CATEGORY -->
+
+              <td>
+
+                {{item.category}}
+
+              </td>
+
+
+              <!-- PRIORITY -->
+
+              <td>
+
+                <span class="priority-badge"
+                      ng-class="'priority-' + item.priorityValue">
+
+                  {{item.priority}}
+
+                </span>
+
+              </td>
+
+
+              <!-- ASSIGNMENT GROUP -->
+
+              <td>
+
+                <span ng-if="item.assignmentGroup">
+
+                  {{item.assignmentGroup}}
+
+                </span>
+
+
+                <span ng-if="!item.assignmentGroup"
+                      class="muted-text">
+
+                  Not Assigned
+
+                </span>
+
+              </td>
+
+
+              <!-- ASSIGNED TO -->
+
+              <td>
+
+                <span ng-if="item.assignedTo">
+
+                  {{item.assignedTo}}
+
+                </span>
+
+
+                <span ng-if="!item.assignedTo"
+                      class="muted-text">
+
+                  Unassigned
+
+                </span>
+
+              </td>
+
+
+              <!-- STATUS -->
+
+              <td>
+
+                <span class="status-badge"
+                      ng-class="'status-' + item.statusValue">
+
+                  {{item.status}}
+
+                </span>
+
+              </td>
+
+
+              <!-- ==================================================
+                   ACTION
+                   ================================================== -->
+
+              <td>
+
+                <a class="view-case-btn"
+                   href="?id=hod_hr_case_details&sys_id={{item.sys_id}}">
+
+                  View
+
+                </a>
+
+              </td>
+
+            </tr>
+
+
+            <!-- ==================================================
+                 FILTER RETURNS NOTHING
+                 ================================================== -->
+
+            <tr ng-if="
+                data.cases.length > 0 &&
+                (data.cases | filter:searchText).length == 0
+              ">
+
+              <td colspan="8"
+                  class="empty-state">
+
+                No HR cases match your search.
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

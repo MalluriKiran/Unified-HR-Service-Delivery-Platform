@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard">
+    <par_dashboard action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_dashboard/>
+        <certified>false</certified>
+        <description>Unified HR Service Delivery Admin Dashboard</description>
+        <experience/>
+        <grid>48</grid>
+        <name>HRFlow360 Admin Dashboard</name>
+        <ready_to_migrate>Not Applicable</ready_to_migrate>
+        <sys_class_name>par_dashboard</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 10:04:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4c07d170c56a03107f447310742d1b64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HRFlow360 Admin Dashboard</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>par_dashboard_4c07d170c56a03107f447310742d1b64</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 10:04:49</sys_updated_on>
+        <sys_ux_app_config/>
+        <sys_ux_app_route/>
+        <sys_ux_macroponent/>
+        <sys_ux_screen/>
+        <sys_ux_screen_type/>
+    </par_dashboard>
+</record_update>

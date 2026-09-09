@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="ml_capability_definition_base">
+    <ml_capability_definition_base action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <capability display_value="Fuzzy Matcher">d5b8f34153321010db96ddeeff7b12bb</capability>
+        <current_solution_version/>
+        <dataset_language>en</dataset_language>
+        <fields/>
+        <filter/>
+        <pretrained>false</pretrained>
+        <request_source>api</request_source>
+        <solution_label>989d7fe26ce603107f4499a3fab9db49</solution_label>
+        <solution_name>ml_x_snc_x_snc_unified_hr_0_global_989d7fe26ce603107f4499a3fab9db49</solution_name>
+        <solution_parameters/>
+        <solution_properties>{"lookupSourceConfig":{"dummyKey":"dummyValue"},"label":"989d7fe26ce603107f4499a3fab9db49","traceparent":"00-af23a9647439424f9f83f425913c76a0-0000258f7be26ce6-01"}</solution_properties>
+        <stopwords>a6282a25533333008c5bddeeff7b12c3</stopwords>
+        <sys_class_name>ml_capability_definition_base</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:50:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b98fbfe66ce603107f4499a3fab9dbba</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>989d7fe26ce603107f4499a3fab9db49</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>ml_capability_definition_base_b98fbfe66ce603107f4499a3fab9dbba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:50:30</sys_updated_on>
+        <table/>
+        <training_frequency>run_once</training_frequency>
+        <triggered_source>API</triggered_source>
+        <word_vector_corpus/>
+    </ml_capability_definition_base>
+</record_update>

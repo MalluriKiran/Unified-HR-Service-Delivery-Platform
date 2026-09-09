@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.leave-balance-wrapper {&#13;
+    padding: 25px;&#13;
+}&#13;
+&#13;
+.leave-balance-wrapper h2 {&#13;
+    text-align: center;&#13;
+    margin-bottom: 5px;&#13;
+}&#13;
+&#13;
+.subtitle {&#13;
+    text-align: center;&#13;
+    margin-bottom: 25px;&#13;
+    color: #666;&#13;
+}&#13;
+&#13;
+.balance-grid {&#13;
+    display: flex;&#13;
+    flex-wrap: wrap;&#13;
+    justify-content: center;&#13;
+    gap: 20px;&#13;
+}&#13;
+&#13;
+.balance-card {&#13;
+    width: 210px;&#13;
+    min-height: 190px;&#13;
+    padding: 20px;&#13;
+    border-radius: 14px;&#13;
+    text-align: center;&#13;
+    background: #ffffff;&#13;
+    box-shadow: 0 4px 14px rgba(0,0,0,.12);&#13;
+}&#13;
+&#13;
+.icon {&#13;
+    font-size: 42px;&#13;
+}&#13;
+&#13;
+.balance-card h3 {&#13;
+    font-size: 20px;&#13;
+    margin: 12px 0;&#13;
+}&#13;
+&#13;
+.count {&#13;
+    font-size: 34px;&#13;
+    font-weight: bold;&#13;
+}&#13;
+&#13;
+.balance-card p {&#13;
+    color: #666;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Displays the logged-in employee's leave balance.</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>leave_balance_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Leave Balance Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.found = false;
+    data.balance = {};
+
+    var gr = new GlideRecord('x_snc_unified_hr_0_leave_balance');
+    gr.addQuery('employee', gs.getUserID());
+    gr.setLimit(1);
+    gr.query();
+
+    if (gr.next()) {
+
+        data.found = true;
+
+        data.balance.casual =
+            gr.getValue('casual_leave_balance') || 0;
+
+        data.balance.sick =
+            gr.getValue('sick_leave_balance') || 0;
+
+        data.balance.earned =
+            gr.getValue('earned_leave_balance') || 0;
+
+        data.balance.paternity =
+            gr.getValue('paternity_leave_balance') || 0;
+
+        data.balance.maternity =
+            gr.getValue('maternity_leave_balance') || 0;
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 13:38:07</sys_created_on>
+        <sys_id>c0f3ed3da96e03107f444ae71fe9ff48</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Leave Balance Widget</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_c0f3ed3da96e03107f444ae71fe9ff48</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 13:58:34</sys_updated_on>
+        <template><![CDATA[<div class="leave-balance-wrapper">
+
+  <h2>My Leave Balance</h2>
+  <p class="subtitle">Current available leave balance</p>
+
+  <div ng-if="data.found" class="balance-grid">
+
+    <div class="balance-card">
+      <h3>Casual Leave</h3>
+      <div class="count">{{data.balance.casual}}</div>
+      <p>Days available</p>
+    </div>
+
+    <div class="balance-card">
+      <h3>Sick Leave</h3>
+      <div class="count">{{data.balance.sick}}</div>
+      <p>Days available</p>
+    </div>
+
+    <div class="balance-card">
+      <h3>Earned Leave</h3>
+      <div class="count">{{data.balance.earned}}</div>
+      <p>Days available</p>
+    </div>
+
+    <div class="balance-card">
+      <h3>Paternity Leave</h3>
+      <div class="count">{{data.balance.paternity}}</div>
+      <p>Days available</p>
+    </div>
+
+    <div class="balance-card">
+      <h3>Maternity Leave</h3>
+      <div class="count">{{data.balance.maternity}}</div>
+      <p>Days available</p>
+    </div>
+
+  </div>
+
+  <div ng-if="!data.found" class="alert alert-info">
+    No leave balance record was found for your account.
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

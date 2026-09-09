@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+    c.form = {
+        category: "",
+        description: ""
+    };
+
+    c.submitting = false;
+    c.successMessage = "";
+    c.errorMessage = "";
+
+	c.getPriorityLabel = function() {
+
+    if (!c.form.category)
+        return "";
+
+    var map = {
+        payroll: "High",
+        benefits: "Medium",
+        leave: "Medium",
+        employee_relations: "High",
+        general: "Low",
+        others: "Low"
+    };
+
+    return map[c.form.category] || "";
+};
+
+
+    c.submitRequest = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+
+        if (!c.form.category ||
+            !c.form.description) {
+
+            c.errorMessage =
+                "Please complete all required fields.";
+
+            return;
+        }
+
+
+        c.submitting = true;
+
+
+        c.server.get({
+
+            action: 'create_case',
+
+            category:
+                c.form.category,
+
+            description:
+                c.form.description
+
+        }).then(function(response) {
+
+            c.submitting = false;
+
+            var result =
+                response.data.result;
+
+
+            if (result && result.success) {
+
+                c.successMessage =
+                    "HR Request " +
+                    result.number +
+                    " created successfully.";
+
+                c.form.category = "";
+                c.form.description = "";
+
+            } else {
+
+                c.errorMessage =
+                    result && result.message
+                    ? result.message
+                    : "Unable to create HR request.";
+            }
+
+        }, function() {
+
+            c.submitting = false;
+
+            c.errorMessage =
+                "An error occurred while creating the request.";
+
+        });
+
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hod-raise-case-page {&#13;
+  max-width: 900px;&#13;
+  margin: 30px auto;&#13;
+  padding: 0 20px;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #7b8497;&#13;
+}&#13;
+&#13;
+.back-link {&#13;
+  color: #1769e0;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.request-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 26px;&#13;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.form-group {&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.form-group label {&#13;
+  display: block;&#13;
+  font-weight: 600;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.form-group label span {&#13;
+  color: #e53935;&#13;
+}&#13;
+&#13;
+.form-control {&#13;
+  width: 100%;&#13;
+  border: 1px solid #dce2eb;&#13;
+  border-radius: 8px;&#13;
+  padding: 11px 12px;&#13;
+  outline: none;&#13;
+  background: #ffffff;&#13;
+}&#13;
+&#13;
+.description-box {&#13;
+  min-height: 140px;&#13;
+  resize: vertical;&#13;
+}&#13;
+&#13;
+.form-actions {&#13;
+  display: flex;&#13;
+  justify-content: flex-end;&#13;
+}&#13;
+&#13;
+.submit-btn {&#13;
+  background: #17a673;&#13;
+  color: white;&#13;
+  border: none;&#13;
+  border-radius: 8px;&#13;
+  padding: 11px 20px;&#13;
+  font-weight: 600;&#13;
+  cursor: pointer;&#13;
+}&#13;
+&#13;
+.submit-btn:disabled {&#13;
+  opacity: .6;&#13;
+  cursor: not-allowed;&#13;
+}&#13;
+&#13;
+.success-box {&#13;
+  margin-top: 18px;&#13;
+  padding: 14px;&#13;
+  background: #e6f7ef;&#13;
+  color: #15724f;&#13;
+  border-radius: 8px;&#13;
+}&#13;
+&#13;
+.error-box {&#13;
+  margin-top: 18px;&#13;
+  padding: 14px;&#13;
+  background: #fdeaea;&#13;
+  color: #b42318;&#13;
+  border-radius: 8px;&#13;
+}&#13;
+&#13;
+.priority-readonly {&#13;
+  background: #f5f7fa;&#13;
+  color: #596579;&#13;
+  cursor: not-allowed;&#13;
+}&#13;
+&#13;
+.priority-help {&#13;
+  display: block;&#13;
+  margin-top: 6px;&#13;
+  color: #7b8497;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+select.form-control {&#13;
+  height: 44px;&#13;
+  line-height: 22px;&#13;
+  padding: 10px 12px;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.form-control {&#13;
+  box-sizing: border-box;&#13;
+}&#13;
+&#13;
+@media (max-width: 700px) {&#13;
+&#13;
+  .page-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .back-link {&#13;
+    display: inline-block;&#13;
+    margin-top: 12px;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hod_raise_hr_request</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HOD Raise HR Request</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.result = null;
+
+    if (!input || input.action != 'create_case')
+        return;
+
+
+    var category =
+        (input.category || '').toString();
+
+    var description =
+        (input.description || '').toString();
+
+
+    if (!category || !description) {
+
+        data.result = {
+            success: false,
+            message: "Please complete all required fields."
+        };
+
+        return;
+    }
+
+
+    var allowedCategories = [
+        'payroll',
+        'benefits',
+        'leave',
+        'employee_relations',
+        'general',
+        'others'
+    ];
+
+
+    if (allowedCategories.indexOf(category) == -1) {
+
+        data.result = {
+            success: false,
+            message: "Invalid category."
+        };
+
+        return;
+    }
+
+
+    var caseGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_hr_case'
+        );
+
+    caseGR.initialize();
+
+    caseGR.setValue(
+        'request_by',
+        gs.getUserID()
+    );
+
+    caseGR.setValue(
+        'category',
+        category
+    );
+
+    caseGR.setValue(
+        'description',
+        description
+    );
+
+    caseGR.setValue(
+        'status',
+        'open'
+    );
+
+
+    // DO NOT SET PRIORITY HERE
+    // Existing Business Rule / Flow
+    // will assign priority based on category.
+
+
+    var newSysId = caseGR.insert();
+
+
+    if (!newSysId) {
+
+        data.result = {
+            success: false,
+            message: "Unable to create the HR request."
+        };
+
+        return;
+    }
+
+
+    var createdGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_hr_case'
+        );
+
+    var caseNumber = "";
+
+    if (createdGR.get(newSysId)) {
+
+        caseNumber =
+            createdGR.getDisplayValue('number');
+    }
+
+
+    data.result = {
+        success: true,
+        number: caseNumber,
+        sys_id: newSysId
+    };
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 15:55:57</sys_created_on>
+        <sys_id>66655c66c52603107f44d2fa2d3a56a4</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>HOD Raise HR Request</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_66655c66c52603107f44d2fa2d3a56a4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 17:10:25</sys_updated_on>
+        <template><![CDATA[<div class="hod-raise-case-page">
+
+  <div class="page-header">
+    <div>
+      <h2>Raise HR Request</h2>
+      <p>Submit an HR request to the Human Resources team.</p>
+    </div>
+
+    <a class="back-link" href="?id=hod_dashboard">
+      ← Back to Dashboard
+    </a>
+  </div>
+
+  <div class="request-card">
+
+    <div class="form-group">
+      <label>Category <span>*</span></label>
+
+        <select class="form-control"
+                ng-model="c.form.category">
+          <option value="" disabled>Select Category</option>
+          <option value="payroll">Payroll</option>
+          <option value="benefits">Benefits</option>
+          <option value="leave">Leave</option>
+          <option value="employee_relations">Employee Relations</option>
+          <option value="general">General</option>
+          <option value="others">Others</option>
+        </select>
+    </div>
+
+   <div class="form-group">
+  <label>Priority</label>
+
+  <input type="text"
+         class="form-control priority-readonly"
+         ng-value="c.getPriorityLabel()"
+         placeholder="Auto-assigned based on category"
+         readonly>
+         
+  <small class="priority-help">
+    Priority is automatically assigned based on the selected category.
+  </small>
+</div>
+
+    <div class="form-group">
+      <label>Description <span>*</span></label>
+
+      <textarea class="form-control description-box"
+                ng-model="c.form.description"
+                placeholder="Describe your HR request...">
+      </textarea>
+    </div>
+
+    <div class="form-actions">
+
+      <button class="submit-btn"
+              ng-click="c.submitRequest()"
+              ng-disabled="c.submitting">
+        {{c.submitting ? 'Submitting...' : 'Submit HR Request'}}
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="success-box" ng-if="c.successMessage">
+    ✓ {{c.successMessage}}
+  </div>
+
+  <div class="error-box" ng-if="c.errorMessage">
+    {{c.errorMessage}}
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

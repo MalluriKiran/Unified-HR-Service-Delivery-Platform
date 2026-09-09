@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+
+    var c = this;
+
+    c.hrRemarks = "";
+    c.successMessage = "";
+    c.errorMessage = "";
+
+
+    c.approve = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+        if (!c.hrRemarks) {
+            c.errorMessage =
+                "Please enter HR remarks before approving.";
+            return;
+        }
+
+        c.server.get({
+            action: 'approve',
+            hrRemarks: c.hrRemarks
+        }).then(function(response) {
+
+            c.data = response.data;
+
+            if (response.data.actionSuccess) {
+
+                c.successMessage =
+                    response.data.actionMessage;
+
+                c.hrRemarks = "";
+
+            }
+
+        });
+    };
+
+
+    c.reject = function() {
+
+        c.successMessage = "";
+        c.errorMessage = "";
+
+        if (!c.hrRemarks) {
+            c.errorMessage =
+                "Please enter HR remarks before rejecting.";
+            return;
+        }
+
+        c.server.get({
+            action: 'reject',
+            hrRemarks: c.hrRemarks
+        }).then(function(response) {
+
+            c.data = response.data;
+
+            if (response.data.actionSuccess) {
+
+                c.successMessage =
+                    response.data.actionMessage;
+
+                c.hrRemarks = "";
+
+            }
+
+        });
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hr-leave-detail-page {&#13;
+  max-width: 1150px;&#13;
+  margin: 0 auto;&#13;
+  padding: 34px 30px 60px;&#13;
+  min-height: 100vh;&#13;
+  background: #f7f9fc;&#13;
+  color: #0f1b45;&#13;
+  font-family: Arial, sans-serif;&#13;
+}&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #7d879c;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.back-link {&#13;
+  color: #1769e0;&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.summary-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, 1fr);&#13;
+  gap: 14px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.summary-card {&#13;
+  background: #fff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 13px;&#13;
+  padding: 18px;&#13;
+  box-shadow: 0 3px 12px rgba(15,27,69,.04);&#13;
+}&#13;
+&#13;
+.summary-card span,&#13;
+.info-grid span,&#13;
+.hr-remarks-result span {&#13;
+  display: block;&#13;
+  color: #8993a7;&#13;
+  font-size: 10px;&#13;
+  margin-bottom: 7px;&#13;
+}&#13;
+&#13;
+.summary-card strong {&#13;
+  color: #0f1b45;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.detail-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 1fr;&#13;
+  gap: 18px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.detail-card,&#13;
+.action-card,&#13;
+.result-card {&#13;
+  background: #fff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 20px;&#13;
+  box-shadow: 0 4px 14px rgba(15,27,69,.05);&#13;
+}&#13;
+&#13;
+.detail-card h3,&#13;
+.action-card h3,&#13;
+.result-card h3 {&#13;
+  margin: 0 0 18px;&#13;
+  color: #0f1b45;&#13;
+  font-size: 15px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.info-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 1fr;&#13;
+  gap: 20px;&#13;
+}&#13;
+&#13;
+.info-grid strong {&#13;
+  color: #25314f;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.full-card {&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.reason-box {&#13;
+  min-height: 72px;&#13;
+  padding: 15px;&#13;
+  background: #f7f9fc;&#13;
+  border: 1px solid #e1e6ee;&#13;
+  border-radius: 9px;&#13;
+  color: #3b4762;&#13;
+  font-size: 12px;&#13;
+  line-height: 1.6;&#13;
+}&#13;
+&#13;
+.reason-box.emergency {&#13;
+  background: #fff7ed;&#13;
+  border-color: #fed7aa;&#13;
+}&#13;
+&#13;
+.status-pill,&#13;
+.decision-status {&#13;
+  display: inline-block;&#13;
+  padding: 6px 12px;&#13;
+  border-radius: 16px;&#13;
+  font-size: 10px !important;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.status-pending {&#13;
+  background: #fff2d9;&#13;
+  color: #d98500 !important;&#13;
+}&#13;
+&#13;
+.status-approved,&#13;
+.decision-approved {&#13;
+  background: #dcfce7;&#13;
+  color: #15803d !important;&#13;
+}&#13;
+&#13;
+.status-rejected,&#13;
+.decision-rejected {&#13;
+  background: #fee2e2;&#13;
+  color: #dc2626 !important;&#13;
+}&#13;
+&#13;
+.action-card {&#13;
+  border-left: 4px solid #0b8793;&#13;
+  margin-top: 20px;&#13;
+}&#13;
+&#13;
+.action-header p {&#13;
+  color: #7d879c;&#13;
+  font-size: 11px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.action-card label {&#13;
+  font-size: 11px;&#13;
+  color: #45516b;&#13;
+  margin-bottom: 7px;&#13;
+}&#13;
+&#13;
+.remarks-box {&#13;
+  min-height: 110px;&#13;
+  border-radius: 9px;&#13;
+  resize: vertical;&#13;
+}&#13;
+&#13;
+.action-footer {&#13;
+  display: flex;&#13;
+  justify-content: flex-end;&#13;
+  gap: 12px;&#13;
+  padding-top: 18px;&#13;
+  margin-top: 18px;&#13;
+  border-top: 1px solid #edf1f5;&#13;
+}&#13;
+&#13;
+.approve-btn,&#13;
+.reject-btn {&#13;
+  padding: 10px 20px;&#13;
+  border-radius: 8px;&#13;
+  border: none;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.approve-btn {&#13;
+  background: #0b8793;&#13;
+  color: #fff;&#13;
+}&#13;
+&#13;
+.approve-btn:hover {&#13;
+  background: #08727b;&#13;
+}&#13;
+&#13;
+.reject-btn {&#13;
+  background: #fee2e2;&#13;
+  color: #c62828;&#13;
+}&#13;
+&#13;
+.reject-btn:hover {&#13;
+  background: #fecaca;&#13;
+}&#13;
+&#13;
+.result-card {&#13;
+  margin-top: 20px;&#13;
+}&#13;
+&#13;
+.hr-remarks-result {&#13;
+  margin-top: 18px;&#13;
+  padding: 14px;&#13;
+  background: #f7f9fc;&#13;
+  border-radius: 9px;&#13;
+}&#13;
+&#13;
+.hr-remarks-result p {&#13;
+  margin: 0;&#13;
+  color: #34415d;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.success-message {&#13;
+  margin-top: 18px;&#13;
+  padding: 13px 16px;&#13;
+  border-radius: 9px;&#13;
+  background: #e5f7ed;&#13;
+  color: #16724d;&#13;
+}&#13;
+&#13;
+.error-message,&#13;
+.message-box {&#13;
+  margin-top: 18px;&#13;
+  padding: 13px 16px;&#13;
+  border-radius: 9px;&#13;
+  background: #fee2e2;&#13;
+  color: #b91c1c;&#13;
+}&#13;
+&#13;
+@media(max-width: 800px) {&#13;
+&#13;
+  .summary-grid {&#13;
+    grid-template-columns: 1fr 1fr;&#13;
+  }&#13;
+&#13;
+  .detail-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .page-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .back-link {&#13;
+    display: inline-block;&#13;
+    margin-top: 12px;&#13;
+  }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hr_leave_request_details_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HR Leave Request Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.requestFound = false;
+    data.message = "";
+    data.leave = {};
+
+    var requestSysId = $sp.getParameter('sys_id');
+
+    if (!requestSysId) {
+        data.message = "No leave request was selected.";
+        return;
+    }
+
+
+    var gr = new GlideRecord(
+        'x_snc_unified_hr_0_leave_request'
+    );
+
+    if (!gr.get(requestSysId)) {
+        data.message = "Leave request not found.";
+        return;
+    }
+
+
+    data.requestFound = true;
+
+
+    // -------------------------
+    // PROCESS HR ACTION
+    // -------------------------
+
+    if (input && input.action) {
+
+        var remarks = input.hrRemarks || "";
+
+        if (input.action == 'approve') {
+
+            gr.setValue('status', 'approved');
+            gr.setValue('hr_remarks', remarks);
+
+            gr.update();
+
+            data.actionSuccess = true;
+            data.actionMessage =
+                "Leave request approved successfully.";
+        }
+
+
+        if (input.action == 'reject') {
+
+            gr.setValue('status', 'rejected');
+            gr.setValue('hr_remarks', remarks);
+
+            gr.update();
+
+            data.actionSuccess = true;
+            data.actionMessage =
+                "Leave request rejected successfully.";
+        }
+    }
+
+
+    // Reload record after update
+    gr.get(requestSysId);
+
+
+    data.leave = {
+
+        sys_id:
+            gr.getUniqueValue(),
+
+        number:
+            gr.getDisplayValue('number'),
+
+        requested_by:
+            gr.getDisplayValue('requested_by'),
+
+        department:
+            gr.getDisplayValue('department'),
+
+        leave_type:
+            gr.getDisplayValue('leave_type'),
+
+        start_date:
+            gr.getDisplayValue('start_date'),
+
+        end_date:
+            gr.getDisplayValue('end_date'),
+
+        number_of_leave_days:
+            gr.getDisplayValue('number_of_leave_days'),
+
+        reason:
+            gr.getDisplayValue('reason'),
+
+        emergency_reason:
+            gr.getDisplayValue('emergency_reason'),
+
+        hod_remarks:
+            gr.getDisplayValue('hod_remarks'),
+
+        hr_remarks:
+            gr.getDisplayValue('hr_remarks'),
+
+        status:
+            gr.getDisplayValue('status'),
+
+        status_value:
+            gr.getValue('status'),
+
+        approval_group:
+            gr.getDisplayValue('approval_group'),
+
+        current_approver:
+            gr.getDisplayValue('current_approver'),
+
+        applied_on:
+            gr.getDisplayValue('applied_on')
+
+    };
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 16:16:05</sys_created_on>
+        <sys_id>f8836d3a6ce643107f4499a3fab9db19</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Leave Request Details</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_f8836d3a6ce643107f4499a3fab9db19</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 16:16:05</sys_updated_on>
+        <template><![CDATA[<div class="hr-leave-detail-page">
+
+  <div ng-if="data.message" class="message-box">
+    {{data.message}}
+  </div>
+
+  <div ng-if="data.requestFound">
+
+    <div class="page-header">
+
+      <div>
+        <h2>]]>📅<![CDATA[ HR Leave Request Details</h2>
+        <p>
+          Review and process {{data.leave.number}}
+        </p>
+      </div>
+
+      <a href="?id=pending_hr_leave_approvals"
+         class="back-link">
+        ← Back to Pending Approvals
+      </a>
+
+    </div>
+
+
+    <!-- TOP SUMMARY -->
+
+    <div class="summary-grid">
+
+      <div class="summary-card">
+        <span>Request Number</span>
+        <strong>{{data.leave.number}}</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Status</span>
+
+        <strong class="status-pill"
+                ng-class="{
+                  'status-pending': data.leave.status_value == 'pending_hr',
+                  'status-approved': data.leave.status_value == 'approved',
+                  'status-rejected': data.leave.status_value == 'rejected'
+                }">
+
+          {{data.leave.status}}
+
+        </strong>
+
+      </div>
+
+      <div class="summary-card">
+        <span>Applied On</span>
+        <strong>{{data.leave.applied_on}}</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Leave Days</span>
+        <strong>{{data.leave.number_of_leave_days}}</strong>
+      </div>
+
+    </div>
+
+
+    <!-- EMPLOYEE + LEAVE INFO -->
+
+    <div class="detail-grid">
+
+      <section class="detail-card">
+
+        <h3>Employee Information</h3>
+
+        <div class="info-grid">
+
+          <div>
+            <span>Employee</span>
+            <strong>{{data.leave.requested_by}}</strong>
+          </div>
+
+          <div>
+            <span>Department</span>
+            <strong>{{data.leave.department}}</strong>
+          </div>
+
+          <div>
+            <span>Current Approver</span>
+            <strong>{{data.leave.current_approver || '—'}}</strong>
+          </div>
+
+          <div>
+            <span>Approval Group</span>
+            <strong>{{data.leave.approval_group || '—'}}</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="detail-card">
+
+        <h3>Leave Information</h3>
+
+        <div class="info-grid">
+
+          <div>
+            <span>Leave Type</span>
+            <strong>{{data.leave.leave_type}}</strong>
+          </div>
+
+          <div>
+            <span>Start Date</span>
+            <strong>{{data.leave.start_date}}</strong>
+          </div>
+
+          <div>
+            <span>End Date</span>
+            <strong>{{data.leave.end_date}}</strong>
+          </div>
+
+          <div>
+            <span>Number of Days</span>
+            <strong>{{data.leave.number_of_leave_days}}</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- REASON -->
+
+    <section class="detail-card full-card">
+
+      <h3>Employee Leave Reason</h3>
+
+      <div class="reason-box">
+        {{data.leave.reason}}
+      </div>
+
+    </section>
+
+
+    <section class="detail-card full-card"
+             ng-if="data.leave.emergency_reason">
+
+      <h3>Emergency Reason</h3>
+
+      <div class="reason-box emergency">
+        {{data.leave.emergency_reason}}
+      </div>
+
+    </section>
+
+
+    <!-- HOD REMARKS -->
+
+    <section class="detail-card full-card">
+
+      <h3>HOD Remarks</h3>
+
+      <div class="reason-box">
+        {{data.leave.hod_remarks || 'No HOD remarks provided.'}}
+      </div>
+
+    </section>
+
+
+    <!-- HR ACTION AREA -->
+
+    <section class="action-card"
+             ng-if="data.leave.status_value == 'pending_hr'">
+
+      <div class="action-header">
+        <h3>HR Review</h3>
+        <p>
+          Enter HR remarks and approve or reject this leave request.
+        </p>
+      </div>
+
+      <label>HR Remarks</label>
+
+      <textarea class="form-control remarks-box"
+                ng-model="c.hrRemarks"
+                placeholder="Enter HR approval or rejection remarks...">
+      </textarea>
+
+
+      <div class="action-footer">
+
+        <button class="reject-btn"
+                ng-click="c.reject()">
+          ✕ Reject
+        </button>
+
+        <button class="approve-btn"
+                ng-click="c.approve()">
+          ✓ Approve
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMPLETED RESULT -->
+
+    <section class="result-card"
+             ng-if="data.leave.status_value == 'approved' ||
+                    data.leave.status_value == 'rejected'">
+
+      <h3>HR Decision</h3>
+
+      <div class="decision-status"
+           ng-class="{
+             'decision-approved':
+               data.leave.status_value == 'approved',
+             'decision-rejected':
+               data.leave.status_value == 'rejected'
+           }">
+
+        {{data.leave.status}}
+
+      </div>
+
+      <div class="hr-remarks-result">
+
+        <span>HR Remarks</span>
+
+        <p>
+          {{data.leave.hr_remarks ||
+            'No HR remarks were provided.'}}
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <div class="success-message"
+         ng-if="c.successMessage">
+
+      {{c.successMessage}}
+
+    </div>
+
+    <div class="error-message"
+         ng-if="c.errorMessage">
+
+      {{c.errorMessage}}
+
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

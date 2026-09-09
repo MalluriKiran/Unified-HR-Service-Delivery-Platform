@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>leave request done</key>
+        <language>en</language>
+        <message>Leave request done</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 14:45:04</sys_created_on>
+        <sys_id>f3a01d7a6c6643107f4499a3fab9dbbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leave request done</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_ui_message_f3a01d7a6c6643107f4499a3fab9dbbf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:45:04</sys_updated_on>
+    </sys_ui_message>
+</record_update>

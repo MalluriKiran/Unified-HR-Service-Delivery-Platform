@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.uhr-dashboard {&#13;
+  display: flex;&#13;
+  min-height: 100vh;&#13;
+  background: #f7f9fc;&#13;
+  font-family: Arial, sans-serif;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.sn-sidebar {&#13;
+  width: 275px;&#13;
+  min-width: 275px;&#13;
+  min-height: 100vh;&#13;
+  background: #062f3d;&#13;
+  color: #ffffff;&#13;
+  padding: 18px 14px;&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+  box-shadow: 2px 0 8px rgba(0,0,0,.08);&#13;
+}&#13;
+&#13;
+.sn-brand {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 12px;&#13;
+  padding: 4px 10px 18px;&#13;
+  border-bottom: 1px solid rgba(255,255,255,.12);&#13;
+  margin-bottom: 16px;&#13;
+}&#13;
+&#13;
+.sn-logo-mark {&#13;
+  width: 36px;&#13;
+  height: 36px;&#13;
+  border-radius: 8px;&#13;
+  background: #81d742;&#13;
+  color: #052e3a;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-weight: 800;&#13;
+  font-size: 17px;&#13;
+}&#13;
+&#13;
+.sn-brand-title {&#13;
+  font-size: 17px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.sn-brand-sub {&#13;
+  font-size: 11px;&#13;
+  color: #b9ccd3;&#13;
+  margin-top: 2px;&#13;
+}&#13;
+&#13;
+.sn-search {&#13;
+  height: 38px;&#13;
+  background: rgba(255,255,255,.12);&#13;
+  border: 1px solid rgba(255,255,255,.12);&#13;
+  border-radius: 5px;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 8px;&#13;
+  padding: 0 10px;&#13;
+  margin-bottom: 15px;&#13;
+}&#13;
+&#13;
+.sn-search input {&#13;
+  width: 100%;&#13;
+  border: 0;&#13;
+  outline: 0;&#13;
+  background: transparent;&#13;
+  color: #ffffff;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.bell {&#13;
+    cursor: pointer;&#13;
+    text-decoration: none;&#13;
+    font-size: 20px;&#13;
+}&#13;
+&#13;
+.sn-search input::placeholder {&#13;
+  color: #c9d7dc;&#13;
+}&#13;
+&#13;
+.sn-search-icon {&#13;
+  color: #dce8ec;&#13;
+}&#13;
+&#13;
+.sn-nav {&#13;
+  flex: 1;&#13;
+}&#13;
+&#13;
+.sn-nav-item {&#13;
+  position: relative;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 11px;&#13;
+  min-height: 42px;&#13;
+  padding: 0 12px;&#13;
+  margin: 2px 0;&#13;
+  color: #e7f0f3 !important;&#13;
+  text-decoration: none !important;&#13;
+  border-radius: 5px;&#13;
+  font-size: 13px;&#13;
+  transition: .18s ease;&#13;
+}&#13;
+&#13;
+.sn-nav-item:hover,&#13;
+.sn-sub-item:hover {&#13;
+  background: rgba(255,255,255,.10);&#13;
+  color: #ffffff !important;&#13;
+}&#13;
+&#13;
+.sn-nav-item.active {&#13;
+  background: #164a5b;&#13;
+  box-shadow: inset 3px 0 0 #81d742;&#13;
+  color: #ffffff !important;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.sn-nav-icon {&#13;
+  width: 20px;&#13;
+  text-align: center;&#13;
+  font-size: 15px;&#13;
+}&#13;
+&#13;
+.sn-section {&#13;
+  margin: 5px 0 8px;&#13;
+}&#13;
+&#13;
+.sn-section-title {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+  color: #b8cbd2;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+  text-transform: uppercase;&#13;
+  letter-spacing: .45px;&#13;
+  padding: 10px 12px 6px;&#13;
+}&#13;
+&#13;
+.sn-chevron {&#13;
+  font-size: 12px;&#13;
+  color: #95b1bb;&#13;
+}&#13;
+&#13;
+.sn-sub-item {&#13;
+  display: block;&#13;
+  color: #e6eef1 !important;&#13;
+  text-decoration: none !important;&#13;
+  font-size: 13px;&#13;
+  padding: 9px 12px 9px 43px;&#13;
+  border-radius: 5px;&#13;
+  margin: 1px 0;&#13;
+}&#13;
+&#13;
+.sn-count {&#13;
+  margin-left: auto;&#13;
+  min-width: 21px;&#13;
+  height: 21px;&#13;
+  padding: 0 6px;&#13;
+  border-radius: 11px;&#13;
+  background: #81d742;&#13;
+  color: #062f3d;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.sn-help-card {&#13;
+  margin-top: 18px;&#13;
+  background: rgba(255,255,255,.08);&#13;
+  border: 1px solid rgba(255,255,255,.12);&#13;
+  border-radius: 9px;&#13;
+  padding: 17px 14px;&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+.sn-help-icon {&#13;
+  width: 40px;&#13;
+  height: 40px;&#13;
+  margin: 0 auto 10px;&#13;
+  border-radius: 50%;&#13;
+  background: rgba(129,215,66,.18);&#13;
+  color: #81d742;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+}&#13;
+&#13;
+.sn-help-card strong {&#13;
+  display: block;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.sn-help-card p {&#13;
+  color: #bdd0d6;&#13;
+  font-size: 11px;&#13;
+  line-height: 1.5;&#13;
+  margin: 6px 0 12px;&#13;
+}&#13;
+&#13;
+.sn-help-card button {&#13;
+  width: 100%;&#13;
+  border: 0;&#13;
+  border-radius: 5px;&#13;
+  background: #81d742;&#13;
+  color: #062f3d;&#13;
+  padding: 9px 8px;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.brand-icon {&#13;
+  font-size: 28px;&#13;
+}&#13;
+&#13;
+.brand-text {&#13;
+  font-size: 24px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.nav-item {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 12px;&#13;
+  padding: 13px 15px;&#13;
+  margin-bottom: 5px;&#13;
+  border-radius: 8px;&#13;
+  text-decoration: none !important;&#13;
+  color: #17234d !important;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.nav-item:hover {&#13;
+  background: #f2f4fa;&#13;
+}&#13;
+&#13;
+.nav-item.active {&#13;
+  background: #1b2858;&#13;
+  color: white !important;&#13;
+}&#13;
+&#13;
+.help-card {&#13;
+  margin-top: auto;&#13;
+  padding: 20px;&#13;
+  border: 1px solid #e6e9ef;&#13;
+  border-radius: 14px;&#13;
+  text-align: center;&#13;
+  background: #fbfcff;&#13;
+}&#13;
+&#13;
+.help-icon {&#13;
+  font-size: 35px;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.help-card button {&#13;
+  width: 100%;&#13;
+  border: none;&#13;
+  border-radius: 6px;&#13;
+  padding: 10px;&#13;
+  background: #15265b;&#13;
+  color: white;&#13;
+}&#13;
+&#13;
+.uhr-main {&#13;
+  flex: 1;&#13;
+  padding: 28px;&#13;
+}&#13;
+&#13;
+.topbar {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 26px;&#13;
+}&#13;
+&#13;
+.topbar h1 {&#13;
+  margin: 0;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.topbar p {&#13;
+  margin-top: 7px;&#13;
+  color: #667085;&#13;
+}&#13;
+&#13;
+.top-actions {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 15px;&#13;
+}&#13;
+&#13;
+.search-box {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 8px;&#13;
+  background: white;&#13;
+  border: 1px solid #e4e7ec;&#13;
+  border-radius: 12px;&#13;
+  padding: 10px 14px;&#13;
+  min-width: 300px;&#13;
+}&#13;
+&#13;
+.search-box input {&#13;
+  border: none;&#13;
+  outline: none;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+.profile-box {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: 10px;&#13;
+}&#13;
+&#13;
+.avatar {&#13;
+  width: 42px;&#13;
+  height: 42px;&#13;
+  border-radius: 50%;&#13;
+  background: #eef1f7;&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.profile-box small {&#13;
+  display: block;&#13;
+  color: #667085;&#13;
+}&#13;
+&#13;
+.stats-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(4, 1fr);&#13;
+  gap: 20px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.stat-card {&#13;
+  background: white;&#13;
+  border: 1px solid #e6e9ef;&#13;
+  border-radius: 16px;&#13;
+  padding: 22px;&#13;
+  min-height: 190px;&#13;
+  box-shadow: 0 3px 12px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.stat-icon {&#13;
+  width: 52px;&#13;
+  height: 52px;&#13;
+  border-radius: 50%;&#13;
+  display: flex;&#13;
+  justify-content: center;&#13;
+  align-items: center;&#13;
+  font-size: 25px;&#13;
+  margin-bottom: 14px;&#13;
+}&#13;
+&#13;
+.green { background: #e7f8f2; }&#13;
+.blue { background: #edf3ff; }&#13;
+.purple { background: #f3edff; }&#13;
+.orange { background: #fff2e8; }&#13;
+&#13;
+.stat-title {&#13;
+  font-size: 16px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.stat-value {&#13;
+  font-size: 34px;&#13;
+  font-weight: 700;&#13;
+  margin: 8px 0 18px;&#13;
+}&#13;
+&#13;
+.stat-value span {&#13;
+  font-size: 13px;&#13;
+  font-weight: 500;&#13;
+}&#13;
+&#13;
+.stat-card a {&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.stat-date {&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  margin-top: 14px;&#13;
+}&#13;
+&#13;
+.stat-sub,&#13;
+.stat-empty {&#13;
+  margin-top: 5px;&#13;
+  color: #667085;&#13;
+}&#13;
+&#13;
+.content-grid,&#13;
+.bottom-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1.2fr 1fr;&#13;
+  gap: 20px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.panel {&#13;
+  background: white;&#13;
+  border: 1px solid #e6e9ef;&#13;
+  border-radius: 16px;&#13;
+  padding: 20px;&#13;
+  box-shadow: 0 3px 12px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.panel-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+  margin-bottom: 16px;&#13;
+}&#13;
+&#13;
+.panel-header h3 {&#13;
+  margin: 0;&#13;
+  font-size: 17px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.table-wrap {&#13;
+  overflow-x: auto;&#13;
+}&#13;
+&#13;
+table {&#13;
+  width: 100%;&#13;
+  border-collapse: collapse;&#13;
+}&#13;
+&#13;
+th,&#13;
+td {&#13;
+  padding: 12px 10px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+  text-align: left;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+th {&#13;
+  background: #fafbfc;&#13;
+}&#13;
+&#13;
+.status-pill {&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 12px;&#13;
+  background: #fff3d6;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.empty-row {&#13;
+  text-align: center;&#13;
+  color: #667085;&#13;
+}&#13;
+&#13;
+.announcement {&#13;
+  display: flex;&#13;
+  gap: 12px;&#13;
+  padding: 14px 0;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+}&#13;
+&#13;
+.dot {&#13;
+  width: 8px;&#13;
+  height: 8px;&#13;
+  background: #2f6fed;&#13;
+  border-radius: 50%;&#13;
+  margin-top: 7px;&#13;
+}&#13;
+&#13;
+.announcement p {&#13;
+  margin: 4px 0 0;&#13;
+  color: #667085;&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+.quick-actions {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(5, 1fr);&#13;
+  gap: 12px;&#13;
+}&#13;
+&#13;
+.quick-actions a {&#13;
+  padding: 18px 10px;&#13;
+  border: 1px solid #e6e9ef;&#13;
+  border-radius: 12px;&#13;
+  text-align: center;&#13;
+  text-decoration: none;&#13;
+  color: #182450;&#13;
+}&#13;
+&#13;
+.quick-icon {&#13;
+  font-size: 28px;&#13;
+  margin-bottom: 8px;&#13;
+}&#13;
+&#13;
+.shortcut-grid {&#13;
+  display: grid;&#13;
+  grid-template-columns: 1fr 1fr;&#13;
+  gap: 12px;&#13;
+}&#13;
+&#13;
+.shortcut-grid a {&#13;
+  background: #f5f8ff;&#13;
+  padding: 14px;&#13;
+  border-radius: 10px;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.leave-progress {&#13;
+  height: 7px;&#13;
+  background: #edf1f5;&#13;
+  border-radius: 20px;&#13;
+  margin: 14px 0;&#13;
+  overflow: hidden;&#13;
+}&#13;
+&#13;
+.leave-progress-bar {&#13;
+  height: 100%;&#13;
+  background: #21b383;&#13;
+  border-radius: 20px;&#13;
+}&#13;
+&#13;
+.status-approved {&#13;
+  background: #e8f7ef;&#13;
+  color: #12805c;&#13;
+}&#13;
+&#13;
+.status-rejected {&#13;
+  background: #fdecec;&#13;
+  color: #d92d20;&#13;
+}&#13;
+&#13;
+.status-pending {&#13;
+  background: #fff4d8;&#13;
+  color: #d97706;&#13;
+}&#13;
+&#13;
+@media (max-width: 1200px) {&#13;
+  .stats-grid {&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+  }&#13;
+&#13;
+  .content-grid,&#13;
+  .bottom-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (max-width: 768px) {&#13;
+  .uhr-sidebar {&#13;
+    display: none;&#13;
+  }&#13;
+&#13;
+  .stats-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+  .quick-actions {&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+  }&#13;
+&#13;
+  .top-actions {&#13;
+    display: none;&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+  .sn-sidebar {&#13;
+    display: none;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Polished employee dashboard for Unified HR Service Delivery Platform&#13;
+Application: Unified HR Service Delivery Platform&#13;
+Public: unchecked</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>unified_employee_dashboard</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Unified Employee Dashboard</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.userName = gs.getUserDisplayName();
+
+    var initials = "";
+    var parts = data.userName.split(" ");
+
+    for (var i = 0; i < parts.length && i < 2; i++) {
+        if (parts[i])
+            initials += parts[i].charAt(0).toUpperCase();
+    }
+
+    data.initials = initials;
+
+    data.totalBalance = 0;
+	data.maxLeaveBalance = 37;
+    data.leaveRequestCount = 0;
+    data.hrCaseCount = 0;
+    data.recentLeaves = [];
+    data.upcomingLeave = null;
+
+    var balanceGR = new GlideRecord('x_snc_unified_hr_0_leave_balance');
+    balanceGR.addQuery('employee', gs.getUserID());
+    balanceGR.setLimit(1);
+    balanceGR.query();
+
+    if (balanceGR.next()) {
+
+        var casual = parseInt(balanceGR.getValue('casual_leave_balance') || 0, 10);
+        var sick = parseInt(balanceGR.getValue('sick_leave_balance') || 0, 10);
+        var earned = parseInt(balanceGR.getValue('earned_leave_balance') || 0, 10);
+
+        data.totalBalance = casual + sick + earned;
+
+		data.balancePercent = Math.min(
+			Math.round((data.totalBalance / data.maxLeaveBalance) * 100),
+			100
+		);
+    }
+
+    var leaveCountGR = new GlideAggregate('x_snc_unified_hr_0_leave_request');
+    leaveCountGR.addQuery('requested_by', gs.getUserID());
+    leaveCountGR.addAggregate('COUNT');
+    leaveCountGR.query();
+
+    if (leaveCountGR.next())
+        data.leaveRequestCount = parseInt(leaveCountGR.getAggregate('COUNT'), 10);
+
+    var recentGR = new GlideRecord('x_snc_unified_hr_0_leave_request');
+    recentGR.addQuery('requested_by', gs.getUserID());
+    recentGR.orderByDesc('applied_on');
+    recentGR.setLimit(4);
+    recentGR.query();
+
+    while (recentGR.next()) {
+
+        data.recentLeaves.push({
+            number: recentGR.getDisplayValue('number'),
+            leave_type: recentGR.getDisplayValue('leave_type'),
+            start_date: recentGR.getDisplayValue('start_date'),
+            end_date: recentGR.getDisplayValue('end_date'),
+            status: recentGR.getDisplayValue('status'),
+			hod_remarks: recentGR.getValue('hod_remarks') || "-",
+			hr_remarks: recentGR.getValue('hr_remarks') || "-"
+        });
+    }
+
+    var upcomingGR = new GlideRecord('x_snc_unified_hr_0_leave_request');
+    upcomingGR.addQuery('requested_by', gs.getUserID());
+    upcomingGR.addQuery('status', 'Approved');
+    upcomingGR.addQuery('start_date', '>=', new GlideDate().getValue());
+    upcomingGR.orderBy('start_date');
+    upcomingGR.setLimit(1);
+    upcomingGR.query();
+
+    if (upcomingGR.next()) {
+
+        data.upcomingLeave = {
+            start_date: upcomingGR.getDisplayValue('start_date'),
+            leave_type: upcomingGR.getDisplayValue('leave_type')
+        };
+    }
+
+
+	data.announcements = [];
+
+var now = new GlideDateTime();
+
+// Find the current Service Portal record
+var portalGR = new GlideRecord('sp_portal');
+portalGR.addQuery('url_suffix', 'sp');
+portalGR.setLimit(1);
+portalGR.query();
+
+if (portalGR.next()) {
+
+    var portalId = portalGR.getUniqueValue();
+
+    // Find announcements linked to this portal
+    var relGR = new GlideRecord('m2m_announcement_portal');
+    relGR.addQuery('sp_portal', portalId);
+    relGR.query();
+
+    var announcementIds = [];
+
+    while (relGR.next()) {
+        announcementIds.push(relGR.getValue('announcement'));
+    }
+
+    if (announcementIds.length > 0) {
+
+        var annGR = new GlideRecord('announcement');
+        annGR.addQuery('sys_id', 'IN', announcementIds.join(','));
+        annGR.addQuery('active', true);
+        annGR.addQuery('from', '<=', now);
+
+        var qc = annGR.addQuery('to', '>=', now);
+        qc.addOrCondition('to', '');
+
+        annGR.orderByDesc('from');
+        annGR.setLimit(3);
+        annGR.query();
+
+        while (annGR.next()) {
+            data.announcements.push({
+                title: annGR.getDisplayValue('title'),
+                summary: annGR.getDisplayValue('summary')
+            });
+        }
+    }
+}
+// ==============================
+// Active HR Case Count
+// ==============================
+
+data.hrCaseCount = 0;
+
+var caseGR = new GlideRecord('x_snc_unified_hr_0_hr_case');
+
+caseGR.addQuery('request_by', gs.getUserID());
+caseGR.query();
+
+while (caseGR.next()) {
+
+    var caseStatus = (
+        caseGR.getDisplayValue('status') || ""
+    ).toLowerCase();
+
+    if (
+        caseStatus != 'resolved' &&
+        caseStatus != 'closed' &&
+        caseStatus != 'cancelled' &&
+        caseStatus != 'canceled'
+    ) {
+        data.hrCaseCount++;
+    }
+}
+
+
+	
+	// ==============================
+	// Notification Count
+	// ==============================
+
+	data.notificationCount = 0;
+
+	var notificationGR = new GlideAggregate('ui_notification_inbox');
+
+	notificationGR.addQuery('recipient', gs.getUserID());
+	notificationGR.addQuery('status', '!=', 'deleted');
+	notificationGR.addAggregate('COUNT');
+
+	notificationGR.query();
+
+	if (notificationGR.next()) {
+		data.notificationCount = parseInt(
+			notificationGR.getAggregate('COUNT'),
+			10
+		) || 0;
+	}
+
+})();
+
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 07:45:35</sys_created_on>
+        <sys_id>791c19cad16603107f44b93f16d71375</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>Unified Employee Dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_791c19cad16603107f44b93f16d71375</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 05:35:24</sys_updated_on>
+        <template><![CDATA[<div class="uhr-dashboard">
+
+  <aside class="sn-sidebar">
+
+  <div class="sn-brand">
+    <div class="sn-logo-mark">U</div>
+    <div>
+      <div class="sn-brand-title">Unified HR</div>
+      <div class="sn-brand-sub">Employee Portal</div>
+    </div>
+  </div>
+
+  <div class="sn-search">
+    <span class="sn-search-icon">⌕</span>
+    <input type="text" placeholder="Filter" />
+  </div>
+
+  <nav class="sn-nav">
+
+    <a class="sn-nav-item active" href="?id=employee_dashboard">
+      <span class="sn-nav-icon">⌂</span>
+      <span>Dashboard</span>
+    </a>
+
+    <a class="sn-nav-item" href="javascript:void(0)">
+      <span class="sn-nav-icon">♟</span>
+      <span>My Profile</span>
+    </a>
+
+    <div class="sn-section">
+      <div class="sn-section-title">
+        <span>Leave Management</span>
+        <span class="sn-chevron">⌄</span>
+      </div>
+
+      <a class="sn-sub-item"
+         href="?id=apply_leave&table=x_snc_unified_hr_0_leave_request&sys_id=-1">
+        Apply Leave
+      </a>
+
+      <a class="sn-sub-item" href="?id=my_leave_requests">
+        My Leave Requests
+      </a>
+
+      <a class="sn-sub-item" href="?id=leave_balance">
+        Leave Balance
+      </a>
+    </div>
+
+    <div class="sn-section">
+      <div class="sn-section-title">
+        <span>HR Requests</span>
+        <span class="sn-chevron">⌄</span>
+      </div>
+
+      <a class="sn-sub-item" href="?id=employee_raise_hr_case">
+        Raise HR Case
+      </a>
+
+      <a class="sn-sub-item" href="?id=my_hr_cases">
+        My HR Cases
+      </a>
+    </div>
+
+    <a class="sn-nav-item" href="?id=kb_search">
+      <span class="sn-nav-icon">▤</span>
+      <span>HR Policies</span>
+    </a>
+
+    <a class="sn-nav-item" href="?id=my_notifications">
+      <span class="sn-nav-icon">♧</span>
+      <span>Notifications</span>
+
+      <span class="sn-count">
+        {{data.notificationCount || 0}}
+      </span>
+    </a>
+
+  </nav>
+
+  <div class="sn-help-card">
+    <div class="sn-help-icon">◉</div>
+    <strong>Need Help?</strong>
+    <p>Ask HR Assist or raise a case.</p>
+    <button type="button">
+      Chat with HR Assist
+    </button>
+  </div>
+
+</aside>
+
+  <main class="uhr-main">
+
+    <div class="topbar">
+      <div>
+        <h1>Hello, {{data.userName}} ]]>👋<![CDATA[</h1>
+        <p>Welcome back! Here's what's happening today.</p>
+      </div>
+
+      <div class="top-actions">
+        <div class="search-box">
+          ]]>🔍
+<![CDATA[          <input type="text" placeholder="Search services, knowledge articles..." />
+        </div>
+
+        <a class="bell" href="?id=my_notifications">
+    ]]>🔔
+<![CDATA[</a>
+
+        <div class="profile-box">
+          <div class="avatar">{{data.initials}}</div>
+          <div>
+            <strong>{{data.userName}}</strong>
+            <small>Employee</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon green">]]>📅<![CDATA[</div>
+        <div class="stat-title">Leave Balance</div>
+        <div class="stat-value">
+          {{data.totalBalance}}
+          <span>Days Available</span>
+        </div>
+        <div class="leave-progress">
+          <div class="leave-progress-bar"
+               ng-style="{'width': data.balancePercent + '%'}">
+          </div>
+        </div>
+        <a href="?id=leave_balance">View Leave Balance →</a>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon blue">]]>📄<![CDATA[</div>
+        <div class="stat-title">My Requests</div>
+        <div class="stat-value">
+          {{data.leaveRequestCount}}
+          <span>Requests</span>
+        </div>
+        <a href="?id=my_leave_requests">View All Requests →</a>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon purple">]]>💼<![CDATA[</div>
+        <div class="stat-title">My Cases</div>
+        <div class="stat-value">
+          {{data.hrCaseCount}}
+          <span>Active Cases</span>
+        </div>
+        <a href="?id=my_hr_cases">View My Cases →</a>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon orange">]]>🗓<![CDATA[️</div>
+        <div class="stat-title">Upcoming Leave</div>
+
+        <div ng-if="data.upcomingLeave">
+          <div class="stat-date">{{data.upcomingLeave.start_date}}</div>
+          <div class="stat-sub">{{data.upcomingLeave.leave_type}}</div>
+        </div>
+
+        <div ng-if="!data.upcomingLeave" class="stat-empty">
+          No upcoming leave
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content-grid">
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>]]>📅<![CDATA[ Recent Leave Requests</h3>
+          <a href="?id=my_leave_requests">View All →</a>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Leave Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Status</th>
+                <th>HOD Remarks</th>
+                <th>HR Remarks</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="item in data.recentLeaves">
+                <td>{{item.number}}</td>
+                <td>{{item.leave_type}}</td>
+                <td>{{item.start_date}}</td>
+                <td>{{item.end_date}}</td>
+                <td>
+                  <span class="status-pill"
+                        ng-class="{
+                                  'status-approved': item.status == 'Approved',
+                                  'status-rejected': item.status == 'Rejected',
+                                  'status-pending': item.status != 'Approved' && item.status != 'Rejected'
+                                  }">
+                    {{item.status}}
+                  </span>
+                </td>
+                
+                <td>
+    			  {{item.hod_remarks || "-"}}
+  				 </td>
+                
+                <td>
+                  {{item.hr_remarks || '-'}}
+                </td>
+              </tr>
+
+              <tr ng-if="data.recentLeaves.length == 0">
+                <td colspan="7" class="empty-row">
+                  No leave requests found.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>]]>📢<![CDATA[ Announcements</h3>
+        </div>
+
+        <div class="announcement"
+             ng-repeat="announcement in data.announcements">
+          <span class="dot"></span>
+          <div>
+            <strong>{{announcement.title}}</strong>
+            <p>{{announcement.summary}}</p>
+          </div>
+        </div>
+        <div class="announcement-empty"
+             ng-if="!data.announcements || data.announcements.length == 0">
+          No active HR announcements.
+        </div>
+      </section>
+
+    </div>
+
+    <div class="bottom-grid">
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>⚡ Quick Actions</h3>
+        </div>
+
+        <div class="quick-actions">
+
+          <a href="?id=apply_leave&table=x_snc_unified_hr_0_leave_request&sys_id=-1">
+            <div class="quick-icon">]]>📅<![CDATA[</div>
+            <span>Apply Leave</span>
+          </a>
+
+          <a href="x_snc_unified_hr_0_hr_case">
+            <div class="quick-icon">]]>📄<![CDATA[</div>
+            <span>Raise HR Request</span>
+          </a>
+
+          <a href="?id=my_hr_cases">
+            <div class="quick-icon">]]>💼<![CDATA[</div>
+            <span>View My Cases</span>
+          </a>
+
+          <a href="?id=kb_search">
+            <div class="quick-icon">]]>📖<![CDATA[</div>
+            <span>HR Policies</span>
+          </a>
+
+          <a href="javascript:void(0)">
+            <div class="quick-icon">]]>👤<![CDATA[</div>
+            <span>My Profile</span>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>]]>🔗<![CDATA[ Shortcuts</h3>
+        </div>
+
+        <div class="shortcut-grid">
+
+          <a href="?id=kb_search&query=leave">
+            Leave Policy →
+          </a>
+
+          <a href="?id=kb_search&query=holiday">
+            Holiday Policy →
+          </a>
+
+          <a href="?id=kb_search&query=reimbursement">
+            Reimbursement Policy →
+          </a>
+
+          <a href="?id=raise_hr_case">
+            HR Contacts →
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+</div>]]></template>
+    </sp_widget>
+</record_update>

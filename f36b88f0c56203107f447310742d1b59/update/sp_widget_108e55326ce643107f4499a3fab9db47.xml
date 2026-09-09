@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.leave-approvals-page {&#13;
+  max-width: 1280px;&#13;
+  margin: 0 auto;&#13;
+  padding: 34px 30px 60px;&#13;
+  min-height: 100vh;&#13;
+  background: #f7f9fc;&#13;
+  color: #0f1b45;&#13;
+  font-family: Arial, sans-serif;&#13;
+}&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #7d879c;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.request-count {&#13;
+  background: #fff3dc;&#13;
+  color: #c97700;&#13;
+  padding: 10px 16px;&#13;
+  border-radius: 22px;&#13;
+  font-size: 13px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.filter-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e3e8ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 18px;&#13;
+  margin-bottom: 20px;&#13;
+  display: flex;&#13;
+  gap: 14px;&#13;
+  align-items: center;&#13;
+  box-shadow: 0 3px 12px rgba(15,27,69,.05);&#13;
+}&#13;
+&#13;
+.search-box {&#13;
+  flex: 1;&#13;
+  position: relative;&#13;
+}&#13;
+&#13;
+.search-box span {&#13;
+  position: absolute;&#13;
+  left: 14px;&#13;
+  top: 50%;&#13;
+  transform: translateY(-50%);&#13;
+}&#13;
+&#13;
+.search-box input {&#13;
+  padding-left: 40px !important;&#13;
+}&#13;
+&#13;
+.form-control {&#13;
+  height: 42px;&#13;
+  border-radius: 9px;&#13;
+  border: 1px solid #dfe5ed;&#13;
+}&#13;
+&#13;
+.btn-clear {&#13;
+  height: 42px;&#13;
+  padding: 0 18px;&#13;
+  border: 1px solid #dfe5ed;&#13;
+  border-radius: 9px;&#13;
+  background: #f8fafc;&#13;
+  color: #44506a;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.requests-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e2e7ef;&#13;
+  border-radius: 14px;&#13;
+  overflow: hidden;&#13;
+  box-shadow: 0 4px 14px rgba(15,27,69,.05);&#13;
+}&#13;
+&#13;
+.leave-table {&#13;
+  width: 100%;&#13;
+  margin: 0;&#13;
+}&#13;
+&#13;
+.leave-table thead {&#13;
+  background: #f5f7fb;&#13;
+}&#13;
+&#13;
+.leave-table th {&#13;
+  padding: 14px !important;&#13;
+  color: #202c4d;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.leave-table td {&#13;
+  padding: 14px !important;&#13;
+  color: #35415d;&#13;
+  font-size: 12px;&#13;
+  vertical-align: middle !important;&#13;
+  border-top: 1px solid #edf1f5 !important;&#13;
+}&#13;
+&#13;
+.leave-table tbody tr:hover {&#13;
+  background: #f9fbfd;&#13;
+}&#13;
+&#13;
+.request-number {&#13;
+  color: #1769e0;&#13;
+}&#13;
+&#13;
+.status-pending {&#13;
+  display: inline-block;&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 14px;&#13;
+  background: #fff2d9;&#13;
+  color: #d98500;&#13;
+  font-size: 10px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.view-btn {&#13;
+  display: inline-block;&#13;
+  padding: 7px 14px;&#13;
+  background: #0b8793;&#13;
+  color: #ffffff !important;&#13;
+  border-radius: 8px;&#13;
+  text-decoration: none !important;&#13;
+  font-size: 11px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.view-btn:hover {&#13;
+  background: #086f79;&#13;
+}&#13;
+&#13;
+.empty-state {&#13;
+  text-align: center;&#13;
+  padding: 40px !important;&#13;
+  color: #8d96a8 !important;&#13;
+}&#13;
+&#13;
+@media (max-width: 700px) {&#13;
+  .page-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .request-count {&#13;
+    margin-top: 14px;&#13;
+    display: inline-block;&#13;
+  }&#13;
+&#13;
+  .filter-card {&#13;
+    flex-direction: column;&#13;
+    align-items: stretch;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pending_hr_leave_approvals_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Pending HR Leave Approvals</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.requests = [];
+
+    var gr = new GlideRecord('x_snc_unified_hr_0_leave_request');
+
+    // Only requests waiting for HR approval
+    gr.addQuery('status', 'pending_hr');
+
+    gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    while (gr.next()) {
+
+        var leave = {};
+
+        leave.sys_id = gr.getUniqueValue();
+        leave.number = gr.getDisplayValue('number');
+        leave.employee = gr.getDisplayValue('employee');
+        leave.leave_type = gr.getDisplayValue('leave_type');
+        leave.start_date = gr.getDisplayValue('start_date');
+        leave.end_date = gr.getDisplayValue('end_date');
+        leave.reason = gr.getDisplayValue('reason');
+        leave.status = gr.getDisplayValue('status');
+
+        data.requests.push(leave);
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 15:46:15</sys_created_on>
+        <sys_id>108e55326ce643107f4499a3fab9db47</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Pending HR Leave Approvals</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_108e55326ce643107f4499a3fab9db47</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 15:57:26</sys_updated_on>
+        <template><![CDATA[<div class="leave-approvals-page">
+
+  <div class="page-header">
+    <div>
+      <h2>]]>📅<![CDATA[ Pending HR Leave Approvals</h2>
+      <p>Review leave requests waiting for HR approval.</p>
+    </div>
+
+    <div class="request-count">
+      {{data.requests.length}} Requests
+    </div>
+  </div>
+
+  <div class="filter-card">
+
+    <div class="search-box">
+      <span>]]>🔍<![CDATA[</span>
+      <input type="text"
+             class="form-control"
+             ng-model="c.searchText"
+             placeholder="Search request, employee, leave type...">
+    </div>
+
+    <button class="btn-clear"
+            ng-click="c.searchText=''">
+      Clear
+    </button>
+
+  </div>
+
+  <div class="requests-card">
+
+    <div class="table-responsive">
+
+      <table class="table leave-table">
+
+        <thead>
+          <tr>
+            <th>Request</th>
+            <th>Employee</th>
+            <th>Leave Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr ng-repeat="leave in data.requests | filter:c.searchText">
+
+            <td>
+              <strong class="request-number">
+                {{leave.number}}
+              </strong>
+            </td>
+
+            <td>{{leave.requested_by}}</td>
+
+            <td>{{leave.leave_type}}</td>
+
+            <td>{{leave.start_date}}</td>
+
+            <td>{{leave.end_date}}</td>
+
+            <td>{{leave.reason}}</td>
+
+            <td>
+              <span class="status-pending">
+                {{leave.status}}
+              </span>
+            </td>
+
+            <td>
+              <a class="view-btn"
+                 href="?id=hr_leave_request_details&sys_id={{leave.sys_id}}">
+                View
+              </a>
+            </td>
+
+          </tr>
+
+          <tr ng-if="data.requests.length == 0">
+            <td colspan="8"
+                class="empty-state">
+              No pending HR leave approvals.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

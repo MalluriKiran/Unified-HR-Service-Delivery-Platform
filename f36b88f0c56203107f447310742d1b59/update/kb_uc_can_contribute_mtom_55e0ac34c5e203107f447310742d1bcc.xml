@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="kb_uc_can_contribute_mtom">
+    <kb_uc_can_contribute_mtom action="INSERT_OR_UPDATE">
+        <kb_knowledge_base display_value="HR Policies">9180a434c5e203107f447310742d1b44</kb_knowledge_base>
+        <sys_class_name>kb_uc_can_contribute_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 06:08:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>55e0ac34c5e203107f447310742d1bcc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Policies.Has atleast one role apart from snc_internal KB</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>kb_uc_can_contribute_mtom_55e0ac34c5e203107f447310742d1bcc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 06:08:26</sys_updated_on>
+        <user_criteria display_value="Has atleast one role apart from snc_internal KB">f9397919f79d52507787d3e543bfd6cd</user_criteria>
+    </kb_uc_can_contribute_mtom>
+</record_update>

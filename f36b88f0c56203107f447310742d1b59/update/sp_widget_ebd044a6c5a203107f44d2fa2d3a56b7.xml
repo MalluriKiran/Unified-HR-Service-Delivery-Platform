@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hod-team-leaves-page {&#13;
+  max-width: 1350px;&#13;
+  margin: 30px auto;&#13;
+  padding: 0 20px;&#13;
+  font-family: Arial, sans-serif;&#13;
+  color: #0f1b45;&#13;
+}&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 24px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 28px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #7c859a;&#13;
+}&#13;
+&#13;
+.back-link {&#13;
+  color: #1769e0;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.summary-row {&#13;
+  display: grid;&#13;
+  grid-template-columns: repeat(5, 1fr);&#13;
+  gap: 14px;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.summary-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e4e8ef;&#13;
+  border-radius: 12px;&#13;
+  padding: 16px;&#13;
+}&#13;
+&#13;
+.summary-card span {&#13;
+  display: block;&#13;
+  color: #7c859a;&#13;
+  font-size: 12px;&#13;
+  margin-bottom: 6px;&#13;
+}&#13;
+&#13;
+.summary-card strong {&#13;
+  font-size: 25px;&#13;
+}&#13;
+&#13;
+.table-card {&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e4e8ef;&#13;
+  border-radius: 14px;&#13;
+  padding: 22px;&#13;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.table-title {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  padding-bottom: 16px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+}&#13;
+&#13;
+.table-title h3 {&#13;
+  margin: 0 0 4px;&#13;
+  font-size: 20px;&#13;
+}&#13;
+&#13;
+.table-title span {&#13;
+  color: #7c859a;&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+.search-input {&#13;
+  width: 260px;&#13;
+  border: 1px solid #dfe4eb;&#13;
+  border-radius: 8px;&#13;
+  padding: 9px 12px;&#13;
+  outline: none;&#13;
+}&#13;
+&#13;
+.leave-table {&#13;
+  width: 100%;&#13;
+  border-collapse: collapse;&#13;
+}&#13;
+&#13;
+.leave-table th {&#13;
+  text-align: left;&#13;
+  padding: 14px 10px;&#13;
+  background: #f7f9fc;&#13;
+  font-size: 12px;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.leave-table td {&#13;
+  padding: 14px 10px;&#13;
+  border-bottom: 1px solid #edf0f4;&#13;
+  font-size: 13px;&#13;
+  vertical-align: top;&#13;
+}&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-block;&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 14px;&#13;
+  font-size: 11px;&#13;
+  font-weight: 600;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.status-hod {&#13;
+  background: #fff1d9;&#13;
+  color: #c87500;&#13;
+}&#13;
+&#13;
+.status-hr {&#13;
+  background: #fff1d9;&#13;
+  color: #c87500;&#13;
+}&#13;
+&#13;
+.status-approved {&#13;
+  background: #e6f7ef;&#13;
+  color: #16875d;&#13;
+}&#13;
+&#13;
+.status-rejected {&#13;
+  background: #fdeaea;&#13;
+  color: #c83f3f;&#13;
+}&#13;
+&#13;
+.status-cancelled {&#13;
+  background: #eef0f4;&#13;
+  color: #687083;&#13;
+}&#13;
+&#13;
+.empty-row {&#13;
+  text-align: center;&#13;
+  color: #8b93a5;&#13;
+  padding: 28px !important;&#13;
+}&#13;
+&#13;
+.table-responsive {&#13;
+  overflow-x: auto;&#13;
+}&#13;
+&#13;
+@media (max-width: 1000px) {&#13;
+  .summary-row {&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+  }&#13;
+}&#13;
+&#13;
+@media (max-width: 700px) {&#13;
+  .page-header {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .back-link {&#13;
+    display: inline-block;&#13;
+    margin-top: 12px;&#13;
+  }&#13;
+&#13;
+  .table-title {&#13;
+    display: block;&#13;
+  }&#13;
+&#13;
+  .search-input {&#13;
+    width: 100%;&#13;
+    margin-top: 12px;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hod_team_leave_requests</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HOD Team Leave Requests</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.departmentName = "";
+    data.departmentCode = "";
+    data.requests = [];
+
+    data.totalCount = 0;
+    data.pendingHodCount = 0;
+    data.pendingHrCount = 0;
+    data.approvedCount = 0;
+    data.rejectedCount = 0;
+
+    var standardDepartmentId = "";
+    var customDepartmentId = "";
+    var departmentCode = "";
+
+
+    // ----------------------------------
+    // 1. LOGGED-IN HOD DEPARTMENT
+    // ----------------------------------
+
+    var userGR = new GlideRecord('sys_user');
+
+    if (userGR.get(gs.getUserID())) {
+
+        standardDepartmentId =
+            userGR.getValue('department') || "";
+
+        data.departmentName =
+            userGR.getDisplayValue('department') || "";
+    }
+
+    if (!standardDepartmentId)
+        return;
+
+
+    // ----------------------------------
+    // 2. STANDARD DEPARTMENT CODE
+    // cmn_department
+    // ----------------------------------
+
+    var deptGR = new GlideRecord('cmn_department');
+
+    if (deptGR.get(standardDepartmentId)) {
+
+        departmentCode =
+            deptGR.getValue('id') || "";
+
+        data.departmentCode =
+            departmentCode;
+    }
+
+    if (!departmentCode)
+        return;
+
+
+    // ----------------------------------
+    // 3. MAP TO CUSTOM DEPARTMENT
+    // ----------------------------------
+
+    var customDeptGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_department'
+        );
+
+    customDeptGR.addQuery(
+        'department_code',
+        departmentCode
+    );
+
+    customDeptGR.setLimit(1);
+    customDeptGR.query();
+
+    if (customDeptGR.next()) {
+
+        customDepartmentId =
+            customDeptGR.getUniqueValue();
+    }
+
+    if (!customDepartmentId)
+        return;
+
+
+    // ----------------------------------
+    // 4. GET ALL DEPARTMENT REQUESTS
+    // ----------------------------------
+
+    var leaveGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_leave_request'
+        );
+
+    leaveGR.addQuery(
+        'department',
+        customDepartmentId
+    );
+
+    leaveGR.orderByDesc('applied_on');
+    leaveGR.query();
+
+
+    while (leaveGR.next()) {
+
+        var statusValue =
+            leaveGR.getValue('status') || "";
+
+        data.totalCount++;
+
+        if (statusValue == 'pending_hod')
+            data.pendingHodCount++;
+
+        else if (statusValue == 'pending_hr')
+            data.pendingHrCount++;
+
+        else if (statusValue == 'approved')
+            data.approvedCount++;
+
+        else if (statusValue == 'rejected')
+            data.rejectedCount++;
+
+
+        data.requests.push({
+
+            number:
+                leaveGR.getDisplayValue('number'),
+
+            employee:
+                leaveGR.getDisplayValue('requested_by'),
+
+            leave_type:
+                leaveGR.getDisplayValue('leave_type'),
+
+            start_date:
+                leaveGR.getDisplayValue('start_date'),
+
+            end_date:
+                leaveGR.getDisplayValue('end_date'),
+
+            days:
+                leaveGR.getDisplayValue(
+                    'number_of_leave_days'
+                ),
+
+            status:
+                leaveGR.getDisplayValue('status'),
+
+            status_value:
+                statusValue,
+
+            hod_remarks:
+                leaveGR.getValue('hod_remarks') || "",
+
+            hr_remarks:
+                leaveGR.getValue('hr_remarks') || ""
+
+        });
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 14:31:05</sys_created_on>
+        <sys_id>ebd044a6c5a203107f44d2fa2d3a56b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HOD Team Leave Requests</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_ebd044a6c5a203107f44d2fa2d3a56b7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 14:31:05</sys_updated_on>
+        <template><![CDATA[<div class="hod-team-leaves-page">
+
+  <div class="page-header">
+    <div>
+      <h2>Team Leave Requests</h2>
+      <p>
+        View all leave requests for {{data.departmentName}}.
+      </p>
+    </div>
+
+    <a class="back-link" href="?id=hod_dashboard">
+      ← Back to Dashboard
+    </a>
+  </div>
+
+  <div class="summary-row">
+
+    <div class="summary-card">
+      <span>Total Requests</span>
+      <strong>{{data.totalCount}}</strong>
+    </div>
+
+    <div class="summary-card pending">
+      <span>Pending HOD</span>
+      <strong>{{data.pendingHodCount}}</strong>
+    </div>
+
+    <div class="summary-card hr">
+      <span>Pending HR</span>
+      <strong>{{data.pendingHrCount}}</strong>
+    </div>
+
+    <div class="summary-card approved">
+      <span>Approved</span>
+      <strong>{{data.approvedCount}}</strong>
+    </div>
+
+    <div class="summary-card rejected">
+      <span>Rejected</span>
+      <strong>{{data.rejectedCount}}</strong>
+    </div>
+
+  </div>
+
+  <div class="table-card">
+
+    <div class="table-title">
+      <div>
+        <h3>{{data.departmentName}}</h3>
+        <span>{{data.departmentCode}}</span>
+      </div>
+
+      <input
+        type="text"
+        class="search-input"
+        ng-model="searchText"
+        placeholder="Search requests..." />
+    </div>
+
+    <div class="table-responsive">
+
+      <table class="leave-table">
+
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Employee</th>
+            <th>Leave Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Days</th>
+            <th>Status</th>
+            <th>HOD Remarks</th>
+            <th>HR Remarks</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr ng-repeat="item in data.requests | filter:searchText">
+
+            <td>
+              <strong>{{item.number}}</strong>
+            </td>
+
+            <td>{{item.employee}}</td>
+
+            <td>{{item.leave_type}}</td>
+
+            <td>{{item.start_date}}</td>
+
+            <td>{{item.end_date}}</td>
+
+            <td>{{item.days}}</td>
+
+            <td>
+              <span
+                class="status-pill"
+                ng-class="{
+                  'status-hod': item.status_value == 'pending_hod',
+                  'status-hr': item.status_value == 'pending_hr',
+                  'status-approved': item.status_value == 'approved',
+                  'status-rejected': item.status_value == 'rejected',
+                  'status-cancelled': item.status_value == 'cancelled'
+                }">
+                {{item.status}}
+              </span>
+            </td>
+
+            <td>{{item.hod_remarks || '-'}}</td>
+
+            <td>{{item.hr_remarks || '-'}}</td>
+
+          </tr>
+
+          <tr ng-if="data.requests.length == 0">
+            <td colspan="9" class="empty-row">
+              No leave requests found for this department.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

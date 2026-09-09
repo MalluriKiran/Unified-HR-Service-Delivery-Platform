@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_utterance">
+    <sys_nlu_utterance action="INSERT_OR_UPDATE">
+        <intent display_value="hr_knowledge_assistant">8779202b852a03107f4483e6a5d6a560</intent>
+        <original_utterance/>
+        <primary_utterance/>
+        <source>manual</source>
+        <sys_class_name>sys_nlu_utterance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 19:52:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2e3aa06b852a03107f4483e6a5d6a56f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>What is the holiday policy?</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_utterance_2e3aa06b852a03107f4483e6a5d6a56f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 19:52:29</sys_updated_on>
+        <utterance>What is the holiday policy?</utterance>
+    </sys_nlu_utterance>
+</record_update>

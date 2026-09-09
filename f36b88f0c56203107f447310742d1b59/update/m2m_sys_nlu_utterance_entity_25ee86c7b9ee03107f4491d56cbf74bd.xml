@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE">
+        <annotation>[{"start":25,"end":35,"annotatedString":"I need information about {{phrase=\"HR policies\"}}"}]</annotation>
+        <entity display_value="hr_queries ">95ee0ac7b9ee03107f4491d56cbf74cc</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 13:55:22</sys_created_on>
+        <sys_id>25ee86c7b9ee03107f4491d56cbf74bd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hr_queries .I need information about HR policies</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_25ee86c7b9ee03107f4491d56cbf74bd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 13:55:22</sys_updated_on>
+        <utterance display_value="I need information about HR policies">2f67b903b96e03107f4491d56cbf744f</utterance>
+    </m2m_sys_nlu_utterance_entity>
+</record_update>

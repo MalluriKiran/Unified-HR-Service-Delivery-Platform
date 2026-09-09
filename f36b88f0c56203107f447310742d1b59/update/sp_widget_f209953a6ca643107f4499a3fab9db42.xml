@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+    var c = this;
+
+    c.searchText = "";
+    c.statusFilter = "";
+    c.priorityFilter = "";
+
+    c.clearFilters = function() {
+        c.searchText = "";
+        c.statusFilter = "";
+        c.priorityFilter = "";
+    };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.hr-cases-page {&#13;
+  padding: 25px;&#13;
+  background: #f5f7fb;&#13;
+  min-height: 100vh;&#13;
+  font-family: Arial, sans-serif;&#13;
+}&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  justify-content: space-between;&#13;
+  align-items: center;&#13;
+  margin-bottom: 22px;&#13;
+}&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0 0 6px;&#13;
+  font-size: 26px;&#13;
+  font-weight: 700;&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+.page-header p {&#13;
+  margin: 0;&#13;
+  color: #64748b;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+.case-count {&#13;
+  background: #ede9fe;&#13;
+  color: #5b21b6;&#13;
+  padding: 9px 16px;&#13;
+  border-radius: 20px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.filter-card {&#13;
+  background: white;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 12px;&#13;
+  padding: 16px;&#13;
+  margin-bottom: 20px;&#13;
+  display: flex;&#13;
+  gap: 12px;&#13;
+  align-items: center;&#13;
+}&#13;
+&#13;
+.search-box {&#13;
+  position: relative;&#13;
+  flex: 1;&#13;
+}&#13;
+&#13;
+.search-box span {&#13;
+  position: absolute;&#13;
+  left: 12px;&#13;
+  top: 9px;&#13;
+}&#13;
+&#13;
+.search-box input {&#13;
+  padding-left: 38px;&#13;
+}&#13;
+&#13;
+.filter-card .form-control {&#13;
+  height: 40px;&#13;
+  border-radius: 8px;&#13;
+  border: 1px solid #dbe2ea;&#13;
+}&#13;
+&#13;
+.filter-card select {&#13;
+  width: 170px;&#13;
+}&#13;
+&#13;
+.btn-clear {&#13;
+  height: 40px;&#13;
+  padding: 0 18px;&#13;
+  border: 1px solid #dbe2ea;&#13;
+  background: white;&#13;
+  border-radius: 8px;&#13;
+  color: #475569;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+.btn-clear:hover {&#13;
+  background: #f8fafc;&#13;
+}&#13;
+&#13;
+.cases-card {&#13;
+  background: white;&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 12px;&#13;
+  overflow: hidden;&#13;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);&#13;
+}&#13;
+&#13;
+.hr-table {&#13;
+  margin-bottom: 0;&#13;
+}&#13;
+&#13;
+.hr-table thead {&#13;
+  background: #f8fafc;&#13;
+}&#13;
+&#13;
+.hr-table th {&#13;
+  padding: 14px 12px !important;&#13;
+  border-bottom: 1px solid #e2e8f0 !important;&#13;
+  color: #475569;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.hr-table td {&#13;
+  padding: 14px 12px !important;&#13;
+  vertical-align: middle !important;&#13;
+  color: #334155;&#13;
+  border-top: 1px solid #f1f5f9 !important;&#13;
+}&#13;
+&#13;
+.hr-table tbody tr:hover {&#13;
+  background: #f8fafc;&#13;
+}&#13;
+&#13;
+.case-number {&#13;
+  color: #3157d5;&#13;
+  font-weight: 700;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.case-number:hover {&#13;
+  text-decoration: underline;&#13;
+}&#13;
+&#13;
+.priority,&#13;
+.status {&#13;
+  display: inline-block;&#13;
+  padding: 5px 10px;&#13;
+  border-radius: 15px;&#13;
+  font-size: 11px;&#13;
+  font-weight: 600;&#13;
+  white-space: nowrap;&#13;
+}&#13;
+&#13;
+.priority-high {&#13;
+  background: #fee2e2;&#13;
+  color: #dc2626;&#13;
+}&#13;
+&#13;
+.priority-medium {&#13;
+  background: #fef3c7;&#13;
+  color: #d97706;&#13;
+}&#13;
+&#13;
+.priority-low {&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+}&#13;
+&#13;
+.status-open {&#13;
+  background: #e0f2fe;&#13;
+  color: #0369a1;&#13;
+}&#13;
+&#13;
+.status-progress {&#13;
+  background: #dbeafe;&#13;
+  color: #2563eb;&#13;
+}&#13;
+&#13;
+.status-resolved {&#13;
+  background: #dcfce7;&#13;
+  color: #15803d;&#13;
+}&#13;
+&#13;
+.status-closed {&#13;
+  background: #e2e8f0;&#13;
+  color: #475569;&#13;
+}&#13;
+&#13;
+.empty-state {&#13;
+  text-align: center;&#13;
+  padding: 40px !important;&#13;
+  color: #64748b;&#13;
+}&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+  .filter-card {&#13;
+    flex-direction: column;&#13;
+    align-items: stretch;&#13;
+  }&#13;
+&#13;
+  .filter-card select {&#13;
+    width: 100%;&#13;
+  }&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>in_progress_hr_cases_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>In Progress HR Cases</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    data.cases = [];
+
+    var gr = new GlideRecord('x_snc_unified_hr_0_hr_case');
+
+    // Only In Progress HR Cases
+    gr.addQuery('status', 'in_progress');
+
+    gr.orderByDesc('sys_created_on');
+    gr.query();
+
+    while (gr.next()) {
+
+        var caseObj = {};
+
+        caseObj.sys_id = gr.getUniqueValue();
+        caseObj.number = gr.getDisplayValue('number');
+        caseObj.requested_by = gr.getDisplayValue('requested_by');
+        caseObj.category = gr.getDisplayValue('category');
+        caseObj.priority = gr.getDisplayValue('priority');
+        caseObj.assignment_group = gr.getDisplayValue('assignment_group');
+        caseObj.assigned_to = gr.getDisplayValue('assigned_to');
+        caseObj.status = gr.getDisplayValue('status');
+        caseObj.created = gr.getDisplayValue('sys_created_on');
+
+        data.cases.push(caseObj);
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 15:21:36</sys_created_on>
+        <sys_id>f209953a6ca643107f4499a3fab9db42</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>In Progress HR Cases</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_f209953a6ca643107f4499a3fab9db42</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 15:58:24</sys_updated_on>
+        <template><![CDATA[<div class="hr-cases-page">
+
+  <div class="page-header">
+    <div>
+      <h2>]]>🔄<![CDATA[ In Progress HR Cases</h2>
+      <p>View and manage HR cases currently being handled.</p>
+    </div>
+
+    <div class="case-count">
+      {{data.cases.length}} Cases
+    </div>
+  </div>
+
+  <div class="filter-card">
+
+    <div class="search-box">
+      <span>]]>🔍<![CDATA[</span>
+      <input type="text"
+             class="form-control"
+             ng-model="c.searchText"
+             placeholder="Search case number, employee, category...">
+    </div>
+
+    <select class="form-control"
+            ng-model="c.statusFilter">
+      <option value="">All Statuses</option>
+      <option value="Open">Open</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Resolved">Resolved</option>
+      <option value="Closed">Closed</option>
+    </select>
+
+    <select class="form-control"
+            ng-model="c.priorityFilter">
+      <option value="">All Priorities</option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+
+    <button class="btn-clear"
+            ng-click="c.clearFilters()">
+      Clear Filters
+    </button>
+
+  </div>
+
+  <div class="cases-card">
+
+    <div class="table-responsive">
+
+      <table class="table hr-table">
+
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>Requested By</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Assignment Group</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr ng-repeat="caseItem in data.cases |
+                         filter:c.searchText |
+                         filter:{status:c.statusFilter} |
+                         filter:{priority:c.priorityFilter}">
+
+            <td>
+              <a href="?id=hr_case_details&sys_id={{caseItem.sys_id}}"
+                 class="case-number">
+                {{caseItem.number}}
+              </a>
+            </td>
+
+            <td>{{caseItem.request_by}}</td>
+
+            <td>{{caseItem.category}}</td>
+
+            <td>
+              <span class="priority"
+                    ng-class="{
+                    'priority-high': caseItem.priority == 'High',
+                    'priority-medium': caseItem.priority == 'Medium',
+                    'priority-low': caseItem.priority == 'Low'
+                    }">
+                {{caseItem.priority}}
+              </span>
+            </td>
+
+            <td>{{caseItem.assignment_group}}</td>
+
+            <td>{{caseItem.assigned_to}}</td>
+
+            <td>
+              <span class="status"
+                    ng-class="{
+                    'status-open': caseItem.status == 'Open',
+                    'status-progress': caseItem.status == 'In Progress',
+                    'status-resolved': caseItem.status == 'Resolved',
+                    'status-closed': caseItem.status == 'Closed'
+                    }">
+                {{caseItem.status}}
+              </span>
+            </td>
+
+            <td>{{caseItem.created}}</td>
+
+          </tr>
+
+          <tr ng-if="!data.cases.length">
+            <td colspan="8" class="empty-state">
+              No HR cases found.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

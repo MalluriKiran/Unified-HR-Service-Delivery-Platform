@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="end_date" label="End Date" language="en" table="x_snc_unified_hr_0_leave_request">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>end_date</element>
+            <help/>
+            <hint/>
+            <label>End Date</label>
+            <language>en</language>
+            <name>x_snc_unified_hr_0_leave_request</name>
+            <plural/>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 05:20:24</sys_created_on>
+            <sys_id>87a2bfe1a9a203107f444ae71fe9ff31</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>End Date</sys_name>
+            <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_unified_hr_0_leave_request_end_date_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 05:20:28</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,2166 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $timeout) {
+
+    var c = this;
+
+    c.processing = false;
+
+    c.actionMessage = "";
+    c.actionType = "";
+
+
+    // -----------------------------------
+    // SHOW INLINE MESSAGE
+    // -----------------------------------
+
+    c.showMessage = function(message, type) {
+
+        c.actionMessage = message;
+        c.actionType = type;
+
+        // Optional: automatically hide after 5 seconds
+        $timeout(function() {
+            c.actionMessage = "";
+            c.actionType = "";
+        }, 5000);
+    };
+
+
+    // -----------------------------------
+    // APPROVE
+    // -----------------------------------
+
+    c.approve = function(item) {
+
+        if (c.processing)
+            return;
+
+        c.processing = true;
+
+        c.server.get({
+
+            action: 'approve',
+
+            sys_id: item.sys_id,
+
+            remarks: item.remarks || ""
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+            if (response.data.success) {
+
+                c.showMessage(
+                    response.data.message,
+                    "success"
+                );
+
+                c.data.requests =
+                    response.data.requests;
+
+            } else {
+
+                c.showMessage(
+                    response.data.message ||
+                    "Unable to approve request.",
+                    "error"
+                );
+            }
+
+        });
+    };
+
+
+    // -----------------------------------
+    // REJECT
+    // -----------------------------------
+
+    c.reject = function(item) {
+
+        if (c.processing)
+            return;
+
+        if (!item.remarks ||
+            item.remarks.trim() == "") {
+
+            c.showMessage(
+                "Please enter HOD remarks before rejecting.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        c.processing = true;
+
+        c.server.get({
+
+            action: 'reject',
+
+            sys_id: item.sys_id,
+
+            remarks: item.remarks
+
+        }).then(function(response) {
+
+            c.processing = false;
+
+            if (response.data.success) {
+
+                c.showMessage(
+                    response.data.message,
+                    "success"
+                );
+
+                c.data.requests =
+                    response.data.requests;
+
+            } else {
+
+                c.showMessage(
+                    response.data.message ||
+                    "Unable to reject request.",
+                    "error"
+                );
+            }
+
+        });
+    };
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* ========================================&#13;
+   MAIN PAGE&#13;
+   ======================================== */&#13;
+&#13;
+.hod-approvals-page {&#13;
+  max-width: 1100px;&#13;
+  margin: 0 auto;&#13;
+  padding: 22px 20px 50px 20px;&#13;
+  font-family: inherit;&#13;
+  color: #0f172a;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   PAGE HEADER&#13;
+   ======================================== */&#13;
+&#13;
+.page-header {&#13;
+  display: flex;&#13;
+  align-items: flex-start;&#13;
+  justify-content: space-between;&#13;
+  gap: 20px;&#13;
+&#13;
+  padding-bottom: 14px;&#13;
+  margin-bottom: 22px;&#13;
+&#13;
+  border-bottom: 1px solid #e5e7eb;&#13;
+}&#13;
+&#13;
+&#13;
+.page-header h2 {&#13;
+  margin: 0;&#13;
+&#13;
+  font-size: 29px;&#13;
+  font-weight: 700;&#13;
+&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+&#13;
+.page-header p {&#13;
+  margin: 6px 0 0 0;&#13;
+&#13;
+  color: #64748b;&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+.back-link {&#13;
+  margin-top: 10px;&#13;
+&#13;
+  color: #2563eb;&#13;
+  font-size: 14px;&#13;
+&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+&#13;
+.back-link:hover {&#13;
+  color: #1d4ed8;&#13;
+  text-decoration: underline;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   ACTION MESSAGES&#13;
+   ======================================== */&#13;
+&#13;
+.hod-action-message {&#13;
+  display: flex;&#13;
+  align-items: flex-start;&#13;
+  gap: 12px;&#13;
+&#13;
+  margin-bottom: 20px;&#13;
+&#13;
+  padding: 14px 16px;&#13;
+&#13;
+  border-radius: 10px;&#13;
+&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+.hod-action-message .message-icon {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  width: 25px;&#13;
+  height: 25px;&#13;
+&#13;
+  min-width: 25px;&#13;
+&#13;
+  border-radius: 50%;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+&#13;
+.hod-action-message.success {&#13;
+  background: #ecfdf5;&#13;
+  border: 1px solid #a7f3d0;&#13;
+  color: #065f46;&#13;
+}&#13;
+&#13;
+&#13;
+.hod-action-message.success .message-icon {&#13;
+  background: #10b981;&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+&#13;
+.hod-action-message.error {&#13;
+  background: #fef2f2;&#13;
+  border: 1px solid #fecaca;&#13;
+  color: #991b1b;&#13;
+}&#13;
+&#13;
+&#13;
+.hod-action-message.error .message-icon {&#13;
+  background: #ef4444;&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   SUMMARY CARD&#13;
+   ======================================== */&#13;
+&#13;
+.summary-card {&#13;
+  display: inline-flex;&#13;
+&#13;
+  align-items: center;&#13;
+  gap: 18px;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  border: 1px solid #dbe3ec;&#13;
+  border-radius: 12px;&#13;
+&#13;
+  padding: 17px 20px;&#13;
+&#13;
+  margin-bottom: 22px;&#13;
+&#13;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);&#13;
+}&#13;
+&#13;
+&#13;
+.summary-label {&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+&#13;
+.summary-value {&#13;
+  display: inline-flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  min-width: 31px;&#13;
+  height: 31px;&#13;
+&#13;
+  padding: 0 8px;&#13;
+&#13;
+  border-radius: 50%;&#13;
+&#13;
+  background: #fff7e6;&#13;
+&#13;
+  color: #d97706;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   APPROVAL CARD&#13;
+   ======================================== */&#13;
+&#13;
+.approval-card {&#13;
+  background: #ffffff;&#13;
+&#13;
+  border: 1px solid #dbe3ec;&#13;
+  border-radius: 14px;&#13;
+&#13;
+  padding: 20px 22px;&#13;
+&#13;
+  margin-bottom: 22px;&#13;
+&#13;
+  box-shadow:&#13;
+    0 2px 6px rgba(15, 23, 42, 0.04);&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   CARD TOP&#13;
+   ======================================== */&#13;
+&#13;
+.approval-top {&#13;
+  display: flex;&#13;
+  align-items: flex-start;&#13;
+  justify-content: space-between;&#13;
+&#13;
+  gap: 16px;&#13;
+&#13;
+  padding-bottom: 16px;&#13;
+  margin-bottom: 18px;&#13;
+&#13;
+  border-bottom: 1px solid #e7ebf0;&#13;
+}&#13;
+&#13;
+&#13;
+.approval-top h3 {&#13;
+  margin: 0 0 4px 0;&#13;
+&#13;
+  font-size: 19px;&#13;
+  font-weight: 600;&#13;
+&#13;
+  color: #172554;&#13;
+}&#13;
+&#13;
+&#13;
+.request-number {&#13;
+  font-size: 13px;&#13;
+  color: #64748b;&#13;
+}&#13;
+&#13;
+&#13;
+.status-pill {&#13;
+  display: inline-flex;&#13;
+  align-items: center;&#13;
+&#13;
+  padding: 6px 12px;&#13;
+&#13;
+  border-radius: 20px;&#13;
+&#13;
+  background: #fff4df;&#13;
+&#13;
+  color: #d97706;&#13;
+&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   DETAILS GRID&#13;
+   ======================================== */&#13;
+&#13;
+.details-grid {&#13;
+  display: grid;&#13;
+&#13;
+  grid-template-columns:&#13;
+    repeat(4, minmax(0, 1fr));&#13;
+&#13;
+  gap: 15px;&#13;
+&#13;
+  margin-bottom: 19px;&#13;
+}&#13;
+&#13;
+&#13;
+.detail-item {&#13;
+  background: #f8fafc;&#13;
+&#13;
+  border-radius: 9px;&#13;
+&#13;
+  padding: 13px 14px;&#13;
+&#13;
+  min-height: 62px;&#13;
+}&#13;
+&#13;
+&#13;
+.detail-item span {&#13;
+  display: block;&#13;
+&#13;
+  margin-bottom: 5px;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+&#13;
+.detail-item strong {&#13;
+  display: block;&#13;
+&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   REASON&#13;
+   ======================================== */&#13;
+&#13;
+.reason-box {&#13;
+  margin-top: 2px;&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+&#13;
+.section-label,&#13;
+.reason-box &gt; span {&#13;
+  display: block;&#13;
+&#13;
+  margin-bottom: 6px;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 13px;&#13;
+  font-weight: 500;&#13;
+}&#13;
+&#13;
+&#13;
+.reason-box p {&#13;
+  margin: 0;&#13;
+&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 14px;&#13;
+  line-height: 1.5;&#13;
+&#13;
+  white-space: pre-wrap;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   SUPPORTING DOCUMENTS&#13;
+   ======================================== */&#13;
+&#13;
+.attachments-box {&#13;
+  margin-top: 20px;&#13;
+  margin-bottom: 22px;&#13;
+&#13;
+  padding-top: 18px;&#13;
+&#13;
+  border-top: 1px solid #edf0f4;&#13;
+}&#13;
+&#13;
+&#13;
+.attachments-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: space-between;&#13;
+&#13;
+  margin-bottom: 12px;&#13;
+}&#13;
+&#13;
+&#13;
+.attachments-heading {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-title {&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-count {&#13;
+  display: inline-flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  min-width: 24px;&#13;
+  height: 24px;&#13;
+&#13;
+  padding: 0 7px;&#13;
+  margin-left: 8px;&#13;
+&#13;
+  border-radius: 50px;&#13;
+&#13;
+  background: #eaf1ff;&#13;
+&#13;
+  color: #2563eb;&#13;
+&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   ATTACHMENT CARD&#13;
+   ======================================== */&#13;
+&#13;
+.attachment-card {&#13;
+  overflow: hidden;&#13;
+&#13;
+  margin-bottom: 14px;&#13;
+&#13;
+  padding: 14px;&#13;
+&#13;
+  background: #f8fafc;&#13;
+&#13;
+  border: 1px solid #dbe3ec;&#13;
+  border-radius: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   ATTACHMENT FILE HEADER&#13;
+   ======================================== */&#13;
+&#13;
+.attachment-file-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+&#13;
+  gap: 11px;&#13;
+&#13;
+  margin-bottom: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-icon {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  width: 38px;&#13;
+  height: 38px;&#13;
+&#13;
+  min-width: 38px;&#13;
+&#13;
+  border-radius: 9px;&#13;
+&#13;
+  background: #e0f2fe;&#13;
+&#13;
+  color: #0369a1;&#13;
+&#13;
+  font-size: 16px;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-file-details {&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+&#13;
+  min-width: 0;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-name {&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+&#13;
+  word-break: break-word;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-size {&#13;
+  margin-top: 3px;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 12px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   IMAGE PREVIEW&#13;
+   ======================================== */&#13;
+&#13;
+.image-preview-wrapper {&#13;
+  width: 100%;&#13;
+&#13;
+  padding: 12px;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 9px;&#13;
+&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+&#13;
+.attachment-image {&#13;
+  display: block;&#13;
+&#13;
+  width: auto;&#13;
+  height: auto;&#13;
+&#13;
+  max-width: 520px;&#13;
+  max-height: 300px;&#13;
+&#13;
+  margin: 0 auto;&#13;
+&#13;
+  object-fit: contain;&#13;
+&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 8px;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  cursor: zoom-in;&#13;
+&#13;
+  transition:&#13;
+    max-width 0.25s ease,&#13;
+    max-height 0.25s ease;&#13;
+}&#13;
+&#13;
+&#13;
+/* EXPANDED IMAGE */&#13;
+&#13;
+.attachment-image.attachment-image-expanded {&#13;
+  width: auto;&#13;
+&#13;
+  max-width: 100%;&#13;
+  max-height: 700px;&#13;
+&#13;
+  cursor: zoom-out;&#13;
+}&#13;
+&#13;
+&#13;
+.image-preview-message {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  gap: 6px;&#13;
+&#13;
+  margin-top: 9px;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+.image-preview-message i {&#13;
+  color: #2563eb;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   NON-IMAGE DOCUMENT&#13;
+   ======================================== */&#13;
+&#13;
+.document-preview {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+&#13;
+  gap: 12px;&#13;
+&#13;
+  padding: 13px;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  border: 1px solid #e2e8f0;&#13;
+  border-radius: 8px;&#13;
+}&#13;
+&#13;
+&#13;
+.document-icon {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  width: 40px;&#13;
+  height: 40px;&#13;
+&#13;
+  border-radius: 8px;&#13;
+&#13;
+  background: #f1f5f9;&#13;
+&#13;
+  color: #475569;&#13;
+&#13;
+  font-size: 20px;&#13;
+}&#13;
+&#13;
+&#13;
+.document-preview strong {&#13;
+  display: block;&#13;
+&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+.document-preview p {&#13;
+  margin: 3px 0 0 0;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   NO ATTACHMENTS&#13;
+   ======================================== */&#13;
+&#13;
+.no-attachments {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+&#13;
+  gap: 8px;&#13;
+&#13;
+  padding: 12px 14px;&#13;
+&#13;
+  background: #f8fafc;&#13;
+&#13;
+  border: 1px dashed #cbd5e1;&#13;
+  border-radius: 8px;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 13px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   HOD REMARKS&#13;
+   ======================================== */&#13;
+&#13;
+.remarks-box {&#13;
+  margin-top: 5px;&#13;
+}&#13;
+&#13;
+&#13;
+.remarks-box label {&#13;
+  display: block;&#13;
+&#13;
+  margin-bottom: 8px;&#13;
+&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+}&#13;
+&#13;
+&#13;
+.remarks-box textarea {&#13;
+  display: block;&#13;
+&#13;
+  width: 100%;&#13;
+  min-height: 92px;&#13;
+&#13;
+  padding: 12px 13px;&#13;
+&#13;
+  resize: vertical;&#13;
+&#13;
+  border: 1px solid #cbd5e1;&#13;
+  border-radius: 9px;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  color: #0f172a;&#13;
+&#13;
+  font-size: 14px;&#13;
+&#13;
+  outline: none;&#13;
+&#13;
+  box-sizing: border-box;&#13;
+}&#13;
+&#13;
+&#13;
+.remarks-box textarea:focus {&#13;
+  border-color: #2563eb;&#13;
+&#13;
+  box-shadow:&#13;
+    0 0 0 2px rgba(37, 99, 235, 0.08);&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   BUTTONS&#13;
+   ======================================== */&#13;
+&#13;
+.action-row {&#13;
+  display: flex;&#13;
+&#13;
+  align-items: center;&#13;
+  justify-content: flex-end;&#13;
+&#13;
+  gap: 12px;&#13;
+&#13;
+  margin-top: 20px;&#13;
+}&#13;
+&#13;
+&#13;
+.btn-reject,&#13;
+.btn-approve {&#13;
+  min-width: 110px;&#13;
+&#13;
+  padding: 11px 22px;&#13;
+&#13;
+  border: none;&#13;
+  border-radius: 7px;&#13;
+&#13;
+  color: #ffffff;&#13;
+&#13;
+  font-size: 14px;&#13;
+  font-weight: 600;&#13;
+&#13;
+  cursor: pointer;&#13;
+&#13;
+  transition:&#13;
+    opacity 0.2s ease,&#13;
+    transform 0.1s ease;&#13;
+}&#13;
+&#13;
+&#13;
+.btn-reject {&#13;
+  background: #ef4444;&#13;
+}&#13;
+&#13;
+&#13;
+.btn-approve {&#13;
+  background: #10b981;&#13;
+}&#13;
+&#13;
+&#13;
+.btn-reject:hover,&#13;
+.btn-approve:hover {&#13;
+  opacity: 0.9;&#13;
+}&#13;
+&#13;
+&#13;
+.btn-reject:active,&#13;
+.btn-approve:active {&#13;
+  transform: translateY(1px);&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   EMPTY STATE&#13;
+   ======================================== */&#13;
+&#13;
+.empty-state {&#13;
+  padding: 55px 25px;&#13;
+&#13;
+  text-align: center;&#13;
+&#13;
+  background: #ffffff;&#13;
+&#13;
+  border: 1px solid #dbe3ec;&#13;
+  border-radius: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+.empty-icon {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  justify-content: center;&#13;
+&#13;
+  width: 50px;&#13;
+  height: 50px;&#13;
+&#13;
+  margin: 0 auto 15px auto;&#13;
+&#13;
+  border-radius: 50%;&#13;
+&#13;
+  background: #ecfdf5;&#13;
+&#13;
+  color: #059669;&#13;
+&#13;
+  font-size: 22px;&#13;
+  font-weight: 700;&#13;
+}&#13;
+&#13;
+&#13;
+.empty-state h3 {&#13;
+  margin: 0 0 7px 0;&#13;
+&#13;
+  color: #172554;&#13;
+&#13;
+  font-size: 18px;&#13;
+}&#13;
+&#13;
+&#13;
+.empty-state p {&#13;
+  margin: 0;&#13;
+&#13;
+  color: #64748b;&#13;
+&#13;
+  font-size: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+/* ========================================&#13;
+   RESPONSIVE DESIGN&#13;
+   ======================================== */&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+&#13;
+  .details-grid {&#13;
+    grid-template-columns:&#13;
+      repeat(2, minmax(0, 1fr));&#13;
+  }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 600px) {&#13;
+&#13;
+  .hod-approvals-page {&#13;
+    padding: 15px 12px 35px 12px;&#13;
+  }&#13;
+&#13;
+&#13;
+  .page-header {&#13;
+    flex-direction: column;&#13;
+  }&#13;
+&#13;
+&#13;
+  .back-link {&#13;
+    margin-top: 0;&#13;
+  }&#13;
+&#13;
+&#13;
+  .page-header h2 {&#13;
+    font-size: 24px;&#13;
+  }&#13;
+&#13;
+&#13;
+  .details-grid {&#13;
+    grid-template-columns: 1fr;&#13;
+  }&#13;
+&#13;
+&#13;
+  .approval-card {&#13;
+    padding: 16px;&#13;
+  }&#13;
+&#13;
+&#13;
+  .attachment-image {&#13;
+    max-width: 100%;&#13;
+    max-height: 250px;&#13;
+  }&#13;
+&#13;
+&#13;
+  .action-row {&#13;
+    flex-direction: column-reverse;&#13;
+  }&#13;
+&#13;
+&#13;
+  .btn-reject,&#13;
+  .btn-approve {&#13;
+    width: 100%;&#13;
+  }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>hod_pending_approvals</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>HOD Pending Approvals</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    // =====================================
+    // INITIAL DATA
+    // =====================================
+
+    data.departmentName = "";
+    data.requests = [];
+    data.message = "";
+    data.success = false;
+
+
+    var standardDepartmentId = "";
+    var departmentCode = "";
+    var customDepartmentId = "";
+
+
+    var LEAVE_REQUEST_TABLE =
+        'x_snc_unified_hr_0_leave_request';
+
+
+    // =====================================
+    // FORMAT FILE SIZE
+    // =====================================
+
+    function formatFileSize(bytes) {
+
+        bytes = parseInt(bytes, 10);
+
+        if (!bytes || bytes <= 0) {
+            return "";
+        }
+
+
+        if (bytes < 1024) {
+
+            return bytes + " B";
+        }
+
+
+        if (bytes < (1024 * 1024)) {
+
+            return (
+                bytes / 1024
+            ).toFixed(1) + " KB";
+        }
+
+
+        if (bytes < (1024 * 1024 * 1024)) {
+
+            return (
+                bytes /
+                (1024 * 1024)
+            ).toFixed(1) + " MB";
+        }
+
+
+        return (
+            bytes /
+            (1024 * 1024 * 1024)
+        ).toFixed(1) + " GB";
+    }
+
+
+
+    // =====================================
+    // CHECK WHETHER ATTACHMENT IS IMAGE
+    // =====================================
+
+    function isImageAttachment(
+        fileName,
+        contentType
+    ) {
+
+        fileName =
+            (fileName || "").toLowerCase();
+
+        contentType =
+            (contentType || "").toLowerCase();
+
+
+        // MIME TYPE CHECK
+
+        if (
+            contentType.indexOf(
+                'image/'
+            ) === 0
+        ) {
+
+            return true;
+        }
+
+
+        // EXTENSION FALLBACK
+
+        var imageExtensions = [
+            '.png',
+            '.jpg',
+            '.jpeg',
+            '.gif',
+            '.bmp',
+            '.webp'
+        ];
+
+
+        for (
+            var i = 0;
+            i < imageExtensions.length;
+            i++
+        ) {
+
+            if (
+                fileName.lastIndexOf(
+                    imageExtensions[i]
+                ) ===
+                fileName.length -
+                imageExtensions[i].length
+            ) {
+
+                return true;
+            }
+        }
+
+
+        return false;
+    }
+
+
+
+    // =====================================
+    // GET ATTACHMENTS FOR LEAVE REQUEST
+    // =====================================
+
+    function getLeaveAttachments(
+        requestSysId
+    ) {
+
+        var attachments = [];
+
+
+        var glideAttachment =
+            new GlideSysAttachment();
+
+
+        var attachmentGR =
+            glideAttachment.getAttachments(
+                LEAVE_REQUEST_TABLE,
+                requestSysId
+            );
+
+
+        while (attachmentGR.next()) {
+
+
+            var attachmentSysId =
+                attachmentGR.getUniqueValue();
+
+
+            var fileName =
+                attachmentGR.getValue(
+                    'file_name'
+                ) || "";
+
+
+            var contentType =
+                attachmentGR.getValue(
+                    'content_type'
+                ) || "";
+
+
+            var sizeBytes =
+                attachmentGR.getValue(
+                    'size_bytes'
+                ) || "0";
+
+
+            var isImage =
+                isImageAttachment(
+                    fileName,
+                    contentType
+                );
+
+
+            attachments.push({
+
+                sys_id:
+                    attachmentSysId,
+
+                file_name:
+                    fileName,
+
+                content_type:
+                    contentType,
+
+                size:
+                    formatFileSize(
+                        sizeBytes
+                    ),
+
+                is_image:
+                    isImage,
+
+                /*
+                 * Used only as IMG source.
+                 * We are NOT providing a
+                 * download/View anchor.
+                 */
+
+                preview_url:
+                    "/sys_attachment.do?sys_id=" +
+                    attachmentSysId
+
+            });
+
+        }
+
+
+        return attachments;
+    }
+
+
+
+    // =====================================
+    // GET LOGGED-IN HOD DEPARTMENT
+    // =====================================
+
+    var userGR =
+        new GlideRecord(
+            'sys_user'
+        );
+
+
+    if (
+        userGR.get(
+            gs.getUserID()
+        )
+    ) {
+
+
+        standardDepartmentId =
+            userGR.getValue(
+                'department'
+            ) || "";
+
+
+        data.departmentName =
+            userGR.getDisplayValue(
+                'department'
+            ) || "";
+
+    }
+
+
+    if (!standardDepartmentId) {
+
+        return;
+    }
+
+
+
+    // =====================================
+    // GET STANDARD DEPARTMENT CODE
+    // =====================================
+
+    var deptGR =
+        new GlideRecord(
+            'cmn_department'
+        );
+
+
+    if (
+        deptGR.get(
+            standardDepartmentId
+        )
+    ) {
+
+        departmentCode =
+            deptGR.getValue(
+                'id'
+            ) || "";
+
+    }
+
+
+    if (!departmentCode) {
+
+        return;
+    }
+
+
+
+    // =====================================
+    // FIND CUSTOM DEPARTMENT
+    // =====================================
+
+    var customDeptGR =
+        new GlideRecord(
+            'x_snc_unified_hr_0_department'
+        );
+
+
+    customDeptGR.addQuery(
+        'department_code',
+        departmentCode
+    );
+
+
+    customDeptGR.setLimit(1);
+
+    customDeptGR.query();
+
+
+    if (customDeptGR.next()) {
+
+        customDepartmentId =
+            customDeptGR.getUniqueValue();
+
+    }
+
+
+    if (!customDepartmentId) {
+
+        return;
+    }
+
+
+
+    // =====================================
+    // HANDLE APPROVE / REJECT
+    // =====================================
+
+    if (
+        input &&
+        input.action &&
+        input.sys_id
+    ) {
+
+
+        var requestGR =
+            new GlideRecord(
+                LEAVE_REQUEST_TABLE
+            );
+
+
+        // ---------------------------------
+        // FIND LEAVE REQUEST
+        // ---------------------------------
+
+        if (
+            !requestGR.get(
+                input.sys_id
+            )
+        ) {
+
+            data.message =
+                "Leave request was not found.";
+
+            return;
+        }
+
+
+
+        // ---------------------------------
+        // SECURITY:
+        // CHECK HOD DEPARTMENT
+        // ---------------------------------
+
+        if (
+            requestGR.getValue(
+                'department'
+            ) !=
+            customDepartmentId
+        ) {
+
+            data.message =
+                "You cannot act on a request from another department.";
+
+            return;
+        }
+
+
+
+        // ---------------------------------
+        // MUST BE PENDING HOD
+        // ---------------------------------
+
+        if (
+            requestGR.getValue(
+                'status'
+            ) !=
+            'pending_hod'
+        ) {
+
+            data.message =
+                "This request is no longer waiting for HOD approval.";
+
+            return;
+        }
+
+
+
+        // ---------------------------------
+        // CHECK CURRENT APPROVER
+        // ---------------------------------
+
+        if (
+            requestGR.getValue(
+                'current_approver'
+            ) &&
+            requestGR.getValue(
+                'current_approver'
+            ) !=
+            gs.getUserID()
+        ) {
+
+            data.message =
+                "You are not the current approver for this request.";
+
+            return;
+        }
+
+
+
+        // =================================
+        // SAVE HOD REMARKS
+        // =================================
+
+        requestGR.setValue(
+            'hod_remarks',
+            input.remarks || ""
+        );
+
+
+        requestGR.update();
+
+
+
+        // =================================
+        // FIND SERVICENOW APPROVAL RECORD
+        // =================================
+
+        var approvalGR =
+            new GlideRecord(
+                'sysapproval_approver'
+            );
+
+
+        approvalGR.addQuery(
+            'approver',
+            gs.getUserID()
+        );
+
+
+        approvalGR.addQuery(
+            'state',
+            'requested'
+        );
+
+
+        /*
+         * Scoped application records
+         * can be linked through document_id.
+         */
+
+        var approvalLinkQuery =
+            approvalGR.addQuery(
+                'document_id',
+                requestGR.getUniqueValue()
+            );
+
+
+        /*
+         * Some approvals can also
+         * use sysapproval.
+         */
+
+        if (
+            approvalGR.isValidField(
+                'sysapproval'
+            )
+        ) {
+
+            approvalLinkQuery
+                .addOrCondition(
+                    'sysapproval',
+                    requestGR.getUniqueValue()
+                );
+
+        }
+
+
+        approvalGR.orderByDesc(
+            'sys_created_on'
+        );
+
+
+        approvalGR.setLimit(1);
+
+        approvalGR.query();
+
+
+
+        // ---------------------------------
+        // APPROVAL RECORD NOT FOUND
+        // ---------------------------------
+
+        if (!approvalGR.next()) {
+
+            data.message =
+                "The active approval record could not be found.";
+
+            return;
+        }
+
+
+
+        // =================================
+        // APPROVE
+        // =================================
+
+        if (
+            input.action ==
+            'approve'
+        ) {
+
+
+            approvalGR.setValue(
+                'state',
+                'approved'
+            );
+
+
+            approvalGR.update();
+
+
+            data.success = true;
+
+
+            data.message =
+                "Leave request approved successfully.";
+
+        }
+
+
+
+        // =================================
+        // REJECT
+        // =================================
+
+        else if (
+            input.action ==
+            'reject'
+        ) {
+
+
+            approvalGR.setValue(
+                'state',
+                'rejected'
+            );
+
+
+            approvalGR.update();
+
+
+            data.success = true;
+
+
+            data.message =
+                "Leave request rejected successfully.";
+
+        }
+
+    }
+
+
+
+    // =====================================
+    // LOAD PENDING HOD REQUESTS
+    // =====================================
+
+    var leaveGR =
+        new GlideRecord(
+            LEAVE_REQUEST_TABLE
+        );
+
+
+    // SAME DEPARTMENT
+
+    leaveGR.addQuery(
+        'department',
+        customDepartmentId
+    );
+
+
+    // ONLY PENDING HOD
+
+    leaveGR.addQuery(
+        'status',
+        'pending_hod'
+    );
+
+
+    // ONLY CURRENT HOD
+
+    leaveGR.addQuery(
+        'current_approver',
+        gs.getUserID()
+    );
+
+
+    leaveGR.orderBy(
+        'applied_on'
+    );
+
+
+    leaveGR.query();
+
+
+
+    // =====================================
+    // BUILD REQUEST LIST
+    // =====================================
+
+    while (leaveGR.next()) {
+
+
+        var requestSysId =
+            leaveGR.getUniqueValue();
+
+
+
+        // ---------------------------------
+        // GET ATTACHMENTS
+        // ---------------------------------
+
+        var requestAttachments =
+            getLeaveAttachments(
+                requestSysId
+            );
+
+
+
+        // ---------------------------------
+        // ADD REQUEST TO DATA
+        // ---------------------------------
+
+        data.requests.push({
+
+
+            sys_id:
+                requestSysId,
+
+
+            number:
+                leaveGR.getDisplayValue(
+                    'number'
+                ),
+
+
+            employee:
+                leaveGR.getDisplayValue(
+                    'requested_by'
+                ),
+
+
+            leave_type:
+                leaveGR.getDisplayValue(
+                    'leave_type'
+                ),
+
+
+            start_date:
+                leaveGR.getDisplayValue(
+                    'start_date'
+                ),
+
+
+            end_date:
+                leaveGR.getDisplayValue(
+                    'end_date'
+                ),
+
+
+            days:
+                leaveGR.getDisplayValue(
+                    'number_of_leave_days'
+                ),
+
+
+            reason:
+                leaveGR.getDisplayValue(
+                    'reason'
+                ),
+
+
+            status:
+                leaveGR.getDisplayValue(
+                    'status'
+                ),
+
+
+            remarks:
+                leaveGR.getValue(
+                    'hod_remarks'
+                ) || "",
+
+
+            // --------------------------------
+            // ATTACHMENTS
+            // --------------------------------
+
+            attachments:
+                requestAttachments
+
+        });
+
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 03:09:06</sys_created_on>
+        <sys_id>c7176112486203107f44cf0739177aba</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>HOD Pending Approvals</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_c7176112486203107f44cf0739177aba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 05:31:39</sys_updated_on>
+        <template><![CDATA[<div class="hod-approvals-page">
+
+  <!-- ============================= -->
+  <!-- PAGE HEADER -->
+  <!-- ============================= -->
+
+  <div class="page-header">
+
+    <div class="header-content">
+      <h2>Pending Leave Approvals</h2>
+
+      <p>
+        Review leave requests awaiting your approval
+        for {{data.departmentName}}.
+      </p>
+    </div>
+
+    <a class="back-link" href="?id=hod_dashboard">
+      ← Back to Dashboard
+    </a>
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- SUCCESS MESSAGE -->
+  <!-- ============================= -->
+
+  <div class="hod-action-message success"
+       ng-if="c.actionMessage && c.actionType == 'success'">
+
+    <span class="message-icon">
+      ✓
+    </span>
+
+    <div>
+      <strong>Success</strong>
+      <div>{{c.actionMessage}}</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- ERROR MESSAGE -->
+  <!-- ============================= -->
+
+  <div class="hod-action-message error"
+       ng-if="c.actionMessage && c.actionType == 'error'">
+
+    <span class="message-icon">
+      !
+    </span>
+
+    <div>
+      <strong>Action Required</strong>
+      <div>{{c.actionMessage}}</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- SUMMARY -->
+  <!-- ============================= -->
+
+  <div class="summary-card">
+
+    <span class="summary-label">
+      Pending Requests
+    </span>
+
+    <span class="summary-value">
+      {{data.requests.length}}
+    </span>
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- APPROVAL CARDS -->
+  <!-- ============================= -->
+
+  <div class="approval-card"
+       ng-repeat="item in data.requests">
+
+
+    <!-- CARD TOP -->
+
+    <div class="approval-top">
+
+      <div>
+
+        <h3>
+          {{item.employee}}
+        </h3>
+
+        <span class="request-number">
+          {{item.number}}
+        </span>
+
+      </div>
+
+      <span class="status-pill">
+        {{item.status}}
+      </span>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- LEAVE DETAILS -->
+    <!-- ============================= -->
+
+    <div class="details-grid">
+
+      <div class="detail-item">
+
+        <span>
+          Leave Type
+        </span>
+
+        <strong>
+          {{item.leave_type}}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-item">
+
+        <span>
+          From
+        </span>
+
+        <strong>
+          {{item.start_date}}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-item">
+
+        <span>
+          To
+        </span>
+
+        <strong>
+          {{item.end_date}}
+        </strong>
+
+      </div>
+
+
+      <div class="detail-item">
+
+        <span>
+          Number of Days
+        </span>
+
+        <strong>
+          {{item.days}}
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- REASON -->
+    <!-- ============================= -->
+
+    <div class="reason-box">
+
+      <span class="section-label">
+        Reason
+      </span>
+
+      <p>
+        {{item.reason}}
+      </p>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- SUPPORTING DOCUMENTS -->
+    <!-- ============================= -->
+
+    <div class="attachments-box">
+
+      <div class="attachments-header">
+
+        <div class="attachments-heading">
+
+          <span class="attachment-title">
+            Supporting Documents
+          </span>
+
+          <span class="attachment-count"
+                ng-if="item.attachments &&
+                       item.attachments.length > 0">
+
+            {{item.attachments.length}}
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ATTACHMENTS EXIST -->
+
+      <div class="attachment-list"
+           ng-if="item.attachments &&
+                  item.attachments.length > 0">
+
+
+        <div class="attachment-card"
+             ng-repeat="attachment in item.attachments">
+
+
+          <!-- FILE HEADER -->
+
+          <div class="attachment-file-header">
+
+            <div class="attachment-icon">
+
+              <i class="fa fa-paperclip"></i>
+
+            </div>
+
+
+            <div class="attachment-file-details">
+
+              <strong class="attachment-name">
+                {{attachment.file_name}}
+              </strong>
+
+              <span class="attachment-size"
+                    ng-if="attachment.size">
+
+                {{attachment.size}}
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ============================= -->
+          <!-- IMAGE PREVIEW -->
+          <!-- ============================= -->
+
+          <div class="image-preview-wrapper"
+               ng-if="attachment.is_image">
+
+
+            <img
+              ng-src="{{attachment.preview_url}}"
+              alt="{{attachment.file_name}}"
+              class="attachment-image"
+              ng-class="{
+                'attachment-image-expanded':
+                attachment.expanded
+              }"
+              ng-click="
+                attachment.expanded =
+                !attachment.expanded
+              "
+            />
+
+
+            <div class="image-preview-message">
+
+              <i class="fa fa-search-plus"
+                 ng-if="!attachment.expanded">
+              </i>
+
+              <i class="fa fa-search-minus"
+                 ng-if="attachment.expanded">
+              </i>
+
+
+              <span ng-if="!attachment.expanded">
+                Click image to enlarge
+              </span>
+
+              <span ng-if="attachment.expanded">
+                Click image to reduce
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ============================= -->
+          <!-- NON-IMAGE ATTACHMENT -->
+          <!-- ============================= -->
+
+          <div class="document-preview"
+               ng-if="!attachment.is_image">
+
+            <div class="document-icon">
+
+              <i class="fa fa-file-text-o"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                {{attachment.file_name}}
+              </strong>
+
+              <p>
+                Supporting document attached
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- ============================= -->
+      <!-- NO ATTACHMENTS -->
+      <!-- ============================= -->
+
+      <div class="no-attachments"
+           ng-if="
+             !item.attachments ||
+             item.attachments.length == 0
+           ">
+
+        <i class="fa fa-paperclip"></i>
+
+        <span>
+          No supporting documents attached
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- HOD REMARKS -->
+    <!-- ============================= -->
+
+    <div class="remarks-box">
+
+      <label>
+        HOD Remarks
+      </label>
+
+      <textarea
+        ng-model="item.remarks"
+        placeholder="Enter remarks before approving or rejecting">
+      </textarea>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- APPROVE / REJECT -->
+    <!-- ============================= -->
+
+    <div class="action-row">
+
+      <button
+        type="button"
+        class="btn-reject"
+        ng-click="c.reject(item)">
+
+        Reject
+
+      </button>
+
+
+      <button
+        type="button"
+        class="btn-approve"
+        ng-click="c.approve(item)">
+
+        Approve
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- EMPTY STATE -->
+  <!-- ============================= -->
+
+  <div class="empty-state"
+       ng-if="data.requests.length == 0">
+
+    <div class="empty-icon">
+      ✓
+    </div>
+
+    <h3>
+      No Pending Approvals
+    </h3>
+
+    <p>
+      There are currently no leave requests
+      waiting for your approval.
+    </p>
+
+  </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>
