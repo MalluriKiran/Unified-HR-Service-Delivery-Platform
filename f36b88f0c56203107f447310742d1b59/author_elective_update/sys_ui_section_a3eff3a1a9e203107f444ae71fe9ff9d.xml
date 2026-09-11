@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="a3eff3a1a9e203107f444ae71fe9ff9d" sys_domain="global" table="x_snc_unified_hr_0_employee_details" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>ebef3769a9e203107f444ae71fe9ff32</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>employee_user</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>e7ef3769a9e203107f444ae71fe9ff33</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>department</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>ffef3769a9e203107f444ae71fe9ff33</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>f7ef3769a9e203107f444ae71fe9ff34</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>designation</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>ffef3769a9e203107f444ae71fe9ff34</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>hod_group</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>f7ef3769a9e203107f444ae71fe9ff35</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_id>ffef3769a9e203107f444ae71fe9ff35</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_unified_hr_0_employee_details</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a3eff3a1a9e203107f444ae71fe9ff9d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_unified_hr_0_employee_details</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+            <sys_update_name>sys_ui_section_a3eff3a1a9e203107f444ae71fe9ff9d</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_ui_section_a3eff3a1a9e203107f444ae71fe9ff9d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="a3eff3a1a9e203107f444ae71fe9ff9d" sys_domain="global" table="x_snc_unified_hr_0_employee_details" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>.begin_split</element><position>0</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>ebef3769a9e203107f444ae71fe9ff32</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type>.begin_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>employee_user</element><position>1</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>e7ef3769a9e203107f444ae71fe9ff33</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>department</element><position>2</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>ffef3769a9e203107f444ae71fe9ff33</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>3</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>f7ef3769a9e203107f444ae71fe9ff34</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>designation</element><position>4</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>ffef3769a9e203107f444ae71fe9ff34</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>hod_group</element><position>5</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>f7ef3769a9e203107f444ae71fe9ff35</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>6</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_id>ffef3769a9e203107f444ae71fe9ff35</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_unified_hr_0_employee_details" sys_domain="global" view="Default view">a3eff3a1a9e203107f444ae71fe9ff9d</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_snc_unified_hr_0_employee_details</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 06:18:20</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>a3eff3a1a9e203107f444ae71fe9ff9d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_snc_unified_hr_0_employee_details</sys_name><sys_overrides/><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_ui_section_a3eff3a1a9e203107f444ae71fe9ff9d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 06:18:20</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-426643373</payload_hash>
+        <record_name>Employee Details</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 06:18:20</sys_created_on>
+        <sys_id>f7ef3769a9e203107f444ae71fe9ff38</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdadf62400000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 06:18:20</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>7fef376990e20310fb77bf720be36437</update_guid>
+        <update_guid_history>7fef376990e20310fb77bf720be36437:-426643373,67eff3a1e8e20310965308d23c79f1a0:2056083079</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 08:09:37</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>08434caae83f428787f4c78ae487b0d9</sys_id>
+        <sys_metadata>a3eff3a1a9e203107f444ae71fe9ff9d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_unified_hr_0_employee_details</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent display_value="">29757f29a9a203107f444ae71fe9ff1e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_ui_section_a3eff3a1a9e203107f444ae71fe9ff9d</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_a3eff3a1a9e203107f444ae71fe9ff9d">f7ef3769a9e203107f444ae71fe9ff38</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 08:09:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

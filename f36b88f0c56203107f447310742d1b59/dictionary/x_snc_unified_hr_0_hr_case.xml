@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="5e61f4bcc52603107f447310742d1b4d" label="HR Case" max_length="40" name="x_snc_unified_hr_0_hr_case" type="collection">
+        <element label="Assignment Group" max_length="32" name="assignment_group" reference="sys_user_group" type="reference"/>
+        <element label="Description" mandatory="true" max_length="1000" name="description" type="string"/>
+        <element label="Assigned To" max_length="32" name="assigned_to" reference="sys_user" type="reference"/>
+        <element choice="1" default="open" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="300" value="resolved"/>
+                <element inactive_on_update="false" label="Open" sequence="100" value="open"/>
+                <element inactive_on_update="false" label="In Progress" sequence="200" value="in_progress"/>
+                <element inactive_on_update="false" label="Closed" sequence="400" value="closed"/>
+            </choice>
+        </element>
+        <element label="Created On" max_length="40" name="created_on" type="glide_date_time"/>
+        <element label="Rejection Feedback" max_length="1000" name="rejection_feedback" type="string"/>
+        <element label="Resolution Proposed On" max_length="1000" name="resolution_proposed_on" type="glide_date_time"/>
+        <element label="Request By" max_length="32" name="request_by" reference="sys_user" type="reference"/>
+        <element choice="1" label="Category" max_length="40" name="category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="General" sequence="4" value="general"/>
+                <element inactive_on_update="false" label="Payroll" sequence="0" value="payroll"/>
+                <element inactive_on_update="false" label="Leave" sequence="2" value="leave"/>
+                <element inactive_on_update="false" label="Benefits" sequence="1" value="benefits"/>
+                <element inactive_on_update="false" label="Others" sequence="5" value="others"/>
+                <element inactive_on_update="false" label="Employee Relations" sequence="3" value="employee_relations"/>
+            </choice>
+        </element>
+        <element display="true" label="Number" max_length="20" name="number" read_only="true" read_only_option="instance_configured" type="string"/>
+        <element choice="3" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element label="Resolution Notes" max_length="1000" name="resolution_notes" type="string"/>
+        <index name="index">
+            <element name="assignment_group"/>
+        </index>
+        <index name="index2">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index3">
+            <element name="request_by"/>
+        </index>
+    </element>
+</database>

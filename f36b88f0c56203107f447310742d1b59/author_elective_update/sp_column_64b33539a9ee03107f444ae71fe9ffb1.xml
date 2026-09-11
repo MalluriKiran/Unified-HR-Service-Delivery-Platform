@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="DELETE">
+        <aria_label/>
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <size>12</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">60b33539a9ee03107f444ae71fe9ffae</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 14:44:07</sys_created_on>
+        <sys_id>64b33539a9ee03107f444ae71fe9ffb1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_column_64b33539a9ee03107f444ae71fe9ffb1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 14:44:07</sys_updated_on>
+    </sp_column>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_column_64b33539a9ee03107f444ae71fe9ffb1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column"><sp_column action="INSERT_OR_UPDATE"><aria_label/><class_name/><order>1</order><semantic_tag/><size>12</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">60b33539a9ee03107f444ae71fe9ffae</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 14:44:07</sys_created_on><sys_id>64b33539a9ee03107f444ae71fe9ffb1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sp_column_64b33539a9ee03107f444ae71fe9ffb1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 14:44:07</sys_updated_on></sp_column></record_update>]]></payload>
+        <payload_hash>-895261003</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 14:44:07</sys_created_on>
+        <sys_id>6cb33539a9ee03107f444ae71fe9ffb3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdcae6f4d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 14:44:07</sys_updated_on>
+        <type>Column</type>
+        <update_guid>20b335399dee03109362e25fa6ca64b3</update_guid>
+        <update_guid_history>20b335399dee03109362e25fa6ca64b3:-895261003</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">7022debda9a243107f444ae71fe9ffdd</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 16:57:07</sys_created_on>
+        <sys_db_object display_value="" name="sp_column">sp_column</sys_db_object>
+        <sys_id>09f53879a5c2445080e20e4b5ca00900</sys_id>
+        <sys_metadata>64b33539a9ee03107f444ae71fe9ffb1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_column_64b33539a9ee03107f444ae71fe9ffb1</sys_update_name>
+        <sys_update_version display_value="sp_column_64b33539a9ee03107f444ae71fe9ffb1">6cb33539a9ee03107f444ae71fe9ffb3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 16:57:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

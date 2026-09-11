@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="c2441470c5a203107f447310742d1bce" label="Department" max_length="40" name="x_snc_unified_hr_0_department" type="collection">
+        <element label="Description" max_length="255" name="description" type="string"/>
+        <element label="HOD Group" max_length="32" name="hod_group" reference="sys_user_group" type="reference"/>
+        <element label="Department Code" max_length="20" name="department_code" type="string"/>
+        <element label="HR Group" max_length="32" name="hr_group" reference="sys_user_group" type="reference"/>
+        <element label="Head of the Department" max_length="32" name="head_of_the_department" reference="sys_user" type="reference"/>
+        <element display="true" label="Department Name" mandatory="true" max_length="100" name="department_name" type="string"/>
+        <element label="Department Email" max_length="60" name="department_email" type="string"/>
+        <element label="HR User" max_length="32" name="hr_user" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="head_of_the_department"/>
+        </index>
+        <index name="index2">
+            <element name="hr_group"/>
+        </index>
+        <index name="index3">
+            <element name="hr_user"/>
+        </index>
+    </element>
+</database>

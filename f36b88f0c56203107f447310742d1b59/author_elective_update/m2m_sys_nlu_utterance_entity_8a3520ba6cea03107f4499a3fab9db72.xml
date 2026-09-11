@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":16,"end":22,"annotatedString":"I need to see a {{phrase=\"doctor.\"}}","cat":"unwell"}]</annotation>
+        <entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:35:10</sys_created_on>
+        <sys_id>8a3520ba6cea03107f4499a3fab9db72</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sick_leave.I need to see a doctor.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_8a3520ba6cea03107f4499a3fab9db72</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:35:10</sys_updated_on>
+        <utterance display_value="I need to see a doctor.">2f2520ba6cea03107f4499a3fab9db66</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_8a3520ba6cea03107f4499a3fab9db72</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":16,"end":22,"annotatedString":"I need to see a {{phrase=\"doctor.\"}}","cat":"unwell"}]</annotation><entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 11:35:10</sys_created_on><sys_id>8a3520ba6cea03107f4499a3fab9db72</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sick_leave.I need to see a doctor.</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_8a3520ba6cea03107f4499a3fab9db72</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 11:35:10</sys_updated_on><utterance display_value="I need to see a doctor.">2f2520ba6cea03107f4499a3fab9db66</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>321205247</payload_hash>
+        <record_name>sick_leave.I need to see a doctor.</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:35:10</sys_created_on>
+        <sys_id>c63560ba6cea03107f4499a3fab9db30</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feb7488340000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:35:10</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>ca3560ba43ea03102e5cda4cd862d62f</update_guid>
+        <update_guid_history>ca3560ba43ea03102e5cda4cd862d62f:321205247</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="sick_leave.I need to see a doctor.">0d4dc8c3b96203107f4491d56cbf74c8</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:29:00</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>6b7fd8b6bcc8438299a47e86cfe47284</sys_id>
+        <sys_metadata>8a3520ba6cea03107f4499a3fab9db72</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sick_leave.I need to see a doctor.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_8a3520ba6cea03107f4499a3fab9db72</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_8a3520ba6cea03107f4499a3fab9db72">c63560ba6cea03107f4499a3fab9db30</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:29:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

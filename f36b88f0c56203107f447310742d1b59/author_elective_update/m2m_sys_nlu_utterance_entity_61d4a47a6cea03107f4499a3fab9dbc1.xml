@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":23,"end":27,"annotatedString":"I have a cold and need {{phrase=\"rest.\"}}","cat":"sick"}]</annotation>
+        <entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:33:30</sys_created_on>
+        <sys_id>61d4a47a6cea03107f4499a3fab9dbc1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sick_leave.I have a cold and need rest.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_61d4a47a6cea03107f4499a3fab9dbc1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:29:00</sys_updated_on>
+        <utterance display_value="I have a cold and need rest.">e2c464f26caa03107f4499a3fab9db3c</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_61d4a47a6cea03107f4499a3fab9dbc1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":23,"end":27,"annotatedString":"I have a cold and need {{phrase=\"rest.\"}}","cat":"sick"}]</annotation><entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 11:33:30</sys_created_on><sys_id>61d4a47a6cea03107f4499a3fab9dbc1</sys_id><sys_mod_count>2</sys_mod_count><sys_name>sick_leave.I have a cold and need rest.</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_61d4a47a6cea03107f4499a3fab9dbc1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 04:29:00</sys_updated_on><utterance display_value="I have a cold and need rest.">e2c464f26caa03107f4499a3fab9db3c</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>2078197953</payload_hash>
+        <record_name>sick_leave.I have a cold and need rest.</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:29:00</sys_created_on>
+        <sys_id>894dc8c3b96203107f4491d56cbf74c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef14b7470000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:29:00</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>cd4dc8c30d62031028c799789a12b9c6</update_guid>
+        <update_guid_history>cd4dc8c30d62031028c799789a12b9c6:2078197953,84e4287ad8ea0310060f7239581ef746:2105894314,a9d4a47a83ea03101e3f144e00da30c3:-650175019</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="sick_leave.I have a cold and need rest.">c8cdc807b96203107f4491d56cbf7406</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:31:06</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>34eb05cff2c3487396a108fb194ac371</sys_id>
+        <sys_metadata>61d4a47a6cea03107f4499a3fab9dbc1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sick_leave.I have a cold and need rest.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_61d4a47a6cea03107f4499a3fab9dbc1</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_61d4a47a6cea03107f4499a3fab9dbc1">894dc8c3b96203107f4491d56cbf74c7</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:31:06</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

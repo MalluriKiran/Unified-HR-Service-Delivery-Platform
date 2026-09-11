@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_entity">
+    <sys_nlu_entity action="DELETE">
+        <base_entity/>
+        <confidence_threshold>0.6</confidence_threshold>
+        <field_name/>
+        <lookup/>
+        <model/>
+        <name>earned_leave</name>
+        <override_confidence_threshold>false</override_confidence_threshold>
+        <parent/>
+        <primary_entity/>
+        <sys_class_name>sys_nlu_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:39:38</sys_created_on>
+        <sys_id>173668fa6cea03107f4499a3fab9dba4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>earned_leave</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_entity_173668fa6cea03107f4499a3fab9dba4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:39:38</sys_updated_on>
+        <table/>
+        <type>list</type>
+        <values_list>trip,vacation,travel</values_list>
+    </sys_nlu_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_nlu_entity_173668fa6cea03107f4499a3fab9dba4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_entity"><sys_nlu_entity action="INSERT_OR_UPDATE"><base_entity/><confidence_threshold>0.6</confidence_threshold><field_name/><lookup/><model/><name>earned_leave</name><override_confidence_threshold>false</override_confidence_threshold><parent/><primary_entity/><sys_class_name>sys_nlu_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 11:39:38</sys_created_on><sys_id>173668fa6cea03107f4499a3fab9dba4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>earned_leave</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_nlu_entity_173668fa6cea03107f4499a3fab9dba4</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 11:39:38</sys_updated_on><table/><type>list</type><values_list>trip,vacation,travel</values_list></sys_nlu_entity></record_update>]]></payload>
+        <payload_hash>99025775</payload_hash>
+        <record_name>earned_leave</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:39:38</sys_created_on>
+        <sys_id>973668fa6cea03107f4499a3fab9dba6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feb789e390000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:39:38</sys_updated_on>
+        <type>NLU Entity</type>
+        <update_guid>9b3668fa00ea03100a7d62cf20d0aca5</update_guid>
+        <update_guid_history>9b3668fa00ea03100a7d62cf20d0aca5:99025775</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:34:54</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_entity">sys_nlu_entity</sys_db_object>
+        <sys_id>13bec92b8d644120aef4d40a00637304</sys_id>
+        <sys_metadata>173668fa6cea03107f4499a3fab9dba4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>earned_leave</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_nlu_entity_173668fa6cea03107f4499a3fab9dba4</sys_update_name>
+        <sys_update_version display_value="sys_nlu_entity_173668fa6cea03107f4499a3fab9dba4">973668fa6cea03107f4499a3fab9dba6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:34:54</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

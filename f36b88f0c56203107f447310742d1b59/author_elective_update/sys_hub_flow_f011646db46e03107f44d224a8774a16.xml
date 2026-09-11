@@ -1,0 +1,1365 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <allow_high_security_roles>false</allow_high_security_roles>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=346521000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>29000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>hr_case_resolution_notification</internal_name>
+        <label_cache>[{"name":"Updated_1.current.request_by.email","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_to"]}},{"name":"Updated_1.current.request_by.name","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛HR Case Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"number","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_subject"]}},{"name":"Updated_1.current.status","label":"Trigger - Record Updated➛HR Case Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"status","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":100.0,"label":"Open","used":false,"reference":false,"image":"","rawLabel":"Open","selected":false,"missing":false,"value":"open","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Open"}}},{"sequence":200.0,"label":"In Progress","used":false,"reference":false,"image":"","rawLabel":"In Progress","selected":false,"missing":false,"value":"in_progress","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"In Progress"}}},{"sequence":300.0,"label":"Resolved","used":false,"reference":false,"image":"","rawLabel":"Resolved","selected":false,"missing":false,"value":"resolved","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Resolved"}}},{"sequence":400.0,"label":"Closed","used":false,"reference":false,"image":"","rawLabel":"Closed","selected":false,"missing":false,"value":"closed","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Closed"}}}],"usedInstances":{"b5ed845c-6ff8-4f87-b164-0b51c1966a03":["condition"]}},{"name":"Updated_1.current.raised_by.email","label":"Trigger - Record Updated➛HR Case Record➛Raised By➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_employee_details","column_name":"email","choices":[{"order":0.0}],"usedInstances":{}},{"name":"Updated_1.current.description","label":"Trigger - Record Updated➛HR Case Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"description","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛HR Case Record","reference":"x_snc_unified_hr_0_hr_case","reference_display":"HR Case","type":"reference","base_type":"reference","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["record"]},"attributes":{}},{"name":"Updated_1.current.resolution_notes","label":"Trigger - Record Updated➛HR Case Record➛Resolution Notes","reference":"","reference_display":"Resolution Notes","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"resolution_notes","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current.category","label":"Trigger - Record Updated➛HR Case Record➛Category","reference":"","reference_display":"Category","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"category","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":0.0,"label":"Payroll","used":false,"reference":false,"image":"","rawLabel":"Payroll","selected":false,"missing":false,"value":"payroll","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Payroll"}}},{"sequence":1.0,"label":"Benefits","used":false,"reference":false,"image":"","rawLabel":"Benefits","selected":false,"missing":false,"value":"benefits","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Benefits"}}},{"sequence":2.0,"label":"Leave","used":false,"reference":false,"image":"","rawLabel":"Leave","selected":false,"missing":false,"value":"leave","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Leave"}}},{"sequence":3.0,"label":"Employee Relations","used":false,"reference":false,"image":"","rawLabel":"Employee Relations","selected":false,"missing":false,"value":"employee_relations","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Employee Relations"}}},{"sequence":4.0,"label":"General","used":false,"reference":false,"image":"","rawLabel":"General","selected":false,"missing":false,"value":"general","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"General"}}},{"sequence":5.0,"label":"Others","used":false,"reference":false,"image":"","rawLabel":"Others","selected":false,"missing":false,"value":"others","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Others"}}}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}}]</label_cache>
+        <master_snapshot>f7cca4edb4ae03107f44d224a8774ac0</master_snapshot>
+        <master_snapshot_digest/>
+        <name>HR Case Resolution Notification</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>5dfa89be6c2643107f4499a3fab9db21</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:04:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f011646db46e03107f44d224a8774a16</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>HR Case Resolution Notification</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_hub_flow_f011646db46e03107f44d224a8774a16</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record>0637c9766c2643107f4499a3fab9db72</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="DELETE" query="documentkey=f011646db46e03107f44d224a8774a16"/>
+    <sys_variable_value action="DELETE" query="document_key=f011646db46e03107f44d224a8774a16"/>
+    <sys_flow_record_trigger action="DELETE">
+        <active>true</active>
+        <condition table="x_snc_unified_hr_0_hr_case">status=resolved<item display_value="Resolved" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="resolved"/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>false</on_insert>
+        <on_update>true</on_update>
+        <published_version/>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 14:20:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5dfa89be6c2643107f4499a3fab9db21</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <table>x_snc_unified_hr_0_hr_case</table>
+        <trigger_definition/>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="DELETE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>f011646db46e03107f44d224a8774a16</identifier>
+        <identifier_type>flow</identifier_type>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 14:20:03</sys_created_on>
+        <sys_id>59fa89be6c2643107f4499a3fab9db22</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <trigger display_value="">5dfa89be6c2643107f4499a3fab9db21</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="DELETE" query="identifier=f011646db46e03107f44d224a8774a16^sys_idNOT IN59fa89be6c2643107f4499a3fab9db22"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=f011646db46e03107f44d224a8774a16"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=f011646db46e03107f44d224a8774a16^sys_idNOT INfc11646db46e03107f44d224a8774a16"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>f011646db46e03107f44d224a8774a16</id>
+        <name>HR Case Resolution Notification</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:04:39</sys_created_on>
+        <sys_id>fc11646db46e03107f44d224a8774a16</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:04:39</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=fc11646db46e03107f44d224a8774a16"/>
+    <sys_hub_flow_input action="DELETE" query="model=f011646db46e03107f44d224a8774a16^sys_idNOT IN1e31a0adb46e03107f44d224a8774a11,2231a0adb46e03107f44d224a8774a5c,ee31a0adb46e03107f44d224a8774a51"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</model>
+        <model_id>f011646db46e03107f44d224a8774a16</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:18</sys_created_on>
+        <sys_id>1e31a0adb46e03107f44d224a8774a11</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=1e31a0adb46e03107f44d224a8774a11"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</model>
+        <model_id>f011646db46e03107f44d224a8774a16</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:19</sys_created_on>
+        <sys_id>2231a0adb46e03107f44d224a8774a5c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:05:19</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=2231a0adb46e03107f44d224a8774a5c"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</model>
+        <model_id>f011646db46e03107f44d224a8774a16</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:19</sys_created_on>
+        <sys_id>ee31a0adb46e03107f44d224a8774a51</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=ee31a0adb46e03107f44d224a8774a51"/>
+    <sys_hub_flow_output action="DELETE" query="model=f011646db46e03107f44d224a8774a16"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=f011646db46e03107f44d224a8774a16"/>
+    <sys_hub_trigger_instance_v2 action="DELETE" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT IN8e31ac6db46e03107f44d224a8774a12"/>
+    <sys_hub_trigger_instance_v2 action="DELETE">
+        <comment/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</flow>
+        <generation_source/>
+        <name>Updated</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:17</sys_created_on>
+        <sys_id>8e31ac6db46e03107f44d224a8774a12</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:43:41</sys_updated_on>
+        <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
+        <trigger_inputs>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</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_update</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="DELETE" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT INa7318d3a6ce243107f4499a3fab9db06"/>
+    <sys_hub_action_instance_v2 action="DELETE">
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id>b5ed845c-6ff8-4f87-b164-0b51c1966a03</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:37:36</sys_created_on>
+        <sys_id>a7318d3a6ce243107f4499a3fab9db06</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:43:41</sys_updated_on>
+        <ui_id>804f5036-3ab8-4410-906a-c830cfa58eb0</ui_id>
+        <updation_source/>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=a7318d3a6ce243107f4499a3fab9db06"/>
+    <sys_hub_sub_flow_instance_v2 action="DELETE" query="flow=f011646db46e03107f44d224a8774a16"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT INf783cd7e6ce243107f4499a3fab9dbee,a7318d3a6ce243107f4499a3fab9db07,bb83cd7e6ce243107f4499a3fab9dbef"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">e8a381be6ce243107f4499a3fab9db06</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Top Level Try">e9060aa2c3013010ace8b740ad40dd51</logic_definition>
+        <order>0</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:47:44</sys_created_on>
+        <sys_id>f783cd7e6ce243107f4499a3fab9dbee</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:00</sys_updated_on>
+        <ui_id>24669e90-e782-4776-a114-4276afc9ff56</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">07f124edb46e03107f44d224a8774a6e</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>1</order>
+        <outputs_assigned/>
+        <parent_ui_id>24669e90-e782-4776-a114-4276afc9ff56</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:37:36</sys_created_on>
+        <sys_id>a7318d3a6ce243107f4499a3fab9db07</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:00</sys_updated_on>
+        <ui_id>b5ed845c-6ff8-4f87-b164-0b51c1966a03</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1U224TMRD9FeTnaLWbbSKatwpUCQmoREtfoFrN2rOJhdc2viQNUf6d8V7SiAS1qnjkLXM8l3NmTnbHTAw2Bn9nrryXS80W3x4mTOqE0e8d09AiWzButJBBGs0mbA0qJmy3+2oFBBRVkfHoHOqQ+QAh+v3+e8zzUjj0Rq1RUJGQ3irY3r+mlq+konggZ8ERp4COLXZ/PIWtxUpBjYpG3AYn9ZLKpaDoEmbNrMhnvJzOy2meT99eFPW8rIupKAEv5pQ3Fr470npGfhpCkB/bGycSl2k+YfgYUAvivGhAeZywFjSpNG7LFsFFAhyCuNFqe8hYSR2oG0u5j17+wtQpz1NmgySMY/96CKthkz3MV0ZyvLEdtw4JUKuhhhsVW/25l5BugA1EFcYbEBI99UObSCcaA6fmdmU2X8aB11J3AodHZTioQwSB1lDHgD5dAxW21KhqwVpaTmWdWcuumLi02VJRkDXKbGhoclsGPBHPaEeQXRP+voPvwcmk4hO1oWK6oK88d9KO2rrhbN9tpfoZE59e36Ck6pdBCX3ZFY1Z40B6Pzl1ddUBT9Y+New/smGTQ1Nc8uK8DaE8Z8M3Hzvk1Iwj6784snjGkQPyIkvOZv8deezIRLMGL3nVfSupXfp/v9qSD8l6/Qjfe0ggl56Y3CXsw/g9Tg9burrkx9DGuB9JwxO2/w11tch82QUAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">60a381be6ce243107f4499a3fab9db27</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Top Level Catch">35d60003e6022010a5e40cdd1254dd23</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:47:44</sys_created_on>
+        <sys_id>bb83cd7e6ce243107f4499a3fab9dbef</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:00</sys_updated_on>
+        <ui_id>4a847fe8-ddc7-4ed6-a294-d55b922ebd7c</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1YUU/jOBD+K6eIR+ilbUqhbwi2EqcDpGuXlyuKHNttvefG2cQpsGj/+83YjpuksLuwXV62UhUlM5Px+JtvZpw+BarUWamLqTorCrFIg9G/d4eBSFEG909BSlY8GAVxXGiiyyKOg8NgTWSJwqdZsOZ5IVQ6C0azoNsJZ8HhLKBqlUn+cJN84lRP6JKvCOjBeCzV/QXHZXg+Gl+cnU8vb64n07Ppx4k1oIpx4+oy1XzBc+eO8c7BXHDJ4jmhXBfWeCJwmSuSjVFoXnuazWZBKaaPGf+bJFzi4wgvlb8ZeoRLzgmLVSofvcWcyIJ7/VKk2qu81Hr2ctFyyviclFLHBp7tt2UjonPcaqUiVAOIMc9zlcc2I95Q5+XGcEVSRrTKX4pb5cwGZHTd2nsPseTpQi+9Mgrx+hV+gPGKFwVZWOwnOhfpwkDvxD+LvvO4U/CLps9XYX/ldvuL4e99G/7QJwAz8I3a6Bxo2PkPof8qGM7Mtv+YmMLePRil+JiKzyW/ZN5geBoltB/1jk7pKTuKoig5Iv1574ixKDkmAxJ2h/1WwptMsj3Fm1AVG2iwSXmbVmOpbLnkK57qeEWyDJgTZ7lai3q6oG11FhJEnTnkImYmGR0LRwd2SjqbHN2SXJDEZCB7S1tJSymfY7Vq7u8V5Xw8aBGq0YUb7RXuDui6ujHk+UTWpCNJuujUqv9gbXTO36ZFvOF9dFBwwEyKLwQBHat8RSxx/5rcXIMNzBUmikySx9v9eMHLfrzsx8t+vOzHy3687Gi80KWQLOep+a4RDCYMCN33DcZe+7JpWsMXUUFzkWmk9Br0BvZKCIFCAFse3YZ+ximYZCQHd5rnIGhuwPRMU5/AEtTWCA2LuZEEaz5TcaDHWoPeXA/uO+G0oy/FhZ3XuCx4EH5FUzRyK5AKoEpzbjFvZkC3nRmSBqPuYcAfNE8ZZz423yK8BCvkBgrEC7Ak7KpA6kJ8Ad9RiHZzDhuhbuf+MXZHkCpbSlB+kyF+VqKxKp1SyXKVXtvg8fBie+PtBk8nuWieakBRFrAQz3AzGJ0LdT5Zqvt/qkjGIjX7dkqpKJH+iWgog6TUvLCJgfjjzyUa2HWd69iGjeT8DltsWb0jWYpqwQZXfBhtqlz5YtqqLt1y6PjS2yFfwt+OMXetxNg2XyUmnA97ME57g6Tb74XdMDnucgI3/eFJlw6j01riPiCR3Blgk73Gv0kugapaoip4RH1HKTx5vxTuNlOuTOvwNAvXJ6Z+VgF585QC+pfOJ6bzvvVkEvxA73muU2BHcoHyFN2x2pjsbn8Jmv7TbikvjcY2d6fw8p9jXLbiL2PDsHsypLR/zJG/g8GgnwyjkLAoZIzRGn834W3F63ibKCU5SX8Ncd9nVs0dOM+3n0r77lPrWebcIVEsBwubbMapwD8Jpii7rP65RsUj5EzQuuhe5f8hyTeyr/8DQmiRFQMXAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=f011646db46e03107f44d224a8774a16^sys_idNOT IN67f36c61b4ae03107f44d224a8774a90,aff36c61b4ae03107f44d224a8774a90,e3f36c61b4ae03107f44d224a8774a91,2bf36c61b4ae03107f44d224a8774a91,6ff36c61b4ae03107f44d224a8774a91"/>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f011646db46e03107f44d224a8774a16</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.resolution_notes}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:17:24</sys_created_on>
+        <sys_id>67f36c61b4ae03107f44d224a8774a90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:17:24</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>92216c0b-9643-42af-a82c-b39cd2e0996b</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f011646db46e03107f44d224a8774a16</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.category}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:17:24</sys_created_on>
+        <sys_id>aff36c61b4ae03107f44d224a8774a90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:17:24</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>54987140-9bf7-4f21-b595-5ddffc6fe945</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f011646db46e03107f44d224a8774a16</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.number}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:17:24</sys_created_on>
+        <sys_id>e3f36c61b4ae03107f44d224a8774a91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:17:24</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>9e94553c-1549-4870-a6f5-a57236b1ec60</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f011646db46e03107f44d224a8774a16</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.description}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:17:24</sys_created_on>
+        <sys_id>2bf36c61b4ae03107f44d224a8774a91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:17:24</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>47e5a55c-11db-456a-bf92-71605e6dc993</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f011646db46e03107f44d224a8774a16</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.status}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:17:24</sys_created_on>
+        <sys_id>6ff36c61b4ae03107f44d224a8774a91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:17:24</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>45eb9b39-b5f1-4a53-b1e7-a99506c97b59</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="DELETE" query="model=f011646db46e03107f44d224a8774a16"/>
+    <sys_documentation action="DELETE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:19</sys_created_on>
+        <sys_id>6231a0adb46e03107f44d224a8774a62</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:05:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:19</sys_created_on>
+        <sys_id>6a31a0adb46e03107f44d224a8774a4d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:05:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:05:19</sys_created_on>
+        <sys_id>6a31a0adb46e03107f44d224a8774a57</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:05:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_f011646db46e03107f44d224a8774a16"/>
+    <sys_hub_flow_snapshot action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <allow_high_security_roles>false</allow_high_security_roles>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=diagramming</attributes>
+        <authored_on_release_version>29000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>hr_case_resolution_notification</internal_name>
+        <label_cache>[{"name":"Updated_1.current.request_by.email","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_to"]}},{"name":"Updated_1.current.request_by.name","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛HR Case Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"number","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_subject"]}},{"name":"Updated_1.current.status","label":"Trigger - Record Updated➛HR Case Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"status","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":100.0,"label":"Open","used":false,"reference":false,"image":"","rawLabel":"Open","selected":false,"missing":false,"value":"open","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Open"}}},{"sequence":200.0,"label":"In Progress","used":false,"reference":false,"image":"","rawLabel":"In Progress","selected":false,"missing":false,"value":"in_progress","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"In Progress"}}},{"sequence":300.0,"label":"Resolved","used":false,"reference":false,"image":"","rawLabel":"Resolved","selected":false,"missing":false,"value":"resolved","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Resolved"}}},{"sequence":400.0,"label":"Closed","used":false,"reference":false,"image":"","rawLabel":"Closed","selected":false,"missing":false,"value":"closed","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Closed"}}}],"usedInstances":{"b5ed845c-6ff8-4f87-b164-0b51c1966a03":["condition"]}},{"name":"Updated_1.current.raised_by.email","label":"Trigger - Record Updated➛HR Case Record➛Raised By➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_employee_details","column_name":"email","choices":[{"order":0.0}],"usedInstances":{}},{"name":"Updated_1.current.description","label":"Trigger - Record Updated➛HR Case Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"description","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛HR Case Record","reference":"x_snc_unified_hr_0_hr_case","reference_display":"HR Case","type":"reference","base_type":"reference","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["record"]},"attributes":{}},{"name":"Updated_1.current.resolution_notes","label":"Trigger - Record Updated➛HR Case Record➛Resolution Notes","reference":"","reference_display":"Resolution Notes","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"resolution_notes","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current.category","label":"Trigger - Record Updated➛HR Case Record➛Category","reference":"","reference_display":"Category","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"category","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":0.0,"label":"Payroll","used":false,"reference":false,"image":"","rawLabel":"Payroll","selected":false,"missing":false,"value":"payroll","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Payroll"}}},{"sequence":1.0,"label":"Benefits","used":false,"reference":false,"image":"","rawLabel":"Benefits","selected":false,"missing":false,"value":"benefits","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Benefits"}}},{"sequence":2.0,"label":"Leave","used":false,"reference":false,"image":"","rawLabel":"Leave","selected":false,"missing":false,"value":"leave","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Leave"}}},{"sequence":3.0,"label":"Employee Relations","used":false,"reference":false,"image":"","rawLabel":"Employee Relations","selected":false,"missing":false,"value":"employee_relations","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Employee Relations"}}},{"sequence":4.0,"label":"General","used":false,"reference":false,"image":"","rawLabel":"General","selected":false,"missing":false,"value":"general","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"General"}}},{"sequence":5.0,"label":"Others","used":false,"reference":false,"image":"","rawLabel":"Others","selected":false,"missing":false,"value":"others","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Others"}}}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}}]</label_cache>
+        <master>true</master>
+        <name>HR Case Resolution Notification</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="HR Case Resolution Notification">f011646db46e03107f44d224a8774a16</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f7cca4edb4ae03107f44d224a8774ac0</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="DELETE" query="documentkey=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_variable_value action="DELETE" query="document_key=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN37cca4edb4ae03107f44d224a8774ac1"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>f7cca4edb4ae03107f44d224a8774ac0</id>
+        <name>HR Case Resolution Notification</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>37cca4edb4ae03107f44d224a8774ac1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=37cca4edb4ae03107f44d224a8774ac1"/>
+    <sys_hub_flow_input action="DELETE" query="model=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN77cca4edb4ae03107f44d224a8774ac2,7bcca4edb4ae03107f44d224a8774ad2,7fcca4edb4ae03107f44d224a8774adc"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</model>
+        <model_id>f7cca4edb4ae03107f44d224a8774ac0</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>77cca4edb4ae03107f44d224a8774ac2</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:02</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=77cca4edb4ae03107f44d224a8774ac2"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>changed_fields</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Changed Fields</label>
+        <mandatory>false</mandatory>
+        <max_length>4000</max_length>
+        <model display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</model>
+        <model_id>f7cca4edb4ae03107f44d224a8774ac0</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>7bcca4edb4ae03107f44d224a8774ad2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:11:14</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=7bcca4edb4ae03107f44d224a8774ad2"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</model>
+        <model_id>f7cca4edb4ae03107f44d224a8774ac0</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>7fcca4edb4ae03107f44d224a8774adc</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:02</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=7fcca4edb4ae03107f44d224a8774adc"/>
+    <sys_hub_flow_output action="DELETE" query="model=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_hub_trigger_instance_v2 action="DELETE" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT INffcce4edb4ae03107f44d224a8774a0a"/>
+    <sys_hub_trigger_instance_v2 action="DELETE">
+        <comment/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</flow>
+        <generation_source/>
+        <name>Updated</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>ffcce4edb4ae03107f44d224a8774a0a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:43:44</sys_updated_on>
+        <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VaXXPiNhT9Kx4/tTNsx8Z8hPQpJUmTmWwyQ9jtQ5rxyJIMmhqZtWQndCf/vVf+AOOvQDBb9iUESUjnXp17joR5+q57yKGefq5PkeNRvaMzLmnAkTddLSk0S9Vsc7RQfQvECZJ+sNLPZRDSju4G/mJKF0sPSRjsIk9Aox8QGujnZkePkBfSx5W4JTATfD6eJp1TT7vh/astOLZDzlxGiT0PbEP9wUioQYQJmH71NR17M9HGSQeeM48ElOvnT88dfYkCmFyqhb8Xupha3SQEmV1qYMu0ul3D6J71TGdgOWaXWIiiM5iwmIkCWlmRkE2o9FVSTihZZ6GUq4Ai8sC9VW7Eq2D/wpxnhup1KSDGNMnU+q2dxp8047nPMH1YSubzpCVBl3T6Xrjg9wlqlTnqotCTWeagJRQwH10qoFyucbiPc/9lki14zXgcU9rp+Rh563dIyoA5oaRCpdllHiTcTjIi/DCI0U+uxg+TS/uvi+n45mpiT64ep5Pb8fTqUn+L47K/hWrGBGGKxU7CeVtv9zWjnto2Hi4cQNPRBQ7YUl5gyaKMaW+dDXvHPicszkqJwTjrEtsMzqJvorBh1JIY51bMiCwkkqH4OzQMC+gnfC8CQuzLVMcZIUJRDVMHwxxT81FXwJIVCchH1sTZtKWetD3D+J9om0rPR1mbRW37SxqoaKFV/3pxN765uP/z6vH39PV68vA5+3/6ACheEJfClr6NCLFzOQVJAECKWz6h3uUGJ7Sz2QwKhPFlKMW79E9yUq6B99kfhBymsNf7Wa6BeAPWO3HHBOB7ggp+pN/CZPs+gYi5WdLTiNy7dIFJyDWfazgMINtSA5po2WJaDFtRy71doFm6ZTCxR7HMccv9IvLvPjMhGJ/lgqnDEg8og/FWeUSZSB+C4blNeShvSVSIp2Bse+vEABOz5wwHxlCphGlYjmsaQ6OPXGIZxsjK6UQZTC1KWSBMi3qxn1qImKDeDnteTGwK2chXyE4EjrbZn4WuiJGK0rgdaGZL0LoKWkFcrb3UdU3GpPlym5NNobV8lkAkQvAJksW4y1lhB1V0Pf8F9PdwRXT9gM4CP+SkKEVqCY3B69aI42ihg/A/zSg2I7Rf0k399dR0cbMpGa0RX7WgiD2KyXDQGxgghBZooNMfjRyMuq47HAypQQqKuIFRie2ElfCdzY6q2FKnipX0japYv4ceHgCwpI17AzxcFVM6Vmpi0vdzqN/LnHIboAa2p/StJIIzjxGa9bVb46Wlo01VH1rnlntG+v3hEA/hdgR17vaog8xet49Gw4FFB4U6L0FpgikrMnPEO5NYiXj5Gg34knSd1rX/mGQVVEplPQf7dfxxlKyXs0q1L1qsKn6gqexqt5uB2iMF44uvzsfyb1/OS84NSP6A9i0k6hR47/NPFeiOeNXicBfYJXE1yE7tnFFgVLS9CQefNs6sUZ+4VrUKDbtVKrQBUw/zRM8dOxIgqqVS1QFk13KMKqu69sTwgYoqkCN/lGg467SVFLP1pHSPlxTr4PNVVoG1l86PgP2JXC4+cLRmdT6ntu9WijVztfRLSEo0Z6XJOYXcenCihpU1BeOIbpKclEteB81aeuQ5mo2pPSkm5dLXoEMLfkhajuNlBd60e3vG7sghI6vmVN2vP1XXm1qh+0SdbW9iRFU8a7S3/eYtzllpcLky2ubBjtbVatTV/nVY1JUO9l7Uh3tT092/AsXpu44CPU22oQ2vwYVrAT70sUuDkNOIBlsecg3Jjxu1cEmUih5t6ZAzaLfxHPFZ8nRrCwPCcy0ZoiVDjmij3gtaie2kQ4FBcan6Tb+WhwaoZJ7o7A82roYfeqQPQIUM4JOzVa5qS/nd06zMUb9rkTNsmSOr/HMOM2dW2/yvR1brTu/8uqPOneYsfgicWz6lrmQLGmvh+iGytkASz6noaMCt+IFLLJUsEDIe/Zve4jUO5x9MpfVcZV61PK/dwlozaOBqVGR5lfpXlH1UkIi8/jde2BrCN1sJv9tG+NbHwu8dbH9pRqr9L81ey56X2ti+Pw3Sq53v+T/ekUFl1CYAAA==</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_update</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="DELETE" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN77cca4edb4ae03107f44d224a8774afd"/>
+    <sys_hub_action_instance_v2 action="DELETE">
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id>b5ed845c-6ff8-4f87-b164-0b51c1966a03</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>77cca4edb4ae03107f44d224a8774afd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:43:44</sys_updated_on>
+        <ui_id>804f5036-3ab8-4410-906a-c830cfa58eb0</ui_id>
+        <updation_source/>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=77cca4edb4ae03107f44d224a8774afd"/>
+    <sys_hub_sub_flow_instance_v2 action="DELETE" query="flow=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN73cca4edb4ae03107f44d224a8774af9,b8a381be6ce243107f4499a3fab9db76,7ca381be6ce243107f4499a3fab9db79"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">07f124edb46e03107f44d224a8774a6e</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>1</order>
+        <outputs_assigned/>
+        <parent_ui_id>24669e90-e782-4776-a114-4276afc9ff56</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>73cca4edb4ae03107f44d224a8774af9</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:02</sys_updated_on>
+        <ui_id>b5ed845c-6ff8-4f87-b164-0b51c1966a03</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Vy27bMBD8lYJnQZCs2Gh8CxwEKNA2QJPm0gbCiqRsohTJ8mFHFfzvXerhGLGBNm2PvXmHu8uZ8UjqiA7eBO/u9ZVzYq3I8stjQoSKGP7uiIKGkyWhWjHhhVYkIVuQIWJd99kw8JyVeUqDtVz51Hnwwe33X0OWFcxyp+WWMxxiwhkJ7cOfzNKNkFiP5AxY5OS5JcvuxZFguPoS5vU8z+a0mC2KWZbN3l7k1aKo8hkrgF8scKGEiktsXR2pOiPUtyZCzluh1mP9fhy9m0BtWaQyyxLCnzxXDCkva5COJ6QBhSK1bcnS24CA5cBulWwPHRuhPG4jsffJiR88bsqy2Flz1EX5cHooy9HIAa6vwQNSCdQHO7bSjRaUu8ERxmsI0q+OsaHh1vQq+xEPlZymtQyN+jiYQQ4Lpv8NkeCQBDdRaeQ+CqnvNnr3aWJ5I1TvyngoNQV5qMCjd1XwkU9HuOQNLiobMAYdLY3VW9EPI5cmXUss0lrqHV4aE5oCjcRTNBbSG8Sve/gBrIgqPuAaHMYsuNJRK8ykrb+c7BPiWreS4NyzRjS3/B4iw0HxqK0c7Ikj/aIrvHjLRxn75PTZKHvg+QE5jf2rw1xnUOeXND8fZijOhfnNkNHTSE/8XpPr/Be5HpHfCvZ8/j/Xf53rSLMCJ2jZv6VxXXy1/MNgP8YAD5cezKbCIbf7iL2bvg3xoMVECXoM7bT9FlU9Y/uf64W+xmUGAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">e8a381be6ce243107f4499a3fab9db06</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Top Level Try">e9060aa2c3013010ace8b740ad40dd51</logic_definition>
+        <order>0</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:48:04</sys_created_on>
+        <sys_id>b8a381be6ce243107f4499a3fab9db76</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:02</sys_updated_on>
+        <ui_id>24669e90-e782-4776-a114-4276afc9ff56</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">60a381be6ce243107f4499a3fab9db27</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="HR Case Resolution Notification">f7cca4edb4ae03107f44d224a8774ac0</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Top Level Catch">35d60003e6022010a5e40cdd1254dd23</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:48:04</sys_created_on>
+        <sys_id>7ca381be6ce243107f4499a3fab9db79</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <ui_id>4a847fe8-ddc7-4ed6-a294-d55b922ebd7c</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Z30/jOBD+V04Rj6WXtimFviG4SpwWKl27+3JFkWM7xbuuk42dAov432/8I27SltXCFh0PkVCUzIwnM998M47pU5CVKi+VnGfnUrKlCMb/3nYCJrQM7p8CgVY0GAdxLBVSpYzjoBOsES+18GkRrGkhWSYWwXgR9LrhIugsApytck4fpslXitUM39EVAj0YT3h2f0n1a2gxnlyeX8yvpjez+fn888wa4IxQ4+pKKLqkhXNHaPcoZZSTOEWYKmmNZ0y/5hrlEy00y54Wi0VQsvljTj+hhHL9ONaXyt9Ce4RLQRGJM8EfvUWKuKRef8eE8iovtZ69nG05JTRFJVexgWd3NW9EdKFTrVQIKwAxpkWRFbGtiDdURbkxXCFBkMqKl+LOCmIDMrpebd1DzKlYqjuvjEJ9fYY/wHhFpURLi/1MFUwsDfRO/LvoO48HBV82fb4K+2uX7TvD3/85/KEvgK7AT3qje6Qg819C/1UwnJu0/5iZxj48GCX7LNj3kl4RbzA6ixI8iPrHZ/iMHEdRlByjQdo/JiRKTtAQhb3RYKvgTSbZmeJNcBYbaPSQ8jZbg6WypZyuqFDxCuU5MCfOi2zN6uWCsdVdchB1U6hFTEwxuhaOLmSKupsafUEFQ4mpQP6WsSJKzvexOmvm94p2PhluEaoxhRvjFe6O8Lq6MeT5itaoy5FYdmvdf7Q2OudvMyLesF47kBQw4+wH0oBOsmKFLHH/nk1vwAb2FcJkztHjl3Z70Zd2e2m3l3Z7abeXdns50PaC7xgnBRX1c42OGVQ5KuBZ0QLeGphpZJgP+GtBjSqwxA17WLWHy6DXLIap509JuxsbSCQuWK50i6xBYspYCeGNzx0z/QuB+CcmvtkltfDhiFayS+tUhwYGzEdlKMt3gmXEuqk0FzbzJg5qn7PdxA1xgnGvE9AHRQWhxOfg29ZLNGunQFov0DS1sQDRJPsBb4xCbZdSSA87hPxj7NCz4vQSWgVYUGJVFrRCJmOYSguMfZjmujRWrXQrOcuMlytxY3PWhbEDrVYYJ7ncqVgpIRKa62x1+C6XdHaX3f9ThTphwgDjlDzDiPsnpIC7Sal0oLrC8lFecCTlJhpIOf5e6iU2Evey2CbyvJc1zx3PZddCr6Sz7agPxmZZBdUgsw91m8vXPvMdKNQehzupOz73D8jnsGX0Wxl9u0Xgxtxuh3M7nD8kldtB2w7aD8vOW1fKMB314SDUHya9QT/shclJjyK4GYxOe3gUndVK/Zempzu9berd+B3AldyeKrZKPq2E1TjSdTpQ0U8PWXRXtYsDEuGw9XZjpA50c7B4qOvnVZA3T6qgf+mMaraYt55Og/f4lKVCv4DUfmvq7c5DMzG3B9xLXw5VBxAyCnunI4wHJ1R3wHA4HCSjKEQkCgkhuNYBmyB2onLMT7KMUyS2qD+HuP6c6Izeh/4H3I8PTf7UZb1/FFba/38evvjhuXbc9vhgpv8BPdeyq+pXUa14BE4wXBfdZ8U33Twb2fN/qUJS418dAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT INb3cce4edb4ae03107f44d224a8774a0b,77cce4edb4ae03107f44d224a8774a0b,3bcce4edb4ae03107f44d224a8774a0b,fbcce4edb4ae03107f44d224a8774a0b,bfcce4edb4ae03107f44d224a8774a0b"/>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f7cca4edb4ae03107f44d224a8774ac0</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.resolution_notes}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>b3cce4edb4ae03107f44d224a8774a0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>92216c0b-9643-42af-a82c-b39cd2e0996b</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f7cca4edb4ae03107f44d224a8774ac0</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.category}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>77cce4edb4ae03107f44d224a8774a0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>54987140-9bf7-4f21-b595-5ddffc6fe945</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f7cca4edb4ae03107f44d224a8774ac0</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.number}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>3bcce4edb4ae03107f44d224a8774a0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>9e94553c-1549-4870-a6f5-a57236b1ec60</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f7cca4edb4ae03107f44d224a8774ac0</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.description}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>fbcce4edb4ae03107f44d224a8774a0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>47e5a55c-11db-456a-bf92-71605e6dc993</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="DELETE">
+        <attached_to>f7cca4edb4ae03107f44d224a8774ac0</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Updated_1.current.status}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>bfcce4edb4ae03107f44d224a8774a0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>45eb9b39-b5f1-4a53-b1e7-a99506c97b59</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="DELETE" query="model=f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_documentation action="DELETE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>37cca4edb4ae03107f44d224a8774ace</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>changed_fields</element>
+        <help/>
+        <hint/>
+        <label>Changed Fields</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>3bcca4edb4ae03107f44d224a8774ad8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_id>3bcca4edb4ae03107f44d224a8774ae2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 14:55:55</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_f7cca4edb4ae03107f44d224a8774ac0"/>
+    <sys_hub_flow action="DELETE">
+        <sys_id>f011646db46e03107f44d224a8774a16</sys_id>
+        <latest_snapshot>f7cca4edb4ae03107f44d224a8774ac0</latest_snapshot>
+        <compiler_build>glide-australia-02-11-2026__patch2-04-17-2026_04-29-2026_2044.zip</compiler_build>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="DELETE" query="plan_id=f011646db46e03107f44d224a8774a16^sys_idNOT INbbcce4edb4ae03107f44d224a8774a15"/>
+    <sys_flow_trigger_plan action="DELETE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerUniqueChange</binding_strategy>
+        <plan>{"@class":"com.snc.process_flow.engine.serialization.plan_data.ChunkingPlanData","chunk_data":{"table":"sys_flow_trigger_plan","id":"bbcce4edb4ae03107f44d224a8774a15","name":"plan","plan_signature":null},"plan_data":"CHUNKING_PLAN"}</plan>
+        <plan_id>f011646db46e03107f44d224a8774a16</plan_id>
+        <snapshot>f7cca4edb4ae03107f44d224a8774ac0</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 14:55:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bbcce4edb4ae03107f44d224a8774a15</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <trigger display_value="">5dfa89be6c2643107f4499a3fab9db21</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="DELETE" query="plan_id=f011646db46e03107f44d224a8774a16"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_hub_flow_f011646db46e03107f44d224a8774a16</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_hub_flow"&gt;&lt;sys_hub_flow action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;acls/&gt;&lt;active&gt;true&lt;/active&gt;&lt;allow_high_security_roles&gt;false&lt;/allow_high_security_roles&gt;&lt;annotation/&gt;&lt;attributes&gt;browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=346521000,viewActivatedIn=naturalLanguage&lt;/attributes&gt;&lt;authored_on_release_version&gt;29000&lt;/authored_on_release_version&gt;&lt;callable_by_client_api&gt;false&lt;/callable_by_client_api&gt;&lt;category/&gt;&lt;copied_from/&gt;&lt;copied_from_name/&gt;&lt;description/&gt;&lt;display_name_after_preview/&gt;&lt;flow_priority&gt;MEDIUM&lt;/flow_priority&gt;&lt;generation_source/&gt;&lt;internal_name&gt;hr_case_resolution_notification&lt;/internal_name&gt;&lt;label_cache&gt;[{"name":"Updated_1.current.request_by.email","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_to"]}},{"name":"Updated_1.current.request_by.name","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛HR Case Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"number","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_subject"]}},{"name":"Updated_1.current.status","label":"Trigger - Record Updated➛HR Case Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"status","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":100.0,"label":"Open","used":false,"reference":false,"image":"","rawLabel":"Open","selected":false,"missing":false,"value":"open","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Open"}}},{"sequence":200.0,"label":"In Progress","used":false,"reference":false,"image":"","rawLabel":"In Progress","selected":false,"missing":false,"value":"in_progress","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"In Progress"}}},{"sequence":300.0,"label":"Resolved","used":false,"reference":false,"image":"","rawLabel":"Resolved","selected":false,"missing":false,"value":"resolved","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Resolved"}}},{"sequence":400.0,"label":"Closed","used":false,"reference":false,"image":"","rawLabel":"Closed","selected":false,"missing":false,"value":"closed","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Closed"}}}],"usedInstances":{"b5ed845c-6ff8-4f87-b164-0b51c1966a03":["condition"]}},{"name":"Updated_1.current.raised_by.email","label":"Trigger - Record Updated➛HR Case Record➛Raised By➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_employee_details","column_name":"email","choices":[{"order":0.0}],"usedInstances":{}},{"name":"Updated_1.current.description","label":"Trigger - Record Updated➛HR Case Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"description","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛HR Case Record","reference":"x_snc_unified_hr_0_hr_case","reference_display":"HR Case","type":"reference","base_type":"reference","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["record"]},"attributes":{}},{"name":"Updated_1.current.resolution_notes","label":"Trigger - Record Updated➛HR Case Record➛Resolution Notes","reference":"","reference_display":"Resolution Notes","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"resolution_notes","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current.category","label":"Trigger - Record Updated➛HR Case Record➛Category","reference":"","reference_display":"Category","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"category","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":0.0,"label":"Payroll","used":false,"reference":false,"image":"","rawLabel":"Payroll","selected":false,"missing":false,"value":"payroll","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Payroll"}}},{"sequence":1.0,"label":"Benefits","used":false,"reference":false,"image":"","rawLabel":"Benefits","selected":false,"missing":false,"value":"benefits","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Benefits"}}},{"sequence":2.0,"label":"Leave","used":false,"reference":false,"image":"","rawLabel":"Leave","selected":false,"missing":false,"value":"leave","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Leave"}}},{"sequence":3.0,"label":"Employee Relations","used":false,"reference":false,"image":"","rawLabel":"Employee Relations","selected":false,"missing":false,"value":"employee_relations","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Employee Relations"}}},{"sequence":4.0,"label":"General","used":false,"reference":false,"image":"","rawLabel":"General","selected":false,"missing":false,"value":"general","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"General"}}},{"sequence":5.0,"label":"Others","used":false,"reference":false,"image":"","rawLabel":"Others","selected":false,"missing":false,"value":"others","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Others"}}}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}}]&lt;/label_cache&gt;&lt;master_snapshot&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/master_snapshot&gt;&lt;master_snapshot_digest/&gt;&lt;name&gt;HR Case Resolution Notification&lt;/name&gt;&lt;natlang/&gt;&lt;outputs/&gt;&lt;pre_compiled&gt;false&lt;/pre_compiled&gt;&lt;remote_trigger_id&gt;5dfa89be6c2643107f4499a3fab9db21&lt;/remote_trigger_id&gt;&lt;run_as&gt;user&lt;/run_as&gt;&lt;run_with_roles/&gt;&lt;sc_callable&gt;false&lt;/sc_callable&gt;&lt;show_draft_actions&gt;false&lt;/show_draft_actions&gt;&lt;show_triggered_flows&gt;false&lt;/show_triggered_flows&gt;&lt;status&gt;published&lt;/status&gt;&lt;substatus/&gt;&lt;sys_class_name&gt;sys_hub_flow&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:04:39&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f011646db46e03107f44d224a8774a16&lt;/sys_id&gt;&lt;sys_mod_count&gt;51&lt;/sys_mod_count&gt;&lt;sys_name&gt;HR Case Resolution Notification&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_hub_flow_f011646db46e03107f44d224a8774a16&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;type&gt;flow&lt;/type&gt;&lt;updation_source/&gt;&lt;version&gt;2&lt;/version&gt;&lt;version_record&gt;0637c9766c2643107f4499a3fab9db72&lt;/version_record&gt;&lt;/sys_hub_flow&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_flow_record_trigger action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;condition table="x_snc_unified_hr_0_hr_case"&gt;status=resolved&lt;item display_value="Resolved" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="resolved"/&gt;&lt;/condition&gt;&lt;name/&gt;&lt;on_delete&gt;false&lt;/on_delete&gt;&lt;on_insert&gt;false&lt;/on_insert&gt;&lt;on_update&gt;true&lt;/on_update&gt;&lt;published_version/&gt;&lt;run_flow_in&gt;background&lt;/run_flow_in&gt;&lt;run_on_extended&gt;false&lt;/run_on_extended&gt;&lt;run_when_setting&gt;both&lt;/run_when_setting&gt;&lt;run_when_user_list/&gt;&lt;run_when_user_setting&gt;any&lt;/run_when_user_setting&gt;&lt;sys_class_name&gt;sys_flow_record_trigger&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 14:20:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;5dfa89be6c2643107f4499a3fab9db21&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_overrides/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;table&gt;x_snc_unified_hr_0_hr_case&lt;/table&gt;&lt;trigger_definition/&gt;&lt;/sys_flow_record_trigger&gt;&lt;sys_trigger_runner_mapping action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;data&gt;{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}&lt;/data&gt;&lt;identifier&gt;f011646db46e03107f44d224a8774a16&lt;/identifier&gt;&lt;identifier_type&gt;flow&lt;/identifier_type&gt;&lt;runner&gt;FDTriggerRunner&lt;/runner&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 14:20:03&lt;/sys_created_on&gt;&lt;sys_id&gt;59fa89be6c2643107f4499a3fab9db22&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;trigger display_value=""&gt;5dfa89be6c2643107f4499a3fab9db21&lt;/trigger&gt;&lt;/sys_trigger_runner_mapping&gt;&lt;sys_trigger_runner_mapping action="delete_multiple" query="identifier=f011646db46e03107f44d224a8774a16^sys_idNOT IN59fa89be6c2643107f4499a3fab9db22"/&gt;&lt;sys_hub_flow_stage action="delete_multiple" query="flow=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_flow_cat_variable_model action="delete_multiple" query="id=f011646db46e03107f44d224a8774a16^sys_idNOT INfc11646db46e03107f44d224a8774a16"/&gt;&lt;sys_flow_cat_variable_model action="INSERT_OR_UPDATE"&gt;&lt;id&gt;f011646db46e03107f44d224a8774a16&lt;/id&gt;&lt;name&gt;HR Case Resolution Notification&lt;/name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:04:39&lt;/sys_created_on&gt;&lt;sys_id&gt;fc11646db46e03107f44d224a8774a16&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:04:39&lt;/sys_updated_on&gt;&lt;/sys_flow_cat_variable_model&gt;&lt;sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=fc11646db46e03107f44d224a8774a16"/&gt;&lt;sys_hub_flow_input action="delete_multiple" query="model=f011646db46e03107f44d224a8774a16^sys_idNOT IN1e31a0adb46e03107f44d224a8774a11,2231a0adb46e03107f44d224a8774a5c,ee31a0adb46e03107f44d224a8774a51"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;table_name&lt;/internal_type&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/model&gt;&lt;model_id&gt;f011646db46e03107f44d224a8774a16&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;101&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:18&lt;/sys_created_on&gt;&lt;sys_id&gt;1e31a0adb46e03107f44d224a8774a11&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:54&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1e31a0adb46e03107f44d224a8774a11"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;4000&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/model&gt;&lt;model_id&gt;f011646db46e03107f44d224a8774a16&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:19&lt;/sys_created_on&gt;&lt;sys_id&gt;2231a0adb46e03107f44d224a8774a5c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:05:19&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=2231a0adb46e03107f44d224a8774a5c"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;table_name&lt;/dependent&gt;&lt;dependent_on_field&gt;table_name&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;current&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;label&gt;Record&lt;/label&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/model&gt;&lt;model_id&gt;f011646db46e03107f44d224a8774a16&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:19&lt;/sys_created_on&gt;&lt;sys_id&gt;ee31a0adb46e03107f44d224a8774a51&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:54&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ee31a0adb46e03107f44d224a8774a51"/&gt;&lt;sys_hub_flow_output action="delete_multiple" query="model=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT IN8e31ac6db46e03107f44d224a8774a12"/&gt;&lt;sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/flow&gt;&lt;generation_source/&gt;&lt;name&gt;Updated&lt;/name&gt;&lt;published_version/&gt;&lt;remote_sys_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:17&lt;/sys_created_on&gt;&lt;sys_id&gt;8e31ac6db46e03107f44d224a8774a12&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 13:43:41&lt;/sys_updated_on&gt;&lt;trigger_definition display_value="Updated"&gt;bb695e60c31322002841b63b12d3aea5&lt;/trigger_definition&gt;&lt;trigger_inputs&gt;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&lt;/trigger_inputs&gt;&lt;trigger_outputs/&gt;&lt;trigger_type&gt;record_update&lt;/trigger_type&gt;&lt;updation_source/&gt;&lt;/sys_hub_trigger_instance_v2&gt;&lt;sys_hub_action_instance_v2 action="delete_multiple" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT INa7318d3a6ce243107f4499a3fab9db06"/&gt;&lt;sys_hub_action_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;action_type display_value="Send Email"&gt;c1806bf4a70323008299b39f087901cb&lt;/action_type&gt;&lt;action_type_parent/&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;compiled_snapshot&gt;c1806bf4a70323008299b39f087901cb&lt;/compiled_snapshot&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/flow&gt;&lt;generation_source/&gt;&lt;order&gt;2&lt;/order&gt;&lt;parent_ui_id&gt;b5ed845c-6ff8-4f87-b164-0b51c1966a03&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:37:36&lt;/sys_created_on&gt;&lt;sys_id&gt;a7318d3a6ce243107f4499a3fab9db06&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 13:43:41&lt;/sys_updated_on&gt;&lt;ui_id&gt;804f5036-3ab8-4410-906a-c830cfa58eb0&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;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&lt;/values&gt;&lt;/sys_hub_action_instance_v2&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=a7318d3a6ce243107f4499a3fab9db06"/&gt;&lt;sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=f011646db46e03107f44d224a8774a16^sys_idNOT INf783cd7e6ce243107f4499a3fab9dbee,a7318d3a6ce243107f4499a3fab9db07,bb83cd7e6ce243107f4499a3fab9dbef"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;e8a381be6ce243107f4499a3fab9db06&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="Top Level Try"&gt;e9060aa2c3013010ace8b740ad40dd51&lt;/logic_definition&gt;&lt;order&gt;0&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:47:44&lt;/sys_created_on&gt;&lt;sys_id&gt;f783cd7e6ce243107f4499a3fab9dbee&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:00&lt;/sys_updated_on&gt;&lt;ui_id&gt;24669e90-e782-4776-a114-4276afc9ff56&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;07f124edb46e03107f44d224a8774a6e&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="If"&gt;af4e1945c3e232002841b63b12d3ae3e&lt;/logic_definition&gt;&lt;order&gt;1&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id&gt;24669e90-e782-4776-a114-4276afc9ff56&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:37:36&lt;/sys_created_on&gt;&lt;sys_id&gt;a7318d3a6ce243107f4499a3fab9db07&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:00&lt;/sys_updated_on&gt;&lt;ui_id&gt;b5ed845c-6ff8-4f87-b164-0b51c1966a03&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1U224TMRD9FeTnaLWbbSKatwpUCQmoREtfoFrN2rOJhdc2viQNUf6d8V7SiAS1qnjkLXM8l3NmTnbHTAw2Bn9nrryXS80W3x4mTOqE0e8d09AiWzButJBBGs0mbA0qJmy3+2oFBBRVkfHoHOqQ+QAh+v3+e8zzUjj0Rq1RUJGQ3irY3r+mlq+konggZ8ERp4COLXZ/PIWtxUpBjYpG3AYn9ZLKpaDoEmbNrMhnvJzOy2meT99eFPW8rIupKAEv5pQ3Fr470npGfhpCkB/bGycSl2k+YfgYUAvivGhAeZywFjSpNG7LFsFFAhyCuNFqe8hYSR2oG0u5j17+wtQpz1NmgySMY/96CKthkz3MV0ZyvLEdtw4JUKuhhhsVW/25l5BugA1EFcYbEBI99UObSCcaA6fmdmU2X8aB11J3AodHZTioQwSB1lDHgD5dAxW21KhqwVpaTmWdWcuumLi02VJRkDXKbGhoclsGPBHPaEeQXRP+voPvwcmk4hO1oWK6oK88d9KO2rrhbN9tpfoZE59e36Ck6pdBCX3ZFY1Z40B6Pzl1ddUBT9Y+New/smGTQ1Nc8uK8DaE8Z8M3Hzvk1Iwj6784snjGkQPyIkvOZv8deezIRLMGL3nVfSupXfp/v9qSD8l6/Qjfe0ggl56Y3CXsw/g9Tg9burrkx9DGuB9JwxO2/w11tch82QUAAA==&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;60a381be6ce243107f4499a3fab9db27&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="Top Level Catch"&gt;35d60003e6022010a5e40cdd1254dd23&lt;/logic_definition&gt;&lt;order&gt;3&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:47:44&lt;/sys_created_on&gt;&lt;sys_id&gt;bb83cd7e6ce243107f4499a3fab9dbef&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:00&lt;/sys_updated_on&gt;&lt;ui_id&gt;4a847fe8-ddc7-4ed6-a294-d55b922ebd7c&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1YUU/jOBD+K6eIR+ilbUqhbwi2EqcDpGuXlyuKHNttvefG2cQpsGj/+83YjpuksLuwXV62UhUlM5Px+JtvZpw+BarUWamLqTorCrFIg9G/d4eBSFEG909BSlY8GAVxXGiiyyKOg8NgTWSJwqdZsOZ5IVQ6C0azoNsJZ8HhLKBqlUn+cJN84lRP6JKvCOjBeCzV/QXHZXg+Gl+cnU8vb64n07Ppx4k1oIpx4+oy1XzBc+eO8c7BXHDJ4jmhXBfWeCJwmSuSjVFoXnuazWZBKaaPGf+bJFzi4wgvlb8ZeoRLzgmLVSofvcWcyIJ7/VKk2qu81Hr2ctFyyviclFLHBp7tt2UjonPcaqUiVAOIMc9zlcc2I95Q5+XGcEVSRrTKX4pb5cwGZHTd2nsPseTpQi+9Mgrx+hV+gPGKFwVZWOwnOhfpwkDvxD+LvvO4U/CLps9XYX/ldvuL4e99G/7QJwAz8I3a6Bxo2PkPof8qGM7Mtv+YmMLePRil+JiKzyW/ZN5geBoltB/1jk7pKTuKoig5Iv1574ixKDkmAxJ2h/1WwptMsj3Fm1AVG2iwSXmbVmOpbLnkK57qeEWyDJgTZ7lai3q6oG11FhJEnTnkImYmGR0LRwd2SjqbHN2SXJDEZCB7S1tJSymfY7Vq7u8V5Xw8aBGq0YUb7RXuDui6ujHk+UTWpCNJuujUqv9gbXTO36ZFvOF9dFBwwEyKLwQBHat8RSxx/5rcXIMNzBUmikySx9v9eMHLfrzsx8t+vOzHy3687Gi80KWQLOep+a4RDCYMCN33DcZe+7JpWsMXUUFzkWmk9Br0BvZKCIFCAFse3YZ+ximYZCQHd5rnIGhuwPRMU5/AEtTWCA2LuZEEaz5TcaDHWoPeXA/uO+G0oy/FhZ3XuCx4EH5FUzRyK5AKoEpzbjFvZkC3nRmSBqPuYcAfNE8ZZz423yK8BCvkBgrEC7Ak7KpA6kJ8Ad9RiHZzDhuhbuf+MXZHkCpbSlB+kyF+VqKxKp1SyXKVXtvg8fBie+PtBk8nuWieakBRFrAQz3AzGJ0LdT5Zqvt/qkjGIjX7dkqpKJH+iWgog6TUvLCJgfjjzyUa2HWd69iGjeT8DltsWb0jWYpqwQZXfBhtqlz5YtqqLt1y6PjS2yFfwt+OMXetxNg2XyUmnA97ME57g6Tb74XdMDnucgI3/eFJlw6j01riPiCR3Blgk73Gv0kugapaoip4RH1HKTx5vxTuNlOuTOvwNAvXJ6Z+VgF585QC+pfOJ6bzvvVkEvxA73muU2BHcoHyFN2x2pjsbn8Jmv7TbikvjcY2d6fw8p9jXLbiL2PDsHsypLR/zJG/g8GgnwyjkLAoZIzRGn834W3F63ibKCU5SX8Ncd9nVs0dOM+3n0r77lPrWebcIVEsBwubbMapwD8Jpii7rP65RsUj5EzQuuhe5f8hyTeyr/8DQmiRFQMXAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_pill_compound action="delete_multiple" query="attached_to=f011646db46e03107f44d224a8774a16^sys_idNOT IN67f36c61b4ae03107f44d224a8774a90,aff36c61b4ae03107f44d224a8774a90,e3f36c61b4ae03107f44d224a8774a91,2bf36c61b4ae03107f44d224a8774a91,6ff36c61b4ae03107f44d224a8774a91"/&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f011646db46e03107f44d224a8774a16&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.resolution_notes}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:17:24&lt;/sys_created_on&gt;&lt;sys_id&gt;67f36c61b4ae03107f44d224a8774a90&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:17:24&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;92216c0b-9643-42af-a82c-b39cd2e0996b&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f011646db46e03107f44d224a8774a16&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.category}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:17:24&lt;/sys_created_on&gt;&lt;sys_id&gt;aff36c61b4ae03107f44d224a8774a90&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:17:24&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;54987140-9bf7-4f21-b595-5ddffc6fe945&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f011646db46e03107f44d224a8774a16&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.number}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:17:24&lt;/sys_created_on&gt;&lt;sys_id&gt;e3f36c61b4ae03107f44d224a8774a91&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:17:24&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;9e94553c-1549-4870-a6f5-a57236b1ec60&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f011646db46e03107f44d224a8774a16&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.description}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:17:24&lt;/sys_created_on&gt;&lt;sys_id&gt;2bf36c61b4ae03107f44d224a8774a91&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:17:24&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;47e5a55c-11db-456a-bf92-71605e6dc993&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f011646db46e03107f44d224a8774a16&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.status}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:17:24&lt;/sys_created_on&gt;&lt;sys_id&gt;6ff36c61b4ae03107f44d224a8774a91&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:17:24&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;45eb9b39-b5f1-4a53-b1e7-a99506c97b59&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_flow_variable action="delete_multiple" query="model=f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:19&lt;/sys_created_on&gt;&lt;sys_id&gt;6231a0adb46e03107f44d224a8774a62&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:05:19&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:19&lt;/sys_created_on&gt;&lt;sys_id&gt;6a31a0adb46e03107f44d224a8774a4d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:05:19&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;current&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Record&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:05:19&lt;/sys_created_on&gt;&lt;sys_id&gt;6a31a0adb46e03107f44d224a8774a57&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:05:19&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_f011646db46e03107f44d224a8774a16"/&gt;&lt;sys_hub_flow_snapshot action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;acls/&gt;&lt;active&gt;true&lt;/active&gt;&lt;allow_high_security_roles&gt;false&lt;/allow_high_security_roles&gt;&lt;annotation/&gt;&lt;attributes&gt;browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=diagramming&lt;/attributes&gt;&lt;authored_on_release_version&gt;29000&lt;/authored_on_release_version&gt;&lt;callable_by_client_api&gt;false&lt;/callable_by_client_api&gt;&lt;category/&gt;&lt;copied_from/&gt;&lt;copied_from_name/&gt;&lt;description/&gt;&lt;flow_priority&gt;MEDIUM&lt;/flow_priority&gt;&lt;internal_name&gt;hr_case_resolution_notification&lt;/internal_name&gt;&lt;label_cache&gt;[{"name":"Updated_1.current.request_by.email","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_to"]}},{"name":"Updated_1.current.request_by.name","label":"Trigger - Record Updated➛HR Case Record➛Request By➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛HR Case Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"number","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["ah_subject"]}},{"name":"Updated_1.current.status","label":"Trigger - Record Updated➛HR Case Record➛Status","reference":"","reference_display":"Status","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"status","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":100.0,"label":"Open","used":false,"reference":false,"image":"","rawLabel":"Open","selected":false,"missing":false,"value":"open","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Open"}}},{"sequence":200.0,"label":"In Progress","used":false,"reference":false,"image":"","rawLabel":"In Progress","selected":false,"missing":false,"value":"in_progress","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"In Progress"}}},{"sequence":300.0,"label":"Resolved","used":false,"reference":false,"image":"","rawLabel":"Resolved","selected":false,"missing":false,"value":"resolved","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Resolved"}}},{"sequence":400.0,"label":"Closed","used":false,"reference":false,"image":"","rawLabel":"Closed","selected":false,"missing":false,"value":"closed","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Closed"}}}],"usedInstances":{"b5ed845c-6ff8-4f87-b164-0b51c1966a03":["condition"]}},{"name":"Updated_1.current.raised_by.email","label":"Trigger - Record Updated➛HR Case Record➛Raised By➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_employee_details","column_name":"email","choices":[{"order":0.0}],"usedInstances":{}},{"name":"Updated_1.current.description","label":"Trigger - Record Updated➛HR Case Record➛Description","reference":"","reference_display":"Description","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"description","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current","label":"Trigger - Record Updated➛HR Case Record","reference":"x_snc_unified_hr_0_hr_case","reference_display":"HR Case","type":"reference","base_type":"reference","usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":["record"]},"attributes":{}},{"name":"Updated_1.current.resolution_notes","label":"Trigger - Record Updated➛HR Case Record➛Resolution Notes","reference":"","reference_display":"Resolution Notes","type":"string","base_type":"string","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"resolution_notes","choices":[{"order":0.0}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}},{"name":"Updated_1.current.category","label":"Trigger - Record Updated➛HR Case Record➛Category","reference":"","reference_display":"Category","type":"choice","base_type":"choice","parent_table_name":"x_snc_unified_hr_0_hr_case","column_name":"category","choices":[{"label":"-- None --","sequence":-1.0,"used":false,"reference":false,"image":"","rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"sequence":0.0,"label":"Payroll","used":false,"reference":false,"image":"","rawLabel":"Payroll","selected":false,"missing":false,"value":"payroll","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Payroll"}}},{"sequence":1.0,"label":"Benefits","used":false,"reference":false,"image":"","rawLabel":"Benefits","selected":false,"missing":false,"value":"benefits","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Benefits"}}},{"sequence":2.0,"label":"Leave","used":false,"reference":false,"image":"","rawLabel":"Leave","selected":false,"missing":false,"value":"leave","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Leave"}}},{"sequence":3.0,"label":"Employee Relations","used":false,"reference":false,"image":"","rawLabel":"Employee Relations","selected":false,"missing":false,"value":"employee_relations","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Employee Relations"}}},{"sequence":4.0,"label":"General","used":false,"reference":false,"image":"","rawLabel":"General","selected":false,"missing":false,"value":"general","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"General"}}},{"sequence":5.0,"label":"Others","used":false,"reference":false,"image":"","rawLabel":"Others","selected":false,"missing":false,"value":"others","parameters":{"name":"x_snc_unified_hr_0_hr_case","dependent_values":[""],"dependent_values_map":{"":"Others"}}}],"usedInstances":{"804f5036-3ab8-4410-906a-c830cfa58eb0":[null]}}]&lt;/label_cache&gt;&lt;master&gt;true&lt;/master&gt;&lt;name&gt;HR Case Resolution Notification&lt;/name&gt;&lt;natlang/&gt;&lt;outputs/&gt;&lt;parent_flow display_value="HR Case Resolution Notification"&gt;f011646db46e03107f44d224a8774a16&lt;/parent_flow&gt;&lt;remote_trigger_id/&gt;&lt;run_as&gt;user&lt;/run_as&gt;&lt;run_with_roles/&gt;&lt;sc_callable&gt;false&lt;/sc_callable&gt;&lt;status&gt;published&lt;/status&gt;&lt;sys_class_name&gt;sys_hub_flow_snapshot&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_overrides/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;type&gt;flow&lt;/type&gt;&lt;version&gt;2&lt;/version&gt;&lt;/sys_hub_flow_snapshot&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_hub_flow_stage action="delete_multiple" query="flow=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_flow_cat_variable_model action="delete_multiple" query="id=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN37cca4edb4ae03107f44d224a8774ac1"/&gt;&lt;sys_flow_cat_variable_model action="INSERT_OR_UPDATE"&gt;&lt;id&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/id&gt;&lt;name&gt;HR Case Resolution Notification&lt;/name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;37cca4edb4ae03107f44d224a8774ac1&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;/sys_flow_cat_variable_model&gt;&lt;sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=37cca4edb4ae03107f44d224a8774ac1"/&gt;&lt;sys_hub_flow_input action="delete_multiple" query="model=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN77cca4edb4ae03107f44d224a8774ac2,7bcca4edb4ae03107f44d224a8774ad2,7fcca4edb4ae03107f44d224a8774adc"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;table_name&lt;/dependent&gt;&lt;dependent_on_field&gt;table_name&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;current&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;label&gt;Record&lt;/label&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model&gt;&lt;model_id&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;77cca4edb4ae03107f44d224a8774ac2&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:02&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=77cca4edb4ae03107f44d224a8774ac2"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;4000&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model&gt;&lt;model_id&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;7bcca4edb4ae03107f44d224a8774ad2&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 13:11:14&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7bcca4edb4ae03107f44d224a8774ad2"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;table_name&lt;/internal_type&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model&gt;&lt;model_id&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow_snapshot&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;101&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;7fcca4edb4ae03107f44d224a8774adc&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:02&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7fcca4edb4ae03107f44d224a8774adc"/&gt;&lt;sys_hub_flow_output action="delete_multiple" query="model=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT INffcce4edb4ae03107f44d224a8774a0a"/&gt;&lt;sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/flow&gt;&lt;generation_source/&gt;&lt;name&gt;Updated&lt;/name&gt;&lt;published_version/&gt;&lt;remote_sys_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;ffcce4edb4ae03107f44d224a8774a0a&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 13:43:44&lt;/sys_updated_on&gt;&lt;trigger_definition display_value="Updated"&gt;bb695e60c31322002841b63b12d3aea5&lt;/trigger_definition&gt;&lt;trigger_inputs&gt;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&lt;/trigger_inputs&gt;&lt;trigger_outputs/&gt;&lt;trigger_type&gt;record_update&lt;/trigger_type&gt;&lt;updation_source/&gt;&lt;/sys_hub_trigger_instance_v2&gt;&lt;sys_hub_action_instance_v2 action="delete_multiple" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN77cca4edb4ae03107f44d224a8774afd"/&gt;&lt;sys_hub_action_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;action_type display_value="Send Email"&gt;c1806bf4a70323008299b39f087901cb&lt;/action_type&gt;&lt;action_type_parent display_value="Send Email"&gt;98c181d20b100300d97d8bf637673ab5&lt;/action_type_parent&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;compiled_snapshot&gt;c1806bf4a70323008299b39f087901cb&lt;/compiled_snapshot&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/flow&gt;&lt;generation_source/&gt;&lt;order&gt;2&lt;/order&gt;&lt;parent_ui_id&gt;b5ed845c-6ff8-4f87-b164-0b51c1966a03&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;77cca4edb4ae03107f44d224a8774afd&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 13:43:44&lt;/sys_updated_on&gt;&lt;ui_id&gt;804f5036-3ab8-4410-906a-c830cfa58eb0&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;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&lt;/values&gt;&lt;/sys_hub_action_instance_v2&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=77cca4edb4ae03107f44d224a8774afd"/&gt;&lt;sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT IN73cca4edb4ae03107f44d224a8774af9,b8a381be6ce243107f4499a3fab9db76,7ca381be6ce243107f4499a3fab9db79"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;07f124edb46e03107f44d224a8774a6e&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="If"&gt;af4e1945c3e232002841b63b12d3ae3e&lt;/logic_definition&gt;&lt;order&gt;1&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id&gt;24669e90-e782-4776-a114-4276afc9ff56&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;73cca4edb4ae03107f44d224a8774af9&lt;/sys_id&gt;&lt;sys_mod_count&gt;19&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:02&lt;/sys_updated_on&gt;&lt;ui_id&gt;b5ed845c-6ff8-4f87-b164-0b51c1966a03&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1Vy27bMBD8lYJnQZCs2Gh8CxwEKNA2QJPm0gbCiqRsohTJ8mFHFfzvXerhGLGBNm2PvXmHu8uZ8UjqiA7eBO/u9ZVzYq3I8stjQoSKGP7uiIKGkyWhWjHhhVYkIVuQIWJd99kw8JyVeUqDtVz51Hnwwe33X0OWFcxyp+WWMxxiwhkJ7cOfzNKNkFiP5AxY5OS5JcvuxZFguPoS5vU8z+a0mC2KWZbN3l7k1aKo8hkrgF8scKGEiktsXR2pOiPUtyZCzluh1mP9fhy9m0BtWaQyyxLCnzxXDCkva5COJ6QBhSK1bcnS24CA5cBulWwPHRuhPG4jsffJiR88bsqy2Flz1EX5cHooy9HIAa6vwQNSCdQHO7bSjRaUu8ERxmsI0q+OsaHh1vQq+xEPlZymtQyN+jiYQQ4Lpv8NkeCQBDdRaeQ+CqnvNnr3aWJ5I1TvyngoNQV5qMCjd1XwkU9HuOQNLiobMAYdLY3VW9EPI5cmXUss0lrqHV4aE5oCjcRTNBbSG8Sve/gBrIgqPuAaHMYsuNJRK8ykrb+c7BPiWreS4NyzRjS3/B4iw0HxqK0c7Ikj/aIrvHjLRxn75PTZKHvg+QE5jf2rw1xnUOeXND8fZijOhfnNkNHTSE/8XpPr/Be5HpHfCvZ8/j/Xf53rSLMCJ2jZv6VxXXy1/MNgP8YAD5cezKbCIbf7iL2bvg3xoMVECXoM7bT9FlU9Y/uf64W+xmUGAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;e8a381be6ce243107f4499a3fab9db06&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="Top Level Try"&gt;e9060aa2c3013010ace8b740ad40dd51&lt;/logic_definition&gt;&lt;order&gt;0&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:48:04&lt;/sys_created_on&gt;&lt;sys_id&gt;b8a381be6ce243107f4499a3fab9db76&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:02&lt;/sys_updated_on&gt;&lt;ui_id&gt;24669e90-e782-4776-a114-4276afc9ff56&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/6tWyi8tKSgtKQ7JdywuzkzPU7KKjtVRyswDiUHYZYlFmYlJOalQbkpqcmZxZn5eCEjME0ldSmVeYm5mMrJQeX5RdlpOfjlCrBYAD1ouqHEAAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;60a381be6ce243107f4499a3fab9db27&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="HR Case Resolution Notification"&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="Top Level Catch"&gt;35d60003e6022010a5e40cdd1254dd23&lt;/logic_definition&gt;&lt;order&gt;3&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 13:48:04&lt;/sys_created_on&gt;&lt;sys_id&gt;7ca381be6ce243107f4499a3fab9db79&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;ui_id&gt;4a847fe8-ddc7-4ed6-a294-d55b922ebd7c&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1Z30/jOBD+V04Rj6WXtimFviG4SpwWKl27+3JFkWM7xbuuk42dAov432/8I27SltXCFh0PkVCUzIwnM998M47pU5CVKi+VnGfnUrKlCMb/3nYCJrQM7p8CgVY0GAdxLBVSpYzjoBOsES+18GkRrGkhWSYWwXgR9LrhIugsApytck4fpslXitUM39EVAj0YT3h2f0n1a2gxnlyeX8yvpjez+fn888wa4IxQ4+pKKLqkhXNHaPcoZZSTOEWYKmmNZ0y/5hrlEy00y54Wi0VQsvljTj+hhHL9ONaXyt9Ce4RLQRGJM8EfvUWKuKRef8eE8iovtZ69nG05JTRFJVexgWd3NW9EdKFTrVQIKwAxpkWRFbGtiDdURbkxXCFBkMqKl+LOCmIDMrpebd1DzKlYqjuvjEJ9fYY/wHhFpURLi/1MFUwsDfRO/LvoO48HBV82fb4K+2uX7TvD3/85/KEvgK7AT3qje6Qg819C/1UwnJu0/5iZxj48GCX7LNj3kl4RbzA6ixI8iPrHZ/iMHEdRlByjQdo/JiRKTtAQhb3RYKvgTSbZmeJNcBYbaPSQ8jZbg6WypZyuqFDxCuU5MCfOi2zN6uWCsdVdchB1U6hFTEwxuhaOLmSKupsafUEFQ4mpQP6WsSJKzvexOmvm94p2PhluEaoxhRvjFe6O8Lq6MeT5itaoy5FYdmvdf7Q2OudvMyLesF47kBQw4+wH0oBOsmKFLHH/nk1vwAb2FcJkztHjl3Z70Zd2e2m3l3Z7abeXdns50PaC7xgnBRX1c42OGVQ5KuBZ0QLeGphpZJgP+GtBjSqwxA17WLWHy6DXLIap509JuxsbSCQuWK50i6xBYspYCeGNzx0z/QuB+CcmvtkltfDhiFayS+tUhwYGzEdlKMt3gmXEuqk0FzbzJg5qn7PdxA1xgnGvE9AHRQWhxOfg29ZLNGunQFov0DS1sQDRJPsBb4xCbZdSSA87hPxj7NCz4vQSWgVYUGJVFrRCJmOYSguMfZjmujRWrXQrOcuMlytxY3PWhbEDrVYYJ7ncqVgpIRKa62x1+C6XdHaX3f9ThTphwgDjlDzDiPsnpIC7Sal0oLrC8lFecCTlJhpIOf5e6iU2Evey2CbyvJc1zx3PZddCr6Sz7agPxmZZBdUgsw91m8vXPvMdKNQehzupOz73D8jnsGX0Wxl9u0Xgxtxuh3M7nD8kldtB2w7aD8vOW1fKMB314SDUHya9QT/shclJjyK4GYxOe3gUndVK/Zempzu9berd+B3AldyeKrZKPq2E1TjSdTpQ0U8PWXRXtYsDEuGw9XZjpA50c7B4qOvnVZA3T6qgf+mMaraYt55Og/f4lKVCv4DUfmvq7c5DMzG3B9xLXw5VBxAyCnunI4wHJ1R3wHA4HCSjKEQkCgkhuNYBmyB2onLMT7KMUyS2qD+HuP6c6Izeh/4H3I8PTf7UZb1/FFba/38evvjhuXbc9vhgpv8BPdeyq+pXUa14BE4wXBfdZ8U33Twb2fN/qUJS418dAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_pill_compound action="delete_multiple" query="attached_to=f7cca4edb4ae03107f44d224a8774ac0^sys_idNOT INb3cce4edb4ae03107f44d224a8774a0b,77cce4edb4ae03107f44d224a8774a0b,3bcce4edb4ae03107f44d224a8774a0b,fbcce4edb4ae03107f44d224a8774a0b,bfcce4edb4ae03107f44d224a8774a0b"/&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.resolution_notes}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;b3cce4edb4ae03107f44d224a8774a0b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;92216c0b-9643-42af-a82c-b39cd2e0996b&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.category}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;77cce4edb4ae03107f44d224a8774a0b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;54987140-9bf7-4f21-b595-5ddffc6fe945&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.number}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;3bcce4edb4ae03107f44d224a8774a0b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;9e94553c-1549-4870-a6f5-a57236b1ec60&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.description}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;fbcce4edb4ae03107f44d224a8774a0b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;47e5a55c-11db-456a-bf92-71605e6dc993&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_pill_compound action="INSERT_OR_UPDATE"&gt;&lt;attached_to&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/attached_to&gt;&lt;extra_info/&gt;&lt;order&gt;0&lt;/order&gt;&lt;prescription&gt;{{Updated_1.current.status}}&lt;/prescription&gt;&lt;source_ui_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;bfcce4edb4ae03107f44d224a8774a0b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;transform_compositions&gt;[]&lt;/transform_compositions&gt;&lt;transform_definition_id/&gt;&lt;ui_id&gt;45eb9b39-b5f1-4a53-b1e7-a99506c97b59&lt;/ui_id&gt;&lt;/sys_hub_pill_compound&gt;&lt;sys_hub_flow_variable action="delete_multiple" query="model=f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;current&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Record&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;37cca4edb4ae03107f44d224a8774ace&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;changed_fields&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Changed Fields&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;3bcca4edb4ae03107f44d224a8774ad8&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_id&gt;3bcca4edb4ae03107f44d224a8774ae2&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 14:55:55&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_f7cca4edb4ae03107f44d224a8774ac0"/&gt;&lt;sys_hub_flow action="UPDATE"&gt;&lt;sys_id&gt;f011646db46e03107f44d224a8774a16&lt;/sys_id&gt;&lt;latest_snapshot&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/latest_snapshot&gt;&lt;compiler_build&gt;glide-australia-02-11-2026__patch2-04-17-2026_04-29-2026_2044.zip&lt;/compiler_build&gt;&lt;version_record/&gt;&lt;/sys_hub_flow&gt;&lt;sys_flow_trigger_plan action="delete_multiple" query="plan_id=f011646db46e03107f44d224a8774a16^sys_idNOT INbbcce4edb4ae03107f44d224a8774a15"/&gt;&lt;sys_flow_trigger_plan action="INSERT_OR_UPDATE"&gt;&lt;binding_strategy&gt;com.snc.process_flow.engine.binding.OncePerUniqueChange&lt;/binding_strategy&gt;&lt;plan&gt;{"@class":"com.snc.process_flow.engine.serialization.plan_data.ChunkingPlanData","chunk_data":{"table":"sys_flow_trigger_plan","id":"bbcce4edb4ae03107f44d224a8774a15","name":"plan","plan_signature":null},"plan_data":"CHUNKING_PLAN"}&lt;/plan&gt;&lt;plan_id&gt;f011646db46e03107f44d224a8774a16&lt;/plan_id&gt;&lt;snapshot&gt;f7cca4edb4ae03107f44d224a8774ac0&lt;/snapshot&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 14:55:55&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;bbcce4edb4ae03107f44d224a8774a15&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_overrides/&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 14:20:03&lt;/sys_updated_on&gt;&lt;trigger display_value=""&gt;5dfa89be6c2643107f4499a3fab9db21&lt;/trigger&gt;&lt;/sys_flow_trigger_plan&gt;&lt;sys_flow_subflow_plan action="delete_multiple" query="plan_id=f011646db46e03107f44d224a8774a16"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-633642061</payload_hash>
+        <record_name>HR Case Resolution Notification</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 14:20:03</sys_created_on>
+        <sys_id>d1fa89be6c2643107f4499a3fab9db33</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fec0b7d390000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:20:03</sys_updated_on>
+        <type>Flow</type>
+        <update_guid>19fa89bef92643103fc667c79c7e3232</update_guid>
+        <update_guid_history>19fa89bef92643103fc667c79c7e3232:-633642061,78fa49beda264310fe314980a0c1335f:1206901632,7b370d7619264310de0dbfcb3bcfdabd:-436344284,13370d7682264310b166f3d8e8939033:1692127556,00864df2ab264310a1b107620185e7a8:-1454423870,e3760df266264310d1a19f204a877bbc:18377309,d1a381bed3e24310789599f7da7890c9:392103945,eca381be6ae24310e7ce6c89b113ba37:-241715343,8d9301be6ee2431011af7832913b69a3:202479105,c1130d3ed5e2431065d35fef12b313f9:1197727178,a0130d3e6fe24310924d87be95cc127f:-1936176744,6603893ea5e243108df5b21ae91c82ca:1657192955,58d2c13e95e243106b6f812534bd52f8:-1672228780,7fc2c13e4de243108b553b59e5f69523:-589442430,e9a28dfa5ce2431054d692f761a03f83:-1536097123,85a24dfaf4e24310a87139196df458ac:18991290,70418d3ae1e24310681a0461680dbfb7:2069084231,e3f0c53a27e243101c59fd79b2c81c87:1633362807,ffce38b2b7e24310148aafe305237177:443868596,9a7cf4be0da2431071a010ef3b2c53fa:452949277,8a3b343e19a24310898122fa4798d91d:183509026,cd3bf03ebea24310ab9c2318f4132704:-1356981057,162b703e87a24310f174b2388bc20909:1014474028,513ab4ba76a243105b2ed3b8240c5a1d:-180553957,64dce4eddbae0310fe3ffb19fd340087:1752526849,7bcce4edccae0310b524c8b497578c21:1013406643,efcca4ed64ae0310e3d6ee1341b98fb4:-208956291,45fbec6d0cae0310d6192938838a3713:548768387,eb0aa0e9feae0310caacd91b7b6c08e0:-566758341,1ad96ca9eeae03106c90713fd8fadbb7:-1304061948,22c76ce577ae0310ade4e8022584e5c8:-538745698,d537eca56cae031054b32e45c3ef77a5:-1117600626,73b4a4e1c4ae0310c688d2d81cd22f00:-2070226898,8a0424a1adae031083e3581598f888f5:-1069150786,86c2282152ae0310242421c560164641:-1190771201,be722021ccae0310782a28d531b6eaae:1493186192,bd0264edde6e03105bd94e82b0b33589:278904273,3c61a4ad186e0310e0620242bf13e387:61286797,2441e0ada96e03108b6f840601a62810:2030330452,7c11e86d836e0310ff7060db480c5c2c:949240825</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 14:24:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_hub_flow">sys_hub_flow</sys_db_object>
+        <sys_id>312234c4a38a4d3093c03772339ef410</sys_id>
+        <sys_metadata>f011646db46e03107f44d224a8774a16</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HR Case Resolution Notification</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_hub_flow_f011646db46e03107f44d224a8774a16</sys_update_name>
+        <sys_update_version display_value="sys_hub_flow_f011646db46e03107f44d224a8774a16">d1fa89be6c2643107f4499a3fab9db33</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 14:24:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

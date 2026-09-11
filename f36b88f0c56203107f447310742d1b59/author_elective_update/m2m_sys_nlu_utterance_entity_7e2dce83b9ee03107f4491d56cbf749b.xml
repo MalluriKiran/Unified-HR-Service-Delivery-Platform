@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":10,"end":23,"annotatedString":"I need to {{phrase=\"take a day off\"}}","cat":"leave_request"}]</annotation>
+        <entity display_value="hr_choices">783b02cfb9ae03107f4491d56cbf742e</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 13:47:48</sys_created_on>
+        <sys_id>7e2dce83b9ee03107f4491d56cbf749b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hr_choices.I need to take a day off</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_7e2dce83b9ee03107f4491d56cbf749b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 13:47:48</sys_updated_on>
+        <utterance display_value="I need to take a day off">c7e6b9cfb92e03107f4491d56cbf7403</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_7e2dce83b9ee03107f4491d56cbf749b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":10,"end":23,"annotatedString":"I need to {{phrase=\"take a day off\"}}","cat":"leave_request"}]</annotation><entity display_value="hr_choices">783b02cfb9ae03107f4491d56cbf742e</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-11 13:47:48</sys_created_on><sys_id>7e2dce83b9ee03107f4491d56cbf749b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>hr_choices.I need to take a day off</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_7e2dce83b9ee03107f4491d56cbf749b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 13:47:48</sys_updated_on><utterance display_value="I need to take a day off">c7e6b9cfb92e03107f4491d56cbf7403</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>-1147794516</payload_hash>
+        <record_name>hr_choices.I need to take a day off</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 13:47:48</sys_created_on>
+        <sys_id>362dce83b9ee03107f4491d56cbf749f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ff114533c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 13:47:48</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>f62dce83c7ee03100cc8296144d2bc9e</update_guid>
+        <update_guid_history>f62dce83c7ee03100cc8296144d2bc9e:-1147794516</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="hr_choices.I need to take a day off">17ce46c7b9ee03107f4491d56cbf7415</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 13:54:56</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>0e216170c9b14100835ee027f1189000</sys_id>
+        <sys_metadata>7e2dce83b9ee03107f4491d56cbf749b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hr_choices.I need to take a day off</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_7e2dce83b9ee03107f4491d56cbf749b</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_7e2dce83b9ee03107f4491d56cbf749b">362dce83b9ee03107f4491d56cbf749f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 13:54:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

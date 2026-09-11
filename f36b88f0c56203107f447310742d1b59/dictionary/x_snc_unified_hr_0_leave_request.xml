@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="1f6fa7ada96203107f444ae71fe9ff92" label="Leave Request" max_length="40" name="x_snc_unified_hr_0_leave_request" type="collection">
+        <element label="HOD Remarks" max_length="1000" name="hod_remarks" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Approved" sequence="3" value="approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="4" value="rejected"/>
+                <element inactive_on_update="false" label="Pending HOD" sequence="1" value="pending_hod"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="5" value="cancelled"/>
+                <element inactive_on_update="false" label="Pending HR" sequence="2" value="pending_hr"/>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+            </choice>
+        </element>
+        <element label="Requested By" mandatory="true" max_length="32" name="requested_by" reference="sys_user" type="reference"/>
+        <element label="Applied On" max_length="40" name="applied_on" read_only="true" read_only_option="instance_configured" type="glide_date_time"/>
+        <element label="HR Remarks" max_length="1000" name="hr_remarks" type="string"/>
+        <element label="Department" max_length="32" name="department" read_only="true" read_only_option="instance_configured" reference="x_snc_unified_hr_0_department" type="reference"/>
+        <element label="Current Approver" max_length="32" name="current_approver" reference="sys_user" type="reference"/>
+        <element choice="1" label="Leave Type" max_length="40" name="leave_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Casual Leave" sequence="0" value="casual_leave"/>
+                <element inactive_on_update="false" label="Emergency Leave" sequence="3" value="emergency_leave"/>
+                <element inactive_on_update="false" label="Paternity Leave" sequence="5" value="paternity_leave"/>
+                <element inactive_on_update="false" label="Sick Leave" sequence="1" value="sick_leave"/>
+                <element inactive_on_update="false" label="Earned Leave" sequence="2" value="earned_leave"/>
+                <element inactive_on_update="false" label="Maternity Leave" sequence="4" value="maternity_leave"/>
+            </choice>
+        </element>
+        <element label="Number of Leave Days" max_length="40" name="number_of_leave_days" read_only="true" read_only_option="instance_configured" type="integer"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Emergency Reason" max_length="1000" name="emergency_reason" type="string"/>
+        <element label="Comments" max_length="500" name="comments" type="string"/>
+        <element label="Approval Group" max_length="32" name="approval_group" reference="sys_user_group" type="reference"/>
+        <element label="Reason" mandatory="true" max_length="4000" name="reason" type="string"/>
+        <element label="Start Date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
+        <element label="End Date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
+        <index name="index">
+            <element name="requested_by"/>
+        </index>
+        <index name="index2">
+            <element name="department"/>
+        </index>
+        <index name="index3">
+            <element name="current_approver"/>
+        </index>
+        <index name="index4">
+            <element name="approval_group"/>
+        </index>
+    </element>
+</database>

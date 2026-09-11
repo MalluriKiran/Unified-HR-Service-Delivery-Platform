@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="DELETE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description/>
+        <dialog_acts_enabled>true</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{"graph_api_version":"1.0.82","variables":{},"goals":{"primary":{"id":"primary","trigger":{"type":"primary"},"name":"primary","applicability":"","description":"","nodes":{"bbcfa8c12a8943ce9a53854ed4da9c23":{"id":"bbcfa8c12a8943ce9a53854ed4da9c23","stepType":"Start","name":"Start","greetingResponse":{"mode":"simple","value":""}},"7d3dba7f809447f18bab22dccec3edc5":{"id":"7d3dba7f809447f18bab22dccec3edc5","stepType":"TerminateGoal","name":"End","confirmationMessage":{"mode":"simple","value":""}}},"edges":[{"id":"9636637b4ba14a3587b77a416330ce52","edgeType":"Edge","source":"bbcfa8c12a8943ce9a53854ed4da9c23","target":"7d3dba7f809447f18bab22dccec3edc5","sourcePort":"","targetPort":""}]}}}</graph>
+        <key_phrases>hr_support_assistant</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>true</modify_confirmation_enabled>
+        <name>hr_support_assistant</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:35:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>8fb089f66ce243107f4499a3fab9db84</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hr_support_assistant</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_topic_8fb089f66ce243107f4499a3fab9db84</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:35:23</sys_updated_on>
+        <title>hr_support_assistant</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="DELETE" query="documentkey=8fb089f66ce243107f4499a3fab9db84"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_cb_topic_8fb089f66ce243107f4499a3fab9db84</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic"><sys_cb_topic action="INSERT_OR_UPDATE"><applicability/><applicability_mode>query</applicability_mode><autopilot_topic>false</autopilot_topic><category/><channels/><connect_queue/><context_profiles/><description/><dialog_acts_enabled>true</dialog_acts_enabled><expose_on_palette>false</expose_on_palette><flexible_conversation_switching>false</flexible_conversation_switching><foundational>false</foundational><graph>{"graph_api_version":"1.0.82","variables":{},"goals":{"primary":{"id":"primary","trigger":{"type":"primary"},"name":"primary","applicability":"","description":"","nodes":{"bbcfa8c12a8943ce9a53854ed4da9c23":{"id":"bbcfa8c12a8943ce9a53854ed4da9c23","stepType":"Start","name":"Start","greetingResponse":{"mode":"simple","value":""}},"7d3dba7f809447f18bab22dccec3edc5":{"id":"7d3dba7f809447f18bab22dccec3edc5","stepType":"TerminateGoal","name":"End","confirmationMessage":{"mode":"simple","value":""}}},"edges":[{"id":"9636637b4ba14a3587b77a416330ce52","edgeType":"Edge","source":"bbcfa8c12a8943ce9a53854ed4da9c23","target":"7d3dba7f809447f18bab22dccec3edc5","sourcePort":"","targetPort":""}]}}}</graph><key_phrases>hr_support_assistant</key_phrases><library>false</library><live_agent>false</live_agent><model_type>nlu_keyword</model_type><modify_confirmation_enabled>true</modify_confirmation_enabled><name>hr_support_assistant</name><nlu_intent/><nlu_intent_label/><nlu_model/><nlu_model_label/><nlu_provider/><palette_label/><roles/><root_topic_id/><secure_custom_input_control>false</secure_custom_input_control><source_topic_id/><sys_class_name>sys_cb_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 13:35:23</sys_created_on><sys_domain>global</sys_domain><sys_id>8fb089f66ce243107f4499a3fab9db84</sys_id><sys_mod_count>0</sys_mod_count><sys_name>hr_support_assistant</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_cb_topic_8fb089f66ce243107f4499a3fab9db84</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 13:35:23</sys_updated_on><title>hr_support_assistant</title><triggerable_by_notification>false</triggerable_by_notification><type>STANDARD</type></sys_cb_topic><sys_translated_text action="delete_multiple" query="documentkey=8fb089f66ce243107f4499a3fab9db84"/></record_update>]]></payload>
+        <payload_hash>2129891310</payload_hash>
+        <record_name>hr_support_assistant</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:35:23</sys_created_on>
+        <sys_id>07b089f66ce243107f4499a3fab9db89</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19febe2986a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:35:23</sys_updated_on>
+        <type>Topic</type>
+        <update_guid>87b089f62be24310299d0e3901e7e088</update_guid>
+        <update_guid_history>87b089f62be24310299d0e3901e7e088:2129891310</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:37:05</sys_created_on>
+        <sys_db_object display_value="" name="sys_cb_topic">sys_cb_topic</sys_db_object>
+        <sys_id>976b183d24714a45960ada4970dadc61</sys_id>
+        <sys_metadata>8fb089f66ce243107f4499a3fab9db84</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hr_support_assistant</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_cb_topic_8fb089f66ce243107f4499a3fab9db84</sys_update_name>
+        <sys_update_version display_value="sys_cb_topic_8fb089f66ce243107f4499a3fab9db84">07b089f66ce243107f4499a3fab9db89</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 13:37:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

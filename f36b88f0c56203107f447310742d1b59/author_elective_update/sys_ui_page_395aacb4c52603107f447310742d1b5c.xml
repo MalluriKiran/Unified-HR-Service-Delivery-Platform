@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="DELETE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_snc_unified_hr_0_x_1601702_hrflow_1_admin_dashboard.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<j:jelly trim="false"
+    xmlns:j="jelly:core"
+    xmlns:g="glide">
+
+<html>
+
+<head>
+
+<title>HRFlow360 Admin Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:70px;
+    background:#1E3A8A;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.top-menu{
+    display:flex;
+    gap:30px;
+    font-size:15px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.container{
+    display:flex;
+    min-height:calc(100vh - 120px);
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    width:260px;
+    background:white;
+    border-right:1px solid #ddd;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:18px 22px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar li:hover{
+    background:#eef4ff;
+}
+
+.active{
+    background:#dbe8ff;
+    border-left:5px solid #1E3A8A;
+    font-weight:bold;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.page-title{
+    font-size:34px;
+    color:#1E3A8A;
+    margin-bottom:25px;
+}
+
+/* ================= KPI CARDS ================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#E6EEFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#1E3A8A;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+
+}
+
+.number{
+
+    font-size:36px;
+
+    color:#1E3A8A;
+
+    font-weight:bold;
+
+}
+
+.title{
+
+    margin-top:8px;
+
+    color:#666;
+
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+
+    height:50px;
+
+    background:#1E3A8A;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+
+HRFlow360
+
+</div>
+
+<div class="top-menu">
+
+<div>Search</div>
+
+<div>Notifications</div>
+
+<div>Admin</div>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<ul>
+
+<li class="active">Dashboard</li>
+
+<li>User Management</li>
+
+<li>Department Management</li>
+
+<li>Role Management</li>
+
+<li>Leave Management</li>
+
+<li>HR Case Management</li>
+
+<li>Analytics</li>
+
+<li>Audit Logs</li>
+
+<li>Notifications</li>
+
+<li>My Profile</li>
+
+</ul>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<div class="page-title">
+
+System Overview
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">U</div>
+
+<div class="number">638</div>
+
+<div class="title">Total Users</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon">R</div>
+
+<div class="number">12</div>
+
+<div class="title">Roles</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon">D</div>
+
+<div class="number">8</div>
+
+<div class="title">Departments</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon">E</div>
+
+<div class="number">125</div>
+
+<div class="title">Employees</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon">L</div>
+
+<div class="number">20</div>
+
+<div class="title">Leave Requests</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon">H</div>
+
+<div class="number">9</div>
+
+<div class="title">HR Cases</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+HRFlow360 - Unified HR Service Delivery Platform
+
+</div>
+
+</body>
+
+</html>
+
+</j:jelly>]]></html>
+        <name>x_1601702_hrflow_1_admin_dashboard</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 06:50:28</sys_created_on>
+        <sys_id>395aacb4c52603107f447310742d1b5c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1601702_hrflow_1_admin_dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_ui_page_395aacb4c52603107f447310742d1b5c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 06:50:28</sys_updated_on>
+    </sys_ui_page>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_ui_page_395aacb4c52603107f447310742d1b5c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_page"&gt;&lt;sys_ui_page action="INSERT_OR_UPDATE"&gt;&lt;category&gt;general&lt;/category&gt;&lt;client_script/&gt;&lt;description/&gt;&lt;direct&gt;false&lt;/direct&gt;&lt;endpoint&gt;x_snc_unified_hr_0_x_1601702_hrflow_1_admin_dashboard.do&lt;/endpoint&gt;&lt;html&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;j:jelly trim="false"
+    xmlns:j="jelly:core"
+    xmlns:g="glide"&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;HRFlow360 Admin Dashboard&lt;/title&gt;
+
+&lt;style&gt;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:70px;
+    background:#1E3A8A;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.top-menu{
+    display:flex;
+    gap:30px;
+    font-size:15px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.container{
+    display:flex;
+    min-height:calc(100vh - 120px);
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    width:260px;
+    background:white;
+    border-right:1px solid #ddd;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:18px 22px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar li:hover{
+    background:#eef4ff;
+}
+
+.active{
+    background:#dbe8ff;
+    border-left:5px solid #1E3A8A;
+    font-weight:bold;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.page-title{
+    font-size:34px;
+    color:#1E3A8A;
+    margin-bottom:25px;
+}
+
+/* ================= KPI CARDS ================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+.icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#E6EEFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#1E3A8A;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+
+}
+
+.number{
+
+    font-size:36px;
+
+    color:#1E3A8A;
+
+    font-weight:bold;
+
+}
+
+.title{
+
+    margin-top:8px;
+
+    color:#666;
+
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+
+    height:50px;
+
+    background:#1E3A8A;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;!-- HEADER --&gt;
+
+&lt;div class="header"&gt;
+
+&lt;div class="logo"&gt;
+
+HRFlow360
+
+&lt;/div&gt;
+
+&lt;div class="top-menu"&gt;
+
+&lt;div&gt;Search&lt;/div&gt;
+
+&lt;div&gt;Notifications&lt;/div&gt;
+
+&lt;div&gt;Admin&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;!-- MAIN --&gt;
+
+&lt;div class="container"&gt;
+
+&lt;!-- SIDEBAR --&gt;
+
+&lt;div class="sidebar"&gt;
+
+&lt;ul&gt;
+
+&lt;li class="active"&gt;Dashboard&lt;/li&gt;
+
+&lt;li&gt;User Management&lt;/li&gt;
+
+&lt;li&gt;Department Management&lt;/li&gt;
+
+&lt;li&gt;Role Management&lt;/li&gt;
+
+&lt;li&gt;Leave Management&lt;/li&gt;
+
+&lt;li&gt;HR Case Management&lt;/li&gt;
+
+&lt;li&gt;Analytics&lt;/li&gt;
+
+&lt;li&gt;Audit Logs&lt;/li&gt;
+
+&lt;li&gt;Notifications&lt;/li&gt;
+
+&lt;li&gt;My Profile&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;!-- CONTENT --&gt;
+
+&lt;div class="content"&gt;
+
+&lt;div class="page-title"&gt;
+
+System Overview
+
+&lt;/div&gt;
+
+&lt;div class="cards"&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;U&lt;/div&gt;
+
+&lt;div class="number"&gt;638&lt;/div&gt;
+
+&lt;div class="title"&gt;Total Users&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;R&lt;/div&gt;
+
+&lt;div class="number"&gt;12&lt;/div&gt;
+
+&lt;div class="title"&gt;Roles&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;D&lt;/div&gt;
+
+&lt;div class="number"&gt;8&lt;/div&gt;
+
+&lt;div class="title"&gt;Departments&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;E&lt;/div&gt;
+
+&lt;div class="number"&gt;125&lt;/div&gt;
+
+&lt;div class="title"&gt;Employees&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;L&lt;/div&gt;
+
+&lt;div class="number"&gt;20&lt;/div&gt;
+
+&lt;div class="title"&gt;Leave Requests&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+
+&lt;div class="icon"&gt;H&lt;/div&gt;
+
+&lt;div class="number"&gt;9&lt;/div&gt;
+
+&lt;div class="title"&gt;HR Cases&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;!-- FOOTER --&gt;
+
+&lt;div class="footer"&gt;
+
+HRFlow360 - Unified HR Service Delivery Platform
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+&lt;/j:jelly&gt;]]&gt;&lt;/html&gt;&lt;name&gt;x_1601702_hrflow_1_admin_dashboard&lt;/name&gt;&lt;processing_script/&gt;&lt;sys_class_name&gt;sys_ui_page&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-04 06:50:28&lt;/sys_created_on&gt;&lt;sys_id&gt;395aacb4c52603107f447310742d1b5c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;x_1601702_hrflow_1_admin_dashboard&lt;/sys_name&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_page_395aacb4c52603107f447310742d1b5c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-04 06:50:28&lt;/sys_updated_on&gt;&lt;/sys_ui_page&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1121435974</payload_hash>
+        <record_name>x_1601702_hrflow_1_admin_dashboard</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 06:50:28</sys_created_on>
+        <sys_id>018ae4f4c52603107f447310742d1bb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fcb89ba9f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 06:50:28</sys_updated_on>
+        <type>UI Page</type>
+        <update_guid>058ae4f45f260310d2a373a6afb396b1</update_guid>
+        <update_guid_history>058ae4f45f260310d2a373a6afb396b1:-1121435974</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 10:24:31</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_page">sys_ui_page</sys_db_object>
+        <sys_id>34790a9c126c41eca27c15038e9d89a4</sys_id>
+        <sys_metadata>395aacb4c52603107f447310742d1b5c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1601702_hrflow_1_admin_dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_ui_page_395aacb4c52603107f447310742d1b5c</sys_update_name>
+        <sys_update_version display_value="sys_ui_page_395aacb4c52603107f447310742d1b5c">018ae4f4c52603107f447310742d1bb2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 10:24:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

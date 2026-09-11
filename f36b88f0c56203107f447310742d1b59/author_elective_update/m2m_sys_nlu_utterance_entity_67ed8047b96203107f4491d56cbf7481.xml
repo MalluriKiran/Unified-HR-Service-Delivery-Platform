@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":13,"end":16,"annotatedString":"I am feeling {{phrase=\"sick\"}} today.","cat":"sick_leave"}]</annotation>
+        <entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:31:53</sys_created_on>
+        <sys_id>67ed8047b96203107f4491d56cbf7481</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sick_leave.I am feeling sick today.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_67ed8047b96203107f4491d56cbf7481</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:31:53</sys_updated_on>
+        <utterance display_value="I am feeling sick today.">70c550f26caa03107f4499a3fab9db8d</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_67ed8047b96203107f4491d56cbf7481</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":13,"end":16,"annotatedString":"I am feeling {{phrase=\"sick\"}} today.","cat":"sick_leave"}]</annotation><entity display_value="sick_leave">a4b55cb26caa03107f4499a3fab9dbd7</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-11 04:31:53</sys_created_on><sys_id>67ed8047b96203107f4491d56cbf7481</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sick_leave.I am feeling sick today.</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_67ed8047b96203107f4491d56cbf7481</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 04:31:53</sys_updated_on><utterance display_value="I am feeling sick today.">70c550f26caa03107f4499a3fab9db8d</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>1720789047</payload_hash>
+        <record_name>sick_leave.I am feeling sick today.</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:31:53</sys_created_on>
+        <sys_id>2fed8047b96203107f4491d56cbf7484</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef175d4e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:31:53</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>efed80471f620310b74a04912a20e983</update_guid>
+        <update_guid_history>efed80471f620310b74a04912a20e983:1720789047</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="sick_leave.I am feeling sick today.">2c8e4487b96203107f4491d56cbf74e0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:34:25</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>9e5b254393a34e679a12f3d5ab2b6609</sys_id>
+        <sys_metadata>67ed8047b96203107f4491d56cbf7481</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sick_leave.I am feeling sick today.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_67ed8047b96203107f4491d56cbf7481</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_67ed8047b96203107f4491d56cbf7481">2fed8047b96203107f4491d56cbf7484</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:34:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

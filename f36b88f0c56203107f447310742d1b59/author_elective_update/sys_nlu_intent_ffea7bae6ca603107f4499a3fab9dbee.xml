@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_intent">
+    <sys_nlu_intent action="DELETE">
+        <confidence_threshold>0.6</confidence_threshold>
+        <description>IT creates the hr case</description>
+        <enable>true</enable>
+        <model display_value="HR Assist">b752ebe26c2603107f4499a3fab9db19</model>
+        <name>create_hr_case</name>
+        <origin/>
+        <override_confidence_threshold>false</override_confidence_threshold>
+        <primary_intent/>
+        <status>draft</status>
+        <sys_class_name>sys_nlu_intent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:30:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ffea7bae6ca603107f4499a3fab9dbee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>create_hr_case</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_intent_ffea7bae6ca603107f4499a3fab9dbee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:30:26</sys_updated_on>
+    </sys_nlu_intent>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_nlu_intent_ffea7bae6ca603107f4499a3fab9dbee</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_intent"><sys_nlu_intent action="INSERT_OR_UPDATE"><confidence_threshold>0.6</confidence_threshold><description>IT creates the hr case</description><enable>true</enable><model display_value="HR Assist">b752ebe26c2603107f4499a3fab9db19</model><name>create_hr_case</name><origin/><override_confidence_threshold>false</override_confidence_threshold><primary_intent/><status>draft</status><sys_class_name>sys_nlu_intent</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 08:30:26</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ffea7bae6ca603107f4499a3fab9dbee</sys_id><sys_mod_count>0</sys_mod_count><sys_name>create_hr_case</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_nlu_intent_ffea7bae6ca603107f4499a3fab9dbee</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 08:30:26</sys_updated_on></sys_nlu_intent></record_update>]]></payload>
+        <payload_hash>-146323859</payload_hash>
+        <record_name>create_hr_case</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:30:26</sys_created_on>
+        <sys_id>80fa7bae6ca603107f4499a3fab9dbf3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feacb66550000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:30:26</sys_updated_on>
+        <type>NLU Intent</type>
+        <update_guid>b7ea7bae84a603103e305fad8cb03af2</update_guid>
+        <update_guid_history>b7ea7bae84a603103e305fad8cb03af2:-146323859</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:02:16</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_intent">sys_nlu_intent</sys_db_object>
+        <sys_id>ac3d4d7a00894e7cbac53c4e986d4279</sys_id>
+        <sys_metadata>ffea7bae6ca603107f4499a3fab9dbee</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>create_hr_case</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_nlu_intent_ffea7bae6ca603107f4499a3fab9dbee</sys_update_name>
+        <sys_update_version display_value="sys_nlu_intent_ffea7bae6ca603107f4499a3fab9dbee">80fa7bae6ca603107f4499a3fab9dbf3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:02:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

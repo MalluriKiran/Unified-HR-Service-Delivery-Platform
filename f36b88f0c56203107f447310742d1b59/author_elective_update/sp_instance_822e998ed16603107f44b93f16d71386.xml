@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{&#13;	"mobile": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"desktop": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"tablet": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	}&#13;}</placeholder_dimensions>
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&lt;div ng-if="options.maxRowCount === 10"&gt;&lt;/div&gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&gt;
+	&lt;div class="skeleton-container"&gt;
+	&lt;!-- Header Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-header"&gt;&lt;/div&gt;
+	&lt;!-- Body Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-line"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
+&lt;/div&gt;</placeholder_template>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">2611a906d1a603107f44b93f16d71301</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 07:48:29</sys_created_on>
+        <sys_id>822e998ed16603107f44b93f16d71386</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_instance_822e998ed16603107f44b93f16d71386</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 09:20:04</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<a class=\"hod-service-link\" href=\"?id=apply_leave&amp;table=x_snc_unified_hr_0_leave_request&amp;sys_id=-1\">\r\n<div class=\"hod-service-card\">\r\n<div class=\"icon\">]]>📋<![CDATA[</div>\r\n<h3>Apply Leave</h3>\r\n<p>Create and submit a new leave request</p>\r\n</div>\r\n</a>",
+		"displayValue": "<a class=\"hod-service-link\" href=\"?id=apply_leave&amp;table=x_snc_unified_hr_0_leave_request&amp;sys_id=-1\">\n<div class=\"hod-service-card\">\n<div class=\"icon\">]]>📋<![CDATA[</div>\n<h3>Apply Leave</h3>\n<p>Create and submit a new leave request</p>\n</div>\n</a>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=822e998ed16603107f44b93f16d71386"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_instance_822e998ed16603107f44b93f16d71386</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;advanced_placeholder_dimensions&gt;false&lt;/advanced_placeholder_dimensions&gt;&lt;async_load&gt;false&lt;/async_load&gt;&lt;async_load_device_type&gt;desktop,tablet,mobile&lt;/async_load_device_type&gt;&lt;async_load_trigger&gt;viewport&lt;/async_load_trigger&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder_dimensions&gt;{&amp;#13;	"mobile": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"desktop": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"tablet": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	}&amp;#13;}&lt;/placeholder_dimensions&gt;&lt;placeholder_dimensions_script&gt;&lt;![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]&gt;&lt;/placeholder_dimensions_script&gt;&lt;placeholder_template&gt;&amp;lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&amp;lt;div ng-if="options.maxRowCount === 10"&amp;gt;&amp;lt;/div&amp;gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&amp;gt;
+	&amp;lt;div class="skeleton-container"&amp;gt;
+	&amp;lt;!-- Header Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-header"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;!-- Body Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line small"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line medium"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/placeholder_template&gt;&lt;preserve_placeholder_size&gt;false&lt;/preserve_placeholder_size&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;2611a906d1a603107f44b93f16d71301&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-08 07:48:29&lt;/sys_created_on&gt;&lt;sys_id&gt;822e998ed16603107f44b93f16d71386&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_822e998ed16603107f44b93f16d71386&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-08 09:20:04&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;a class=\"hod-service-link\" href=\"?id=apply_leave&amp;amp;table=x_snc_unified_hr_0_leave_request&amp;amp;sys_id=-1\"&gt;\r\n&lt;div class=\"hod-service-card\"&gt;\r\n&lt;div class=\"icon\"&gt;]]&gt;📋&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Apply Leave&lt;/h3&gt;\r\n&lt;p&gt;Create and submit a new leave request&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;",
+		"displayValue": "&lt;a class=\"hod-service-link\" href=\"?id=apply_leave&amp;amp;table=x_snc_unified_hr_0_leave_request&amp;amp;sys_id=-1\"&gt;\n&lt;div class=\"hod-service-card\"&gt;\n&lt;div class=\"icon\"&gt;]]&gt;📋&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Apply Leave&lt;/h3&gt;\n&lt;p&gt;Create and submit a new leave request&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=822e998ed16603107f44b93f16d71386"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>520905257</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 09:20:04</sys_created_on>
+        <sys_id>2313f582d12a03107f44b93f16d713ae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fe0ac1e4e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 09:20:04</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>6713f582752a0310d42ff68c1be849ad</update_guid>
+        <update_guid_history>6713f582752a0310d42ff68c1be849ad:520905257,5f0f610e18e60310f54be72721492d00:-1001321537,299d254aafe603102ff7b65a523ed2c8:520905257,405721ceb4a60310bb3ad1366619de19:172651367,8d07298e4ba6031094e757417a405976:890718933,9a92a1c635a6031056a4f44aad50dca0:212659819,f611a906e9a60310a56c83a7b91a39e6:1845295051,f16f590222a60310c2665fa86723b3f5:1587398747,2b1f9dce9a660310a3e02cea6ea4e19d:1368920219,4cae95ce1166031054ca55f73d4db09b:1684178469,1a4ed58e2766031048c8649fc2e98531:2134761885,332e998ec5660310464e289c18dcd1f7:688965345,ca2e998eae6603107c4ff6a11e066988:-482927453</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">9339bf0a742603107f4446ca06ff0b0a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 19:06:03</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>0cbb4efdeae244898bb9db2a26e0d821</sys_id>
+        <sys_metadata>822e998ed16603107f44b93f16d71386</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_instance_822e998ed16603107f44b93f16d71386</sys_update_name>
+        <sys_update_version display_value="sp_instance_822e998ed16603107f44b93f16d71386">2313f582d12a03107f44b93f16d713ae</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 19:06:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

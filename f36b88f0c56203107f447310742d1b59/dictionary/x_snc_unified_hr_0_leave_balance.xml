@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="f2e95835a9a603107f444ae71fe9ff75" label="Leave Balance" max_length="40" name="x_snc_unified_hr_0_leave_balance" type="collection">
+        <element default="15" label="Paternity Leave Balance" max_length="255" name="paternity_leave_balance" type="integer"/>
+        <element default="180" label="Maternity Leave Balance" max_length="255" name="maternity_leave_balance" type="integer"/>
+        <element default="10" label="Sick Leave Balance" mandatory="true" max_length="255" name="sick_leave_balance" type="integer"/>
+        <element default="12" label="Casual Leave Balance" mandatory="true" max_length="255" name="casual_leave_balance" type="integer"/>
+        <element default="15" label="Emergency Leave Balance" max_length="40" name="emergency_leave_balance" type="integer"/>
+        <element default="15" label="Earned Leave Balance" mandatory="true" max_length="255" name="earned_leave_balance" type="integer"/>
+        <element label="Employee" mandatory="true" max_length="32" name="employee" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="employee"/>
+        </index>
+    </element>
+</database>

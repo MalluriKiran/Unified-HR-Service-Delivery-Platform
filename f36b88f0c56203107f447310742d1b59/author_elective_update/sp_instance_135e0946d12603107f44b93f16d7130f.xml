@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{&#13;	"mobile": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"desktop": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"tablet": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	}&#13;}</placeholder_dimensions>
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&lt;div ng-if="options.maxRowCount === 10"&gt;&lt;/div&gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&gt;
+	&lt;div class="skeleton-container"&gt;
+	&lt;!-- Header Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-header"&gt;&lt;/div&gt;
+	&lt;!-- Body Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-line"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
+&lt;/div&gt;</placeholder_template>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">1e4e8146d12603107f44b93f16d713a1</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 06:39:28</sys_created_on>
+        <sys_id>135e0946d12603107f44b93f16d7130f</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_instance_135e0946d12603107f44b93f16d7130f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 08:21:39</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<style>\r\n  .hod-navbar {\r\n    width: 100%;\r\n    background: linear-gradient(135deg, #0b2a4a 0%, #1a5276 100%);\r\n    border-bottom-left-radius: 12px;\r\n    border-bottom-right-radius: 12px;\r\n    padding: 16px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 8px;\r\n    box-sizing: border-box;\r\n    box-shadow: 0 4px 12px rgba(11, 42, 74, 0.2);\r\n    margin-bottom: 16px;\r\n  }\r\n\r\n  .hod-navbar a {\r\n    color: #e8f0fe;\r\n    text-decoration: none;\r\n    font-family: 'Segoe UI', system-ui, sans-serif;\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n    padding: 10px 22px;\r\n    border-radius: 8px;\r\n    transition: all 0.3s ease;\r\n    background: rgba(255, 255, 255, 0.05);\r\n    position: relative;\r\n    overflow: hidden;\r\n  }\r\n\r\n  .hod-navbar a::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background: linear-gradient(135deg, #1d7ab3, #2a9fd8);\r\n    border-radius: 8px;\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease;\r\n    z-index: -1;\r\n  }\r\n\r\n  .hod-navbar a:hover {\r\n    background: rgba(255, 255, 255, 0.25);\r\n    color: #ffffff;\r\n    transform: translateY(-2px);\r\n    box-shadow: 0 4px 12px rgba(29, 122, 179, 0.3);\r\n  }\r\n\r\n  .hod-navbar a:hover::before {\r\n    opacity: 1;\r\n  }\r\n\r\n  .hod-navbar a.active {\r\n    background: #1d7ab3;\r\n    color: #ffffff;\r\n    box-shadow: 0 2px 8px rgba(29, 122, 179, 0.3);\r\n  }\r\n\r\n  .hod-navbar a.active::before {\r\n    opacity: 1;\r\n    background: linear-gradient(135deg, #1d7ab3, #2389c4);\r\n  }\r\n\r\n  .hod-navbar a.active:hover {\r\n    background: #2389c4;\r\n    transform: translateY(-2px);\r\n    box-shadow: 0 4px 16px rgba(29, 122, 179, 0.4);\r\n  }\r\n</style>\r\n<nav class=\"hod-navbar\"><a class=\"active\" href=\"#\"> ]]>🏠<![CDATA[ Home </a> <a href=\"#\"> ]]>🔔<![CDATA[ Notifications </a> <a href=\"#\"> ✅ Approved </a> <a href=\"#\"> ❌ Rejected </a></nav>",
+		"displayValue": "<style>\n  .hod-navbar {\n    width: 100%;\n    background: linear-gradient(135deg, #0b2a4a 0%, #1a5276 100%);\n    border-bottom-left-radius: 12px;\n    border-bottom-right-radius: 12px;\n    padding: 16px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 8px;\n    box-sizing: border-box;\n    box-shadow: 0 4px 12px rgba(11, 42, 74, 0.2);\n    margin-bottom: 16px;\n  }\n\n  .hod-navbar a {\n    color: #e8f0fe;\n    text-decoration: none;\n    font-family: 'Segoe UI', system-ui, sans-serif;\n    font-size: 15px;\n    font-weight: 500;\n    padding: 10px 22px;\n    border-radius: 8px;\n    transition: all 0.3s ease;\n    background: rgba(255, 255, 255, 0.05);\n    position: relative;\n    overflow: hidden;\n  }\n\n  .hod-navbar a::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: linear-gradient(135deg, #1d7ab3, #2a9fd8);\n    border-radius: 8px;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n    z-index: -1;\n  }\n\n  .hod-navbar a:hover {\n    background: rgba(255, 255, 255, 0.25);\n    color: #ffffff;\n    transform: translateY(-2px);\n    box-shadow: 0 4px 12px rgba(29, 122, 179, 0.3);\n  }\n\n  .hod-navbar a:hover::before {\n    opacity: 1;\n  }\n\n  .hod-navbar a.active {\n    background: #1d7ab3;\n    color: #ffffff;\n    box-shadow: 0 2px 8px rgba(29, 122, 179, 0.3);\n  }\n\n  .hod-navbar a.active::before {\n    opacity: 1;\n    background: linear-gradient(135deg, #1d7ab3, #2389c4);\n  }\n\n  .hod-navbar a.active:hover {\n    background: #2389c4;\n    transform: translateY(-2px);\n    box-shadow: 0 4px 16px rgba(29, 122, 179, 0.4);\n  }\n</style>\n<nav class=\"hod-navbar\"><a class=\"active\" href=\"#\"> ]]>🏠<![CDATA[ Home </a> <a href=\"#\"> ]]>🔔<![CDATA[ Notifications </a> <a href=\"#\"> ✅ Approved </a> <a href=\"#\"> ❌ Rejected </a></nav>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=135e0946d12603107f44b93f16d7130f"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_instance_135e0946d12603107f44b93f16d7130f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;advanced_placeholder_dimensions&gt;false&lt;/advanced_placeholder_dimensions&gt;&lt;async_load&gt;false&lt;/async_load&gt;&lt;async_load_device_type&gt;desktop,tablet,mobile&lt;/async_load_device_type&gt;&lt;async_load_trigger&gt;viewport&lt;/async_load_trigger&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder_dimensions&gt;{&amp;#13;	"mobile": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"desktop": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"tablet": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	}&amp;#13;}&lt;/placeholder_dimensions&gt;&lt;placeholder_dimensions_script&gt;&lt;![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]&gt;&lt;/placeholder_dimensions_script&gt;&lt;placeholder_template&gt;&amp;lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&amp;lt;div ng-if="options.maxRowCount === 10"&amp;gt;&amp;lt;/div&amp;gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&amp;gt;
+	&amp;lt;div class="skeleton-container"&amp;gt;
+	&amp;lt;!-- Header Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-header"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;!-- Body Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line small"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line medium"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/placeholder_template&gt;&lt;preserve_placeholder_size&gt;false&lt;/preserve_placeholder_size&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;1e4e8146d12603107f44b93f16d713a1&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-08 06:39:28&lt;/sys_created_on&gt;&lt;sys_id&gt;135e0946d12603107f44b93f16d7130f&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_135e0946d12603107f44b93f16d7130f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-08 08:21:39&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;style&gt;\r\n  .hod-navbar {\r\n    width: 100%;\r\n    background: linear-gradient(135deg, #0b2a4a 0%, #1a5276 100%);\r\n    border-bottom-left-radius: 12px;\r\n    border-bottom-right-radius: 12px;\r\n    padding: 16px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 8px;\r\n    box-sizing: border-box;\r\n    box-shadow: 0 4px 12px rgba(11, 42, 74, 0.2);\r\n    margin-bottom: 16px;\r\n  }\r\n\r\n  .hod-navbar a {\r\n    color: #e8f0fe;\r\n    text-decoration: none;\r\n    font-family: 'Segoe UI', system-ui, sans-serif;\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n    padding: 10px 22px;\r\n    border-radius: 8px;\r\n    transition: all 0.3s ease;\r\n    background: rgba(255, 255, 255, 0.05);\r\n    position: relative;\r\n    overflow: hidden;\r\n  }\r\n\r\n  .hod-navbar a::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background: linear-gradient(135deg, #1d7ab3, #2a9fd8);\r\n    border-radius: 8px;\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease;\r\n    z-index: -1;\r\n  }\r\n\r\n  .hod-navbar a:hover {\r\n    background: rgba(255, 255, 255, 0.25);\r\n    color: #ffffff;\r\n    transform: translateY(-2px);\r\n    box-shadow: 0 4px 12px rgba(29, 122, 179, 0.3);\r\n  }\r\n\r\n  .hod-navbar a:hover::before {\r\n    opacity: 1;\r\n  }\r\n\r\n  .hod-navbar a.active {\r\n    background: #1d7ab3;\r\n    color: #ffffff;\r\n    box-shadow: 0 2px 8px rgba(29, 122, 179, 0.3);\r\n  }\r\n\r\n  .hod-navbar a.active::before {\r\n    opacity: 1;\r\n    background: linear-gradient(135deg, #1d7ab3, #2389c4);\r\n  }\r\n\r\n  .hod-navbar a.active:hover {\r\n    background: #2389c4;\r\n    transform: translateY(-2px);\r\n    box-shadow: 0 4px 16px rgba(29, 122, 179, 0.4);\r\n  }\r\n&lt;/style&gt;\r\n&lt;nav class=\"hod-navbar\"&gt;&lt;a class=\"active\" href=\"#\"&gt; ]]&gt;🏠&lt;![CDATA[ Home &lt;/a&gt; &lt;a href=\"#\"&gt; ]]&gt;🔔&lt;![CDATA[ Notifications &lt;/a&gt; &lt;a href=\"#\"&gt; ✅ Approved &lt;/a&gt; &lt;a href=\"#\"&gt; ❌ Rejected &lt;/a&gt;&lt;/nav&gt;",
+		"displayValue": "&lt;style&gt;\n  .hod-navbar {\n    width: 100%;\n    background: linear-gradient(135deg, #0b2a4a 0%, #1a5276 100%);\n    border-bottom-left-radius: 12px;\n    border-bottom-right-radius: 12px;\n    padding: 16px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 8px;\n    box-sizing: border-box;\n    box-shadow: 0 4px 12px rgba(11, 42, 74, 0.2);\n    margin-bottom: 16px;\n  }\n\n  .hod-navbar a {\n    color: #e8f0fe;\n    text-decoration: none;\n    font-family: 'Segoe UI', system-ui, sans-serif;\n    font-size: 15px;\n    font-weight: 500;\n    padding: 10px 22px;\n    border-radius: 8px;\n    transition: all 0.3s ease;\n    background: rgba(255, 255, 255, 0.05);\n    position: relative;\n    overflow: hidden;\n  }\n\n  .hod-navbar a::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: linear-gradient(135deg, #1d7ab3, #2a9fd8);\n    border-radius: 8px;\n    opacity: 0;\n    transition: opacity 0.3s ease;\n    z-index: -1;\n  }\n\n  .hod-navbar a:hover {\n    background: rgba(255, 255, 255, 0.25);\n    color: #ffffff;\n    transform: translateY(-2px);\n    box-shadow: 0 4px 12px rgba(29, 122, 179, 0.3);\n  }\n\n  .hod-navbar a:hover::before {\n    opacity: 1;\n  }\n\n  .hod-navbar a.active {\n    background: #1d7ab3;\n    color: #ffffff;\n    box-shadow: 0 2px 8px rgba(29, 122, 179, 0.3);\n  }\n\n  .hod-navbar a.active::before {\n    opacity: 1;\n    background: linear-gradient(135deg, #1d7ab3, #2389c4);\n  }\n\n  .hod-navbar a.active:hover {\n    background: #2389c4;\n    transform: translateY(-2px);\n    box-shadow: 0 4px 16px rgba(29, 122, 179, 0.4);\n  }\n&lt;/style&gt;\n&lt;nav class=\"hod-navbar\"&gt;&lt;a class=\"active\" href=\"#\"&gt; ]]&gt;🏠&lt;![CDATA[ Home &lt;/a&gt; &lt;a href=\"#\"&gt; ]]&gt;🔔&lt;![CDATA[ Notifications &lt;/a&gt; &lt;a href=\"#\"&gt; ✅ Approved &lt;/a&gt; &lt;a href=\"#\"&gt; ❌ Rejected &lt;/a&gt;&lt;/nav&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=135e0946d12603107f44b93f16d7130f"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1964280411</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 08:21:39</sys_created_on>
+        <sys_id>c4c5a10ed1a603107f44b93f16d71350</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fe076a4a30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 08:21:39</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>0cc5a10e24a603107a93f15eb7a6c74f</update_guid>
+        <update_guid_history>0cc5a10e24a603107a93f15eb7a6c74f:1964280411,6c652dcab5a60310b7610969b40fee14:51623217,260565caaca60310fccb65d37527e9a6:1860759407,ddb42d8af6a6031095ee8c873487ec5f:41012485,1434294ad5a60310c388bbdc4e1d2990:87447931,16f3614aeea603101bc816e6f7f33f54:-125614067,fab3614a8da60310e5b286f95fb9a97c:-617075077,e183e90a4fa603106a8be23385d04730:87447931,7bced9ce75660310a0cceb5a2f970360:1093383621,9fbfc9c67c2603104982084444059754:1530432487,b55f0d860b260310fd7c6e5d1c70993b:-116323763,0d3f0d863026031053b816d428c3ceb1:-1252668229,13fec586462603106bc70a7f5e270574:-1050810151,468e4946f126031052e1dbe7cf513117:-1252668229,f76e0106a0260310a46c5b5f22e6468d:-1407903661,9f5e094643260310a3b53f775d5a6110:-1447270353</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">89393f0a742603107f4446ca06ff0b8e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 19:05:53</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>71855fbcfaf44fb98067fe1541e26831</sys_id>
+        <sys_metadata>135e0946d12603107f44b93f16d7130f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_instance_135e0946d12603107f44b93f16d7130f</sys_update_name>
+        <sys_update_version display_value="sp_instance_135e0946d12603107f44b93f16d7130f">c4c5a10ed1a603107f44b93f16d71350</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 19:05:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

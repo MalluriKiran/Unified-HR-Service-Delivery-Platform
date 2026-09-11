@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":3,"end":6,"annotatedString":"My {{phrase=\"wife\"}} is going to give birth","cat":"wife"}]</annotation>
+        <entity display_value="paternity_leave">06a8e0fe6cea03107f4499a3fab9db34</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:50:38</sys_created_on>
+        <sys_id>e8c8a4fe6cea03107f4499a3fab9db04</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>paternity_leave.My wife is going to give birth</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_e8c8a4fe6cea03107f4499a3fab9db04</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:50:38</sys_updated_on>
+        <utterance display_value="My wife is going to give birth">f9b824fe6cea03107f4499a3fab9dbb3</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_e8c8a4fe6cea03107f4499a3fab9db04</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":3,"end":6,"annotatedString":"My {{phrase=\"wife\"}} is going to give birth","cat":"wife"}]</annotation><entity display_value="paternity_leave">06a8e0fe6cea03107f4499a3fab9db34</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 11:50:38</sys_created_on><sys_id>e8c8a4fe6cea03107f4499a3fab9db04</sys_id><sys_mod_count>0</sys_mod_count><sys_name>paternity_leave.My wife is going to give birth</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_e8c8a4fe6cea03107f4499a3fab9db04</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 11:50:38</sys_updated_on><utterance display_value="My wife is going to give birth">f9b824fe6cea03107f4499a3fab9dbb3</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>-1554720848</payload_hash>
+        <record_name>paternity_leave.My wife is going to give birth</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 11:50:38</sys_created_on>
+        <sys_id>ecc8a4fe6cea03107f4499a3fab9db07</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feb82afad0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 11:50:38</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>e0c8a4fecbea031082ae8cceeb04b307</update_guid>
+        <update_guid_history>e0c8a4fecbea031082ae8cceeb04b307:-1554720848</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="paternity_leave.My wife is going to give birth">53cd0c07b96203107f4491d56cbf7475</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:31:20</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>70c7774da6e34aa6a203e2de26a59e81</sys_id>
+        <sys_metadata>e8c8a4fe6cea03107f4499a3fab9db04</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>paternity_leave.My wife is going to give birth</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_e8c8a4fe6cea03107f4499a3fab9db04</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_e8c8a4fe6cea03107f4499a3fab9db04">ecc8a4fe6cea03107f4499a3fab9db07</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:31:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

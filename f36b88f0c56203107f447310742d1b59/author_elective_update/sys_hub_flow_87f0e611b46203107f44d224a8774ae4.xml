@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="DELETE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <allow_high_security_roles>false</allow_high_security_roles>
+        <annotation/>
+        <attributes>labelCacheCleanUpExecuted=true</attributes>
+        <authored_on_release_version>29000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>leave_approval_workflow</internal_name>
+        <label_cache>[{"name":"68f2baad-8949-4e05-8736-6744bfd8f9ac.approval_state","label":"1➛Approval State","reference":null,"reference_display":"Approval State","type":"choice","base_type":"choice","parent_table_name":null,"column_name":null,"choices":[{"label":null,"value":null,"order":0.0}],"usedInstances":{},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛Leave Request Record","reference":"x_snc_unified_hr_0_leave_request","reference_display":"Leave Request","type":"reference","base_type":"reference","parent_table_name":null,"column_name":null,"choices":[{"label":null,"value":null,"order":0.0}],"usedInstances":{"28062ecb-704d-4547-8069-8d4014c4649b":["record"],"31ca0fe0-ac54-4750-9b79-f4d2025b29ff":["record"],"68f2baad-8949-4e05-8736-6744bfd8f9ac":["record"]},"attributes":{"":""}}]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <master_snapshot_digest/>
+        <name>Leave Approval Workflow</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>87f0e611b46203107f44d224a8774ae4</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Leave Approval Workflow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_hub_flow_87f0e611b46203107f44d224a8774ae4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 05:00:02</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record>a4642e55b46203107f44d224a8774a0b</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="DELETE" query="documentkey=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_variable_value action="DELETE" query="document_key=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_hub_flow_stage action="DELETE" query="flow=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_flow_cat_variable_model action="DELETE" query="id=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN07f0e611b46203107f44d224a8774ae7"/>
+    <sys_flow_cat_variable_model action="DELETE">
+        <id>87f0e611b46203107f44d224a8774ae4</id>
+        <name>Leave Approval Workflow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:01</sys_created_on>
+        <sys_id>07f0e611b46203107f44d224a8774ae7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:45:01</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="DELETE" query="flow_catalog_model=07f0e611b46203107f44d224a8774ae7"/>
+    <sys_hub_flow_input action="DELETE" query="model=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN21016a11b46203107f44d224a8774a77,d1016a11b46203107f44d224a8774a32"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</model>
+        <model_id>87f0e611b46203107f44d224a8774ae4</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:12</sys_created_on>
+        <sys_id>21016a11b46203107f44d224a8774a77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:45:12</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=21016a11b46203107f44d224a8774a77"/>
+    <sys_hub_flow_input action="DELETE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</model>
+        <model_id>87f0e611b46203107f44d224a8774ae4</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_only_option/>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:11</sys_created_on>
+        <sys_id>d1016a11b46203107f44d224a8774a32</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:45:11</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="DELETE" query="action_input=d1016a11b46203107f44d224a8774a32"/>
+    <sys_hub_flow_output action="DELETE" query="model=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_hub_trigger_instance_v2 action="DELETE" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN01212e11b46203107f44d224a8774a63"/>
+    <sys_hub_trigger_instance_v2 action="DELETE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:42</sys_created_on>
+        <sys_id>01212e11b46203107f44d224a8774a63</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:46:19</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/91ZW2/iOBT+K1GediVGygVK6dssdLSVuq2WMrsPVTdyYhusMQ7jOOkwVf/72rmQkDgUChm1fUIc377z+Zzv2M79k0mBj6h5YY5DBokgITN7JmECcQbobL1CsikomiLZtgQMAhHytXmBAY1Qz8Q8XM7QckWBQBtjyCHi5oVtWT0zATRGd+voCsrJ5BQMLLemNfMu0vbf5d/yHySRnG39z5YxWBAKOWLmxf1Dz1wBLmcRao2nDd5rwr5lS2x3JmrhszMAIAJW4Nqu41iWc963/TPXtx3oAuRjOUrHhQas0NCibNf14aqhSgT6IRCDCG5YapLJEYC3jJaGhXQu82kJfkTkp1y5b6nJOMJIehigrHXz18vZy8x4AgS4EzwORMxRQU5IAhRl3ECEQUzFuGrLOtyuUn/TIQL4tBgd0njJbjJazM0ExWZJSxxJEGilXFXY5eIqSu4W4eO0APmFsJSW3EkaBoBu/gEhOPFjoeA8mY+AicgToQcg9CqcX5hqYsVLCBGdlOtJO5nPEfcIW8UiMp97ZrSOxhREUYla0uV9j9WimQ/5aC91OPNWjQs4WYnPgSBJEdrPvTJneMzkAG+zrc3MSYncUH5NIonv/kmSgb7H2d59siU3BXm5R7iIpGnMjJAZQcwla8KQ0WIUixkpSBVh+GoJ5rlbcmKKAlEJMfw1qv77i0QRYfOKM21Y0g5NMHRdRZQxdRyGh1OKSnNLkpo/NXE5gbLYNsY+wo41VLpiW66PbWtoDQCGrmUFTkVZmvBacYtaCG0pTGHsRF1Ooy1lmuwKnPru5A5Z1TTbKwuS7RQqiHnWSdxR0OwTQXOem0rrHiS1m4jOzJPtwN7lWk2hi5x7rUQDmAA5AhY+Hq64e4otpuGjlPXjhRaHHM15GDNYVzi1hEHk71aPbiTWB8G33SjKHsZv+Tb//tbkttyUItABW3citC62/RHqI0vqqyul1R+MRn4AHIyHZ0Pk2DWhLYFp0X4sgX0hYhJdyLWJrTYHEl3qHCCzRwBsSO7BAI8X2zymtVKbtb1XUX1cIOZJ8NyjSjYb2jqnBKKi7bTS0Vg6KcXi9PKBz0fBwB4Og6G8/Un5wH3kA7vvDMBoeOaeD2ry0QC3C7jQcFUVlOvM9EtugzJMUmwtwvI1a3oDN8P3lSIREkLV0aMPH+lwkK1Xqftqo41U3UJuqE0yrsqOxh2SVTx9fujqMBKKReMYIpH8Ie1bSNQh9yZknzToOryOMnk72oe4FmRv7dBUi6hkexM6uKOi/vlghF299uGRTvtKeO3AP84has8oSlrjUXea2jenE600tB5/XpGWtQirnot2HNxORYp9clKc7khxjz4sFmncejF/Ddh3XTzTs9LJKmjIkBdibQ0g2MjffxE0/LUhFkiyTeWFQa5sKBgdFqnsItAoodJs5Aeyzqqj2pM6KZPQkA0G/yW0dFMia3HT9QsDgkMwGLgtV4RR/YVBB/EFDz5OwTw4uhJdsO6smofNW59TWzcrubgdTHtWxJN6rS+Lx3mtLYwveX18ydv1PqJB8R6L2Sx/Pa8Vr5QjL037reTMv3vuUsBW/at/g/jhRSzwYkYwQdBbcM/yKAIJ8riqB+nTQk0Mr1WzMd00H6uMAQ7AyEEtn88tq6KMBU81X4SGrqr6pcOMm6yhZGiX/mUU7yN/5+/pi/mx2YAJlTvqZUxHYcxTl6eX49vpxPv382z85+XUm17ezaZX49nl5JXZkrP2hSCqAoTFSz9NbV0WPfwPacaC4GoiAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="DELETE" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN80512251b46203107f44d224a8774a4d,6e83e615b46203107f44d224a8774a4b,0cc32e15b46203107f44d224a8774ab7"/>
+    <sys_hub_action_instance_v2 action="DELETE">
+        <action_type display_value="Ask For Approval">f8f2e9920b10030085c083eb37673abd</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:46:27</sys_created_on>
+        <sys_id>80512251b46203107f44d224a8774a4d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:47:13</sys_updated_on>
+        <ui_id>68f2baad-8949-4e05-8736-6744bfd8f9ac</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1XTW/bOBD9K4bOjpeyLEXOLYgRoItuCyTZXopCoEkq5i5NufxI4zXy33coUpZiu669cYFmkYthzpDDN8P3KM7nVcRpdBGxUZak8HNeJigexihnWZ6TMcIkz7J0lET9SOI5g5l4sVDVAxaFYlhXEhwwsM4DfynXC4GXn1oLmXFBFZPRxecv/WiBFUQxTEUXqw3XoTAEnjIBUy8Djt5Ng+O7AM1y4RzaKC7vw/h9CHPbGCtFHaxhP2KPhknKAE+JhWb9aI4lxaZSy7UFQtOPUrSGGZfGJzzHj5r/A/vFGXITSwYpklCN9bAIlfLmcoINBiSWGKvWhas4YdoXh7ISW2GuujY/4ePCcEiyXmLwVDSrK2Hn8oOvSLQO0DkYqwEEW7hMHfSQR3k7q77dNCivuayLEpyiIlisR9hA6abWODyryPK7XVVlgs0hfjGHUwFL4Y6G1zEB4nxwL2AwKEX1DbBofi8HmLh8BlBvPLgG+6Q2f8KKu+T+gDCwuB+26x6q5X9K/tWyd45H2XCajVFOz2iJpmejPEnPMGHojGVxylKakTROoqd+pJf6SmCt20LBCRVfrUvTly0UqPA1dkuI4gtzCTAfWKjFUz+oCMXlkI3HQzSNEUoQylOC8oRNk/PsPME030HSkjNBOyIiVim3n59Q57ohqh0zjhPZASi3RHYdYH4PfpBYPSzqSc9lVq/vffCOk0stR+g1aQ02f4nUfo6mjleDL8EPJEH2ko11Pix/VVbJHYqYVRSu8jlWf+ttMTx3HqeDA6A1OvjdY9uUwSbk/6KC5E0F/38VnOf7qEZQSynFCBCjQ//V6goO3zBaxINw9T89neCpdQCkhv03DaZNjIHvtCK2PgtONwg/CZ7eu0nLeLSf8Z4XhxA+Gb7R/ZekO0n3casct1SiFooE7D5tG3HA/g23J5b1Jh7ANqSmcSAzRq3w5sLwrXv9NkyoI/12x7v3e3qy+330mm73l/cTRfPIdKwD8fy0buL0fcBoL/9Yh2zrhzSpJOUOrO5IwT+/mb6Uy21VPHceJ5ADAK4vf+C1/hHgIJS29Q6LuiJpG/bgDAIZnepz8MrePy9VyGsRw5TsfWiQllu+mi39HwstSWElhwc1LWaqQIVg+IHBix8afW22NfHeuXs3a/dxqjgAaaOKuwB1A3nQQT3c1QDUyzYagPjID4QXxE7+v7H/l2H/l38B71kr+FoVAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=80512251b46203107f44d224a8774a4d"/>
+    <sys_hub_action_instance_v2 action="DELETE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>6b22fad1-a5d5-4361-8102-a7a2262435b8</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:56:11</sys_created_on>
+        <sys_id>6e83e615b46203107f44d224a8774a4b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:56:52</sys_updated_on>
+        <ui_id>31ca0fe0-ac54-4750-9b79-f4d2025b29ff</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Vy2rjMBT9laC1CXbchja7oSEwkGmhLd10ilCk60Qgy64eaTMh/z5XtuykT1roYgqTne5DOuf4HHK7JVKQCTkCkWan2ZjnWZ6P0nR0cpQtxvkiG4mcAWQkIZqVgJMGeGUEntdM+VDYbs8MMAeCZkPujQHtdjvsC2lrxTY3cQwrfCWVwD6Z3N4lpGYGb3RgyGT7rPVRSIotQOHoZYfpOUa3qcNZVNyXiIvKrjiPm9PYGfycYgeXApwsTQg8OtACEEjBlIWElEwL5iqzIRNnPBaQtLjQatNPrKR2LdGSPVr5B18+SsNcAciMRxH6I40CteViyhy7wpu586bXq5IcbKuJgIJ55c4Oa+3ARe1kpdsVxxaq266UL/V5qwjpLzj4Ht4iCKgDz4C8pVVcraqHyw7kTOpGkkhRVZyp/sScM3LhXYCzJaCg0bhkdS31ktamWstmGaGUw6XCw7BQ1QO+aeVSDxkPuIeoKhvOsD5tyjfMyEDiF16Dy7uE2I09U8zaPRXUkN77gKQlFinQRoVGAto4ISxzI2v3A59aQwS+S6Lp09G7DoO9oRqv2wPTW8ect799muYivB4Ir8xL178597ksfABpl4WZBCXsK9BjFhyUCNABbak8jcN1bA5uYrNPxJdFIhunze9/MP7dYCyO37MbP9276+DOfTgeqdWcei0Lif8KK0NTqoCtgRq4Ry+6lzGZh/bgsm9/Lh0fgNul47qxwevwu4A8r80PdwfnbSMG4/jLcnHynRIRaXz7SLwVhLu/O8XYaRgJAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=6e83e615b46203107f44d224a8774a4b"/>
+    <sys_hub_action_instance_v2 action="DELETE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id>6b22fad1-a5d5-4361-8102-a7a2262435b8</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:57:06</sys_created_on>
+        <sys_id>0cc32e15b46203107f44d224a8774ab7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:59:51</sys_updated_on>
+        <ui_id>28062ecb-704d-4547-8069-8d4014c4649b</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1V207jMBD9lcrPUeVcyqVviArtSixIBfFCkeXYE2rJueA4hW7Vf9+J46RdlkVF4mGRti+V5+Zzjmcm9xuiJJmSBCQNT8MjEYdxHFEanSRhehSnYSRjDhCSgBQ8B4w0IEoj8bziumkNm825AW5BsnAsGmOgsNst+qWqK83Xdz4MLWKptEQ/md4/BKTiBitaMGS6eeU6FJLmKWgMnfeYXmO066o9y1I0OeJiqjde+syZ94y+z9CDSS2ckAYEXiwUEhBIxnUNAcl5IbktzZpMrWnQgKTldaHXQ8RSFbYjmvOXWv3EmxPaxmWAzIQXYTgyL1Bnzmbc8husLGxjBr1KJaDuNJGQ8Ubb831bF3BdWVUWXYrlqe6zS93kxVWnCBkK7L1HUyMIqFqeLfKOVnazLJ/nPcgLVThJPEVdCq6HE7fWqLSxLZwNAQ1O45xXlSoeWWXKlXLJCCUfP2o8jDNdPuOdtXosxly0uMeoKh9foH3mzHfcqJbEDyyDyduA1Ov6XPO63lFBDdlT0yLpiHkKzKngJGCuE9pkYVRlz/CqFXjg28A3PY3e7TDYNZTr9Xqv6X2jMwSJNMEsGkpjuVn0Xb8g0wX5Nh9dZxm+kFmQYNHlOkdEo3AySRMxiTiNQ3qcJclx+59EMkwldeGOhwtHARi+VVelPSh5YJk35vALIf/YvjjgNft9caFAy/qN5/X7wkKOUlhg3XP/vjJuvXN0553D1vi0tREeUff7vzz+3eWRTt5rN3G66669mrsF8sLqQrCmUJnCL+fSMMo08BUwA0/Yi/bPwb1s3aP54P7YdBwAt5+OW9cGb8PvB+S17XI/d3TVOfxgTD5tLk6+0kR4Gl9+JP42CA+/ANxzSOc8CgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="DELETE" query="source_id=0cc32e15b46203107f44d224a8774ab7"/>
+    <sys_hub_sub_flow_instance_v2 action="DELETE" query="flow=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN28b2a251b46203107f44d224a8774a2d"/>
+    <sys_hub_flow_logic_instance_v2 action="DELETE">
+        <attributes/>
+        <block display_value="">e8b2a251b46203107f44d224a8774a2c</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Leave Approval Workflow">87f0e611b46203107f44d224a8774ae4</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:52:30</sys_created_on>
+        <sys_id>28b2a251b46203107f44d224a8774a2d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:57:06</sys_updated_on>
+        <ui_id>6b22fad1-a5d5-4361-8102-a7a2262435b8</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1VXW/aMBT9K8jPAeUDUuANgapN2oa0Vn3ZqujGdsCqiTPbKc0i/vuu8wFoZRrV+rg3fHzv9TnHPqQmqrRFac29WhgjNjmZf3v0iMgdhr9rIhiZkxlMskngT2gUxlHo++F0HKRxlAYhi4CPY+KRHHYcK6nKmbBC5Qg9gywdVtfxNAtTADaczsaz4Zj7k+H0JoqH8c14nGZsms2AjqAotMKexFiw/HD4Xvp+xFqUM5zHhCkkVA/vPJZuhWSad9IL0KjEck3m9W9b11ohIeUSS5dnXlywx1aFg4zVIt90609d610PKs0cldD3CH+xPGdIeZ6BNNwjO8gZWKUrMre6REBzYOtcVseKrcgtTiOu9sWIn9xN8n1XmXHURXm7e1wmncctnK3AAlIpqS11V0q3SlBuWkcYz6CUdnmOtQXrolHZtFhIZd+tZLnLv7RmkOOA/koRKQ2S4IVT6rh3QrK7rdp/7VneirxxpduUioI8rsCid2lpHZ+acMl3OCjZ4YWjo4m7ddE0I5fdaCNxMcqk2uOh7v2PgDriIzQWRreIrxr4AbRwKj7jGGzGt2ASQ7Uoem3N4eTgEVOZpQRjThrR3ORH6Ri2ijttSWuPa2kGLfDgZ97JOHhd8jIfsmBGg8vPDaILTytpgFP8PqxXg0UXgsFyy+nT6yxdrHlbMK5g+ioYg/a9/1nDWzIS/CUjHXJVSCaT/xn554w4mikYQZPme4Lj3N/UO4bk0T3y9tCj2VQY5HbvsI/9V8xtVPiiBD2H9ko/OVUn7PALzVOLYQ8HAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="DELETE" query="attached_to=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_hub_flow_variable action="DELETE" query="model=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_documentation action="DELETE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:12</sys_created_on>
+        <sys_id>21016a11b46203107f44d224a8774a7d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:45:12</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="DELETE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 04:45:11</sys_created_on>
+        <sys_id>a5016a11b46203107f44d224a8774a59</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 04:45:11</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4"/>
+    <sys_choice action="DELETE" query="name=var__m_sys_hub_flow_output_87f0e611b46203107f44d224a8774ae4"/>
+    <sys_flow_trigger_plan action="DELETE" query="plan_id=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_flow_subflow_plan action="DELETE" query="plan_id=87f0e611b46203107f44d224a8774ae4"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_hub_flow_87f0e611b46203107f44d224a8774ae4</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_hub_flow"&gt;&lt;sys_hub_flow action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;acls/&gt;&lt;active&gt;false&lt;/active&gt;&lt;allow_high_security_roles&gt;false&lt;/allow_high_security_roles&gt;&lt;annotation/&gt;&lt;attributes&gt;labelCacheCleanUpExecuted=true&lt;/attributes&gt;&lt;authored_on_release_version&gt;29000&lt;/authored_on_release_version&gt;&lt;callable_by_client_api&gt;false&lt;/callable_by_client_api&gt;&lt;category/&gt;&lt;compiler_build/&gt;&lt;copied_from/&gt;&lt;copied_from_name/&gt;&lt;description/&gt;&lt;display_name_after_preview/&gt;&lt;flow_priority&gt;MEDIUM&lt;/flow_priority&gt;&lt;generation_source/&gt;&lt;internal_name&gt;leave_approval_workflow&lt;/internal_name&gt;&lt;label_cache&gt;[{"name":"68f2baad-8949-4e05-8736-6744bfd8f9ac.approval_state","label":"1➛Approval State","reference":null,"reference_display":"Approval State","type":"choice","base_type":"choice","parent_table_name":null,"column_name":null,"choices":[{"label":null,"value":null,"order":0.0}],"usedInstances":{},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛Leave Request Record","reference":"x_snc_unified_hr_0_leave_request","reference_display":"Leave Request","type":"reference","base_type":"reference","parent_table_name":null,"column_name":null,"choices":[{"label":null,"value":null,"order":0.0}],"usedInstances":{"28062ecb-704d-4547-8069-8d4014c4649b":["record"],"31ca0fe0-ac54-4750-9b79-f4d2025b29ff":["record"],"68f2baad-8949-4e05-8736-6744bfd8f9ac":["record"]},"attributes":{"":""}}]&lt;/label_cache&gt;&lt;latest_snapshot/&gt;&lt;master_snapshot/&gt;&lt;master_snapshot_digest/&gt;&lt;name&gt;Leave Approval Workflow&lt;/name&gt;&lt;natlang/&gt;&lt;outputs/&gt;&lt;pre_compiled&gt;false&lt;/pre_compiled&gt;&lt;remote_trigger_id/&gt;&lt;run_as&gt;user&lt;/run_as&gt;&lt;run_with_roles/&gt;&lt;sc_callable&gt;false&lt;/sc_callable&gt;&lt;show_draft_actions&gt;false&lt;/show_draft_actions&gt;&lt;show_triggered_flows&gt;false&lt;/show_triggered_flows&gt;&lt;status&gt;draft&lt;/status&gt;&lt;substatus/&gt;&lt;sys_class_name&gt;sys_hub_flow&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:01&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;87f0e611b46203107f44d224a8774ae4&lt;/sys_id&gt;&lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;&lt;sys_name&gt;Leave Approval Workflow&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_hub_flow_87f0e611b46203107f44d224a8774ae4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 05:00:02&lt;/sys_updated_on&gt;&lt;type&gt;flow&lt;/type&gt;&lt;updation_source/&gt;&lt;version&gt;2&lt;/version&gt;&lt;version_record&gt;a4642e55b46203107f44d224a8774a0b&lt;/version_record&gt;&lt;/sys_hub_flow&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_variable_value action="delete_multiple" query="document_key=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_hub_flow_stage action="delete_multiple" query="flow=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_flow_cat_variable_model action="delete_multiple" query="id=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN07f0e611b46203107f44d224a8774ae7"/&gt;&lt;sys_flow_cat_variable_model action="INSERT_OR_UPDATE"&gt;&lt;id&gt;87f0e611b46203107f44d224a8774ae4&lt;/id&gt;&lt;name&gt;Leave Approval Workflow&lt;/name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:01&lt;/sys_created_on&gt;&lt;sys_id&gt;07f0e611b46203107f44d224a8774ae7&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:45:01&lt;/sys_updated_on&gt;&lt;/sys_flow_cat_variable_model&gt;&lt;sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=07f0e611b46203107f44d224a8774ae7"/&gt;&lt;sys_hub_flow_input action="delete_multiple" query="model=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN21016a11b46203107f44d224a8774a77,d1016a11b46203107f44d224a8774a32"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;table_name&lt;/internal_type&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/model&gt;&lt;model_id&gt;87f0e611b46203107f44d224a8774ae4&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;101&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:12&lt;/sys_created_on&gt;&lt;sys_id&gt;21016a11b46203107f44d224a8774a77&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:45:12&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=21016a11b46203107f44d224a8774a77"/&gt;&lt;sys_hub_flow_input action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes&gt;element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id&lt;/attributes&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;table_name&lt;/dependent&gt;&lt;dependent_on_field&gt;table_name&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;current&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;help/&gt;&lt;hint/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;label&gt;Record&lt;/label&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;model display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/model&gt;&lt;model_id&gt;87f0e611b46203107f44d224a8774ae4&lt;/model_id&gt;&lt;model_table&gt;sys_hub_flow&lt;/model_table&gt;&lt;name&gt;var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4&lt;/name&gt;&lt;next_element/&gt;&lt;order&gt;100&lt;/order&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_only_option/&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_hub_flow_input&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:11&lt;/sys_created_on&gt;&lt;sys_id&gt;d1016a11b46203107f44d224a8774a32&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package/&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:45:11&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_hub_flow_input&gt;&lt;sys_hub_action_input_action_instance action="delete_multiple" query="action_input=d1016a11b46203107f44d224a8774a32"/&gt;&lt;sys_hub_flow_output action="delete_multiple" query="model=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN01212e11b46203107f44d224a8774a63"/&gt;&lt;sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;comment/&gt;&lt;display_text/&gt;&lt;flow display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/flow&gt;&lt;generation_source/&gt;&lt;name&gt;Created&lt;/name&gt;&lt;published_version/&gt;&lt;remote_sys_id/&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:42&lt;/sys_created_on&gt;&lt;sys_id&gt;01212e11b46203107f44d224a8774a63&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:46:19&lt;/sys_updated_on&gt;&lt;trigger_definition display_value="Created"&gt;798916a0c31322002841b63b12d3ae7c&lt;/trigger_definition&gt;&lt;trigger_inputs&gt;H4sIAAAAAAAA/91ZW2/iOBT+K1GediVGygVK6dssdLSVuq2WMrsPVTdyYhusMQ7jOOkwVf/72rmQkDgUChm1fUIc377z+Zzv2M79k0mBj6h5YY5DBokgITN7JmECcQbobL1CsikomiLZtgQMAhHytXmBAY1Qz8Q8XM7QckWBQBtjyCHi5oVtWT0zATRGd+voCsrJ5BQMLLemNfMu0vbf5d/yHySRnG39z5YxWBAKOWLmxf1Dz1wBLmcRao2nDd5rwr5lS2x3JmrhszMAIAJW4Nqu41iWc963/TPXtx3oAuRjOUrHhQas0NCibNf14aqhSgT6IRCDCG5YapLJEYC3jJaGhXQu82kJfkTkp1y5b6nJOMJIehigrHXz18vZy8x4AgS4EzwORMxRQU5IAhRl3ECEQUzFuGrLOtyuUn/TIQL4tBgd0njJbjJazM0ExWZJSxxJEGilXFXY5eIqSu4W4eO0APmFsJSW3EkaBoBu/gEhOPFjoeA8mY+AicgToQcg9CqcX5hqYsVLCBGdlOtJO5nPEfcIW8UiMp97ZrSOxhREUYla0uV9j9WimQ/5aC91OPNWjQs4WYnPgSBJEdrPvTJneMzkAG+zrc3MSYncUH5NIonv/kmSgb7H2d59siU3BXm5R7iIpGnMjJAZQcwla8KQ0WIUixkpSBVh+GoJ5rlbcmKKAlEJMfw1qv77i0QRYfOKM21Y0g5NMHRdRZQxdRyGh1OKSnNLkpo/NXE5gbLYNsY+wo41VLpiW66PbWtoDQCGrmUFTkVZmvBacYtaCG0pTGHsRF1Ooy1lmuwKnPru5A5Z1TTbKwuS7RQqiHnWSdxR0OwTQXOem0rrHiS1m4jOzJPtwN7lWk2hi5x7rUQDmAA5AhY+Hq64e4otpuGjlPXjhRaHHM15GDNYVzi1hEHk71aPbiTWB8G33SjKHsZv+Tb//tbkttyUItABW3citC62/RHqI0vqqyul1R+MRn4AHIyHZ0Pk2DWhLYFp0X4sgX0hYhJdyLWJrTYHEl3qHCCzRwBsSO7BAI8X2zymtVKbtb1XUX1cIOZJ8NyjSjYb2jqnBKKi7bTS0Vg6KcXi9PKBz0fBwB4Og6G8/Un5wH3kA7vvDMBoeOaeD2ry0QC3C7jQcFUVlOvM9EtugzJMUmwtwvI1a3oDN8P3lSIREkLV0aMPH+lwkK1Xqftqo41U3UJuqE0yrsqOxh2SVTx9fujqMBKKReMYIpH8Ie1bSNQh9yZknzToOryOMnk72oe4FmRv7dBUi6hkexM6uKOi/vlghF299uGRTvtKeO3AP84has8oSlrjUXea2jenE600tB5/XpGWtQirnot2HNxORYp9clKc7khxjz4sFmncejF/Ddh3XTzTs9LJKmjIkBdibQ0g2MjffxE0/LUhFkiyTeWFQa5sKBgdFqnsItAoodJs5Aeyzqqj2pM6KZPQkA0G/yW0dFMia3HT9QsDgkMwGLgtV4RR/YVBB/EFDz5OwTw4uhJdsO6smofNW59TWzcrubgdTHtWxJN6rS+Lx3mtLYwveX18ydv1PqJB8R6L2Sx/Pa8Vr5QjL037reTMv3vuUsBW/at/g/jhRSzwYkYwQdBbcM/yKAIJ8riqB+nTQk0Mr1WzMd00H6uMAQ7AyEEtn88tq6KMBU81X4SGrqr6pcOMm6yhZGiX/mUU7yN/5+/pi/mx2YAJlTvqZUxHYcxTl6eX49vpxPv382z85+XUm17ezaZX49nl5JXZkrP2hSCqAoTFSz9NbV0WPfwPacaC4GoiAAA=&lt;/trigger_inputs&gt;&lt;trigger_outputs/&gt;&lt;trigger_type&gt;record_create&lt;/trigger_type&gt;&lt;updation_source/&gt;&lt;/sys_hub_trigger_instance_v2&gt;&lt;sys_hub_action_instance_v2 action="delete_multiple" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN80512251b46203107f44d224a8774a4d,6e83e615b46203107f44d224a8774a4b,0cc32e15b46203107f44d224a8774ab7"/&gt;&lt;sys_hub_action_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;action_type display_value="Ask For Approval"&gt;f8f2e9920b10030085c083eb37673abd&lt;/action_type&gt;&lt;action_type_parent/&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;compiled_snapshot/&gt;&lt;display_text/&gt;&lt;flow display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/flow&gt;&lt;generation_source/&gt;&lt;order&gt;1&lt;/order&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_action_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:46:27&lt;/sys_created_on&gt;&lt;sys_id&gt;80512251b46203107f44d224a8774a4d&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:47:13&lt;/sys_updated_on&gt;&lt;ui_id&gt;68f2baad-8949-4e05-8736-6744bfd8f9ac&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1XTW/bOBD9K4bOjpeyLEXOLYgRoItuCyTZXopCoEkq5i5NufxI4zXy33coUpZiu669cYFmkYthzpDDN8P3KM7nVcRpdBGxUZak8HNeJigexihnWZ6TMcIkz7J0lET9SOI5g5l4sVDVAxaFYlhXEhwwsM4DfynXC4GXn1oLmXFBFZPRxecv/WiBFUQxTEUXqw3XoTAEnjIBUy8Djt5Ng+O7AM1y4RzaKC7vw/h9CHPbGCtFHaxhP2KPhknKAE+JhWb9aI4lxaZSy7UFQtOPUrSGGZfGJzzHj5r/A/vFGXITSwYpklCN9bAIlfLmcoINBiSWGKvWhas4YdoXh7ISW2GuujY/4ePCcEiyXmLwVDSrK2Hn8oOvSLQO0DkYqwEEW7hMHfSQR3k7q77dNCivuayLEpyiIlisR9hA6abWODyryPK7XVVlgs0hfjGHUwFL4Y6G1zEB4nxwL2AwKEX1DbBofi8HmLh8BlBvPLgG+6Q2f8KKu+T+gDCwuB+26x6q5X9K/tWyd45H2XCajVFOz2iJpmejPEnPMGHojGVxylKakTROoqd+pJf6SmCt20LBCRVfrUvTly0UqPA1dkuI4gtzCTAfWKjFUz+oCMXlkI3HQzSNEUoQylOC8oRNk/PsPME030HSkjNBOyIiVim3n59Q57ohqh0zjhPZASi3RHYdYH4PfpBYPSzqSc9lVq/vffCOk0stR+g1aQ02f4nUfo6mjleDL8EPJEH2ko11Pix/VVbJHYqYVRSu8jlWf+ttMTx3HqeDA6A1OvjdY9uUwSbk/6KC5E0F/38VnOf7qEZQSynFCBCjQ//V6goO3zBaxINw9T89neCpdQCkhv03DaZNjIHvtCK2PgtONwg/CZ7eu0nLeLSf8Z4XhxA+Gb7R/ZekO0n3casct1SiFooE7D5tG3HA/g23J5b1Jh7ANqSmcSAzRq3w5sLwrXv9NkyoI/12x7v3e3qy+330mm73l/cTRfPIdKwD8fy0buL0fcBoL/9Yh2zrhzSpJOUOrO5IwT+/mb6Uy21VPHceJ5ADAK4vf+C1/hHgIJS29Q6LuiJpG/bgDAIZnepz8MrePy9VyGsRw5TsfWiQllu+mi39HwstSWElhwc1LWaqQIVg+IHBix8afW22NfHeuXs3a/dxqjgAaaOKuwB1A3nQQT3c1QDUyzYagPjID4QXxE7+v7H/l2H/l38B71kr+FoVAAA=&lt;/values&gt;&lt;/sys_hub_action_instance_v2&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=80512251b46203107f44d224a8774a4d"/&gt;&lt;sys_hub_action_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;action_type display_value="Update Record"&gt;f9d01dd2c31332002841b63b12d3aea1&lt;/action_type&gt;&lt;action_type_parent/&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;compiled_snapshot/&gt;&lt;display_text/&gt;&lt;flow display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/flow&gt;&lt;generation_source/&gt;&lt;order&gt;3&lt;/order&gt;&lt;parent_ui_id&gt;6b22fad1-a5d5-4361-8102-a7a2262435b8&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:56:11&lt;/sys_created_on&gt;&lt;sys_id&gt;6e83e615b46203107f44d224a8774a4b&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:56:52&lt;/sys_updated_on&gt;&lt;ui_id&gt;31ca0fe0-ac54-4750-9b79-f4d2025b29ff&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1Vy2rjMBT9laC1CXbchja7oSEwkGmhLd10ilCk60Qgy64eaTMh/z5XtuykT1roYgqTne5DOuf4HHK7JVKQCTkCkWan2ZjnWZ6P0nR0cpQtxvkiG4mcAWQkIZqVgJMGeGUEntdM+VDYbs8MMAeCZkPujQHtdjvsC2lrxTY3cQwrfCWVwD6Z3N4lpGYGb3RgyGT7rPVRSIotQOHoZYfpOUa3qcNZVNyXiIvKrjiPm9PYGfycYgeXApwsTQg8OtACEEjBlIWElEwL5iqzIRNnPBaQtLjQatNPrKR2LdGSPVr5B18+SsNcAciMRxH6I40CteViyhy7wpu586bXq5IcbKuJgIJ55c4Oa+3ARe1kpdsVxxaq266UL/V5qwjpLzj4Ht4iCKgDz4C8pVVcraqHyw7kTOpGkkhRVZyp/sScM3LhXYCzJaCg0bhkdS31ktamWstmGaGUw6XCw7BQ1QO+aeVSDxkPuIeoKhvOsD5tyjfMyEDiF16Dy7uE2I09U8zaPRXUkN77gKQlFinQRoVGAto4ISxzI2v3A59aQwS+S6Lp09G7DoO9oRqv2wPTW8ect799muYivB4Ir8xL178597ksfABpl4WZBCXsK9BjFhyUCNABbak8jcN1bA5uYrNPxJdFIhunze9/MP7dYCyO37MbP9276+DOfTgeqdWcei0Lif8KK0NTqoCtgRq4Ry+6lzGZh/bgsm9/Lh0fgNul47qxwevwu4A8r80PdwfnbSMG4/jLcnHynRIRaXz7SLwVhLu/O8XYaRgJAAA=&lt;/values&gt;&lt;/sys_hub_action_instance_v2&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=6e83e615b46203107f44d224a8774a4b"/&gt;&lt;sys_hub_action_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;action_type display_value="Update Record"&gt;f9d01dd2c31332002841b63b12d3aea1&lt;/action_type&gt;&lt;action_type_parent/&gt;&lt;attributes/&gt;&lt;comment/&gt;&lt;compiled_snapshot/&gt;&lt;display_text/&gt;&lt;flow display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/flow&gt;&lt;generation_source/&gt;&lt;order&gt;4&lt;/order&gt;&lt;parent_ui_id&gt;6b22fad1-a5d5-4361-8102-a7a2262435b8&lt;/parent_ui_id&gt;&lt;sys_class_name&gt;sys_hub_action_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:57:06&lt;/sys_created_on&gt;&lt;sys_id&gt;0cc32e15b46203107f44d224a8774ab7&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:59:51&lt;/sys_updated_on&gt;&lt;ui_id&gt;28062ecb-704d-4547-8069-8d4014c4649b&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1V207jMBD9lcrPUeVcyqVviArtSixIBfFCkeXYE2rJueA4hW7Vf9+J46RdlkVF4mGRti+V5+Zzjmcm9xuiJJmSBCQNT8MjEYdxHFEanSRhehSnYSRjDhCSgBQ8B4w0IEoj8bziumkNm825AW5BsnAsGmOgsNst+qWqK83Xdz4MLWKptEQ/md4/BKTiBitaMGS6eeU6FJLmKWgMnfeYXmO066o9y1I0OeJiqjde+syZ94y+z9CDSS2ckAYEXiwUEhBIxnUNAcl5IbktzZpMrWnQgKTldaHXQ8RSFbYjmvOXWv3EmxPaxmWAzIQXYTgyL1Bnzmbc8husLGxjBr1KJaDuNJGQ8Ubb831bF3BdWVUWXYrlqe6zS93kxVWnCBkK7L1HUyMIqFqeLfKOVnazLJ/nPcgLVThJPEVdCq6HE7fWqLSxLZwNAQ1O45xXlSoeWWXKlXLJCCUfP2o8jDNdPuOdtXosxly0uMeoKh9foH3mzHfcqJbEDyyDyduA1Ov6XPO63lFBDdlT0yLpiHkKzKngJGCuE9pkYVRlz/CqFXjg28A3PY3e7TDYNZTr9Xqv6X2jMwSJNMEsGkpjuVn0Xb8g0wX5Nh9dZxm+kFmQYNHlOkdEo3AySRMxiTiNQ3qcJclx+59EMkwldeGOhwtHARi+VVelPSh5YJk35vALIf/YvjjgNft9caFAy/qN5/X7wkKOUlhg3XP/vjJuvXN0553D1vi0tREeUff7vzz+3eWRTt5rN3G66669mrsF8sLqQrCmUJnCL+fSMMo08BUwA0/Yi/bPwb1s3aP54P7YdBwAt5+OW9cGb8PvB+S17XI/d3TVOfxgTD5tLk6+0kR4Gl9+JP42CA+/ANxzSOc8CgAA&lt;/values&gt;&lt;/sys_hub_action_instance_v2&gt;&lt;sys_hub_alias_mapping action="delete_multiple" query="source_id=0cc32e15b46203107f44d224a8774ab7"/&gt;&lt;sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=87f0e611b46203107f44d224a8774ae4^sys_idNOT IN28b2a251b46203107f44d224a8774a2d"/&gt;&lt;sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE"&gt;&lt;attributes/&gt;&lt;block display_value=""&gt;e8b2a251b46203107f44d224a8774a2c&lt;/block&gt;&lt;comment/&gt;&lt;connected_to/&gt;&lt;decision_table/&gt;&lt;display_text/&gt;&lt;flow display_value="Leave Approval Workflow"&gt;87f0e611b46203107f44d224a8774ae4&lt;/flow&gt;&lt;flow_variables_assigned/&gt;&lt;generation_source/&gt;&lt;logic_definition display_value="If"&gt;af4e1945c3e232002841b63b12d3ae3e&lt;/logic_definition&gt;&lt;order&gt;2&lt;/order&gt;&lt;outputs_assigned/&gt;&lt;parent_ui_id/&gt;&lt;sys_class_name&gt;sys_hub_flow_logic_instance_v2&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:52:30&lt;/sys_created_on&gt;&lt;sys_id&gt;28b2a251b46203107f44d224a8774a2d&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:57:06&lt;/sys_updated_on&gt;&lt;ui_id&gt;6b22fad1-a5d5-4361-8102-a7a2262435b8&lt;/ui_id&gt;&lt;updation_source/&gt;&lt;values&gt;H4sIAAAAAAAA/+1VXW/aMBT9K8jPAeUDUuANgapN2oa0Vn3ZqujGdsCqiTPbKc0i/vuu8wFoZRrV+rg3fHzv9TnHPqQmqrRFac29WhgjNjmZf3v0iMgdhr9rIhiZkxlMskngT2gUxlHo++F0HKRxlAYhi4CPY+KRHHYcK6nKmbBC5Qg9gywdVtfxNAtTADaczsaz4Zj7k+H0JoqH8c14nGZsms2AjqAotMKexFiw/HD4Xvp+xFqUM5zHhCkkVA/vPJZuhWSad9IL0KjEck3m9W9b11ohIeUSS5dnXlywx1aFg4zVIt90609d610PKs0cldD3CH+xPGdIeZ6BNNwjO8gZWKUrMre6REBzYOtcVseKrcgtTiOu9sWIn9xN8n1XmXHURXm7e1wmncctnK3AAlIpqS11V0q3SlBuWkcYz6CUdnmOtQXrolHZtFhIZd+tZLnLv7RmkOOA/koRKQ2S4IVT6rh3QrK7rdp/7VneirxxpduUioI8rsCid2lpHZ+acMl3OCjZ4YWjo4m7ddE0I5fdaCNxMcqk2uOh7v2PgDriIzQWRreIrxr4AbRwKj7jGGzGt2ASQ7Uoem3N4eTgEVOZpQRjThrR3ORH6Ri2ijttSWuPa2kGLfDgZ97JOHhd8jIfsmBGg8vPDaILTytpgFP8PqxXg0UXgsFyy+nT6yxdrHlbMK5g+ioYg/a9/1nDWzIS/CUjHXJVSCaT/xn554w4mikYQZPme4Lj3N/UO4bk0T3y9tCj2VQY5HbvsI/9V8xtVPiiBD2H9ko/OVUn7PALzVOLYQ8HAAA=&lt;/values&gt;&lt;workflow_reference/&gt;&lt;/sys_hub_flow_logic_instance_v2&gt;&lt;sys_hub_pill_compound action="delete_multiple" query="attached_to=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_hub_flow_variable action="delete_multiple" query="model=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;table_name&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Table Name&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:12&lt;/sys_created_on&gt;&lt;sys_id&gt;21016a11b46203107f44d224a8774a7d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:45:12&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_documentation action="INSERT_OR_UPDATE"&gt;&lt;element&gt;current&lt;/element&gt;&lt;help/&gt;&lt;hint/&gt;&lt;label&gt;Record&lt;/label&gt;&lt;language&gt;en&lt;/language&gt;&lt;name&gt;var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4&lt;/name&gt;&lt;plural/&gt;&lt;sys_class_name&gt;sys_documentation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-06 04:45:11&lt;/sys_created_on&gt;&lt;sys_id&gt;a5016a11b46203107f44d224a8774a59&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name/&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-06 04:45:11&lt;/sys_updated_on&gt;&lt;url/&gt;&lt;url_target/&gt;&lt;/sys_documentation&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_flow_trigger_plan action="delete_multiple" query="plan_id=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;sys_flow_subflow_plan action="delete_multiple" query="plan_id=87f0e611b46203107f44d224a8774ae4"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>752443313</payload_hash>
+        <record_name>Leave Approval Workflow</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 05:00:02</sys_created_on>
+        <sys_id>03646e55b46203107f44d224a8774a52</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fd571572b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 05:00:02</sys_updated_on>
+        <type>Flow</type>
+        <update_guid>0b642e55a0620310a42ede7846a29fc8</update_guid>
+        <update_guid_history>0b642e55a0620310a42ede7846a29fc8:752443313,e6c36e153c62031066740b64b4ce2a86:254904754,97b32e1588620310f9b723129604717a:-772551997,85932a1500620310605dba09b1d2826e:1397781366,fb73a615ce62031035716af3bdf9e378:1936018274,55132ed1c7620310969ccd7893dac15b:-1127669207,97b2a2d10c62031069f288febb3e77be:928217070,fd816651a36203101ce18617056957ce:-763507680,a8512251026203106112fd2c0cce098b:1013027706,6b216e11a1620310ae31fa8a1c34a9b9:1472179756,ff01aa1146620310cf6fa0e99bf76117:-393634537,0ff02a114a6203100061f32d45c5e275:-425860957</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-06 05:04:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_hub_flow">sys_hub_flow</sys_db_object>
+        <sys_id>b2edefd564a14f9ab0ccc2268e262fe1</sys_id>
+        <sys_metadata>87f0e611b46203107f44d224a8774ae4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Leave Approval Workflow</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_hub_flow_87f0e611b46203107f44d224a8774ae4</sys_update_name>
+        <sys_update_version display_value="sys_hub_flow_87f0e611b46203107f44d224a8774ae4">03646e55b46203107f44d224a8774a52</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-06 05:04:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{&#13;	"mobile": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"desktop": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"tablet": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	}&#13;}</placeholder_dimensions>
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&lt;div ng-if="options.maxRowCount === 10"&gt;&lt;/div&gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&gt;
+	&lt;div class="skeleton-container"&gt;
+	&lt;!-- Header Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-header"&gt;&lt;/div&gt;
+	&lt;!-- Body Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-line"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
+&lt;/div&gt;</placeholder_template>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">e79a0dced1e203107f44b93f16d713a5</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 06:26:28</sys_created_on>
+        <sys_id>246b0142d12603107f44b93f16d71319</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_instance_246b0142d12603107f44b93f16d71319</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 08:22:14</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<style>\r\n    .hod-dashboard-heading {\r\n      text-align: center;\r\n      padding: 24px 20px;\r\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\r\n      border-top-left-radius: 12px;\r\n      border-top-right-radius: 12px;\r\n      border: 1px solid #b8cfe8;\r\n      box-shadow: 0 4px 16px rgba(26, 67, 113, 0.12);\r\n      max-width: 100%;\r\n      margin-top: 16px;\r\n    }\r\n\r\n    .hod-dashboard-heading h1 {\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n      font-size: 36px;\r\n      font-weight: 700;\r\n      color: #0b2a4a;\r\n      margin: 0 0 8px 0;\r\n      background: linear-gradient(145deg, #0b2a4a, #1a5276);\r\n      -webkit-background-clip: text;\r\n      -webkit-text-fill-color: transparent;\r\n      background-clip: text;\r\n    }\r\n\r\n    .hod-dashboard-heading p {\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n      font-size: 16px;\r\n      font-weight: 500;\r\n      color: #1a3d5c;\r\n      margin: 0;\r\n      width: 100%;\r\n      text-align: center;\r\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\r\n      display: inline-block;\r\n      padding: 6px 24px;\r\n      border-radius: 40px;\r\n    }\r\n\r\n    /* ServiceNow portal specific overrides */\r\n    body {\r\n      margin: 0;\r\n      padding: 20px;\r\n      background: #f0f5fb;\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n    }\r\n\r\n    /* Ensure compatibility with ServiceNow's default styles */\r\n    .hod-dashboard-heading h1,\r\n    .hod-dashboard-heading p {\r\n      margin: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    .hod-dashboard-heading h1 {\r\n      font-size: 32px;\r\n      font-weight: 700;\r\n      line-height: 1.2;\r\n    }\r\n\r\n    .hod-dashboard-heading p {\r\n      font-size: 15px;\r\n      font-weight: 500;\r\n    }\r\n  </style>\r\n<div class=\"hod-dashboard-heading\">\r\n<h1>HOD Leave Dashboard</h1>\r\n<p>Manage and review employee leave requests</p>\r\n</div>",
+		"displayValue": "<style>\n    .hod-dashboard-heading {\n      text-align: center;\n      padding: 24px 20px;\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\n      border-top-left-radius: 12px;\n      border-top-right-radius: 12px;\n      border: 1px solid #b8cfe8;\n      box-shadow: 0 4px 16px rgba(26, 67, 113, 0.12);\n      max-width: 100%;\n      margin-top: 16px;\n    }\n\n    .hod-dashboard-heading h1 {\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n      font-size: 36px;\n      font-weight: 700;\n      color: #0b2a4a;\n      margin: 0 0 8px 0;\n      background: linear-gradient(145deg, #0b2a4a, #1a5276);\n      -webkit-background-clip: text;\n      -webkit-text-fill-color: transparent;\n      background-clip: text;\n    }\n\n    .hod-dashboard-heading p {\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n      font-size: 16px;\n      font-weight: 500;\n      color: #1a3d5c;\n      margin: 0;\n      width: 100%;\n      text-align: center;\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\n      display: inline-block;\n      padding: 6px 24px;\n      border-radius: 40px;\n    }\n\n    /* ServiceNow portal specific overrides */\n    body {\n      margin: 0;\n      padding: 20px;\n      background: #f0f5fb;\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n    }\n\n    /* Ensure compatibility with ServiceNow's default styles */\n    .hod-dashboard-heading h1,\n    .hod-dashboard-heading p {\n      margin: 0;\n      padding: 0;\n    }\n\n    .hod-dashboard-heading h1 {\n      font-size: 32px;\n      font-weight: 700;\n      line-height: 1.2;\n    }\n\n    .hod-dashboard-heading p {\n      font-size: 15px;\n      font-weight: 500;\n    }\n  </style>\n<div class=\"hod-dashboard-heading\">\n<h1>HOD Leave Dashboard</h1>\n<p>Manage and review employee leave requests</p>\n</div>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=246b0142d12603107f44b93f16d71319"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_instance_246b0142d12603107f44b93f16d71319</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;advanced_placeholder_dimensions&gt;false&lt;/advanced_placeholder_dimensions&gt;&lt;async_load&gt;false&lt;/async_load&gt;&lt;async_load_device_type&gt;desktop,tablet,mobile&lt;/async_load_device_type&gt;&lt;async_load_trigger&gt;viewport&lt;/async_load_trigger&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder_dimensions&gt;{&amp;#13;	"mobile": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"desktop": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"tablet": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	}&amp;#13;}&lt;/placeholder_dimensions&gt;&lt;placeholder_dimensions_script&gt;&lt;![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]&gt;&lt;/placeholder_dimensions_script&gt;&lt;placeholder_template&gt;&amp;lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&amp;lt;div ng-if="options.maxRowCount === 10"&amp;gt;&amp;lt;/div&amp;gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&amp;gt;
+	&amp;lt;div class="skeleton-container"&amp;gt;
+	&amp;lt;!-- Header Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-header"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;!-- Body Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line small"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line medium"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/placeholder_template&gt;&lt;preserve_placeholder_size&gt;false&lt;/preserve_placeholder_size&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;e79a0dced1e203107f44b93f16d713a5&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-08 06:26:28&lt;/sys_created_on&gt;&lt;sys_id&gt;246b0142d12603107f44b93f16d71319&lt;/sys_id&gt;&lt;sys_mod_count&gt;13&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_246b0142d12603107f44b93f16d71319&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-08 08:22:14&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;style&gt;\r\n    .hod-dashboard-heading {\r\n      text-align: center;\r\n      padding: 24px 20px;\r\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\r\n      border-top-left-radius: 12px;\r\n      border-top-right-radius: 12px;\r\n      border: 1px solid #b8cfe8;\r\n      box-shadow: 0 4px 16px rgba(26, 67, 113, 0.12);\r\n      max-width: 100%;\r\n      margin-top: 16px;\r\n    }\r\n\r\n    .hod-dashboard-heading h1 {\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n      font-size: 36px;\r\n      font-weight: 700;\r\n      color: #0b2a4a;\r\n      margin: 0 0 8px 0;\r\n      background: linear-gradient(145deg, #0b2a4a, #1a5276);\r\n      -webkit-background-clip: text;\r\n      -webkit-text-fill-color: transparent;\r\n      background-clip: text;\r\n    }\r\n\r\n    .hod-dashboard-heading p {\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n      font-size: 16px;\r\n      font-weight: 500;\r\n      color: #1a3d5c;\r\n      margin: 0;\r\n      width: 100%;\r\n      text-align: center;\r\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\r\n      display: inline-block;\r\n      padding: 6px 24px;\r\n      border-radius: 40px;\r\n    }\r\n\r\n    /* ServiceNow portal specific overrides */\r\n    body {\r\n      margin: 0;\r\n      padding: 20px;\r\n      background: #f0f5fb;\r\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\r\n    }\r\n\r\n    /* Ensure compatibility with ServiceNow's default styles */\r\n    .hod-dashboard-heading h1,\r\n    .hod-dashboard-heading p {\r\n      margin: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    .hod-dashboard-heading h1 {\r\n      font-size: 32px;\r\n      font-weight: 700;\r\n      line-height: 1.2;\r\n    }\r\n\r\n    .hod-dashboard-heading p {\r\n      font-size: 15px;\r\n      font-weight: 500;\r\n    }\r\n  &lt;/style&gt;\r\n&lt;div class=\"hod-dashboard-heading\"&gt;\r\n&lt;h1&gt;HOD Leave Dashboard&lt;/h1&gt;\r\n&lt;p&gt;Manage and review employee leave requests&lt;/p&gt;\r\n&lt;/div&gt;",
+		"displayValue": "&lt;style&gt;\n    .hod-dashboard-heading {\n      text-align: center;\n      padding: 24px 20px;\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\n      border-top-left-radius: 12px;\n      border-top-right-radius: 12px;\n      border: 1px solid #b8cfe8;\n      box-shadow: 0 4px 16px rgba(26, 67, 113, 0.12);\n      max-width: 100%;\n      margin-top: 16px;\n    }\n\n    .hod-dashboard-heading h1 {\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n      font-size: 36px;\n      font-weight: 700;\n      color: #0b2a4a;\n      margin: 0 0 8px 0;\n      background: linear-gradient(145deg, #0b2a4a, #1a5276);\n      -webkit-background-clip: text;\n      -webkit-text-fill-color: transparent;\n      background-clip: text;\n    }\n\n    .hod-dashboard-heading p {\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n      font-size: 16px;\n      font-weight: 500;\n      color: #1a3d5c;\n      margin: 0;\n      width: 100%;\n      text-align: center;\n      background: linear-gradient(135deg, #e8f0fe 0%, #d4e2f7 100%);\n      display: inline-block;\n      padding: 6px 24px;\n      border-radius: 40px;\n    }\n\n    /* ServiceNow portal specific overrides */\n    body {\n      margin: 0;\n      padding: 20px;\n      background: #f0f5fb;\n      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n    }\n\n    /* Ensure compatibility with ServiceNow's default styles */\n    .hod-dashboard-heading h1,\n    .hod-dashboard-heading p {\n      margin: 0;\n      padding: 0;\n    }\n\n    .hod-dashboard-heading h1 {\n      font-size: 32px;\n      font-weight: 700;\n      line-height: 1.2;\n    }\n\n    .hod-dashboard-heading p {\n      font-size: 15px;\n      font-weight: 500;\n    }\n  &lt;/style&gt;\n&lt;div class=\"hod-dashboard-heading\"&gt;\n&lt;h1&gt;HOD Leave Dashboard&lt;/h1&gt;\n&lt;p&gt;Manage and review employee leave requests&lt;/p&gt;\n&lt;/div&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=246b0142d12603107f44b93f16d71319"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-257860408</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 08:22:14</sys_created_on>
+        <sys_id>a4e5290ed1a603107f44b93f16d713da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fe0772ca40000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 08:22:14</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>e8e5290e78a60310b4fbc3641a4c36d9</update_guid>
+        <update_guid_history>e8e5290e78a60310b4fbc3641a4c36d9:-257860408,b62529ca3da60310b3a53e3bd273d181:1954649292,0e1ecd06782603109d2b27baa2567381:483545204,278d8106442603107485a268d5b78a8b:-1673485270,d86d89c223260310cf979eb44e52e870:784882860,5b3d4dc29c260310471512b97e42fb07:500322976,3c2dc5c246260310777f439917640515:765650014,85dc8d82aa2603101fd01a8620842b63:308080900,3b9c4d8267260310a14f0e51bfefa6ec:-108824014,187c0982f22603108ede73584b1b50c8:138825160,195c8582e826031045060c17b0d06a4d:-1289180878,abeb0d422e260310e0786941ba599571:559739796,909b054284260310d8db79dd9ef24450:2031854192,246b0142b0260310d8698edcdf11c01b:27390444</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">f2293f0a742603107f4446ca06ff0b0a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 19:05:45</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>2612ec079dec44139e3aa8e9eafcd939</sys_id>
+        <sys_metadata>246b0142d12603107f44b93f16d71319</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_instance_246b0142d12603107f44b93f16d71319</sys_update_name>
+        <sys_update_version display_value="sp_instance_246b0142d12603107f44b93f16d71319">a4e5290ed1a603107f44b93f16d713da</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 19:05:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

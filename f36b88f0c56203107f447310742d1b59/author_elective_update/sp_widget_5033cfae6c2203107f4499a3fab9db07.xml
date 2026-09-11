@@ -1,0 +1,4755 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* =========================================================&#13;
+   UNIFIED HR DASHBOARD&#13;
+   ========================================================= */&#13;
+&#13;
+.hr-app {&#13;
+    display: flex;&#13;
+    min-height: 100vh;&#13;
+    background: #f7f8fc;&#13;
+    color: #172554;&#13;
+    font-family: Arial, Helvetica, sans-serif;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   SIDEBAR&#13;
+   ========================================================= */&#13;
+&#13;
+.hr-sidebar {&#13;
+    width: 280px;&#13;
+    min-width: 280px;&#13;
+    background: #ffffff;&#13;
+    border-right: 1px solid #e5e7eb;&#13;
+    display: flex;&#13;
+    flex-direction: column;&#13;
+    min-height: 100vh;&#13;
+}&#13;
+&#13;
+&#13;
+/* BRAND */&#13;
+&#13;
+.brand {&#13;
+    padding: 22px 24px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 12px;&#13;
+    border-bottom: 1px solid #f1f5f9;&#13;
+}&#13;
+&#13;
+.brand-icon {&#13;
+    font-size: 35px;&#13;
+}&#13;
+&#13;
+.brand-text {&#13;
+    display: flex;&#13;
+    flex-direction: column;&#13;
+}&#13;
+&#13;
+.brand-text strong {&#13;
+    font-size: 18px;&#13;
+    color: #111827;&#13;
+}&#13;
+&#13;
+.brand-text span {&#13;
+    font-size: 12px;&#13;
+    color: #64748b;&#13;
+    margin-top: 2px;&#13;
+}&#13;
+&#13;
+.brand-text small {&#13;
+    font-size: 10px;&#13;
+    color: #94a3b8;&#13;
+    margin-top: 3px;&#13;
+}&#13;
+&#13;
+&#13;
+/* MENU */&#13;
+&#13;
+.sidebar-menu {&#13;
+    padding: 18px 14px;&#13;
+    flex: 1;&#13;
+}&#13;
+&#13;
+.sidebar-link {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 12px;&#13;
+    min-height: 46px;&#13;
+    padding: 0 14px;&#13;
+    margin-bottom: 5px;&#13;
+    border-radius: 8px;&#13;
+    color: #334155;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 14px;&#13;
+    font-weight: 500;&#13;
+    transition: all .2s ease;&#13;
+}&#13;
+&#13;
+.sidebar-link:hover {&#13;
+    background: #f1f5ff;&#13;
+    color: #4338ca;&#13;
+    text-decoration: none !important;&#13;
+    transform: translateX(2px);&#13;
+}&#13;
+&#13;
+.sidebar-link.active {&#13;
+    background: #312e81;&#13;
+    color: white;&#13;
+}&#13;
+&#13;
+.sidebar-icon {&#13;
+    width: 24px;&#13;
+    text-align: center;&#13;
+    font-size: 17px;&#13;
+}&#13;
+&#13;
+.menu-arrow {&#13;
+    margin-left: auto;&#13;
+    font-size: 20px;&#13;
+    opacity: .6;&#13;
+}&#13;
+&#13;
+.notification-badge {&#13;
+    margin-left: auto;&#13;
+    min-width: 22px;&#13;
+    height: 22px;&#13;
+    padding: 0 6px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    background: #ef4444;&#13;
+    color: white;&#13;
+    border-radius: 20px;&#13;
+    font-size: 11px;&#13;
+    font-weight: bold;&#13;
+}&#13;
+&#13;
+&#13;
+/* HELP */&#13;
+&#13;
+.help-box {&#13;
+    margin: 15px;&#13;
+    padding: 20px 14px;&#13;
+    background: #fafaff;&#13;
+    border: 1px solid #e5e7eb;&#13;
+    border-radius: 12px;&#13;
+    text-align: center;&#13;
+}&#13;
+&#13;
+.help-icon {&#13;
+    font-size: 30px;&#13;
+}&#13;
+&#13;
+.help-box h3 {&#13;
+    margin: 10px 0 5px;&#13;
+    font-size: 15px;&#13;
+}&#13;
+&#13;
+.help-box p {&#13;
+    margin: 0 0 14px;&#13;
+    font-size: 12px;&#13;
+    color: #64748b;&#13;
+}&#13;
+&#13;
+.help-button {&#13;
+    display: block;&#13;
+    background: #4338ca;&#13;
+    color: white !important;&#13;
+    text-decoration: none !important;&#13;
+    padding: 10px;&#13;
+    border-radius: 7px;&#13;
+    font-size: 12px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+.help-button:hover {&#13;
+    background: #3730a3;&#13;
+}&#13;
+&#13;
+&#13;
+/* SIDEBAR FOOTER */&#13;
+&#13;
+.sidebar-footer {&#13;
+    padding: 15px;&#13;
+    text-align: center;&#13;
+    color: #94a3b8;&#13;
+    font-size: 11px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   MAIN&#13;
+   ========================================================= */&#13;
+&#13;
+.hr-main {&#13;
+    flex: 1;&#13;
+    min-width: 0;&#13;
+    padding: 28px;&#13;
+}&#13;
+&#13;
+&#13;
+/* HEADER */&#13;
+&#13;
+.top-header {&#13;
+    display: flex;&#13;
+    justify-content: space-between;&#13;
+    align-items: center;&#13;
+    gap: 25px;&#13;
+    margin-bottom: 28px;&#13;
+}&#13;
+&#13;
+.welcome h1 {&#13;
+    margin: 0;&#13;
+    font-size: 27px;&#13;
+    font-weight: 700;&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+.welcome p {&#13;
+    margin: 8px 0 0;&#13;
+    color: #64748b;&#13;
+    font-size: 14px;&#13;
+}&#13;
+&#13;
+&#13;
+/* HEADER RIGHT */&#13;
+&#13;
+.header-right {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 15px;&#13;
+}&#13;
+&#13;
+.search-box {&#13;
+    width: 390px;&#13;
+    height: 45px;&#13;
+    padding: 0 15px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 10px;&#13;
+    background: white;&#13;
+    border: 1px solid #e2e8f0;&#13;
+    border-radius: 9px;&#13;
+    color: #64748b !important;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 12px;&#13;
+}&#13;
+&#13;
+.search-box:hover {&#13;
+    border-color: #6366f1;&#13;
+}&#13;
+&#13;
+.search-text {&#13;
+    white-space: nowrap;&#13;
+    overflow: hidden;&#13;
+    text-overflow: ellipsis;&#13;
+}&#13;
+&#13;
+.header-icon {&#13;
+    position: relative;&#13;
+    width: 38px;&#13;
+    height: 38px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    color: #475569 !important;&#13;
+    text-decoration: none !important;&#13;
+    border-radius: 8px;&#13;
+}&#13;
+&#13;
+.header-icon:hover {&#13;
+    background: #f1f5f9;&#13;
+}&#13;
+&#13;
+.header-icon span {&#13;
+    position: absolute;&#13;
+    top: -2px;&#13;
+    right: -2px;&#13;
+    background: #ef4444;&#13;
+    color: white;&#13;
+    border-radius: 20px;&#13;
+    min-width: 17px;&#13;
+    height: 17px;&#13;
+    text-align: center;&#13;
+    font-size: 9px;&#13;
+    padding-top: 3px;&#13;
+}&#13;
+&#13;
+.profile {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    gap: 9px;&#13;
+    color: #1e293b !important;&#13;
+    text-decoration: none !important;&#13;
+}&#13;
+&#13;
+.profile-avatar {&#13;
+    width: 38px;&#13;
+    height: 38px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    background: #e0e7ff;&#13;
+    color: #3730a3;&#13;
+    border-radius: 50%;&#13;
+    font-weight: 700;&#13;
+}&#13;
+&#13;
+.profile strong,&#13;
+.profile small {&#13;
+    display: block;&#13;
+}&#13;
+&#13;
+.profile strong {&#13;
+    font-size: 12px;&#13;
+}&#13;
+&#13;
+.profile small {&#13;
+    color: #64748b;&#13;
+    font-size: 10px;&#13;
+    margin-top: 2px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   KPI&#13;
+   ========================================================= */&#13;
+&#13;
+.kpi-grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: repeat(5, 1fr);&#13;
+    gap: 16px;&#13;
+    margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.kpi-card {&#13;
+    position: relative;&#13;
+    min-height: 125px;&#13;
+    padding: 20px;&#13;
+    display: flex;&#13;
+    align-items: flex-start;&#13;
+    gap: 14px;&#13;
+    background: white;&#13;
+    border: 1px solid #e5e7eb;&#13;
+    border-radius: 12px;&#13;
+    color: #172554 !important;&#13;
+    text-decoration: none !important;&#13;
+    transition: all .2s ease;&#13;
+}&#13;
+&#13;
+.kpi-card:hover {&#13;
+    transform: translateY(-3px);&#13;
+    box-shadow: 0 8px 22px rgba(15,23,42,.09);&#13;
+    border-color: #c7d2fe;&#13;
+}&#13;
+&#13;
+.kpi-icon {&#13;
+    width: 45px;&#13;
+    height: 45px;&#13;
+    min-width: 45px;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    border-radius: 50%;&#13;
+    font-size: 21px;&#13;
+    background: #eef2ff;&#13;
+}&#13;
+&#13;
+.leave-card .kpi-icon {&#13;
+    background: #ecfdf5;&#13;
+}&#13;
+&#13;
+.cases-card .kpi-icon {&#13;
+    background: #fff7ed;&#13;
+}&#13;
+&#13;
+.requests-card .kpi-icon {&#13;
+    background: #eff6ff;&#13;
+}&#13;
+&#13;
+.resolution-card .kpi-icon {&#13;
+    background: #f5f3ff;&#13;
+}&#13;
+&#13;
+.kpi-info span,&#13;
+.kpi-info strong,&#13;
+.kpi-info small {&#13;
+    display: block;&#13;
+}&#13;
+&#13;
+.kpi-info span {&#13;
+    font-size: 12px;&#13;
+    color: #64748b;&#13;
+    margin-bottom: 7px;&#13;
+}&#13;
+&#13;
+.kpi-info strong {&#13;
+    font-size: 28px;&#13;
+    color: #172554;&#13;
+    line-height: 1;&#13;
+}&#13;
+&#13;
+.kpi-info small {&#13;
+    margin-top: 8px;&#13;
+    font-size: 10px;&#13;
+    color: #64748b;&#13;
+}&#13;
+&#13;
+.kpi-arrow {&#13;
+    position: absolute;&#13;
+    right: 16px;&#13;
+    bottom: 12px;&#13;
+    color: #4338ca;&#13;
+    font-size: 18px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   GRIDS&#13;
+   ========================================================= */&#13;
+&#13;
+.chart-grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: 1fr 1fr;&#13;
+    gap: 18px;&#13;
+    margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.bottom-grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: 1.5fr 1fr 1fr;&#13;
+    gap: 18px;&#13;
+}&#13;
+&#13;
+&#13;
+/* CARD */&#13;
+&#13;
+.dashboard-card {&#13;
+    background: white;&#13;
+    border: 1px solid #e5e7eb;&#13;
+    border-radius: 12px;&#13;
+    padding: 20px;&#13;
+}&#13;
+&#13;
+.card-header {&#13;
+    display: flex;&#13;
+    justify-content: space-between;&#13;
+    align-items: flex-start;&#13;
+    margin-bottom: 20px;&#13;
+}&#13;
+&#13;
+.card-header h2 {&#13;
+    margin: 0;&#13;
+    color: #172554;&#13;
+    font-size: 16px;&#13;
+}&#13;
+&#13;
+.card-header p {&#13;
+    margin: 5px 0 0;&#13;
+    font-size: 11px;&#13;
+    color: #94a3b8;&#13;
+}&#13;
+&#13;
+.view-link {&#13;
+    color: #4338ca !important;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 11px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+.view-link:hover {&#13;
+    text-decoration: underline !important;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   DONUT CHARTS&#13;
+   ========================================================= */&#13;
+&#13;
+.leave-chart,&#13;
+.category-chart {&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+    gap: 45px;&#13;
+    min-height: 185px;&#13;
+}&#13;
+&#13;
+.donut,&#13;
+.case-donut {&#13;
+    width: 145px;&#13;
+    height: 145px;&#13;
+    min-width: 145px;&#13;
+    border-radius: 50%;&#13;
+    position: relative;&#13;
+    display: flex;&#13;
+    align-items: center;&#13;
+    justify-content: center;&#13;
+}&#13;
+&#13;
+.donut {&#13;
+    background: conic-gradient(&#13;
+        #22c55e 0deg 190deg,&#13;
+        #f59e0b 190deg 285deg,&#13;
+        #ef4444 285deg 330deg,&#13;
+        #6366f1 330deg 360deg&#13;
+    );&#13;
+}&#13;
+&#13;
+.case-donut {&#13;
+    background: conic-gradient(&#13;
+        #10b981 0deg 90deg,&#13;
+        #f59e0b 90deg 160deg,&#13;
+        #8b5cf6 160deg 225deg,&#13;
+        #ec4899 225deg 290deg,&#13;
+        #6366f1 290deg 360deg&#13;
+    );&#13;
+}&#13;
+&#13;
+.donut:before,&#13;
+.case-donut:before {&#13;
+    content: "";&#13;
+    position: absolute;&#13;
+    width: 90px;&#13;
+    height: 90px;&#13;
+    background: white;&#13;
+    border-radius: 50%;&#13;
+}&#13;
+&#13;
+.donut-center {&#13;
+    position: relative;&#13;
+    z-index: 1;&#13;
+    text-align: center;&#13;
+}&#13;
+&#13;
+.donut-center strong,&#13;
+.donut-center span {&#13;
+    display: block;&#13;
+}&#13;
+&#13;
+.donut-center strong {&#13;
+    font-size: 23px;&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+.donut-center span {&#13;
+    font-size: 10px;&#13;
+    color: #64748b;&#13;
+}&#13;
+&#13;
+&#13;
+/* LEGEND */&#13;
+&#13;
+.legend {&#13;
+    min-width: 180px;&#13;
+}&#13;
+&#13;
+.legend-item {&#13;
+    display: grid;&#13;
+    grid-template-columns: 10px 1fr auto;&#13;
+    align-items: center;&#13;
+    gap: 8px;&#13;
+    padding: 7px 4px;&#13;
+    color: #475569 !important;&#13;
+    text-decoration: none !important;&#13;
+    font-size: 11px;&#13;
+    border-radius: 5px;&#13;
+}&#13;
+&#13;
+.legend-item:hover {&#13;
+    background: #f8fafc;&#13;
+}&#13;
+&#13;
+.legend-item strong {&#13;
+    color: #172554;&#13;
+}&#13;
+&#13;
+.legend-dot {&#13;
+    width: 9px;&#13;
+    height: 9px;&#13;
+    border-radius: 50%;&#13;
+}&#13;
+&#13;
+.approved {&#13;
+    background: #22c55e;&#13;
+}&#13;
+&#13;
+.pending {&#13;
+    background: #f59e0b;&#13;
+}&#13;
+&#13;
+.rejected {&#13;
+    background: #ef4444;&#13;
+}&#13;
+&#13;
+.cancelled {&#13;
+    background: #6366f1;&#13;
+}&#13;
+&#13;
+.payroll {&#13;
+    background: #10b981;&#13;
+}&#13;
+&#13;
+.leave {&#13;
+    background: #f59e0b;&#13;
+}&#13;
+&#13;
+.onboarding {&#13;
+    background: #8b5cf6;&#13;
+}&#13;
+&#13;
+.policy {&#13;
+    background: #ec4899;&#13;
+}&#13;
+&#13;
+.others {&#13;
+    background: #6366f1;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   TABLE&#13;
+   ========================================================= */&#13;
+&#13;
+.table-wrapper {&#13;
+    overflow-x: auto;&#13;
+}&#13;
+&#13;
+table {&#13;
+    width: 100%;&#13;
+    border-collapse: collapse;&#13;
+}&#13;
+&#13;
+th {&#13;
+    padding: 11px 8px;&#13;
+    text-align: left;&#13;
+    background: #f8fafc;&#13;
+    color: #64748b;&#13;
+    font-size: 10px;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+td {&#13;
+    padding: 12px 8px;&#13;
+    border-bottom: 1px solid #f1f5f9;&#13;
+    color: #475569;&#13;
+    font-size: 11px;&#13;
+}&#13;
+&#13;
+.case-link,&#13;
+.subject-link {&#13;
+    color: #4338ca !important;&#13;
+    text-decoration: none !important;&#13;
+    font-weight: 600;&#13;
+}&#13;
+&#13;
+.case-link:hover,&#13;
+.subject-link:hover {&#13;
+    text-decoration: underline !important;&#13;
+}&#13;
+&#13;
+.status-badge,&#13;
+.priority-badge {&#13;
+    display: inline-block;&#13;
+    padding: 5px 9px;&#13;
+    border-radius: 6px;&#13;
+    font-size: 9px;&#13;
+    text-decoration: none !important;&#13;
+}&#13;
+&#13;
+.status-badge {&#13;
+    background: #e0e7ff;&#13;
+    color: #3730a3 !important;&#13;
+}&#13;
+&#13;
+.priority-badge {&#13;
+    background: #fef3c7;&#13;
+    color: #92400e;&#13;
+}&#13;
+&#13;
+.priority-badge.priority-low {&#13;
+    background: #dcfce7;&#13;
+    color: #166534;&#13;
+}&#13;
+&#13;
+.empty {&#13;
+    text-align: center;&#13;
+    padding: 25px;&#13;
+    color: #94a3b8;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   HOLIDAYS&#13;
+   ========================================================= */&#13;
+&#13;
+.holiday-list {&#13;
+    display: flex;&#13;
+    flex-direction: column;&#13;
+}&#13;
+&#13;
+.holiday-item {&#13;
+    display: flex;&#13;
+    gap: 13px;&#13;
+    padding: 13px 0;&#13;
+    border-bottom: 1px solid #f1f5f9;&#13;
+    color: #334155 !important;&#13;
+    text-decoration: none !important;&#13;
+}&#13;
+&#13;
+.holiday-item:hover {&#13;
+    background: #f8fafc;&#13;
+}&#13;
+&#13;
+.holiday-date {&#13;
+    width: 45px;&#13;
+    min-width: 45px;&#13;
+    height: 45px;&#13;
+    background: #f1f5ff;&#13;
+    border-radius: 7px;&#13;
+    display: flex;&#13;
+    flex-direction: column;&#13;
+    justify-content: center;&#13;
+    align-items: center;&#13;
+}&#13;
+&#13;
+.holiday-date strong {&#13;
+    font-size: 17px;&#13;
+    color: #3730a3;&#13;
+}&#13;
+&#13;
+.holiday-date span {&#13;
+    font-size: 8px;&#13;
+    color: #64748b;&#13;
+}&#13;
+&#13;
+.holiday-item &gt; div:last-child strong,&#13;
+.holiday-item &gt; div:last-child span {&#13;
+    display: block;&#13;
+}&#13;
+&#13;
+.holiday-item &gt; div:last-child strong {&#13;
+    font-size: 12px;&#13;
+    margin-top: 3px;&#13;
+}&#13;
+&#13;
+.holiday-item &gt; div:last-child span {&#13;
+    font-size: 10px;&#13;
+    color: #94a3b8;&#13;
+    margin-top: 5px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   QUICK ACTIONS&#13;
+   ========================================================= */&#13;
+&#13;
+.quick-grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: repeat(2, 1fr);&#13;
+    gap: 10px;&#13;
+}&#13;
+&#13;
+.quick-action {&#13;
+    min-height: 80px;&#13;
+    display: flex;&#13;
+    flex-direction: column;&#13;
+    justify-content: center;&#13;
+    align-items: center;&#13;
+    gap: 7px;&#13;
+    border: 1px solid #e5e7eb;&#13;
+    border-radius: 9px;&#13;
+    background: white;&#13;
+    color: #334155 !important;&#13;
+    text-decoration: none !important;&#13;
+    transition: .2s;&#13;
+}&#13;
+&#13;
+.quick-action span {&#13;
+    font-size: 22px;&#13;
+}&#13;
+&#13;
+.quick-action strong {&#13;
+    font-size: 10px;&#13;
+}&#13;
+&#13;
+.quick-action:hover {&#13;
+    background: #f5f3ff;&#13;
+    border-color: #6366f1;&#13;
+    color: #3730a3 !important;&#13;
+    transform: translateY(-2px);&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   FOOTER&#13;
+   ========================================================= */&#13;
+&#13;
+.dashboard-footer {&#13;
+    display: flex;&#13;
+    justify-content: space-between;&#13;
+    padding: 25px 5px 5px;&#13;
+    color: #94a3b8;&#13;
+    font-size: 10px;&#13;
+}&#13;
+&#13;
+&#13;
+/* =========================================================&#13;
+   RESPONSIVE&#13;
+   ========================================================= */&#13;
+&#13;
+@media (max-width: 1300px) {&#13;
+&#13;
+    .kpi-grid {&#13;
+        grid-template-columns: repeat(3, 1fr);&#13;
+    }&#13;
+&#13;
+    .bottom-grid {&#13;
+        grid-template-columns: 1fr 1fr;&#13;
+    }&#13;
+&#13;
+    .recent-card {&#13;
+        grid-column: span 2;&#13;
+    }&#13;
+&#13;
+    .search-box {&#13;
+        width: 280px;&#13;
+    }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 900px) {&#13;
+&#13;
+    .hr-sidebar {&#13;
+        width: 75px;&#13;
+        min-width: 75px;&#13;
+    }&#13;
+&#13;
+    .brand-text,&#13;
+    .sidebar-link span:not(.sidebar-icon),&#13;
+    .menu-arrow,&#13;
+    .notification-badge,&#13;
+    .help-box,&#13;
+    .sidebar-footer {&#13;
+        display: none;&#13;
+    }&#13;
+&#13;
+    .sidebar-link {&#13;
+        justify-content: center;&#13;
+        padding: 0;&#13;
+    }&#13;
+&#13;
+    .hr-main {&#13;
+        padding: 18px;&#13;
+    }&#13;
+&#13;
+    .top-header {&#13;
+        flex-direction: column;&#13;
+        align-items: flex-start;&#13;
+    }&#13;
+&#13;
+    .header-right {&#13;
+        width: 100%;&#13;
+    }&#13;
+&#13;
+    .search-box {&#13;
+        flex: 1;&#13;
+        width: auto;&#13;
+    }&#13;
+&#13;
+    .chart-grid {&#13;
+        grid-template-columns: 1fr;&#13;
+    }&#13;
+&#13;
+}&#13;
+&#13;
+&#13;
+@media (max-width: 650px) {&#13;
+&#13;
+    .kpi-grid {&#13;
+        grid-template-columns: 1fr;&#13;
+    }&#13;
+&#13;
+    .bottom-grid {&#13;
+        grid-template-columns: 1fr;&#13;
+    }&#13;
+&#13;
+    .recent-card {&#13;
+        grid-column: span 1;&#13;
+    }&#13;
+&#13;
+    .leave-chart,&#13;
+    .category-chart {&#13;
+        flex-direction: column;&#13;
+        gap: 20px;&#13;
+    }&#13;
+&#13;
+    .dashboard-footer {&#13;
+        flex-direction: column;&#13;
+        gap: 8px;&#13;
+    }&#13;
+&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Unified HR dashboard for employee, leave, HR case, performance, recruitment and knowledge management.</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>unified_hr_dashboard</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
+        <name>Unified HR Dashboard</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    /* =========================================================
+       UNIFIED HR DASHBOARD - SERVER SCRIPT
+       Dynamic data with safe fallbacks
+       ========================================================= */
+
+    data = data || {};
+
+    /* ---------------------------------------------------------
+       Helper: safely count records
+       --------------------------------------------------------- */
+    function getCount(tableName, encodedQuery) {
+
+        try {
+
+            var gr = new GlideRecord(tableName);
+
+            if (!gr.isValid()) {
+                return 0;
+            }
+
+            if (encodedQuery) {
+                gr.addEncodedQuery(encodedQuery);
+            }
+
+            gr.query();
+
+            return gr.getRowCount();
+
+        } catch (e) {
+
+            gs.error("HR Dashboard count error - " + tableName +
+                     ": " + e.message);
+
+            return 0;
+        }
+    }
+
+
+    /* ---------------------------------------------------------
+       EMPLOYEES
+       --------------------------------------------------------- */
+
+    data.totalEmployees = getCount("sys_user", "active=true");
+
+
+    /* ---------------------------------------------------------
+       LEAVE REQUESTS
+       
+       Change table/query here later if your custom leave table
+       has a different name.
+       --------------------------------------------------------- */
+
+    data.leaveRequests = 0;
+    data.leavePending = 0;
+    data.leaveApproved = 0;
+    data.leaveRejected = 0;
+    data.leaveCancelled = 0;
+
+    try {
+
+        var leaveTable = "sysapproval_approver";
+        var leaveGR = new GlideRecord(leaveTable);
+
+        if (leaveGR.isValid()) {
+
+            leaveGR.addQuery("state", "requested");
+            leaveGR.query();
+
+            data.leavePending = leaveGR.getRowCount();
+        }
+
+    } catch (e1) {
+
+        data.leavePending = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       HR CASES
+       --------------------------------------------------------- */
+
+    data.openCases = 0;
+    data.newCases = 0;
+    data.inProgressCases = 0;
+    data.onHoldCases = 0;
+    data.resolvedCases = 0;
+
+    try {
+
+        var hrCase = new GlideRecord("sn_hr_core_case");
+
+        if (hrCase.isValid()) {
+
+            /* Open cases */
+            hrCase.addQuery("active", true);
+            hrCase.query();
+
+            data.openCases = hrCase.getRowCount();
+
+
+            /* New */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "1");
+            hrCase.query();
+
+            data.newCases = hrCase.getRowCount();
+
+
+            /* In Progress */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "2");
+            hrCase.query();
+
+            data.inProgressCases = hrCase.getRowCount();
+
+
+            /* On Hold */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "3");
+            hrCase.query();
+
+            data.onHoldCases = hrCase.getRowCount();
+
+
+            /* Resolved */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "6");
+            hrCase.query();
+
+            data.resolvedCases = hrCase.getRowCount();
+        }
+
+    } catch (e2) {
+
+        data.openCases = 0;
+        data.newCases = 0;
+        data.inProgressCases = 0;
+        data.onHoldCases = 0;
+        data.resolvedCases = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       REQUESTS THIS MONTH
+       --------------------------------------------------------- */
+
+    data.requestsThisMonth = 0;
+
+    try {
+
+        var requestGR = new GlideRecord("sc_request");
+
+        if (requestGR.isValid()) {
+
+            requestGR.addEncodedQuery(
+                "sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()"
+            );
+
+            requestGR.query();
+
+            data.requestsThisMonth = requestGR.getRowCount();
+        }
+
+    } catch (e3) {
+
+        data.requestsThisMonth = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       AVERAGE RESOLUTION TIME
+       --------------------------------------------------------- */
+
+    data.avgResolutionTime = "2.6";
+    data.avgResolutionUnit = "Days";
+
+
+    /* ---------------------------------------------------------
+       LEAVE STATUS CHART
+       --------------------------------------------------------- */
+
+    data.leaveChart = {
+        approved: data.leaveApproved || 0,
+        pending: data.leavePending || 0,
+        rejected: data.leaveRejected || 0,
+        cancelled: data.leaveCancelled || 0
+    };
+
+
+    /* ---------------------------------------------------------
+       HR CASE CATEGORY CHART
+       --------------------------------------------------------- */
+
+    data.caseCategories = {
+        payroll: 0,
+        leave: 0,
+        onboarding: 0,
+        policies: 0,
+        others: 0
+    };
+
+
+    /* ---------------------------------------------------------
+       RECENT HR CASES
+       --------------------------------------------------------- */
+
+    data.recentCases = [];
+
+    try {
+
+        var recent = new GlideRecord("sn_hr_core_case");
+
+        if (recent.isValid()) {
+
+            recent.orderByDesc("sys_created_on");
+            recent.setLimit(5);
+            recent.query();
+
+            while (recent.next()) {
+
+                var caseItem = {};
+
+                caseItem.id = recent.getDisplayValue("number") || "";
+                caseItem.subject =
+                    recent.getDisplayValue("short_description") ||
+                    recent.getDisplayValue("description") ||
+                    "HR Case";
+
+                caseItem.requestedBy =
+                    recent.getDisplayValue("opened_for") || "";
+
+                caseItem.status =
+                    recent.getDisplayValue("state") || "New";
+
+                caseItem.priority =
+                    recent.getDisplayValue("priority") || "Medium";
+
+                data.recentCases.push(caseItem);
+            }
+        }
+
+    } catch (e4) {
+
+        data.recentCases = [];
+    }
+
+
+    /* ---------------------------------------------------------
+       UPCOMING HOLIDAYS
+       --------------------------------------------------------- */
+
+    data.holidays = [];
+
+
+    /* ---------------------------------------------------------
+       DASHBOARD SUMMARY
+       --------------------------------------------------------- */
+
+    data.summary = {
+        employees: data.totalEmployees || 0,
+        leaves: data.leaveRequests || 0,
+        cases: data.openCases || 0,
+        requests: data.requestsThisMonth || 0,
+        resolutionTime: data.avgResolutionTime || "0"
+    };
+
+
+    /* ---------------------------------------------------------
+       IMPORTANT:
+       Never allow dashboard objects to become null.
+       --------------------------------------------------------- */
+
+    if (!data.recentCases) {
+        data.recentCases = [];
+    }
+
+    if (!data.holidays) {
+        data.holidays = [];
+    }
+
+    if (!data.leaveChart) {
+        data.leaveChart = {
+            approved: 0,
+            pending: 0,
+            rejected: 0,
+            cancelled: 0
+        };
+    }
+
+    if (!data.caseCategories) {
+        data.caseCategories = {
+            payroll: 0,
+            leave: 0,
+            onboarding: 0,
+            policies: 0,
+            others: 0
+        };
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 04:40:56</sys_created_on>
+        <sys_id>5033cfae6c2203107f4499a3fab9db07</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Unified HR Dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_widget_5033cfae6c2203107f4499a3fab9db07</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 05:00:01</sys_updated_on>
+        <template><![CDATA[<div class="hr-app">
+
+    <!-- =========================================================
+         SIDEBAR
+         ========================================================= -->
+
+    <aside class="hr-sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ]]>🏛<![CDATA[️
+            </div>
+
+            <div class="brand-text">
+                <strong>Unified HR</strong>
+                <span>Service Delivery Platform</span>
+                <small>University Faculty & Staff</small>
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR MENU -->
+
+        <nav class="sidebar-menu">
+
+            <a href="?id=unified_hr_dashboard"
+               class="sidebar-link active">
+
+                <span class="sidebar-icon">]]>🏠<![CDATA[</span>
+
+                <span>HR Dashboard</span>
+
+            </a>
+
+
+            <a href="?id=employee_management"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>👥<![CDATA[</span>
+
+                <span>Employee Management</span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="?id=leave_management"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>📅<![CDATA[</span>
+
+                <span>Leave Management</span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="?id=hr_cases"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>💼<![CDATA[</span>
+
+                <span>HR Cases</span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="?id=approvals"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">✅</span>
+
+                <span>Approvals</span>
+
+                <span class="notification-badge">
+                    {{c.data.approvals}}
+                </span>
+
+            </a>
+
+
+            <a href="?id=service_catalog"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>🛒<![CDATA[</span>
+
+                <span>Service Catalog</span>
+
+            </a>
+
+
+            <a href="?id=knowledge_base"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>📚<![CDATA[</span>
+
+                <span>Knowledge Base</span>
+
+            </a>
+
+
+            <a href="?id=hr_reports"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>📊<![CDATA[</span>
+
+                <span>Reports & Analytics</span>
+
+                <span class="menu-arrow">›</span>
+
+            </a>
+
+
+            <a href="?id=announcements"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>📢<![CDATA[</span>
+
+                <span>Announcements</span>
+
+            </a>
+
+
+            <a href="?id=documents"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>📄<![CDATA[</span>
+
+                <span>Documents</span>
+
+            </a>
+
+
+            <a href="?id=sla_management"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">⏱️</span>
+
+                <span>SLA Management</span>
+
+            </a>
+
+
+            <a href="?id=notifications"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">]]>🔔<![CDATA[</span>
+
+                <span>Notifications</span>
+
+                <span class="notification-badge">
+                    {{c.data.notifications}}
+                </span>
+
+            </a>
+
+
+            <a href="?id=hr_settings"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">⚙️</span>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- HELP BOX -->
+
+        <div class="help-box">
+
+            <div class="help-icon">
+                ]]>🎧
+<![CDATA[            </div>
+
+            <h3>Need Help?</h3>
+
+            <p>
+                Ask HR Assist or raise a case.
+            </p>
+
+            <a href="?id=hr_assist"
+               class="help-button">
+
+                Chat with HR Assist
+
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-footer">
+
+            © 2026 Unified HR
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
+
+    <main class="hr-main">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div class="welcome">
+
+                <h1>
+                    Welcome back, HR Team! ]]>👋
+<![CDATA[                </h1>
+
+                <p>
+                    Here's an overview of HR operations and service delivery.
+                </p>
+
+            </div>
+
+
+            <div class="header-right">
+
+
+                <!-- SEARCH -->
+
+                <a href="?id=hr_search"
+                   class="search-box">
+
+                    <span>
+                        ]]>🔍
+<![CDATA[                    </span>
+
+                    <span class="search-text">
+                        Search services, cases, employees, knowledge articles...
+                    </span>
+
+                </a>
+
+
+                <!-- NOTIFICATION -->
+
+                <a href="?id=notifications"
+                   class="header-icon">
+
+                    ]]>🔔
+
+<![CDATA[                    <span>
+                        {{c.data.notifications}}
+                    </span>
+
+                </a>
+
+
+                <!-- HELP -->
+
+                <a href="?id=hr_assist"
+                   class="header-icon">
+
+                    ❓
+
+                </a>
+
+
+                <!-- PROFILE -->
+
+                <a href="?id=hr_profile"
+                   class="profile">
+
+                    <div class="profile-avatar">
+                        {{c.data.userInitial}}
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            {{c.data.userName}}
+                        </strong>
+
+                        <small>
+                            HR Manager
+                        </small>
+
+                    </div>
+
+                    <span>
+                        ▼
+                    </span>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             KPI CARDS
+             ===================================================== -->
+
+        <section class="kpi-grid">
+
+
+            <!-- EMPLOYEES -->
+
+            <a href="?id=employee_management"
+               class="kpi-card employees-card">
+
+                <div class="kpi-icon">
+                    ]]>👥
+<![CDATA[                </div>
+
+                <div class="kpi-info">
+
+                    <span>
+                        Total Employees
+                    </span>
+
+                    <strong>
+                        {{c.data.totalEmployees}}
+                    </strong>
+
+                    <small>
+                        {{c.data.faculty}} Faculty
+                        •
+                        {{c.data.staff}} Staff
+                    </small>
+
+                </div>
+
+                <span class="kpi-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- LEAVE -->
+
+            <a href="?id=leave_management"
+               class="kpi-card leave-card">
+
+                <div class="kpi-icon">
+                    ]]>📅
+<![CDATA[                </div>
+
+                <div class="kpi-info">
+
+                    <span>
+                        Leave Requests
+                    </span>
+
+                    <strong>
+                        {{c.data.leaveTotal}}
+                    </strong>
+
+                    <small>
+                        {{c.data.leavePending}} Pending
+                        •
+                        {{c.data.leaveApproved}} Approved
+                    </small>
+
+                </div>
+
+                <span class="kpi-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- HR CASES -->
+
+            <a href="?id=hr_cases"
+               class="kpi-card cases-card">
+
+                <div class="kpi-icon">
+                    ]]>💼
+<![CDATA[                </div>
+
+                <div class="kpi-info">
+
+                    <span>
+                        Open HR Cases
+                    </span>
+
+                    <strong>
+                        {{c.data.openCases}}
+                    </strong>
+
+                    <small>
+                        {{c.data.inProgressCases}}
+                        In Progress
+                    </small>
+
+                </div>
+
+                <span class="kpi-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- REQUESTS -->
+
+            <a href="?id=service_catalog"
+               class="kpi-card requests-card">
+
+                <div class="kpi-icon">
+                    ]]>📄
+<![CDATA[                </div>
+
+                <div class="kpi-info">
+
+                    <span>
+                        Requests This Month
+                    </span>
+
+                    <strong>
+                        {{c.data.requestsThisMonth}}
+                    </strong>
+
+                    <small>
+                        View Service Requests
+                    </small>
+
+                </div>
+
+                <span class="kpi-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <!-- RESOLUTION -->
+
+            <a href="?id=hr_reports"
+               class="kpi-card resolution-card">
+
+                <div class="kpi-icon">
+                    ⏱️
+                </div>
+
+                <div class="kpi-info">
+
+                    <span>
+                        Avg. Resolution Time
+                    </span>
+
+                    <strong>
+                        {{c.data.avgResolution}}
+                    </strong>
+
+                    <small>
+                        This Month
+                    </small>
+
+                </div>
+
+                <span class="kpi-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CHARTS
+             ===================================================== -->
+
+        <section class="chart-grid">
+
+
+            <!-- LEAVE STATUS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Leave Requests by Status
+                        </h2>
+
+                        <p>
+                            Current month
+                        </p>
+
+                    </div>
+
+                    <a href="?id=leave_management"
+                       class="view-link">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div class="leave-chart">
+
+
+                    <div class="donut">
+
+                        <div class="donut-center">
+
+                            <strong>
+                                {{c.data.leaveTotal}}
+                            </strong>
+
+                            <span>
+                                Total
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="legend">
+
+
+                        <a href="?id=leave_management&filter=approved"
+                           class="legend-item">
+
+                            <span class="legend-dot approved"></span>
+
+                            <span>
+                                Approved
+                            </span>
+
+                            <strong>
+                                {{c.data.leaveApproved}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=leave_management&filter=pending"
+                           class="legend-item">
+
+                            <span class="legend-dot pending"></span>
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong>
+                                {{c.data.leavePending}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=leave_management&filter=rejected"
+                           class="legend-item">
+
+                            <span class="legend-dot rejected"></span>
+
+                            <span>
+                                Rejected
+                            </span>
+
+                            <strong>
+                                {{c.data.leaveRejected}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=leave_management&filter=cancelled"
+                           class="legend-item">
+
+                            <span class="legend-dot cancelled"></span>
+
+                            <span>
+                                Cancelled
+                            </span>
+
+                            <strong>
+                                {{c.data.leaveCancelled}}
+                            </strong>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HR CASE CATEGORIES -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            HR Cases by Category
+                        </h2>
+
+                        <p>
+                            Current month
+                        </p>
+
+                    </div>
+
+                    <a href="?id=hr_cases"
+                       class="view-link">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div class="category-chart">
+
+
+                    <div class="case-donut">
+
+                        <div class="donut-center">
+
+                            <strong>
+                                {{c.data.openCases}}
+                            </strong>
+
+                            <span>
+                                Total
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="legend">
+
+
+                        <a href="?id=hr_cases&category=payroll"
+                           class="legend-item">
+
+                            <span class="legend-dot payroll"></span>
+
+                            <span>
+                                Payroll & Benefits
+                            </span>
+
+                            <strong>
+                                {{c.data.payrollCases}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=hr_cases&category=leave"
+                           class="legend-item">
+
+                            <span class="legend-dot leave"></span>
+
+                            <span>
+                                Leave & Attendance
+                            </span>
+
+                            <strong>
+                                {{c.data.leaveCases}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=hr_cases&category=onboarding"
+                           class="legend-item">
+
+                            <span class="legend-dot onboarding"></span>
+
+                            <span>
+                                Onboarding
+                            </span>
+
+                            <strong>
+                                {{c.data.onboardingCases}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=hr_cases&category=policy"
+                           class="legend-item">
+
+                            <span class="legend-dot policy"></span>
+
+                            <span>
+                                Policies & Compliance
+                            </span>
+
+                            <strong>
+                                {{c.data.policyCases}}
+                            </strong>
+
+                        </a>
+
+
+                        <a href="?id=hr_cases&category=others"
+                           class="legend-item">
+
+                            <span class="legend-dot others"></span>
+
+                            <span>
+                                Others
+                            </span>
+
+                            <strong>
+                                {{c.data.otherCases}}
+                            </strong>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BOTTOM GRID
+             ===================================================== -->
+
+        <section class="bottom-grid">
+
+
+            <!-- RECENT HR CASES -->
+
+            <div class="dashboard-card recent-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Recent HR Cases
+                    </h2>
+
+                    <a href="?id=hr_cases"
+                       class="view-link">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Case ID
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Requested By
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Priority
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr ng-repeat="item in c.data.recentCases">
+
+                                <td>
+
+                                    <a href="?id=hr_case&sys_id={{item.sys_id}}"
+                                       class="case-link">
+
+                                        {{item.number}}
+
+                                    </a>
+
+                                </td>
+
+
+                                <td>
+
+                                    <a href="?id=hr_case&sys_id={{item.sys_id}}"
+                                       class="subject-link">
+
+                                        {{item.subject}}
+
+                                    </a>
+
+                                </td>
+
+
+                                <td>
+
+                                    {{item.requestedBy}}
+
+                                </td>
+
+
+                                <td>
+
+                                    <a href="?id=hr_case&sys_id={{item.sys_id}}"
+                                       class="status-badge">
+
+                                        {{item.status}}
+
+                                    </a>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="priority-badge"
+                                          ng-class="item.priorityClass">
+
+                                        {{item.priority}}
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr ng-if="c.data.recentCases.length == 0">
+
+                                <td colspan="5"
+                                    class="empty">
+
+                                    No HR cases found.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- UPCOMING HOLIDAYS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Upcoming Holidays
+                    </h2>
+
+                    <a href="?id=leave_calendar"
+                       class="view-link">
+
+                        View Calendar →
+
+                    </a>
+
+                </div>
+
+
+                <div class="holiday-list">
+
+
+                    <a href="?id=leave_calendar"
+                       class="holiday-item">
+
+                        <div class="holiday-date">
+
+                            <strong>
+                                15
+                            </strong>
+
+                            <span>
+                                AUG
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Independence Day
+                            </strong>
+
+                            <span>
+                                Friday, 15 August
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="?id=leave_calendar"
+                       class="holiday-item">
+
+                        <div class="holiday-date">
+
+                            <strong>
+                                05
+                            </strong>
+
+                            <span>
+                                SEP
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Teachers' Day
+                            </strong>
+
+                            <span>
+                                Friday, 5 September
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="?id=leave_calendar"
+                       class="holiday-item">
+
+                        <div class="holiday-date">
+
+                            <strong>
+                                02
+                            </strong>
+
+                            <span>
+                                OCT
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Gandhi Jayanti
+                            </strong>
+
+                            <span>
+                                Thursday, 2 October
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-grid">
+
+
+                    <a href="?id=create_hr_case"
+                       class="quick-action">
+
+                        <span>
+                            ]]>💼
+<![CDATA[                        </span>
+
+                        <strong>
+                            Create HR Case
+                        </strong>
+
+                    </a>
+
+
+                    <a href="?id=approvals"
+                       class="quick-action">
+
+                        <span>
+                            ✅
+                        </span>
+
+                        <strong>
+                            Approve Requests
+                        </strong>
+
+                    </a>
+
+
+                    <a href="?id=add_employee"
+                       class="quick-action">
+
+                        <span>
+                            ]]>👤
+<![CDATA[                        </span>
+
+                        <strong>
+                            Add Employee
+                        </strong>
+
+                    </a>
+
+
+                    <a href="?id=leave_calendar"
+                       class="quick-action">
+
+                        <span>
+                            ]]>📅
+<![CDATA[                        </span>
+
+                        <strong>
+                            Leave Calendar
+                        </strong>
+
+                    </a>
+
+
+                    <a href="?id=hr_reports"
+                       class="quick-action">
+
+                        <span>
+                            ]]>📊
+<![CDATA[                        </span>
+
+                        <strong>
+                            HR Reports
+                        </strong>
+
+                    </a>
+
+
+                    <a href="?id=knowledge_base"
+                       class="quick-action">
+
+                        <span>
+                            ]]>📚
+<![CDATA[                        </span>
+
+                        <strong>
+                            Knowledge Base
+                        </strong>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                ]]>🏛<![CDATA[️ © 2026 Unified Service Delivery Platform
+            </span>
+
+            <span>
+                Building better HR experiences for our University Community.
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_widget_5033cfae6c2203107f4499a3fab9db07</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;/* =========================================================&amp;#13;
+   UNIFIED HR DASHBOARD&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.hr-app {&amp;#13;
+    display: flex;&amp;#13;
+    min-height: 100vh;&amp;#13;
+    background: #f7f8fc;&amp;#13;
+    color: #172554;&amp;#13;
+    font-family: Arial, Helvetica, sans-serif;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   SIDEBAR&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.hr-sidebar {&amp;#13;
+    width: 280px;&amp;#13;
+    min-width: 280px;&amp;#13;
+    background: #ffffff;&amp;#13;
+    border-right: 1px solid #e5e7eb;&amp;#13;
+    display: flex;&amp;#13;
+    flex-direction: column;&amp;#13;
+    min-height: 100vh;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* BRAND */&amp;#13;
+&amp;#13;
+.brand {&amp;#13;
+    padding: 22px 24px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 12px;&amp;#13;
+    border-bottom: 1px solid #f1f5f9;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.brand-icon {&amp;#13;
+    font-size: 35px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.brand-text {&amp;#13;
+    display: flex;&amp;#13;
+    flex-direction: column;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.brand-text strong {&amp;#13;
+    font-size: 18px;&amp;#13;
+    color: #111827;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.brand-text span {&amp;#13;
+    font-size: 12px;&amp;#13;
+    color: #64748b;&amp;#13;
+    margin-top: 2px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.brand-text small {&amp;#13;
+    font-size: 10px;&amp;#13;
+    color: #94a3b8;&amp;#13;
+    margin-top: 3px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* MENU */&amp;#13;
+&amp;#13;
+.sidebar-menu {&amp;#13;
+    padding: 18px 14px;&amp;#13;
+    flex: 1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.sidebar-link {&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 12px;&amp;#13;
+    min-height: 46px;&amp;#13;
+    padding: 0 14px;&amp;#13;
+    margin-bottom: 5px;&amp;#13;
+    border-radius: 8px;&amp;#13;
+    color: #334155;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    font-size: 14px;&amp;#13;
+    font-weight: 500;&amp;#13;
+    transition: all .2s ease;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.sidebar-link:hover {&amp;#13;
+    background: #f1f5ff;&amp;#13;
+    color: #4338ca;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    transform: translateX(2px);&amp;#13;
+}&amp;#13;
+&amp;#13;
+.sidebar-link.active {&amp;#13;
+    background: #312e81;&amp;#13;
+    color: white;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.sidebar-icon {&amp;#13;
+    width: 24px;&amp;#13;
+    text-align: center;&amp;#13;
+    font-size: 17px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.menu-arrow {&amp;#13;
+    margin-left: auto;&amp;#13;
+    font-size: 20px;&amp;#13;
+    opacity: .6;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.notification-badge {&amp;#13;
+    margin-left: auto;&amp;#13;
+    min-width: 22px;&amp;#13;
+    height: 22px;&amp;#13;
+    padding: 0 6px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+    background: #ef4444;&amp;#13;
+    color: white;&amp;#13;
+    border-radius: 20px;&amp;#13;
+    font-size: 11px;&amp;#13;
+    font-weight: bold;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* HELP */&amp;#13;
+&amp;#13;
+.help-box {&amp;#13;
+    margin: 15px;&amp;#13;
+    padding: 20px 14px;&amp;#13;
+    background: #fafaff;&amp;#13;
+    border: 1px solid #e5e7eb;&amp;#13;
+    border-radius: 12px;&amp;#13;
+    text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.help-icon {&amp;#13;
+    font-size: 30px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.help-box h3 {&amp;#13;
+    margin: 10px 0 5px;&amp;#13;
+    font-size: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.help-box p {&amp;#13;
+    margin: 0 0 14px;&amp;#13;
+    font-size: 12px;&amp;#13;
+    color: #64748b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.help-button {&amp;#13;
+    display: block;&amp;#13;
+    background: #4338ca;&amp;#13;
+    color: white !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    padding: 10px;&amp;#13;
+    border-radius: 7px;&amp;#13;
+    font-size: 12px;&amp;#13;
+    font-weight: 600;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.help-button:hover {&amp;#13;
+    background: #3730a3;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* SIDEBAR FOOTER */&amp;#13;
+&amp;#13;
+.sidebar-footer {&amp;#13;
+    padding: 15px;&amp;#13;
+    text-align: center;&amp;#13;
+    color: #94a3b8;&amp;#13;
+    font-size: 11px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   MAIN&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.hr-main {&amp;#13;
+    flex: 1;&amp;#13;
+    min-width: 0;&amp;#13;
+    padding: 28px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* HEADER */&amp;#13;
+&amp;#13;
+.top-header {&amp;#13;
+    display: flex;&amp;#13;
+    justify-content: space-between;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 25px;&amp;#13;
+    margin-bottom: 28px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.welcome h1 {&amp;#13;
+    margin: 0;&amp;#13;
+    font-size: 27px;&amp;#13;
+    font-weight: 700;&amp;#13;
+    color: #172554;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.welcome p {&amp;#13;
+    margin: 8px 0 0;&amp;#13;
+    color: #64748b;&amp;#13;
+    font-size: 14px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* HEADER RIGHT */&amp;#13;
+&amp;#13;
+.header-right {&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.search-box {&amp;#13;
+    width: 390px;&amp;#13;
+    height: 45px;&amp;#13;
+    padding: 0 15px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 10px;&amp;#13;
+    background: white;&amp;#13;
+    border: 1px solid #e2e8f0;&amp;#13;
+    border-radius: 9px;&amp;#13;
+    color: #64748b !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    font-size: 12px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.search-box:hover {&amp;#13;
+    border-color: #6366f1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.search-text {&amp;#13;
+    white-space: nowrap;&amp;#13;
+    overflow: hidden;&amp;#13;
+    text-overflow: ellipsis;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.header-icon {&amp;#13;
+    position: relative;&amp;#13;
+    width: 38px;&amp;#13;
+    height: 38px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+    color: #475569 !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    border-radius: 8px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.header-icon:hover {&amp;#13;
+    background: #f1f5f9;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.header-icon span {&amp;#13;
+    position: absolute;&amp;#13;
+    top: -2px;&amp;#13;
+    right: -2px;&amp;#13;
+    background: #ef4444;&amp;#13;
+    color: white;&amp;#13;
+    border-radius: 20px;&amp;#13;
+    min-width: 17px;&amp;#13;
+    height: 17px;&amp;#13;
+    text-align: center;&amp;#13;
+    font-size: 9px;&amp;#13;
+    padding-top: 3px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.profile {&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 9px;&amp;#13;
+    color: #1e293b !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.profile-avatar {&amp;#13;
+    width: 38px;&amp;#13;
+    height: 38px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+    background: #e0e7ff;&amp;#13;
+    color: #3730a3;&amp;#13;
+    border-radius: 50%;&amp;#13;
+    font-weight: 700;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.profile strong,&amp;#13;
+.profile small {&amp;#13;
+    display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.profile strong {&amp;#13;
+    font-size: 12px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.profile small {&amp;#13;
+    color: #64748b;&amp;#13;
+    font-size: 10px;&amp;#13;
+    margin-top: 2px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   KPI&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.kpi-grid {&amp;#13;
+    display: grid;&amp;#13;
+    grid-template-columns: repeat(5, 1fr);&amp;#13;
+    gap: 16px;&amp;#13;
+    margin-bottom: 20px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-card {&amp;#13;
+    position: relative;&amp;#13;
+    min-height: 125px;&amp;#13;
+    padding: 20px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: flex-start;&amp;#13;
+    gap: 14px;&amp;#13;
+    background: white;&amp;#13;
+    border: 1px solid #e5e7eb;&amp;#13;
+    border-radius: 12px;&amp;#13;
+    color: #172554 !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    transition: all .2s ease;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-card:hover {&amp;#13;
+    transform: translateY(-3px);&amp;#13;
+    box-shadow: 0 8px 22px rgba(15,23,42,.09);&amp;#13;
+    border-color: #c7d2fe;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-icon {&amp;#13;
+    width: 45px;&amp;#13;
+    height: 45px;&amp;#13;
+    min-width: 45px;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+    border-radius: 50%;&amp;#13;
+    font-size: 21px;&amp;#13;
+    background: #eef2ff;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.leave-card .kpi-icon {&amp;#13;
+    background: #ecfdf5;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.cases-card .kpi-icon {&amp;#13;
+    background: #fff7ed;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.requests-card .kpi-icon {&amp;#13;
+    background: #eff6ff;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.resolution-card .kpi-icon {&amp;#13;
+    background: #f5f3ff;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-info span,&amp;#13;
+.kpi-info strong,&amp;#13;
+.kpi-info small {&amp;#13;
+    display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-info span {&amp;#13;
+    font-size: 12px;&amp;#13;
+    color: #64748b;&amp;#13;
+    margin-bottom: 7px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-info strong {&amp;#13;
+    font-size: 28px;&amp;#13;
+    color: #172554;&amp;#13;
+    line-height: 1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-info small {&amp;#13;
+    margin-top: 8px;&amp;#13;
+    font-size: 10px;&amp;#13;
+    color: #64748b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.kpi-arrow {&amp;#13;
+    position: absolute;&amp;#13;
+    right: 16px;&amp;#13;
+    bottom: 12px;&amp;#13;
+    color: #4338ca;&amp;#13;
+    font-size: 18px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   GRIDS&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.chart-grid {&amp;#13;
+    display: grid;&amp;#13;
+    grid-template-columns: 1fr 1fr;&amp;#13;
+    gap: 18px;&amp;#13;
+    margin-bottom: 18px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.bottom-grid {&amp;#13;
+    display: grid;&amp;#13;
+    grid-template-columns: 1.5fr 1fr 1fr;&amp;#13;
+    gap: 18px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* CARD */&amp;#13;
+&amp;#13;
+.dashboard-card {&amp;#13;
+    background: white;&amp;#13;
+    border: 1px solid #e5e7eb;&amp;#13;
+    border-radius: 12px;&amp;#13;
+    padding: 20px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.card-header {&amp;#13;
+    display: flex;&amp;#13;
+    justify-content: space-between;&amp;#13;
+    align-items: flex-start;&amp;#13;
+    margin-bottom: 20px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.card-header h2 {&amp;#13;
+    margin: 0;&amp;#13;
+    color: #172554;&amp;#13;
+    font-size: 16px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.card-header p {&amp;#13;
+    margin: 5px 0 0;&amp;#13;
+    font-size: 11px;&amp;#13;
+    color: #94a3b8;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.view-link {&amp;#13;
+    color: #4338ca !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    font-size: 11px;&amp;#13;
+    font-weight: 600;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.view-link:hover {&amp;#13;
+    text-decoration: underline !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   DONUT CHARTS&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.leave-chart,&amp;#13;
+.category-chart {&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+    gap: 45px;&amp;#13;
+    min-height: 185px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut,&amp;#13;
+.case-donut {&amp;#13;
+    width: 145px;&amp;#13;
+    height: 145px;&amp;#13;
+    min-width: 145px;&amp;#13;
+    border-radius: 50%;&amp;#13;
+    position: relative;&amp;#13;
+    display: flex;&amp;#13;
+    align-items: center;&amp;#13;
+    justify-content: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut {&amp;#13;
+    background: conic-gradient(&amp;#13;
+        #22c55e 0deg 190deg,&amp;#13;
+        #f59e0b 190deg 285deg,&amp;#13;
+        #ef4444 285deg 330deg,&amp;#13;
+        #6366f1 330deg 360deg&amp;#13;
+    );&amp;#13;
+}&amp;#13;
+&amp;#13;
+.case-donut {&amp;#13;
+    background: conic-gradient(&amp;#13;
+        #10b981 0deg 90deg,&amp;#13;
+        #f59e0b 90deg 160deg,&amp;#13;
+        #8b5cf6 160deg 225deg,&amp;#13;
+        #ec4899 225deg 290deg,&amp;#13;
+        #6366f1 290deg 360deg&amp;#13;
+    );&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut:before,&amp;#13;
+.case-donut:before {&amp;#13;
+    content: "";&amp;#13;
+    position: absolute;&amp;#13;
+    width: 90px;&amp;#13;
+    height: 90px;&amp;#13;
+    background: white;&amp;#13;
+    border-radius: 50%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut-center {&amp;#13;
+    position: relative;&amp;#13;
+    z-index: 1;&amp;#13;
+    text-align: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut-center strong,&amp;#13;
+.donut-center span {&amp;#13;
+    display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut-center strong {&amp;#13;
+    font-size: 23px;&amp;#13;
+    color: #172554;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.donut-center span {&amp;#13;
+    font-size: 10px;&amp;#13;
+    color: #64748b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* LEGEND */&amp;#13;
+&amp;#13;
+.legend {&amp;#13;
+    min-width: 180px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.legend-item {&amp;#13;
+    display: grid;&amp;#13;
+    grid-template-columns: 10px 1fr auto;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 8px;&amp;#13;
+    padding: 7px 4px;&amp;#13;
+    color: #475569 !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    font-size: 11px;&amp;#13;
+    border-radius: 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.legend-item:hover {&amp;#13;
+    background: #f8fafc;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.legend-item strong {&amp;#13;
+    color: #172554;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.legend-dot {&amp;#13;
+    width: 9px;&amp;#13;
+    height: 9px;&amp;#13;
+    border-radius: 50%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.approved {&amp;#13;
+    background: #22c55e;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.pending {&amp;#13;
+    background: #f59e0b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.rejected {&amp;#13;
+    background: #ef4444;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.cancelled {&amp;#13;
+    background: #6366f1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.payroll {&amp;#13;
+    background: #10b981;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.leave {&amp;#13;
+    background: #f59e0b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.onboarding {&amp;#13;
+    background: #8b5cf6;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.policy {&amp;#13;
+    background: #ec4899;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.others {&amp;#13;
+    background: #6366f1;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   TABLE&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.table-wrapper {&amp;#13;
+    overflow-x: auto;&amp;#13;
+}&amp;#13;
+&amp;#13;
+table {&amp;#13;
+    width: 100%;&amp;#13;
+    border-collapse: collapse;&amp;#13;
+}&amp;#13;
+&amp;#13;
+th {&amp;#13;
+    padding: 11px 8px;&amp;#13;
+    text-align: left;&amp;#13;
+    background: #f8fafc;&amp;#13;
+    color: #64748b;&amp;#13;
+    font-size: 10px;&amp;#13;
+    font-weight: 600;&amp;#13;
+}&amp;#13;
+&amp;#13;
+td {&amp;#13;
+    padding: 12px 8px;&amp;#13;
+    border-bottom: 1px solid #f1f5f9;&amp;#13;
+    color: #475569;&amp;#13;
+    font-size: 11px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.case-link,&amp;#13;
+.subject-link {&amp;#13;
+    color: #4338ca !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    font-weight: 600;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.case-link:hover,&amp;#13;
+.subject-link:hover {&amp;#13;
+    text-decoration: underline !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.status-badge,&amp;#13;
+.priority-badge {&amp;#13;
+    display: inline-block;&amp;#13;
+    padding: 5px 9px;&amp;#13;
+    border-radius: 6px;&amp;#13;
+    font-size: 9px;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.status-badge {&amp;#13;
+    background: #e0e7ff;&amp;#13;
+    color: #3730a3 !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.priority-badge {&amp;#13;
+    background: #fef3c7;&amp;#13;
+    color: #92400e;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.priority-badge.priority-low {&amp;#13;
+    background: #dcfce7;&amp;#13;
+    color: #166534;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.empty {&amp;#13;
+    text-align: center;&amp;#13;
+    padding: 25px;&amp;#13;
+    color: #94a3b8;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   HOLIDAYS&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.holiday-list {&amp;#13;
+    display: flex;&amp;#13;
+    flex-direction: column;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-item {&amp;#13;
+    display: flex;&amp;#13;
+    gap: 13px;&amp;#13;
+    padding: 13px 0;&amp;#13;
+    border-bottom: 1px solid #f1f5f9;&amp;#13;
+    color: #334155 !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-item:hover {&amp;#13;
+    background: #f8fafc;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-date {&amp;#13;
+    width: 45px;&amp;#13;
+    min-width: 45px;&amp;#13;
+    height: 45px;&amp;#13;
+    background: #f1f5ff;&amp;#13;
+    border-radius: 7px;&amp;#13;
+    display: flex;&amp;#13;
+    flex-direction: column;&amp;#13;
+    justify-content: center;&amp;#13;
+    align-items: center;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-date strong {&amp;#13;
+    font-size: 17px;&amp;#13;
+    color: #3730a3;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-date span {&amp;#13;
+    font-size: 8px;&amp;#13;
+    color: #64748b;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-item &amp;gt; div:last-child strong,&amp;#13;
+.holiday-item &amp;gt; div:last-child span {&amp;#13;
+    display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-item &amp;gt; div:last-child strong {&amp;#13;
+    font-size: 12px;&amp;#13;
+    margin-top: 3px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.holiday-item &amp;gt; div:last-child span {&amp;#13;
+    font-size: 10px;&amp;#13;
+    color: #94a3b8;&amp;#13;
+    margin-top: 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   QUICK ACTIONS&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.quick-grid {&amp;#13;
+    display: grid;&amp;#13;
+    grid-template-columns: repeat(2, 1fr);&amp;#13;
+    gap: 10px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.quick-action {&amp;#13;
+    min-height: 80px;&amp;#13;
+    display: flex;&amp;#13;
+    flex-direction: column;&amp;#13;
+    justify-content: center;&amp;#13;
+    align-items: center;&amp;#13;
+    gap: 7px;&amp;#13;
+    border: 1px solid #e5e7eb;&amp;#13;
+    border-radius: 9px;&amp;#13;
+    background: white;&amp;#13;
+    color: #334155 !important;&amp;#13;
+    text-decoration: none !important;&amp;#13;
+    transition: .2s;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.quick-action span {&amp;#13;
+    font-size: 22px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.quick-action strong {&amp;#13;
+    font-size: 10px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.quick-action:hover {&amp;#13;
+    background: #f5f3ff;&amp;#13;
+    border-color: #6366f1;&amp;#13;
+    color: #3730a3 !important;&amp;#13;
+    transform: translateY(-2px);&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   FOOTER&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+.dashboard-footer {&amp;#13;
+    display: flex;&amp;#13;
+    justify-content: space-between;&amp;#13;
+    padding: 25px 5px 5px;&amp;#13;
+    color: #94a3b8;&amp;#13;
+    font-size: 10px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+/* =========================================================&amp;#13;
+   RESPONSIVE&amp;#13;
+   ========================================================= */&amp;#13;
+&amp;#13;
+@media (max-width: 1300px) {&amp;#13;
+&amp;#13;
+    .kpi-grid {&amp;#13;
+        grid-template-columns: repeat(3, 1fr);&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .bottom-grid {&amp;#13;
+        grid-template-columns: 1fr 1fr;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .recent-card {&amp;#13;
+        grid-column: span 2;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .search-box {&amp;#13;
+        width: 280px;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+@media (max-width: 900px) {&amp;#13;
+&amp;#13;
+    .hr-sidebar {&amp;#13;
+        width: 75px;&amp;#13;
+        min-width: 75px;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .brand-text,&amp;#13;
+    .sidebar-link span:not(.sidebar-icon),&amp;#13;
+    .menu-arrow,&amp;#13;
+    .notification-badge,&amp;#13;
+    .help-box,&amp;#13;
+    .sidebar-footer {&amp;#13;
+        display: none;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .sidebar-link {&amp;#13;
+        justify-content: center;&amp;#13;
+        padding: 0;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .hr-main {&amp;#13;
+        padding: 18px;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .top-header {&amp;#13;
+        flex-direction: column;&amp;#13;
+        align-items: flex-start;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .header-right {&amp;#13;
+        width: 100%;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .search-box {&amp;#13;
+        flex: 1;&amp;#13;
+        width: auto;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .chart-grid {&amp;#13;
+        grid-template-columns: 1fr;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+@media (max-width: 650px) {&amp;#13;
+&amp;#13;
+    .kpi-grid {&amp;#13;
+        grid-template-columns: 1fr;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .bottom-grid {&amp;#13;
+        grid-template-columns: 1fr;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .recent-card {&amp;#13;
+        grid-column: span 1;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .leave-chart,&amp;#13;
+    .category-chart {&amp;#13;
+        flex-direction: column;&amp;#13;
+        gap: 20px;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+    .dashboard-footer {&amp;#13;
+        flex-direction: column;&amp;#13;
+        gap: 8px;&amp;#13;
+    }&amp;#13;
+&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description&gt;Unified HR dashboard for employee, leave, HR case, performance, recruitment and knowledge management.&lt;/description&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;unified_hr_dashboard&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+}]]&gt;&lt;/link&gt;&lt;name&gt;Unified HR Dashboard&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+
+    /* =========================================================
+       UNIFIED HR DASHBOARD - SERVER SCRIPT
+       Dynamic data with safe fallbacks
+       ========================================================= */
+
+    data = data || {};
+
+    /* ---------------------------------------------------------
+       Helper: safely count records
+       --------------------------------------------------------- */
+    function getCount(tableName, encodedQuery) {
+
+        try {
+
+            var gr = new GlideRecord(tableName);
+
+            if (!gr.isValid()) {
+                return 0;
+            }
+
+            if (encodedQuery) {
+                gr.addEncodedQuery(encodedQuery);
+            }
+
+            gr.query();
+
+            return gr.getRowCount();
+
+        } catch (e) {
+
+            gs.error("HR Dashboard count error - " + tableName +
+                     ": " + e.message);
+
+            return 0;
+        }
+    }
+
+
+    /* ---------------------------------------------------------
+       EMPLOYEES
+       --------------------------------------------------------- */
+
+    data.totalEmployees = getCount("sys_user", "active=true");
+
+
+    /* ---------------------------------------------------------
+       LEAVE REQUESTS
+       
+       Change table/query here later if your custom leave table
+       has a different name.
+       --------------------------------------------------------- */
+
+    data.leaveRequests = 0;
+    data.leavePending = 0;
+    data.leaveApproved = 0;
+    data.leaveRejected = 0;
+    data.leaveCancelled = 0;
+
+    try {
+
+        var leaveTable = "sysapproval_approver";
+        var leaveGR = new GlideRecord(leaveTable);
+
+        if (leaveGR.isValid()) {
+
+            leaveGR.addQuery("state", "requested");
+            leaveGR.query();
+
+            data.leavePending = leaveGR.getRowCount();
+        }
+
+    } catch (e1) {
+
+        data.leavePending = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       HR CASES
+       --------------------------------------------------------- */
+
+    data.openCases = 0;
+    data.newCases = 0;
+    data.inProgressCases = 0;
+    data.onHoldCases = 0;
+    data.resolvedCases = 0;
+
+    try {
+
+        var hrCase = new GlideRecord("sn_hr_core_case");
+
+        if (hrCase.isValid()) {
+
+            /* Open cases */
+            hrCase.addQuery("active", true);
+            hrCase.query();
+
+            data.openCases = hrCase.getRowCount();
+
+
+            /* New */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "1");
+            hrCase.query();
+
+            data.newCases = hrCase.getRowCount();
+
+
+            /* In Progress */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "2");
+            hrCase.query();
+
+            data.inProgressCases = hrCase.getRowCount();
+
+
+            /* On Hold */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "3");
+            hrCase.query();
+
+            data.onHoldCases = hrCase.getRowCount();
+
+
+            /* Resolved */
+            hrCase = new GlideRecord("sn_hr_core_case");
+            hrCase.addQuery("state", "6");
+            hrCase.query();
+
+            data.resolvedCases = hrCase.getRowCount();
+        }
+
+    } catch (e2) {
+
+        data.openCases = 0;
+        data.newCases = 0;
+        data.inProgressCases = 0;
+        data.onHoldCases = 0;
+        data.resolvedCases = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       REQUESTS THIS MONTH
+       --------------------------------------------------------- */
+
+    data.requestsThisMonth = 0;
+
+    try {
+
+        var requestGR = new GlideRecord("sc_request");
+
+        if (requestGR.isValid()) {
+
+            requestGR.addEncodedQuery(
+                "sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()"
+            );
+
+            requestGR.query();
+
+            data.requestsThisMonth = requestGR.getRowCount();
+        }
+
+    } catch (e3) {
+
+        data.requestsThisMonth = 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       AVERAGE RESOLUTION TIME
+       --------------------------------------------------------- */
+
+    data.avgResolutionTime = "2.6";
+    data.avgResolutionUnit = "Days";
+
+
+    /* ---------------------------------------------------------
+       LEAVE STATUS CHART
+       --------------------------------------------------------- */
+
+    data.leaveChart = {
+        approved: data.leaveApproved || 0,
+        pending: data.leavePending || 0,
+        rejected: data.leaveRejected || 0,
+        cancelled: data.leaveCancelled || 0
+    };
+
+
+    /* ---------------------------------------------------------
+       HR CASE CATEGORY CHART
+       --------------------------------------------------------- */
+
+    data.caseCategories = {
+        payroll: 0,
+        leave: 0,
+        onboarding: 0,
+        policies: 0,
+        others: 0
+    };
+
+
+    /* ---------------------------------------------------------
+       RECENT HR CASES
+       --------------------------------------------------------- */
+
+    data.recentCases = [];
+
+    try {
+
+        var recent = new GlideRecord("sn_hr_core_case");
+
+        if (recent.isValid()) {
+
+            recent.orderByDesc("sys_created_on");
+            recent.setLimit(5);
+            recent.query();
+
+            while (recent.next()) {
+
+                var caseItem = {};
+
+                caseItem.id = recent.getDisplayValue("number") || "";
+                caseItem.subject =
+                    recent.getDisplayValue("short_description") ||
+                    recent.getDisplayValue("description") ||
+                    "HR Case";
+
+                caseItem.requestedBy =
+                    recent.getDisplayValue("opened_for") || "";
+
+                caseItem.status =
+                    recent.getDisplayValue("state") || "New";
+
+                caseItem.priority =
+                    recent.getDisplayValue("priority") || "Medium";
+
+                data.recentCases.push(caseItem);
+            }
+        }
+
+    } catch (e4) {
+
+        data.recentCases = [];
+    }
+
+
+    /* ---------------------------------------------------------
+       UPCOMING HOLIDAYS
+       --------------------------------------------------------- */
+
+    data.holidays = [];
+
+
+    /* ---------------------------------------------------------
+       DASHBOARD SUMMARY
+       --------------------------------------------------------- */
+
+    data.summary = {
+        employees: data.totalEmployees || 0,
+        leaves: data.leaveRequests || 0,
+        cases: data.openCases || 0,
+        requests: data.requestsThisMonth || 0,
+        resolutionTime: data.avgResolutionTime || "0"
+    };
+
+
+    /* ---------------------------------------------------------
+       IMPORTANT:
+       Never allow dashboard objects to become null.
+       --------------------------------------------------------- */
+
+    if (!data.recentCases) {
+        data.recentCases = [];
+    }
+
+    if (!data.holidays) {
+        data.holidays = [];
+    }
+
+    if (!data.leaveChart) {
+        data.leaveChart = {
+            approved: 0,
+            pending: 0,
+            rejected: 0,
+            cancelled: 0
+        };
+    }
+
+    if (!data.caseCategories) {
+        data.caseCategories = {
+            payroll: 0,
+            leave: 0,
+            onboarding: 0,
+            policies: 0,
+            others: 0
+        };
+    }
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-10 04:40:56&lt;/sys_created_on&gt;&lt;sys_id&gt;5033cfae6c2203107f4499a3fab9db07&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Unified HR Dashboard&lt;/sys_name&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_5033cfae6c2203107f4499a3fab9db07&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-10 05:00:01&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="hr-app"&gt;
+
+    &lt;!-- =========================================================
+         SIDEBAR
+         ========================================================= --&gt;
+
+    &lt;aside class="hr-sidebar"&gt;
+
+        &lt;div class="brand"&gt;
+
+            &lt;div class="brand-icon"&gt;
+                ]]&gt;🏛&lt;![CDATA[️
+            &lt;/div&gt;
+
+            &lt;div class="brand-text"&gt;
+                &lt;strong&gt;Unified HR&lt;/strong&gt;
+                &lt;span&gt;Service Delivery Platform&lt;/span&gt;
+                &lt;small&gt;University Faculty &amp; Staff&lt;/small&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+
+        &lt;!-- SIDEBAR MENU --&gt;
+
+        &lt;nav class="sidebar-menu"&gt;
+
+            &lt;a href="?id=unified_hr_dashboard"
+               class="sidebar-link active"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;🏠&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;HR Dashboard&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=employee_management"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;👥&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Employee Management&lt;/span&gt;
+
+                &lt;span class="menu-arrow"&gt;›&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=leave_management"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;📅&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Leave Management&lt;/span&gt;
+
+                &lt;span class="menu-arrow"&gt;›&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=hr_cases"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;💼&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;HR Cases&lt;/span&gt;
+
+                &lt;span class="menu-arrow"&gt;›&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=approvals"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;✅&lt;/span&gt;
+
+                &lt;span&gt;Approvals&lt;/span&gt;
+
+                &lt;span class="notification-badge"&gt;
+                    {{c.data.approvals}}
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=service_catalog"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;🛒&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Service Catalog&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=knowledge_base"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;📚&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Knowledge Base&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=hr_reports"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;📊&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Reports &amp; Analytics&lt;/span&gt;
+
+                &lt;span class="menu-arrow"&gt;›&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=announcements"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;📢&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Announcements&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=documents"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;📄&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Documents&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=sla_management"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;⏱️&lt;/span&gt;
+
+                &lt;span&gt;SLA Management&lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=notifications"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;]]&gt;🔔&lt;![CDATA[&lt;/span&gt;
+
+                &lt;span&gt;Notifications&lt;/span&gt;
+
+                &lt;span class="notification-badge"&gt;
+                    {{c.data.notifications}}
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+            &lt;a href="?id=hr_settings"
+               class="sidebar-link"&gt;
+
+                &lt;span class="sidebar-icon"&gt;⚙️&lt;/span&gt;
+
+                &lt;span&gt;Settings&lt;/span&gt;
+
+            &lt;/a&gt;
+
+        &lt;/nav&gt;
+
+
+        &lt;!-- HELP BOX --&gt;
+
+        &lt;div class="help-box"&gt;
+
+            &lt;div class="help-icon"&gt;
+                ]]&gt;🎧
+&lt;![CDATA[            &lt;/div&gt;
+
+            &lt;h3&gt;Need Help?&lt;/h3&gt;
+
+            &lt;p&gt;
+                Ask HR Assist or raise a case.
+            &lt;/p&gt;
+
+            &lt;a href="?id=hr_assist"
+               class="help-button"&gt;
+
+                Chat with HR Assist
+
+            &lt;/a&gt;
+
+        &lt;/div&gt;
+
+
+        &lt;div class="sidebar-footer"&gt;
+
+            © 2026 Unified HR
+
+        &lt;/div&gt;
+
+    &lt;/aside&gt;
+
+
+    &lt;!-- =========================================================
+         MAIN CONTENT
+         ========================================================= --&gt;
+
+    &lt;main class="hr-main"&gt;
+
+
+        &lt;!-- HEADER --&gt;
+
+        &lt;header class="top-header"&gt;
+
+            &lt;div class="welcome"&gt;
+
+                &lt;h1&gt;
+                    Welcome back, HR Team! ]]&gt;👋
+&lt;![CDATA[                &lt;/h1&gt;
+
+                &lt;p&gt;
+                    Here's an overview of HR operations and service delivery.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+
+            &lt;div class="header-right"&gt;
+
+
+                &lt;!-- SEARCH --&gt;
+
+                &lt;a href="?id=hr_search"
+                   class="search-box"&gt;
+
+                    &lt;span&gt;
+                        ]]&gt;🔍
+&lt;![CDATA[                    &lt;/span&gt;
+
+                    &lt;span class="search-text"&gt;
+                        Search services, cases, employees, knowledge articles...
+                    &lt;/span&gt;
+
+                &lt;/a&gt;
+
+
+                &lt;!-- NOTIFICATION --&gt;
+
+                &lt;a href="?id=notifications"
+                   class="header-icon"&gt;
+
+                    ]]&gt;🔔
+
+&lt;![CDATA[                    &lt;span&gt;
+                        {{c.data.notifications}}
+                    &lt;/span&gt;
+
+                &lt;/a&gt;
+
+
+                &lt;!-- HELP --&gt;
+
+                &lt;a href="?id=hr_assist"
+                   class="header-icon"&gt;
+
+                    ❓
+
+                &lt;/a&gt;
+
+
+                &lt;!-- PROFILE --&gt;
+
+                &lt;a href="?id=hr_profile"
+                   class="profile"&gt;
+
+                    &lt;div class="profile-avatar"&gt;
+                        {{c.data.userInitial}}
+                    &lt;/div&gt;
+
+                    &lt;div&gt;
+
+                        &lt;strong&gt;
+                            {{c.data.userName}}
+                        &lt;/strong&gt;
+
+                        &lt;small&gt;
+                            HR Manager
+                        &lt;/small&gt;
+
+                    &lt;/div&gt;
+
+                    &lt;span&gt;
+                        ▼
+                    &lt;/span&gt;
+
+                &lt;/a&gt;
+
+            &lt;/div&gt;
+
+        &lt;/header&gt;
+
+
+
+        &lt;!-- =====================================================
+             KPI CARDS
+             ===================================================== --&gt;
+
+        &lt;section class="kpi-grid"&gt;
+
+
+            &lt;!-- EMPLOYEES --&gt;
+
+            &lt;a href="?id=employee_management"
+               class="kpi-card employees-card"&gt;
+
+                &lt;div class="kpi-icon"&gt;
+                    ]]&gt;👥
+&lt;![CDATA[                &lt;/div&gt;
+
+                &lt;div class="kpi-info"&gt;
+
+                    &lt;span&gt;
+                        Total Employees
+                    &lt;/span&gt;
+
+                    &lt;strong&gt;
+                        {{c.data.totalEmployees}}
+                    &lt;/strong&gt;
+
+                    &lt;small&gt;
+                        {{c.data.faculty}} Faculty
+                        •
+                        {{c.data.staff}} Staff
+                    &lt;/small&gt;
+
+                &lt;/div&gt;
+
+                &lt;span class="kpi-arrow"&gt;
+                    →
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+
+            &lt;!-- LEAVE --&gt;
+
+            &lt;a href="?id=leave_management"
+               class="kpi-card leave-card"&gt;
+
+                &lt;div class="kpi-icon"&gt;
+                    ]]&gt;📅
+&lt;![CDATA[                &lt;/div&gt;
+
+                &lt;div class="kpi-info"&gt;
+
+                    &lt;span&gt;
+                        Leave Requests
+                    &lt;/span&gt;
+
+                    &lt;strong&gt;
+                        {{c.data.leaveTotal}}
+                    &lt;/strong&gt;
+
+                    &lt;small&gt;
+                        {{c.data.leavePending}} Pending
+                        •
+                        {{c.data.leaveApproved}} Approved
+                    &lt;/small&gt;
+
+                &lt;/div&gt;
+
+                &lt;span class="kpi-arrow"&gt;
+                    →
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+
+            &lt;!-- HR CASES --&gt;
+
+            &lt;a href="?id=hr_cases"
+               class="kpi-card cases-card"&gt;
+
+                &lt;div class="kpi-icon"&gt;
+                    ]]&gt;💼
+&lt;![CDATA[                &lt;/div&gt;
+
+                &lt;div class="kpi-info"&gt;
+
+                    &lt;span&gt;
+                        Open HR Cases
+                    &lt;/span&gt;
+
+                    &lt;strong&gt;
+                        {{c.data.openCases}}
+                    &lt;/strong&gt;
+
+                    &lt;small&gt;
+                        {{c.data.inProgressCases}}
+                        In Progress
+                    &lt;/small&gt;
+
+                &lt;/div&gt;
+
+                &lt;span class="kpi-arrow"&gt;
+                    →
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+
+            &lt;!-- REQUESTS --&gt;
+
+            &lt;a href="?id=service_catalog"
+               class="kpi-card requests-card"&gt;
+
+                &lt;div class="kpi-icon"&gt;
+                    ]]&gt;📄
+&lt;![CDATA[                &lt;/div&gt;
+
+                &lt;div class="kpi-info"&gt;
+
+                    &lt;span&gt;
+                        Requests This Month
+                    &lt;/span&gt;
+
+                    &lt;strong&gt;
+                        {{c.data.requestsThisMonth}}
+                    &lt;/strong&gt;
+
+                    &lt;small&gt;
+                        View Service Requests
+                    &lt;/small&gt;
+
+                &lt;/div&gt;
+
+                &lt;span class="kpi-arrow"&gt;
+                    →
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+
+
+            &lt;!-- RESOLUTION --&gt;
+
+            &lt;a href="?id=hr_reports"
+               class="kpi-card resolution-card"&gt;
+
+                &lt;div class="kpi-icon"&gt;
+                    ⏱️
+                &lt;/div&gt;
+
+                &lt;div class="kpi-info"&gt;
+
+                    &lt;span&gt;
+                        Avg. Resolution Time
+                    &lt;/span&gt;
+
+                    &lt;strong&gt;
+                        {{c.data.avgResolution}}
+                    &lt;/strong&gt;
+
+                    &lt;small&gt;
+                        This Month
+                    &lt;/small&gt;
+
+                &lt;/div&gt;
+
+                &lt;span class="kpi-arrow"&gt;
+                    →
+                &lt;/span&gt;
+
+            &lt;/a&gt;
+
+        &lt;/section&gt;
+
+
+
+        &lt;!-- =====================================================
+             CHARTS
+             ===================================================== --&gt;
+
+        &lt;section class="chart-grid"&gt;
+
+
+            &lt;!-- LEAVE STATUS --&gt;
+
+            &lt;div class="dashboard-card"&gt;
+
+                &lt;div class="card-header"&gt;
+
+                    &lt;div&gt;
+
+                        &lt;h2&gt;
+                            Leave Requests by Status
+                        &lt;/h2&gt;
+
+                        &lt;p&gt;
+                            Current month
+                        &lt;/p&gt;
+
+                    &lt;/div&gt;
+
+                    &lt;a href="?id=leave_management"
+                       class="view-link"&gt;
+
+                        View All →
+
+                    &lt;/a&gt;
+
+                &lt;/div&gt;
+
+
+                &lt;div class="leave-chart"&gt;
+
+
+                    &lt;div class="donut"&gt;
+
+                        &lt;div class="donut-center"&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leaveTotal}}
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                Total
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+
+
+                    &lt;div class="legend"&gt;
+
+
+                        &lt;a href="?id=leave_management&amp;filter=approved"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot approved"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Approved
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leaveApproved}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=leave_management&amp;filter=pending"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot pending"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Pending
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leavePending}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=leave_management&amp;filter=rejected"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot rejected"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Rejected
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leaveRejected}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=leave_management&amp;filter=cancelled"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot cancelled"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Cancelled
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leaveCancelled}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+
+
+            &lt;!-- HR CASE CATEGORIES --&gt;
+
+            &lt;div class="dashboard-card"&gt;
+
+                &lt;div class="card-header"&gt;
+
+                    &lt;div&gt;
+
+                        &lt;h2&gt;
+                            HR Cases by Category
+                        &lt;/h2&gt;
+
+                        &lt;p&gt;
+                            Current month
+                        &lt;/p&gt;
+
+                    &lt;/div&gt;
+
+                    &lt;a href="?id=hr_cases"
+                       class="view-link"&gt;
+
+                        View All →
+
+                    &lt;/a&gt;
+
+                &lt;/div&gt;
+
+
+                &lt;div class="category-chart"&gt;
+
+
+                    &lt;div class="case-donut"&gt;
+
+                        &lt;div class="donut-center"&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.openCases}}
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                Total
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+
+
+                    &lt;div class="legend"&gt;
+
+
+                        &lt;a href="?id=hr_cases&amp;category=payroll"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot payroll"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Payroll &amp; Benefits
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.payrollCases}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=hr_cases&amp;category=leave"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot leave"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Leave &amp; Attendance
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.leaveCases}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=hr_cases&amp;category=onboarding"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot onboarding"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Onboarding
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.onboardingCases}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=hr_cases&amp;category=policy"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot policy"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Policies &amp; Compliance
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.policyCases}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+
+                        &lt;a href="?id=hr_cases&amp;category=others"
+                           class="legend-item"&gt;
+
+                            &lt;span class="legend-dot others"&gt;&lt;/span&gt;
+
+                            &lt;span&gt;
+                                Others
+                            &lt;/span&gt;
+
+                            &lt;strong&gt;
+                                {{c.data.otherCases}}
+                            &lt;/strong&gt;
+
+                        &lt;/a&gt;
+
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+
+
+        &lt;!-- =====================================================
+             BOTTOM GRID
+             ===================================================== --&gt;
+
+        &lt;section class="bottom-grid"&gt;
+
+
+            &lt;!-- RECENT HR CASES --&gt;
+
+            &lt;div class="dashboard-card recent-card"&gt;
+
+                &lt;div class="card-header"&gt;
+
+                    &lt;h2&gt;
+                        Recent HR Cases
+                    &lt;/h2&gt;
+
+                    &lt;a href="?id=hr_cases"
+                       class="view-link"&gt;
+
+                        View All →
+
+                    &lt;/a&gt;
+
+                &lt;/div&gt;
+
+
+                &lt;div class="table-wrapper"&gt;
+
+                    &lt;table&gt;
+
+                        &lt;thead&gt;
+
+                            &lt;tr&gt;
+
+                                &lt;th&gt;
+                                    Case ID
+                                &lt;/th&gt;
+
+                                &lt;th&gt;
+                                    Subject
+                                &lt;/th&gt;
+
+                                &lt;th&gt;
+                                    Requested By
+                                &lt;/th&gt;
+
+                                &lt;th&gt;
+                                    Status
+                                &lt;/th&gt;
+
+                                &lt;th&gt;
+                                    Priority
+                                &lt;/th&gt;
+
+                            &lt;/tr&gt;
+
+                        &lt;/thead&gt;
+
+
+                        &lt;tbody&gt;
+
+                            &lt;tr ng-repeat="item in c.data.recentCases"&gt;
+
+                                &lt;td&gt;
+
+                                    &lt;a href="?id=hr_case&amp;sys_id={{item.sys_id}}"
+                                       class="case-link"&gt;
+
+                                        {{item.number}}
+
+                                    &lt;/a&gt;
+
+                                &lt;/td&gt;
+
+
+                                &lt;td&gt;
+
+                                    &lt;a href="?id=hr_case&amp;sys_id={{item.sys_id}}"
+                                       class="subject-link"&gt;
+
+                                        {{item.subject}}
+
+                                    &lt;/a&gt;
+
+                                &lt;/td&gt;
+
+
+                                &lt;td&gt;
+
+                                    {{item.requestedBy}}
+
+                                &lt;/td&gt;
+
+
+                                &lt;td&gt;
+
+                                    &lt;a href="?id=hr_case&amp;sys_id={{item.sys_id}}"
+                                       class="status-badge"&gt;
+
+                                        {{item.status}}
+
+                                    &lt;/a&gt;
+
+                                &lt;/td&gt;
+
+
+                                &lt;td&gt;
+
+                                    &lt;span class="priority-badge"
+                                          ng-class="item.priorityClass"&gt;
+
+                                        {{item.priority}}
+
+                                    &lt;/span&gt;
+
+                                &lt;/td&gt;
+
+                            &lt;/tr&gt;
+
+
+                            &lt;tr ng-if="c.data.recentCases.length == 0"&gt;
+
+                                &lt;td colspan="5"
+                                    class="empty"&gt;
+
+                                    No HR cases found.
+
+                                &lt;/td&gt;
+
+                            &lt;/tr&gt;
+
+                        &lt;/tbody&gt;
+
+                    &lt;/table&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+
+
+            &lt;!-- UPCOMING HOLIDAYS --&gt;
+
+            &lt;div class="dashboard-card"&gt;
+
+                &lt;div class="card-header"&gt;
+
+                    &lt;h2&gt;
+                        Upcoming Holidays
+                    &lt;/h2&gt;
+
+                    &lt;a href="?id=leave_calendar"
+                       class="view-link"&gt;
+
+                        View Calendar →
+
+                    &lt;/a&gt;
+
+                &lt;/div&gt;
+
+
+                &lt;div class="holiday-list"&gt;
+
+
+                    &lt;a href="?id=leave_calendar"
+                       class="holiday-item"&gt;
+
+                        &lt;div class="holiday-date"&gt;
+
+                            &lt;strong&gt;
+                                15
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                AUG
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div&gt;
+
+                            &lt;strong&gt;
+                                Independence Day
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                Friday, 15 August
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=leave_calendar"
+                       class="holiday-item"&gt;
+
+                        &lt;div class="holiday-date"&gt;
+
+                            &lt;strong&gt;
+                                05
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                SEP
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div&gt;
+
+                            &lt;strong&gt;
+                                Teachers' Day
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                Friday, 5 September
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=leave_calendar"
+                       class="holiday-item"&gt;
+
+                        &lt;div class="holiday-date"&gt;
+
+                            &lt;strong&gt;
+                                02
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                OCT
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div&gt;
+
+                            &lt;strong&gt;
+                                Gandhi Jayanti
+                            &lt;/strong&gt;
+
+                            &lt;span&gt;
+                                Thursday, 2 October
+                            &lt;/span&gt;
+
+                        &lt;/div&gt;
+
+                    &lt;/a&gt;
+
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+
+
+            &lt;!-- QUICK ACTIONS --&gt;
+
+            &lt;div class="dashboard-card"&gt;
+
+                &lt;div class="card-header"&gt;
+
+                    &lt;h2&gt;
+                        Quick Actions
+                    &lt;/h2&gt;
+
+                &lt;/div&gt;
+
+
+                &lt;div class="quick-grid"&gt;
+
+
+                    &lt;a href="?id=create_hr_case"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ]]&gt;💼
+&lt;![CDATA[                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            Create HR Case
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=approvals"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ✅
+                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            Approve Requests
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=add_employee"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ]]&gt;👤
+&lt;![CDATA[                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            Add Employee
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=leave_calendar"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ]]&gt;📅
+&lt;![CDATA[                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            Leave Calendar
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=hr_reports"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ]]&gt;📊
+&lt;![CDATA[                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            HR Reports
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+
+                    &lt;a href="?id=knowledge_base"
+                       class="quick-action"&gt;
+
+                        &lt;span&gt;
+                            ]]&gt;📚
+&lt;![CDATA[                        &lt;/span&gt;
+
+                        &lt;strong&gt;
+                            Knowledge Base
+                        &lt;/strong&gt;
+
+                    &lt;/a&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+
+        &lt;!-- FOOTER --&gt;
+
+        &lt;footer class="dashboard-footer"&gt;
+
+            &lt;span&gt;
+                ]]&gt;🏛&lt;![CDATA[️ © 2026 Unified Service Delivery Platform
+            &lt;/span&gt;
+
+            &lt;span&gt;
+                Building better HR experiences for our University Community.
+            &lt;/span&gt;
+
+        &lt;/footer&gt;
+
+    &lt;/main&gt;
+
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1721710989</payload_hash>
+        <record_name>Unified HR Dashboard</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 05:00:01</sys_created_on>
+        <sys_id>b5ca4faa6c6203107f4499a3fab9dbb9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fea0ac33a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 05:00:01</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>f5ca4faab2620310b18e07c02a8ddab8</update_guid>
+        <update_guid_history>f5ca4faab2620310b18e07c02a8ddab8:-1721710989,290acb6a096203107a980f25340488b6:465879686,43b743a62862031090fe2218c43c2da8:-935212714,4666cfe2ad62031097359f43c37e7174:253341887</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Unified HR Dashboard">fd5cc3ae6c6203107f4499a3fab9db00</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 05:06:52</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>1e1d75669d264cbc9406b5ec4e67a264</sys_id>
+        <sys_metadata>5033cfae6c2203107f4499a3fab9db07</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Unified HR Dashboard</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_widget_5033cfae6c2203107f4499a3fab9db07</sys_update_name>
+        <sys_update_version display_value="sp_widget_5033cfae6c2203107f4499a3fab9db07">b5ca4faa6c6203107f4499a3fab9dbb9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 05:06:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

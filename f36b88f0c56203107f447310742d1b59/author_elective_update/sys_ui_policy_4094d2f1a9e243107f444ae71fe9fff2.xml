@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions/>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+    g_form.setReadOnly('status', false);
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+
+    var canEdit = g_user.hasRole('x_snc_unified_hr_0.leave_hod') ||
+                  g_user.hasRole('x_snc_unified_hr_0.leave_hr');
+
+    g_form.setReadOnly('status', !canEdit);
+
+}]]></script_true>
+        <set_values/>
+        <short_description>Status Read Only for Employees</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:12:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4094d2f1a9e243107f444ae71fe9fff2</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Status Read Only for Employees</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_ui_policy_4094d2f1a9e243107f444ae71fe9fff2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:32:31</sys_updated_on>
+        <table>x_snc_unified_hr_0_leave_request</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_ui_policy_4094d2f1a9e243107f444ae71fe9fff2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;true&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+    g_form.setReadOnly('status', false);
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+
+    var canEdit = g_user.hasRole('x_snc_unified_hr_0.leave_hod') ||
+                  g_user.hasRole('x_snc_unified_hr_0.leave_hr');
+
+    g_form.setReadOnly('status', !canEdit);
+
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Status Read Only for Employees&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-07 17:12:15&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4094d2f1a9e243107f444ae71fe9fff2&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Status Read Only for Employees&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_4094d2f1a9e243107f444ae71fe9fff2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-07 17:32:31&lt;/sys_updated_on&gt;&lt;table&gt;x_snc_unified_hr_0_leave_request&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>15373798</payload_hash>
+        <record_name>Status Read Only for Employees</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:32:31</sys_created_on>
+        <sys_id>2b3a167da9e243107f444ae71fe9ff10</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdd489e680000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:32:31</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>6f3a167d57e24310c50bebbcb22a230f</update_guid>
+        <update_guid_history>6f3a167d57e24310c50bebbcb22a230f:15373798,5707daf5c0e24310e9ffca6592edd2fa:-1039948996,e2959671ace24310a94623d103fc4493:384521724</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 04:04:01</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>011dc70d611b40a386d242b02b855c91</sys_id>
+        <sys_metadata>4094d2f1a9e243107f444ae71fe9fff2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Status Read Only for Employees</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent display_value="Leave Request">1f6fa7ada96203107f444ae71fe9ff92</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_4094d2f1a9e243107f444ae71fe9fff2</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_4094d2f1a9e243107f444ae71fe9fff2">2b3a167da9e243107f444ae71fe9ff10</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 04:04:01</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

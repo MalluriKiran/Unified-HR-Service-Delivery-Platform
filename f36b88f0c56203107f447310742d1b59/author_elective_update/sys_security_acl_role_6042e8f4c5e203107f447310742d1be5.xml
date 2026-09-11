@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 06:14:23</sys_created_on>
+        <sys_id>6042e8f4c5e203107f447310742d1be5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_unified_hr_0_employee_details.x_snc_unified_hr_0.employee_details_user</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_security_acl display_value="x_snc_unified_hr_0_employee_details">2842e8f4c5e203107f447310742d1be0</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_6042e8f4c5e203107f447310742d1be5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 06:14:23</sys_updated_on>
+        <sys_user_role display_value="x_snc_unified_hr_0.employee_details_user" name="x_snc_unified_hr_0.employee_details_user">544268f4c5e203107f447310742d1b34</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_security_acl_role_6042e8f4c5e203107f447310742d1be5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-04 06:14:23</sys_created_on><sys_id>6042e8f4c5e203107f447310742d1be5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_snc_unified_hr_0_employee_details.x_snc_unified_hr_0.employee_details_user</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_security_acl display_value="x_snc_unified_hr_0_employee_details">2842e8f4c5e203107f447310742d1be0</sys_security_acl><sys_update_name>sys_security_acl_role_6042e8f4c5e203107f447310742d1be5</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-04 06:14:23</sys_updated_on><sys_user_role display_value="x_snc_unified_hr_0.employee_details_user" name="x_snc_unified_hr_0.employee_details_user">544268f4c5e203107f447310742d1b34</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>592595691</payload_hash>
+        <record_name>x_snc_unified_hr_0_employee_details.x_snc_unified_hr_0.employee_details_user</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 06:14:23</sys_created_on>
+        <sys_id>2842e8f4c5e203107f447310742d1bf8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fcb68b1aa0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 06:14:23</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>2c42e8f472e203104b491a5c12eadcf7</update_guid>
+        <update_guid_history>2c42e8f472e203104b491a5c12eadcf7:592595691</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_snc_unified_hr_0_employee_details.x_snc_unified_hr_0.employee_details_user">b6657b29a9a203107f444ae71fe9ff28</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 05:32:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0359bcc1502040a880879a2a6c676010</sys_id>
+        <sys_metadata>6042e8f4c5e203107f447310742d1be5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_unified_hr_0_employee_details.x_snc_unified_hr_0.employee_details_user</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent display_value="">2842e8f4c5e203107f447310742d1be0</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_6042e8f4c5e203107f447310742d1be5</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_6042e8f4c5e203107f447310742d1be5">2842e8f4c5e203107f447310742d1bf8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 05:32:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

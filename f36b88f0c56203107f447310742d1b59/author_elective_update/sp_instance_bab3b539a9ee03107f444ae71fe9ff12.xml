@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{&#13;	"mobile": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"desktop": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"tablet": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	}&#13;}</placeholder_dimensions>
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&lt;div ng-if="options.maxRowCount === 10"&gt;&lt;/div&gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&gt;
+	&lt;div class="skeleton-container"&gt;
+	&lt;!-- Header Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-header"&gt;&lt;/div&gt;
+	&lt;!-- Body Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-line"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
+&lt;/div&gt;</placeholder_template>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">64b33539a9ee03107f444ae71fe9ffb1</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 14:44:16</sys_created_on>
+        <sys_id>bab3b539a9ee03107f444ae71fe9ff12</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_instance_bab3b539a9ee03107f444ae71fe9ff12</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 14:44:48</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<div style=\"max-width: 1200px; margin: auto; padding: 30px;\">\r\n<h1 style=\"text-align: center; color: #1565c0;\">]]>📖<![CDATA[ HR Policies</h1>\r\n<p style=\"text-align: center; color: #666; margin-bottom: 40px;\">Read University HR policies and guidelines.</p>\r\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 25px;\"><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #E3F2FD; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>📅<![CDATA[</div>\r\n<h3>Faculty &amp; Staff Leave Policy</h3>\r\n<p>Read leave eligibility and rules.</p>\r\n</div>\r\n</a><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #FFF8E1; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>💰<![CDATA[</div>\r\n<h3>Payroll Policy</h3>\r\n<p>Salary and payroll information.</p>\r\n</div>\r\n</a><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #E8F5E9; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>🏥<![CDATA[</div>\r\n<h3>Medical Leave Policy</h3>\r\n<p>Medical leave guidelines.</p>\r\n</div>\r\n</a><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #F3E5F5; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>🎓<![CDATA[</div>\r\n<h3>Academic Leave Policy</h3>\r\n<p>Academic leave procedures.</p>\r\n</div>\r\n</a><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #FFF3E0; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>💼<![CDATA[</div>\r\n<h3>Reimbursement Policy</h3>\r\n<p>Expense reimbursement rules.</p>\r\n</div>\r\n</a><a style=\"text-decoration: none;\" href=\"#\">\r\n<div style=\"background: #FCE4EC; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\r\n<div style=\"font-size: 55px;\">]]>🎁<![CDATA[</div>\r\n<h3>Employee Benefits</h3>\r\n<p>Benefits available for employees.</p>\r\n</div>\r\n</a></div>\r\n</div>",
+		"displayValue": "<div style=\"max-width: 1200px; margin: auto; padding: 30px;\">\n<h1 style=\"text-align: center; color: #1565c0;\">]]>📖<![CDATA[ HR Policies</h1>\n<p style=\"text-align: center; color: #666; margin-bottom: 40px;\">Read University HR policies and guidelines.</p>\n<div style=\"display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 25px;\"><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #E3F2FD; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>📅<![CDATA[</div>\n<h3>Faculty &amp; Staff Leave Policy</h3>\n<p>Read leave eligibility and rules.</p>\n</div>\n</a><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #FFF8E1; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>💰<![CDATA[</div>\n<h3>Payroll Policy</h3>\n<p>Salary and payroll information.</p>\n</div>\n</a><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #E8F5E9; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>🏥<![CDATA[</div>\n<h3>Medical Leave Policy</h3>\n<p>Medical leave guidelines.</p>\n</div>\n</a><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #F3E5F5; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>🎓<![CDATA[</div>\n<h3>Academic Leave Policy</h3>\n<p>Academic leave procedures.</p>\n</div>\n</a><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #FFF3E0; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>💼<![CDATA[</div>\n<h3>Reimbursement Policy</h3>\n<p>Expense reimbursement rules.</p>\n</div>\n</a><a style=\"text-decoration: none;\" href=\"#\">\n<div style=\"background: #FCE4EC; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\">\n<div style=\"font-size: 55px;\">]]>🎁<![CDATA[</div>\n<h3>Employee Benefits</h3>\n<p>Benefits available for employees.</p>\n</div>\n</a></div>\n</div>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=bab3b539a9ee03107f444ae71fe9ff12"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_instance_bab3b539a9ee03107f444ae71fe9ff12</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;advanced_placeholder_dimensions&gt;false&lt;/advanced_placeholder_dimensions&gt;&lt;async_load&gt;false&lt;/async_load&gt;&lt;async_load_device_type&gt;desktop,tablet,mobile&lt;/async_load_device_type&gt;&lt;async_load_trigger&gt;viewport&lt;/async_load_trigger&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder_dimensions&gt;{&amp;#13;	"mobile": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"desktop": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"tablet": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	}&amp;#13;}&lt;/placeholder_dimensions&gt;&lt;placeholder_dimensions_script&gt;&lt;![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]&gt;&lt;/placeholder_dimensions_script&gt;&lt;placeholder_template&gt;&amp;lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&amp;lt;div ng-if="options.maxRowCount === 10"&amp;gt;&amp;lt;/div&amp;gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&amp;gt;
+	&amp;lt;div class="skeleton-container"&amp;gt;
+	&amp;lt;!-- Header Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-header"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;!-- Body Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line small"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line medium"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/placeholder_template&gt;&lt;preserve_placeholder_size&gt;false&lt;/preserve_placeholder_size&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;64b33539a9ee03107f444ae71fe9ffb1&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-07 14:44:16&lt;/sys_created_on&gt;&lt;sys_id&gt;bab3b539a9ee03107f444ae71fe9ff12&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_bab3b539a9ee03107f444ae71fe9ff12&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-07 14:44:48&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;div style=\"max-width: 1200px; margin: auto; padding: 30px;\"&gt;\r\n&lt;h1 style=\"text-align: center; color: #1565c0;\"&gt;]]&gt;📖&lt;![CDATA[ HR Policies&lt;/h1&gt;\r\n&lt;p style=\"text-align: center; color: #666; margin-bottom: 40px;\"&gt;Read University HR policies and guidelines.&lt;/p&gt;\r\n&lt;div style=\"display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 25px;\"&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #E3F2FD; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;📅&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Faculty &amp;amp; Staff Leave Policy&lt;/h3&gt;\r\n&lt;p&gt;Read leave eligibility and rules.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #FFF8E1; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;💰&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Payroll Policy&lt;/h3&gt;\r\n&lt;p&gt;Salary and payroll information.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #E8F5E9; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🏥&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Medical Leave Policy&lt;/h3&gt;\r\n&lt;p&gt;Medical leave guidelines.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #F3E5F5; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🎓&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Academic Leave Policy&lt;/h3&gt;\r\n&lt;p&gt;Academic leave procedures.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #FFF3E0; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;💼&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Reimbursement Policy&lt;/h3&gt;\r\n&lt;p&gt;Expense reimbursement rules.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\r\n&lt;div style=\"background: #FCE4EC; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\r\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🎁&lt;![CDATA[&lt;/div&gt;\r\n&lt;h3&gt;Employee Benefits&lt;/h3&gt;\r\n&lt;p&gt;Benefits available for employees.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;",
+		"displayValue": "&lt;div style=\"max-width: 1200px; margin: auto; padding: 30px;\"&gt;\n&lt;h1 style=\"text-align: center; color: #1565c0;\"&gt;]]&gt;📖&lt;![CDATA[ HR Policies&lt;/h1&gt;\n&lt;p style=\"text-align: center; color: #666; margin-bottom: 40px;\"&gt;Read University HR policies and guidelines.&lt;/p&gt;\n&lt;div style=\"display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 25px;\"&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #E3F2FD; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;📅&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Faculty &amp;amp; Staff Leave Policy&lt;/h3&gt;\n&lt;p&gt;Read leave eligibility and rules.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #FFF8E1; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;💰&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Payroll Policy&lt;/h3&gt;\n&lt;p&gt;Salary and payroll information.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #E8F5E9; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🏥&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Medical Leave Policy&lt;/h3&gt;\n&lt;p&gt;Medical leave guidelines.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #F3E5F5; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🎓&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Academic Leave Policy&lt;/h3&gt;\n&lt;p&gt;Academic leave procedures.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #FFF3E0; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;💼&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Reimbursement Policy&lt;/h3&gt;\n&lt;p&gt;Expense reimbursement rules.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;a style=\"text-decoration: none;\" href=\"#\"&gt;\n&lt;div style=\"background: #FCE4EC; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.15);\"&gt;\n&lt;div style=\"font-size: 55px;\"&gt;]]&gt;🎁&lt;![CDATA[&lt;/div&gt;\n&lt;h3&gt;Employee Benefits&lt;/h3&gt;\n&lt;p&gt;Benefits available for employees.&lt;/p&gt;\n&lt;/div&gt;\n&lt;/a&gt;&lt;/div&gt;\n&lt;/div&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=bab3b539a9ee03107f444ae71fe9ff12"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1414122508</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 14:44:48</sys_created_on>
+        <sys_id>aad3f539a9ee03107f444ae71fe9ff82</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdcaf0faf0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 14:44:48</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>eed3f539c3ee03106f048c4fc6fdb981</update_guid>
+        <update_guid_history>eed3f539c3ee03106f048c4fc6fdb981:-1414122508,3eb3b53934ee0310e6b6cfd1076e7e14:1823615056</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">3c22debda9a243107f444ae71fe9ffe1</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 16:57:07</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>005c414e8989495b800b848d4cf19ec9</sys_id>
+        <sys_metadata>bab3b539a9ee03107f444ae71fe9ff12</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_instance_bab3b539a9ee03107f444ae71fe9ff12</sys_update_name>
+        <sys_update_version display_value="sp_instance_bab3b539a9ee03107f444ae71fe9ff12">aad3f539a9ee03107f444ae71fe9ff82</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 16:57:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

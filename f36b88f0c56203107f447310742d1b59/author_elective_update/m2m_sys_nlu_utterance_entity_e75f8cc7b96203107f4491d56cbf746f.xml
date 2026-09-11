@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":20,"end":31,"annotatedString":"I need time off for {{phrase=\"my delivery.\"}}","cat":"maternity_leave"}]</annotation>
+        <entity display_value="leave_reason">670f0cc7b96203107f4491d56cbf742f</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:38:10</sys_created_on>
+        <sys_id>e75f8cc7b96203107f4491d56cbf746f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leave_reason.I need time off for my delivery.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_e75f8cc7b96203107f4491d56cbf746f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:38:10</sys_updated_on>
+        <utterance display_value="I need time off for my delivery.">55a760fa6cea03107f4499a3fab9db7c</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_e75f8cc7b96203107f4491d56cbf746f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":20,"end":31,"annotatedString":"I need time off for {{phrase=\"my delivery.\"}}","cat":"maternity_leave"}]</annotation><entity display_value="leave_reason">670f0cc7b96203107f4491d56cbf742f</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-11 04:38:10</sys_created_on><sys_id>e75f8cc7b96203107f4491d56cbf746f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>leave_reason.I need time off for my delivery.</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_e75f8cc7b96203107f4491d56cbf746f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 04:38:10</sys_updated_on><utterance display_value="I need time off for my delivery.">55a760fa6cea03107f4499a3fab9db7c</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>-1560240162</payload_hash>
+        <record_name>leave_reason.I need time off for my delivery.</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:38:10</sys_created_on>
+        <sys_id>ab5f8cc7b96203107f4491d56cbf7472</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef1d1d0a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:38:10</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>af5f8cc7bf620310b7396df6cc8b8971</update_guid>
+        <update_guid_history>af5f8cc7bf620310b7396df6cc8b8971:-1560240162</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="leave_reason.I need time off for my delivery.">62a598c7b9a203107f4491d56cbf744d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:05:41</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>14d841ec53c3455e8c1e7f89f8a6a024</sys_id>
+        <sys_metadata>e75f8cc7b96203107f4491d56cbf746f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leave_reason.I need time off for my delivery.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_e75f8cc7b96203107f4491d56cbf746f</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_e75f8cc7b96203107f4491d56cbf746f">ab5f8cc7b96203107f4491d56cbf7472</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:05:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

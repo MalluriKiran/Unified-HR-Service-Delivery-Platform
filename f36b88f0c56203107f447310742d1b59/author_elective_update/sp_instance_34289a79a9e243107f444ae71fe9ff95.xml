@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{&#13;	"mobile": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"desktop": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	},&#13;	"tablet": {&#13;		"height": "250px",&#13;		"width": "100%"&#13;	}&#13;}</placeholder_dimensions>
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&lt;div ng-if="options.maxRowCount === 10"&gt;&lt;/div&gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&gt;
+	&lt;div class="skeleton-container"&gt;
+	&lt;!-- Header Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-header"&gt;&lt;/div&gt;
+	&lt;!-- Body Skeleton --&gt;
+	&lt;div class="skeleton-box skeleton-line"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
+	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
+&lt;/div&gt;</placeholder_template>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">8c75da35a9e243107f444ae71fe9ff0b</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:23:19</sys_created_on>
+        <sys_id>34289a79a9e243107f444ae71fe9ff95</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sp_instance_34289a79a9e243107f444ae71fe9ff95</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:23:31</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<div style=\"max-width: 900px; margin: 30px auto; font-family: Arial,sans-serif;\">\r\n<h2 style=\"text-align: center; color: #0b5cad;\">]]>🔔<![CDATA[ My Notifications</h2>\r\n<div style=\"background: #E8F5E9; padding: 18px; border-left: 6px solid #2E7D32; border-radius: 8px; margin-bottom: 15px;\">\r\n<h4 style=\"margin: 0; color: #2e7d32;\">✅ Leave Request Approved</h4>\r\n<p>Your leave request from <strong>10 Aug 2026</strong> to <strong>12 Aug 2026</strong> has been approved by your manager.</p>\r\n<small>2 hours ago</small></div>\r\n<div style=\"background: #FFF8E1; padding: 18px; border-left: 6px solid #F9A825; border-radius: 8px; margin-bottom: 15px;\">\r\n<h4 style=\"margin: 0; color: #f57f17;\">⏳ HR Case In Progress</h4>\r\n<p>Your HR Case <strong>HR000123</strong> is currently being processed.</p>\r\n<small>Yesterday</small></div>\r\n<div style=\"background: #E3F2FD; padding: 18px; border-left: 6px solid #1976D2; border-radius: 8px; margin-bottom: 15px;\">\r\n<h4 style=\"margin: 0; color: #1565c0;\">]]>📢<![CDATA[ New HR Policy</h4>\r\n<p>A new Leave Policy has been published. Please review the updated policy.</p>\r\n<small>3 days ago</small></div>\r\n<div style=\"background: #FCE4EC; padding: 18px; border-left: 6px solid #C2185B; border-radius: 8px;\">\r\n<h4 style=\"margin: 0; color: #ad1457;\">]]>📅<![CDATA[ Upcoming Holiday</h4>\r\n<p>University Holiday: Independence Day &ndash; 15 August.</p>\r\n<small>5 days ago</small></div>\r\n</div>",
+		"displayValue": "<div style=\"max-width: 900px; margin: 30px auto; font-family: Arial,sans-serif;\">\n<h2 style=\"text-align: center; color: #0b5cad;\">]]>🔔<![CDATA[ My Notifications</h2>\n<div style=\"background: #E8F5E9; padding: 18px; border-left: 6px solid #2E7D32; border-radius: 8px; margin-bottom: 15px;\">\n<h4 style=\"margin: 0; color: #2e7d32;\">✅ Leave Request Approved</h4>\n<p>Your leave request from <strong>10 Aug 2026</strong> to <strong>12 Aug 2026</strong> has been approved by your manager.</p>\n<small>2 hours ago</small></div>\n<div style=\"background: #FFF8E1; padding: 18px; border-left: 6px solid #F9A825; border-radius: 8px; margin-bottom: 15px;\">\n<h4 style=\"margin: 0; color: #f57f17;\">⏳ HR Case In Progress</h4>\n<p>Your HR Case <strong>HR000123</strong> is currently being processed.</p>\n<small>Yesterday</small></div>\n<div style=\"background: #E3F2FD; padding: 18px; border-left: 6px solid #1976D2; border-radius: 8px; margin-bottom: 15px;\">\n<h4 style=\"margin: 0; color: #1565c0;\">]]>📢<![CDATA[ New HR Policy</h4>\n<p>A new Leave Policy has been published. Please review the updated policy.</p>\n<small>3 days ago</small></div>\n<div style=\"background: #FCE4EC; padding: 18px; border-left: 6px solid #C2185B; border-radius: 8px;\">\n<h4 style=\"margin: 0; color: #ad1457;\">]]>📅<![CDATA[ Upcoming Holiday</h4>\n<p>University Holiday: Independence Day &ndash; 15 August.</p>\n<small>5 days ago</small></div>\n</div>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=34289a79a9e243107f444ae71fe9ff95"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sp_instance_34289a79a9e243107f444ae71fe9ff95</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;advanced_placeholder_dimensions&gt;false&lt;/advanced_placeholder_dimensions&gt;&lt;async_load&gt;false&lt;/async_load&gt;&lt;async_load_device_type&gt;desktop,tablet,mobile&lt;/async_load_device_type&gt;&lt;async_load_trigger&gt;viewport&lt;/async_load_trigger&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder_dimensions&gt;{&amp;#13;	"mobile": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"desktop": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	},&amp;#13;	"tablet": {&amp;#13;		"height": "250px",&amp;#13;		"width": "100%"&amp;#13;	}&amp;#13;}&lt;/placeholder_dimensions&gt;&lt;placeholder_dimensions_script&gt;&lt;![CDATA[function evaluateConfig(options) { return {	"mobile": {		"height": "250px",		"width": "100%"	},	"desktop": {		"height": "250px",		"width": "100%"	},	"tablet": {		"height": "250px",		"width": "100%"	}}; }]]&gt;&lt;/placeholder_dimensions_script&gt;&lt;placeholder_template&gt;&amp;lt;!-- 
+	AngularJS template with configurable options.
+	Use the `options` object to control dynamic behavior.
+	Example: Display an element when max row count is 10:
+	&amp;lt;div ng-if="options.maxRowCount === 10"&amp;gt;&amp;lt;/div&amp;gt;
+	The `skeleton-container` class is used for loading placeholders.
+--&amp;gt;
+	&amp;lt;div class="skeleton-container"&amp;gt;
+	&amp;lt;!-- Header Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-header"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;!-- Body Skeleton --&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line small"&amp;gt;&amp;lt;/div&amp;gt;
+	&amp;lt;div class="skeleton-box skeleton-line medium"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/placeholder_template&gt;&lt;preserve_placeholder_size&gt;false&lt;/preserve_placeholder_size&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;8c75da35a9e243107f444ae71fe9ff0b&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-07 17:23:19&lt;/sys_created_on&gt;&lt;sys_id&gt;34289a79a9e243107f444ae71fe9ff95&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Unified HR Service Delivery Platform"&gt;f36b88f0c56203107f447310742d1b59&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_34289a79a9e243107f444ae71fe9ff95&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-07 17:23:31&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;div style=\"max-width: 900px; margin: 30px auto; font-family: Arial,sans-serif;\"&gt;\r\n&lt;h2 style=\"text-align: center; color: #0b5cad;\"&gt;]]&gt;🔔&lt;![CDATA[ My Notifications&lt;/h2&gt;\r\n&lt;div style=\"background: #E8F5E9; padding: 18px; border-left: 6px solid #2E7D32; border-radius: 8px; margin-bottom: 15px;\"&gt;\r\n&lt;h4 style=\"margin: 0; color: #2e7d32;\"&gt;✅ Leave Request Approved&lt;/h4&gt;\r\n&lt;p&gt;Your leave request from &lt;strong&gt;10 Aug 2026&lt;/strong&gt; to &lt;strong&gt;12 Aug 2026&lt;/strong&gt; has been approved by your manager.&lt;/p&gt;\r\n&lt;small&gt;2 hours ago&lt;/small&gt;&lt;/div&gt;\r\n&lt;div style=\"background: #FFF8E1; padding: 18px; border-left: 6px solid #F9A825; border-radius: 8px; margin-bottom: 15px;\"&gt;\r\n&lt;h4 style=\"margin: 0; color: #f57f17;\"&gt;⏳ HR Case In Progress&lt;/h4&gt;\r\n&lt;p&gt;Your HR Case &lt;strong&gt;HR000123&lt;/strong&gt; is currently being processed.&lt;/p&gt;\r\n&lt;small&gt;Yesterday&lt;/small&gt;&lt;/div&gt;\r\n&lt;div style=\"background: #E3F2FD; padding: 18px; border-left: 6px solid #1976D2; border-radius: 8px; margin-bottom: 15px;\"&gt;\r\n&lt;h4 style=\"margin: 0; color: #1565c0;\"&gt;]]&gt;📢&lt;![CDATA[ New HR Policy&lt;/h4&gt;\r\n&lt;p&gt;A new Leave Policy has been published. Please review the updated policy.&lt;/p&gt;\r\n&lt;small&gt;3 days ago&lt;/small&gt;&lt;/div&gt;\r\n&lt;div style=\"background: #FCE4EC; padding: 18px; border-left: 6px solid #C2185B; border-radius: 8px;\"&gt;\r\n&lt;h4 style=\"margin: 0; color: #ad1457;\"&gt;]]&gt;📅&lt;![CDATA[ Upcoming Holiday&lt;/h4&gt;\r\n&lt;p&gt;University Holiday: Independence Day &amp;ndash; 15 August.&lt;/p&gt;\r\n&lt;small&gt;5 days ago&lt;/small&gt;&lt;/div&gt;\r\n&lt;/div&gt;",
+		"displayValue": "&lt;div style=\"max-width: 900px; margin: 30px auto; font-family: Arial,sans-serif;\"&gt;\n&lt;h2 style=\"text-align: center; color: #0b5cad;\"&gt;]]&gt;🔔&lt;![CDATA[ My Notifications&lt;/h2&gt;\n&lt;div style=\"background: #E8F5E9; padding: 18px; border-left: 6px solid #2E7D32; border-radius: 8px; margin-bottom: 15px;\"&gt;\n&lt;h4 style=\"margin: 0; color: #2e7d32;\"&gt;✅ Leave Request Approved&lt;/h4&gt;\n&lt;p&gt;Your leave request from &lt;strong&gt;10 Aug 2026&lt;/strong&gt; to &lt;strong&gt;12 Aug 2026&lt;/strong&gt; has been approved by your manager.&lt;/p&gt;\n&lt;small&gt;2 hours ago&lt;/small&gt;&lt;/div&gt;\n&lt;div style=\"background: #FFF8E1; padding: 18px; border-left: 6px solid #F9A825; border-radius: 8px; margin-bottom: 15px;\"&gt;\n&lt;h4 style=\"margin: 0; color: #f57f17;\"&gt;⏳ HR Case In Progress&lt;/h4&gt;\n&lt;p&gt;Your HR Case &lt;strong&gt;HR000123&lt;/strong&gt; is currently being processed.&lt;/p&gt;\n&lt;small&gt;Yesterday&lt;/small&gt;&lt;/div&gt;\n&lt;div style=\"background: #E3F2FD; padding: 18px; border-left: 6px solid #1976D2; border-radius: 8px; margin-bottom: 15px;\"&gt;\n&lt;h4 style=\"margin: 0; color: #1565c0;\"&gt;]]&gt;📢&lt;![CDATA[ New HR Policy&lt;/h4&gt;\n&lt;p&gt;A new Leave Policy has been published. Please review the updated policy.&lt;/p&gt;\n&lt;small&gt;3 days ago&lt;/small&gt;&lt;/div&gt;\n&lt;div style=\"background: #FCE4EC; padding: 18px; border-left: 6px solid #C2185B; border-radius: 8px;\"&gt;\n&lt;h4 style=\"margin: 0; color: #ad1457;\"&gt;]]&gt;📅&lt;![CDATA[ Upcoming Holiday&lt;/h4&gt;\n&lt;p&gt;University Holiday: Independence Day &amp;ndash; 15 August.&lt;/p&gt;\n&lt;small&gt;5 days ago&lt;/small&gt;&lt;/div&gt;\n&lt;/div&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=34289a79a9e243107f444ae71fe9ff95"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>7515843</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:23:31</sys_created_on>
+        <sys_id>f7281e79a9e243107f444ae71fe9ff4b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdd4061e20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:23:31</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>3f281e7987e243108f11dea2ebb0284a</update_guid>
+        <update_guid_history>3f281e7987e243108f11dea2ebb0284a:7515843,34289a7998e24310698023ad2595f597:-1279832691</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">ea58e34e74a203107f4446ca06ff0b64</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 17:52:17</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>1837b841855347f2b3dce212e6b05cc4</sys_id>
+        <sys_metadata>34289a79a9e243107f444ae71fe9ff95</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sp_instance_34289a79a9e243107f444ae71fe9ff95</sys_update_name>
+        <sys_update_version display_value="sp_instance_34289a79a9e243107f444ae71fe9ff95">f7281e79a9e243107f444ae71fe9ff4b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 17:52:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

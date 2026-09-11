@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_utterance">
+    <sys_nlu_utterance action="DELETE">
+        <intent display_value="apply_leave">b476bf666ca603107f4499a3fab9db1f</intent>
+        <original_utterance/>
+        <primary_utterance/>
+        <source>manual</source>
+        <sys_class_name>sys_nlu_utterance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:45:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>076efb666ce603107f4499a3fab9db82</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Can you help me submit my leave request?</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_utterance_076efb666ce603107f4499a3fab9db82</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:45:39</sys_updated_on>
+        <utterance>Can you help me submit my leave request?</utterance>
+    </sys_nlu_utterance>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_nlu_utterance_076efb666ce603107f4499a3fab9db82</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_utterance"><sys_nlu_utterance action="INSERT_OR_UPDATE"><intent display_value="apply_leave">b476bf666ca603107f4499a3fab9db1f</intent><original_utterance/><primary_utterance/><source>manual</source><sys_class_name>sys_nlu_utterance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 08:45:39</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>076efb666ce603107f4499a3fab9db82</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Can you help me submit my leave request?</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_nlu_utterance_076efb666ce603107f4499a3fab9db82</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 08:45:39</sys_updated_on><utterance>Can you help me submit my leave request?</utterance></sys_nlu_utterance></record_update>]]></payload>
+        <payload_hash>-702836594</payload_hash>
+        <record_name>Can you help me submit my leave request?</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:45:39</sys_created_on>
+        <sys_id>c36efb666ce603107f4499a3fab9db85</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fead956c90000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:45:39</sys_updated_on>
+        <type>NLU Utterance</type>
+        <update_guid>c76efb6679e60310ca5c1cd3ba13af84</update_guid>
+        <update_guid_history>c76efb6679e60310ca5c1cd3ba13af84:-702836594</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:03:23</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_utterance">sys_nlu_utterance</sys_db_object>
+        <sys_id>b52a515a57524c88882d474e80f11640</sys_id>
+        <sys_metadata>076efb666ce603107f4499a3fab9db82</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Can you help me submit my leave request?</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_nlu_utterance_076efb666ce603107f4499a3fab9db82</sys_update_name>
+        <sys_update_version display_value="sys_nlu_utterance_076efb666ce603107f4499a3fab9db82">c36efb666ce603107f4499a3fab9db85</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:03:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

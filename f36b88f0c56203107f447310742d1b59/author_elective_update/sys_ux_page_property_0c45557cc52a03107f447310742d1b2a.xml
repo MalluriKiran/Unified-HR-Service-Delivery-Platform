@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_page_property">
+    <sys_ux_page_property action="DELETE">
+        <choices/>
+        <description/>
+        <name>chrome_footer</name>
+        <page display_value="Unified HRSD">9125d53cc52a03107f447310742d1b33</page>
+        <required_translations>[ ]</required_translations>
+        <route/>
+        <suffix/>
+        <sys_class_name>sys_ux_page_property</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 09:57:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>global</sys_domain_path>
+        <sys_id>0c45557cc52a03107f447310742d1b2a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>chrome_footer</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_ux_page_property_0c45557cc52a03107f447310742d1b2a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 09:57:11</sys_updated_on>
+        <type>json</type>
+        <unique_name>x_snc_unified_hr_0.9125d53cc52a03107f447310742d1b33.root.global.chrome_footer</unique_name>
+        <value>{
+    "public_page": {
+        "enable_footer_topbar": false,
+        "footer_topbar_options": {},
+        "enable_footer_bar": false,
+        "footer_bar_options": {}
+    }
+}</value>
+    </sys_ux_page_property>
+    <sys_translated_text action="DELETE" query="documentkey=0c45557cc52a03107f447310742d1b2a"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_ux_page_property_0c45557cc52a03107f447310742d1b2a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_page_property"><sys_ux_page_property action="INSERT_OR_UPDATE"><choices/><description/><name>chrome_footer</name><page display_value="Unified HRSD">9125d53cc52a03107f447310742d1b33</page><required_translations>[ ]</required_translations><route/><suffix/><sys_class_name>sys_ux_page_property</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-04 09:57:11</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>global</sys_domain_path><sys_id>0c45557cc52a03107f447310742d1b2a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>chrome_footer</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_ux_page_property_0c45557cc52a03107f447310742d1b2a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-04 09:57:11</sys_updated_on><type>json</type><unique_name>x_snc_unified_hr_0.9125d53cc52a03107f447310742d1b33.root.global.chrome_footer</unique_name><value>{
+    "public_page": {
+        "enable_footer_topbar": false,
+        "footer_topbar_options": {},
+        "enable_footer_bar": false,
+        "footer_bar_options": {}
+    }
+}</value></sys_ux_page_property><sys_translated_text action="delete_multiple" query="documentkey=0c45557cc52a03107f447310742d1b2a"/></record_update>]]></payload>
+        <payload_hash>-324672786</payload_hash>
+        <record_name>chrome_footer</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 09:57:11</sys_created_on>
+        <sys_id>8045557cc52a03107f447310742d1b2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fcc34a9030000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 09:57:11</sys_updated_on>
+        <type>UX Page Property</type>
+        <update_guid>8445557c582a03106a6d63219f69162c</update_guid>
+        <update_guid_history>8445557c582a03106a6d63219f69162c:-324672786</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-04 10:26:15</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_page_property">sys_ux_page_property</sys_db_object>
+        <sys_id>1253d565315245be922440b937bd52a1</sys_id>
+        <sys_metadata>0c45557cc52a03107f447310742d1b2a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>chrome_footer</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_ux_page_property_0c45557cc52a03107f447310742d1b2a</sys_update_name>
+        <sys_update_version display_value="sys_ux_page_property_0c45557cc52a03107f447310742d1b2a">8045557cc52a03107f447310742d1b2d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-04 10:26:15</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

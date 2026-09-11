@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_intent_entity">
+    <m2m_sys_nlu_intent_entity action="DELETE">
+        <entity display_value="Maternity">f4525cfa6c6a03107f4499a3fab9dbc5</entity>
+        <intent display_value="leave_reason">d2fa7fae6ca603107f4499a3fab9db07</intent>
+        <relationship>sufficient</relationship>
+        <sys_class_name>m2m_sys_nlu_intent_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:12:38</sys_created_on>
+        <sys_id>4d525cfa6c6a03107f4499a3fab9dbca</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Maternity.leave_reason</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_intent_entity_4d525cfa6c6a03107f4499a3fab9dbca</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:14:25</sys_updated_on>
+    </m2m_sys_nlu_intent_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_intent_entity_4d525cfa6c6a03107f4499a3fab9dbca</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_intent_entity"><m2m_sys_nlu_intent_entity action="INSERT_OR_UPDATE"><entity display_value="Maternity">f4525cfa6c6a03107f4499a3fab9dbc5</entity><intent display_value="leave_reason">d2fa7fae6ca603107f4499a3fab9db07</intent><relationship>sufficient</relationship><sys_class_name>m2m_sys_nlu_intent_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 10:12:38</sys_created_on><sys_id>4d525cfa6c6a03107f4499a3fab9dbca</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Maternity.leave_reason</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_intent_entity_4d525cfa6c6a03107f4499a3fab9dbca</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 10:14:25</sys_updated_on></m2m_sys_nlu_intent_entity></record_update>]]></payload>
+        <payload_hash>-1255774408</payload_hash>
+        <record_name>Maternity.leave_reason</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:14:25</sys_created_on>
+        <sys_id>53b2d43e6c6a03107f4499a3fab9dbeb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feb2a9a5b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:14:25</sys_updated_on>
+        <type>NLU Intent Entity</type>
+        <update_guid>87b2d43ed36a0310868e55db298f46ea</update_guid>
+        <update_guid_history>87b2d43ed36a0310868e55db298f46ea:-1255774408,09525cfaca6a0310852ca544cd9b6bcd:-90050892</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Maternity.leave_reason">0b34d4326caa03107f4499a3fab9dbaa</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:20:57</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_intent_entity">m2m_sys_nlu_intent_entity</sys_db_object>
+        <sys_id>7e47968a15a14739ae1343f01ab8a631</sys_id>
+        <sys_metadata>4d525cfa6c6a03107f4499a3fab9dbca</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Maternity.leave_reason</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_intent_entity_4d525cfa6c6a03107f4499a3fab9dbca</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_intent_entity_4d525cfa6c6a03107f4499a3fab9dbca">53b2d43e6c6a03107f4499a3fab9dbeb</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:20:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

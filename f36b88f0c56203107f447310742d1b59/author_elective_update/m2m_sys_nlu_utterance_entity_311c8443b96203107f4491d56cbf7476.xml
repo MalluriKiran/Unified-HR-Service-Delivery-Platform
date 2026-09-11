@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity">
+    <m2m_sys_nlu_utterance_entity action="DELETE">
+        <annotation>[{"start":2,"end":26,"annotatedString":"I {{phrase=\"need to be away from work\"}} for a few days.","cat":"apply_leave"}]</annotation>
+        <entity display_value="apply_leave">afdf053a6c6643107f4499a3fab9db71</entity>
+        <sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:23:51</sys_created_on>
+        <sys_id>311c8443b96203107f4491d56cbf7476</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>apply_leave.I need to be away from work for a few days.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_311c8443b96203107f4491d56cbf7476</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:23:51</sys_updated_on>
+        <utterance display_value="I need to be away from work for a few days.">046e3b666ce603107f4499a3fab9dbf0</utterance>
+    </m2m_sys_nlu_utterance_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>m2m_sys_nlu_utterance_entity_311c8443b96203107f4491d56cbf7476</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sys_nlu_utterance_entity"><m2m_sys_nlu_utterance_entity action="INSERT_OR_UPDATE"><annotation>[{"start":2,"end":26,"annotatedString":"I {{phrase=\"need to be away from work\"}} for a few days.","cat":"apply_leave"}]</annotation><entity display_value="apply_leave">afdf053a6c6643107f4499a3fab9db71</entity><sys_class_name>m2m_sys_nlu_utterance_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-11 04:23:51</sys_created_on><sys_id>311c8443b96203107f4491d56cbf7476</sys_id><sys_mod_count>0</sys_mod_count><sys_name>apply_leave.I need to be away from work for a few days.</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>m2m_sys_nlu_utterance_entity_311c8443b96203107f4491d56cbf7476</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 04:23:51</sys_updated_on><utterance display_value="I need to be away from work for a few days.">046e3b666ce603107f4499a3fab9dbf0</utterance></m2m_sys_nlu_utterance_entity></record_update>]]></payload>
+        <payload_hash>-1006106825</payload_hash>
+        <record_name>apply_leave.I need to be away from work for a few days.</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 04:23:51</sys_created_on>
+        <sys_id>7d1c8443b96203107f4491d56cbf7479</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef1001ab0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 04:23:51</sys_updated_on>
+        <type>NLU Utterance Entity</type>
+        <update_guid>7d1c8443c562031005451c69a3464178</update_guid>
+        <update_guid_history>7d1c8443c562031005451c69a3464178:-1006106825</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="apply_leave.I need to be away from work for a few days.">e4251c47b9a203107f4491d56cbf746c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:03:22</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sys_nlu_utterance_entity">m2m_sys_nlu_utterance_entity</sys_db_object>
+        <sys_id>4c6de2e55afa4de68bc10fb9cdab9024</sys_id>
+        <sys_metadata>311c8443b96203107f4491d56cbf7476</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>apply_leave.I need to be away from work for a few days.</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>m2m_sys_nlu_utterance_entity_311c8443b96203107f4491d56cbf7476</sys_update_name>
+        <sys_update_version display_value="m2m_sys_nlu_utterance_entity_311c8443b96203107f4491d56cbf7476">7d1c8443b96203107f4491d56cbf7479</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:03:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

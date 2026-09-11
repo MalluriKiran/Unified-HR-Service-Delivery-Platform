@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="DELETE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description/>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "11ccf24737964045a86d216819f2177e": {
+          "id": "11ccf24737964045a86d216819f2177e",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hiii"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "ed9955cae27d4ac89fa61be263beeda4": {
+          "id": "ed9955cae27d4ac89fa61be263beeda4",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "0d9add2729014d7dacb79bab0fd071d2": {
+          "id": "0d9add2729014d7dacb79bab0fd071d2",
+          "stepType": "TextPrompt",
+          "name": "detected_intent",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter reason"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "37ab1fe009734b4db0ed5658a45c5eb9",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "d4af3a509f1945488b10298a54bff654": {
+          "id": "d4af3a509f1945488b10298a54bff654",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "248efc16cc8149c2b0f1b109b051630f": {
+          "id": "248efc16cc8149c2b0f1b109b051630f",
+          "stepType": "TextPrompt",
+          "name": "Leave Reason",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter ur reason"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "57919362405244eb87d5c16749077805",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "105d36b77bf94946b054fedd5679cc8e": {
+          "id": "105d36b77bf94946b054fedd5679cc8e",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "fbe5b373fd424e46854d3aae1144e882": {
+          "id": "fbe5b373fd424e46854d3aae1144e882",
+          "stepType": "ImplicitEnd"
+        },
+        "ae8e4ff3aa7b494e9d6fd800afe6695d": {
+          "id": "ae8e4ff3aa7b494e9d6fd800afe6695d",
+          "stepType": "ImplicitEnd"
+        },
+        "62a431fa6b994d6ea38620c5d3350775": {
+          "id": "62a431fa6b994d6ea38620c5d3350775",
+          "stepType": "ImplicitEnd"
+        },
+        "5e69b683dcbb4aae98ad44619c8daf02": {
+          "id": "5e69b683dcbb4aae98ad44619c8daf02",
+          "stepType": "TextOutput",
+          "name": "casual_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Casual leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "af0f0c48848046aa830a5dfb81997180"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b1a7cdcc835d4122ab39be6f5a55c07b": {
+          "id": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "stepType": "TextOutput",
+          "name": "paternity_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Paternity leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "77958e62be7c468a8612ec8481d7e55a"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "663d7a2f1d4e47668ba992a7792a40e8": {
+          "id": "663d7a2f1d4e47668ba992a7792a40e8",
+          "stepType": "TextOutput",
+          "name": "emergency_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "emergency leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "3118395275404753950c7f87bed4b50b"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "cfe8196500a34fb1b0db5fc9b3645245": {
+          "id": "cfe8196500a34fb1b0db5fc9b3645245",
+          "stepType": "TextOutput",
+          "name": "sick_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "sick leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "01683e4d5aa64a4fb621d56fe9065d78"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1f2f800193534d57b0c4371ff7ae1bb3": {
+          "id": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "stepType": "TextOutput",
+          "name": "earned_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "earned leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "2fc8cbfc6b7240e8a2bd6550ecd691d8"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1cae1da25da84997a48e0334cf9cda9b": {
+          "id": "1cae1da25da84997a48e0334cf9cda9b",
+          "stepType": "TextOutput",
+          "name": "maternity_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "maternity sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "9fb2e70616fc44f1a5bec04395b5dadd"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "7122ae09699d4a428528d662b4abc86a",
+          "edgeType": "Edge",
+          "source": "11ccf24737964045a86d216819f2177e",
+          "target": "0d9add2729014d7dacb79bab0fd071d2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9ffc935416654584a2623f8f9b641b26",
+          "edgeType": "Edge",
+          "source": "0d9add2729014d7dacb79bab0fd071d2",
+          "target": "d4af3a509f1945488b10298a54bff654",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "67c9d8df62cc4050a315f2809b91d76e",
+          "edgeType": "Branch",
+          "source": "d4af3a509f1945488b10298a54bff654",
+          "target": "248efc16cc8149c2b0f1b109b051630f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'apply_leave';\n})()"
+          },
+          "label": "apply leave"
+        },
+        {
+          "id": "43840296a51b4e74a62129b169751916",
+          "edgeType": "Edge",
+          "source": "248efc16cc8149c2b0f1b109b051630f",
+          "target": "105d36b77bf94946b054fedd5679cc8e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "bb0c4c078f4f4295a1942aba75016748",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "5e69b683dcbb4aae98ad44619c8daf02",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'casual_leave';\n})()"
+          },
+          "label": "casual_leave"
+        },
+        {
+          "id": "d5d5a3ba3e1547a0b3e8fa15a4343877",
+          "edgeType": "Edge",
+          "source": "5e69b683dcbb4aae98ad44619c8daf02",
+          "target": "fbe5b373fd424e46854d3aae1144e882",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "17709c58976c45dab4cd01bc2e82c264",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'paternity_leave';\n})()"
+          },
+          "label": "paternity_leave"
+        },
+        {
+          "id": "94a73b338e2a429b816460f0d8880073",
+          "edgeType": "Edge",
+          "source": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "target": "ae8e4ff3aa7b494e9d6fd800afe6695d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2aa6d842f1ad4cb8a9d7ce02553dfc42",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "663d7a2f1d4e47668ba992a7792a40e8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'emergency_leave';\n})()"
+          },
+          "label": "emergency_leave"
+        },
+        {
+          "id": "dbb2fdac3e4b47d6a91d3d9ff7fa657b",
+          "edgeType": "Edge",
+          "source": "663d7a2f1d4e47668ba992a7792a40e8",
+          "target": "62a431fa6b994d6ea38620c5d3350775",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e0cbc8794cb441d6844eb47c0ba2f9a3",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "cfe8196500a34fb1b0db5fc9b3645245",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'sick_leave';\n})()"
+          },
+          "label": "sick leave"
+        },
+        {
+          "id": "0870cc78a74a4faebbda807ba6b67d44",
+          "edgeType": "Edge",
+          "source": "cfe8196500a34fb1b0db5fc9b3645245",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0a73dcd9221b4d2e84ec228573a277e8",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'earned_leave';\n})()"
+          },
+          "label": "earned_leave"
+        },
+        {
+          "id": "9111ccc1d0e2400f9c9e1ecb6deb4c52",
+          "edgeType": "Edge",
+          "source": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c126ad0eb25f4a5185cdb5518869d667",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "1cae1da25da84997a48e0334cf9cda9b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'maternity_leave';\n})()"
+          },
+          "label": "maternity_leave"
+        },
+        {
+          "id": "0bbcd6a22dea406b9bd3b140ebf704a3",
+          "edgeType": "Edge",
+          "source": "1cae1da25da84997a48e0334cf9cda9b",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "37ab1fe009734b4db0ed5658a45c5eb9": {
+      "id": "37ab1fe009734b4db0ed5658a45c5eb9",
+      "name": "detected_intent",
+      "label": "Detected_intent",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjM3MjMwNjY0MiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "0d9add2729014d7dacb79bab0fd071d2",
+      "isHidden": false
+    },
+    "57919362405244eb87d5c16749077805": {
+      "id": "57919362405244eb87d5c16749077805",
+      "name": "leave_reason",
+      "label": "Leave Reason",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjQyMzI1NTU0OSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "248efc16cc8149c2b0f1b109b051630f",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases>leave_req,hr</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>leave_req</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 13:46:48</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>1253497e6ce243107f4499a3fab9db1c</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>leave_req</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_cb_topic_1253497e6ce243107f4499a3fab9db1c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:00:33</sys_updated_on>
+        <title>leave_req</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="DELETE" query="documentkey=1253497e6ce243107f4499a3fab9db1c"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_cb_topic_1253497e6ce243107f4499a3fab9db1c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic"><sys_cb_topic action="INSERT_OR_UPDATE"><applicability/><applicability_mode>query</applicability_mode><autopilot_topic>false</autopilot_topic><category/><channels/><connect_queue/><context_profiles/><description/><dialog_acts_enabled>false</dialog_acts_enabled><expose_on_palette>false</expose_on_palette><flexible_conversation_switching>false</flexible_conversation_switching><foundational>false</foundational><graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "11ccf24737964045a86d216819f2177e": {
+          "id": "11ccf24737964045a86d216819f2177e",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hiii"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "ed9955cae27d4ac89fa61be263beeda4": {
+          "id": "ed9955cae27d4ac89fa61be263beeda4",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "0d9add2729014d7dacb79bab0fd071d2": {
+          "id": "0d9add2729014d7dacb79bab0fd071d2",
+          "stepType": "TextPrompt",
+          "name": "detected_intent",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter reason"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "37ab1fe009734b4db0ed5658a45c5eb9",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "d4af3a509f1945488b10298a54bff654": {
+          "id": "d4af3a509f1945488b10298a54bff654",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "248efc16cc8149c2b0f1b109b051630f": {
+          "id": "248efc16cc8149c2b0f1b109b051630f",
+          "stepType": "TextPrompt",
+          "name": "Leave Reason",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter ur reason"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "57919362405244eb87d5c16749077805",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "105d36b77bf94946b054fedd5679cc8e": {
+          "id": "105d36b77bf94946b054fedd5679cc8e",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "fbe5b373fd424e46854d3aae1144e882": {
+          "id": "fbe5b373fd424e46854d3aae1144e882",
+          "stepType": "ImplicitEnd"
+        },
+        "ae8e4ff3aa7b494e9d6fd800afe6695d": {
+          "id": "ae8e4ff3aa7b494e9d6fd800afe6695d",
+          "stepType": "ImplicitEnd"
+        },
+        "62a431fa6b994d6ea38620c5d3350775": {
+          "id": "62a431fa6b994d6ea38620c5d3350775",
+          "stepType": "ImplicitEnd"
+        },
+        "5e69b683dcbb4aae98ad44619c8daf02": {
+          "id": "5e69b683dcbb4aae98ad44619c8daf02",
+          "stepType": "TextOutput",
+          "name": "casual_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Casual leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "af0f0c48848046aa830a5dfb81997180"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b1a7cdcc835d4122ab39be6f5a55c07b": {
+          "id": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "stepType": "TextOutput",
+          "name": "paternity_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Paternity leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "77958e62be7c468a8612ec8481d7e55a"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "663d7a2f1d4e47668ba992a7792a40e8": {
+          "id": "663d7a2f1d4e47668ba992a7792a40e8",
+          "stepType": "TextOutput",
+          "name": "emergency_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "emergency leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "3118395275404753950c7f87bed4b50b"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "cfe8196500a34fb1b0db5fc9b3645245": {
+          "id": "cfe8196500a34fb1b0db5fc9b3645245",
+          "stepType": "TextOutput",
+          "name": "sick_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "sick leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "01683e4d5aa64a4fb621d56fe9065d78"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1f2f800193534d57b0c4371ff7ae1bb3": {
+          "id": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "stepType": "TextOutput",
+          "name": "earned_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "earned leave sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "2fc8cbfc6b7240e8a2bd6550ecd691d8"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1cae1da25da84997a48e0334cf9cda9b": {
+          "id": "1cae1da25da84997a48e0334cf9cda9b",
+          "stepType": "TextOutput",
+          "name": "maternity_resp",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "maternity sugg"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "9fb2e70616fc44f1a5bec04395b5dadd"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "7122ae09699d4a428528d662b4abc86a",
+          "edgeType": "Edge",
+          "source": "11ccf24737964045a86d216819f2177e",
+          "target": "0d9add2729014d7dacb79bab0fd071d2",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9ffc935416654584a2623f8f9b641b26",
+          "edgeType": "Edge",
+          "source": "0d9add2729014d7dacb79bab0fd071d2",
+          "target": "d4af3a509f1945488b10298a54bff654",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "67c9d8df62cc4050a315f2809b91d76e",
+          "edgeType": "Branch",
+          "source": "d4af3a509f1945488b10298a54bff654",
+          "target": "248efc16cc8149c2b0f1b109b051630f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'apply_leave';\n})()"
+          },
+          "label": "apply leave"
+        },
+        {
+          "id": "43840296a51b4e74a62129b169751916",
+          "edgeType": "Edge",
+          "source": "248efc16cc8149c2b0f1b109b051630f",
+          "target": "105d36b77bf94946b054fedd5679cc8e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "bb0c4c078f4f4295a1942aba75016748",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "5e69b683dcbb4aae98ad44619c8daf02",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'casual_leave';\n})()"
+          },
+          "label": "casual_leave"
+        },
+        {
+          "id": "d5d5a3ba3e1547a0b3e8fa15a4343877",
+          "edgeType": "Edge",
+          "source": "5e69b683dcbb4aae98ad44619c8daf02",
+          "target": "fbe5b373fd424e46854d3aae1144e882",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "17709c58976c45dab4cd01bc2e82c264",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'paternity_leave';\n})()"
+          },
+          "label": "paternity_leave"
+        },
+        {
+          "id": "94a73b338e2a429b816460f0d8880073",
+          "edgeType": "Edge",
+          "source": "b1a7cdcc835d4122ab39be6f5a55c07b",
+          "target": "ae8e4ff3aa7b494e9d6fd800afe6695d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2aa6d842f1ad4cb8a9d7ce02553dfc42",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "663d7a2f1d4e47668ba992a7792a40e8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'emergency_leave';\n})()"
+          },
+          "label": "emergency_leave"
+        },
+        {
+          "id": "dbb2fdac3e4b47d6a91d3d9ff7fa657b",
+          "edgeType": "Edge",
+          "source": "663d7a2f1d4e47668ba992a7792a40e8",
+          "target": "62a431fa6b994d6ea38620c5d3350775",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e0cbc8794cb441d6844eb47c0ba2f9a3",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "cfe8196500a34fb1b0db5fc9b3645245",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'sick_leave';\n})()"
+          },
+          "label": "sick leave"
+        },
+        {
+          "id": "0870cc78a74a4faebbda807ba6b67d44",
+          "edgeType": "Edge",
+          "source": "cfe8196500a34fb1b0db5fc9b3645245",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0a73dcd9221b4d2e84ec228573a277e8",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'earned_leave';\n})()"
+          },
+          "label": "earned_leave"
+        },
+        {
+          "id": "9111ccc1d0e2400f9c9e1ecb6deb4c52",
+          "edgeType": "Edge",
+          "source": "1f2f800193534d57b0c4371ff7ae1bb3",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c126ad0eb25f4a5185cdb5518869d667",
+          "edgeType": "Branch",
+          "source": "105d36b77bf94946b054fedd5679cc8e",
+          "target": "1cae1da25da84997a48e0334cf9cda9b",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    return vaInputs.detected_intent == 'maternity_leave';\n})()"
+          },
+          "label": "maternity_leave"
+        },
+        {
+          "id": "0bbcd6a22dea406b9bd3b140ebf704a3",
+          "edgeType": "Edge",
+          "source": "1cae1da25da84997a48e0334cf9cda9b",
+          "target": "ed9955cae27d4ac89fa61be263beeda4",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "37ab1fe009734b4db0ed5658a45c5eb9": {
+      "id": "37ab1fe009734b4db0ed5658a45c5eb9",
+      "name": "detected_intent",
+      "label": "Detected_intent",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjM3MjMwNjY0MiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "0d9add2729014d7dacb79bab0fd071d2",
+      "isHidden": false
+    },
+    "57919362405244eb87d5c16749077805": {
+      "id": "57919362405244eb87d5c16749077805",
+      "name": "leave_reason",
+      "label": "Leave Reason",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc4NjQyMzI1NTU0OSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "248efc16cc8149c2b0f1b109b051630f",
+      "isHidden": false
+    }
+  }
+}</graph><key_phrases>leave_req,hr</key_phrases><library>false</library><live_agent>false</live_agent><model_type>nlu_keyword</model_type><modify_confirmation_enabled>false</modify_confirmation_enabled><name>leave_req</name><nlu_intent/><nlu_intent_label/><nlu_model/><nlu_model_label/><nlu_provider/><palette_label/><roles/><root_topic_id/><secure_custom_input_control>false</secure_custom_input_control><source_topic_id/><sys_class_name>sys_cb_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 13:46:48</sys_created_on><sys_domain>global</sys_domain><sys_id>1253497e6ce243107f4499a3fab9db1c</sys_id><sys_mod_count>9</sys_mod_count><sys_name>leave_req</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_cb_topic_1253497e6ce243107f4499a3fab9db1c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 05:00:33</sys_updated_on><title>leave_req</title><triggerable_by_notification>false</triggerable_by_notification><type>STANDARD</type></sys_cb_topic><sys_translated_text action="delete_multiple" query="documentkey=1253497e6ce243107f4499a3fab9db1c"/></record_update>]]></payload>
+        <payload_hash>300395039</payload_hash>
+        <record_name>leave_req</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:00:33</sys_created_on>
+        <sys_id>5374dc83b9a203107f4491d56cbf744c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef319bfa0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:00:33</sys_updated_on>
+        <type>Topic</type>
+        <update_guid>9774dc8326a20310760a4b07ddbb674b</update_guid>
+        <update_guid_history>9774dc8326a20310760a4b07ddbb674b:300395039,aef1904fcb6203103129fc449e6ec4f2:1726666237,2d5ccc43346203109c6c2b80363041e0:-608151864,56a0d97a4f6643108057cdf3598fd9df:1747272834,f8cec5b6366643102da78207eb929304:-932828403,f54985bad6264310dea6eb4e8deb8ed9:-1450687817,7ab60536e22643108961507f1e1fbab1:2046836067,d396cdf28a264310cf8e444aef3484a4:2134673857,e2764972da2643104537d132edd693ac:1489397803,1a53497e27e243100e5a18b67fb2bc1d:2096156546</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:04:47</sys_created_on>
+        <sys_db_object display_value="" name="sys_cb_topic">sys_cb_topic</sys_db_object>
+        <sys_id>4eaaa21a12cd47d0a5c4a193f9680bc4</sys_id>
+        <sys_metadata>1253497e6ce243107f4499a3fab9db1c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>leave_req</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_cb_topic_1253497e6ce243107f4499a3fab9db1c</sys_update_name>
+        <sys_update_version display_value="sys_cb_topic_1253497e6ce243107f4499a3fab9db1c">5374dc83b9a203107f4491d56cbf744c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:04:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

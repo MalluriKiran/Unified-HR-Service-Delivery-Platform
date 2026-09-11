@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_intent">
+    <sys_nlu_intent action="DELETE">
+        <confidence_threshold>0.6</confidence_threshold>
+        <description>Need to apply leave</description>
+        <enable>true</enable>
+        <model display_value="HR Assist">b752ebe26c2603107f4499a3fab9db19</model>
+        <name>apply_leave</name>
+        <origin/>
+        <override_confidence_threshold>false</override_confidence_threshold>
+        <primary_intent/>
+        <status>draft</status>
+        <sys_class_name>sys_nlu_intent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:10:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b476bf666ca603107f4499a3fab9db1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>apply_leave</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_intent_b476bf666ca603107f4499a3fab9db1f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:10:50</sys_updated_on>
+    </sys_nlu_intent>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_nlu_intent_b476bf666ca603107f4499a3fab9db1f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_intent"><sys_nlu_intent action="INSERT_OR_UPDATE"><confidence_threshold>0.6</confidence_threshold><description>Need to apply leave</description><enable>true</enable><model display_value="HR Assist">b752ebe26c2603107f4499a3fab9db19</model><name>apply_leave</name><origin/><override_confidence_threshold>false</override_confidence_threshold><primary_intent/><status>draft</status><sys_class_name>sys_nlu_intent</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 08:10:50</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>b476bf666ca603107f4499a3fab9db1f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>apply_leave</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_nlu_intent_b476bf666ca603107f4499a3fab9db1f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 08:10:50</sys_updated_on></sys_nlu_intent></record_update>]]></payload>
+        <payload_hash>-587739708</payload_hash>
+        <record_name>apply_leave</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 08:10:50</sys_created_on>
+        <sys_id>347633a66ca603107f4499a3fab9db2e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feab9751e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 08:10:50</sys_updated_on>
+        <type>NLU Intent</type>
+        <update_guid>7076bf66e2a603103ae5118df9e01223</update_guid>
+        <update_guid_history>7076bf66e2a603103ae5118df9e01223:-587739708</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 05:03:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_intent">sys_nlu_intent</sys_db_object>
+        <sys_id>3b4893f9ce8d42479178d5432ed795f9</sys_id>
+        <sys_metadata>b476bf666ca603107f4499a3fab9db1f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>apply_leave</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_nlu_intent_b476bf666ca603107f4499a3fab9db1f</sys_update_name>
+        <sys_update_version display_value="sys_nlu_intent_b476bf666ca603107f4499a3fab9db1f">347633a66ca603107f4499a3fab9db2e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 05:03:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

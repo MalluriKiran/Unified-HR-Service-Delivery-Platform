@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_entity">
+    <sys_nlu_entity action="DELETE">
+        <base_entity/>
+        <confidence_threshold>0.6</confidence_threshold>
+        <field_name>actual</field_name>
+        <lookup display_value="leave_reason">989d7fe26ce603107f4499a3fab9db49</lookup>
+        <model/>
+        <name>Maternity</name>
+        <override_confidence_threshold>false</override_confidence_threshold>
+        <parent/>
+        <primary_entity/>
+        <sys_class_name>sys_nlu_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:12:37</sys_created_on>
+        <sys_id>f4525cfa6c6a03107f4499a3fab9dbc5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Maternity</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_update_name>sys_nlu_entity_f4525cfa6c6a03107f4499a3fab9dbc5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:15:10</sys_updated_on>
+        <table/>
+        <type>list</type>
+        <values_list/>
+    </sys_nlu_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</application>
+        <file_path/>
+        <instance_id>1fb1043093560750fb38f8284dba1012</instance_id>
+        <instance_name>dlt-hck-8017-0024</instance_name>
+        <name>sys_nlu_entity_f4525cfa6c6a03107f4499a3fab9dbc5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_nlu_entity"><sys_nlu_entity action="INSERT_OR_UPDATE"><base_entity/><confidence_threshold>0.6</confidence_threshold><field_name>actual</field_name><lookup display_value="leave_reason">989d7fe26ce603107f4499a3fab9db49</lookup><model/><name>Maternity</name><override_confidence_threshold>false</override_confidence_threshold><parent/><primary_entity/><sys_class_name>sys_nlu_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-10 10:12:37</sys_created_on><sys_id>f4525cfa6c6a03107f4499a3fab9dbc5</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Maternity</sys_name><sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package><sys_policy/><sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope><sys_update_name>sys_nlu_entity_f4525cfa6c6a03107f4499a3fab9dbc5</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-10 10:15:10</sys_updated_on><table/><type>list</type><values_list/></sys_nlu_entity></record_update>]]></payload>
+        <payload_hash>397540763</payload_hash>
+        <record_name>Maternity</record_name>
+        <reverted_from/>
+        <source>8c7b88f0c56203107f447310742d1b60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:15:10</sys_created_on>
+        <sys_id>16e25c3e6c6a03107f4499a3fab9db9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19feb2b4ac80000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:15:10</sys_updated_on>
+        <type>NLU Entity</type>
+        <update_guid>5ae25c3e406a031043ee7d38c972d89e</update_guid>
+        <update_guid_history>5ae25c3e406a031043ee7d38c972d89e:397540763,f0525cfa686a03104c6f53db3e8fccc8:648691342</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 10:20:58</sys_created_on>
+        <sys_db_object display_value="" name="sys_nlu_entity">sys_nlu_entity</sys_db_object>
+        <sys_id>2c5436af8e8e4b6a92daa5b78797b811</sys_id>
+        <sys_metadata>f4525cfa6c6a03107f4499a3fab9dbc5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Maternity</sys_name>
+        <sys_package display_value="Unified HR Service Delivery Platform" source="x_snc_unified_hr_0">f36b88f0c56203107f447310742d1b59</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Unified HR Service Delivery Platform">f36b88f0c56203107f447310742d1b59</sys_scope>
+        <sys_scope_delete display_value="">070af641f88745c78047ec706623e781</sys_scope_delete>
+        <sys_update_name>sys_nlu_entity_f4525cfa6c6a03107f4499a3fab9dbc5</sys_update_name>
+        <sys_update_version display_value="sys_nlu_entity_f4525cfa6c6a03107f4499a3fab9dbc5">16e25c3e6c6a03107f4499a3fab9db9f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 10:20:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
